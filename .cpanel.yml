@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/cloudweb/public_html/masterstudy/
+    - /bin/mkdir -p $DEPLOYPATH/wp-content/plugins
+    - /bin/mkdir -p $DEPLOYPATH/wp-content/themes
+    - /bin/cp wordpress-masterstudy/wp-content/index.php $DEPLOYPATH/wp-content/index.php
+    - /bin/cp wordpress-masterstudy/wp-content/plugins/index.php $DEPLOYPATH/wp-content/plugins/index.php
+    - /bin/cp wordpress-masterstudy/wp-content/themes/index.php $DEPLOYPATH/wp-content/themes/index.php
+    - /bin/cp -R wordpress-masterstudy/wp-content/plugins/course-automation-publisher $DEPLOYPATH/wp-content/plugins/
+    - /bin/cp -R wordpress-masterstudy/wp-content/plugins/masterstudy-lms-learning-management-system $DEPLOYPATH/wp-content/plugins/
+    - /bin/cp -R wordpress-masterstudy/wp-content/themes/masterstudy $DEPLOYPATH/wp-content/themes/
