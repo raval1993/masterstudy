@@ -1,0 +1,30 @@
+<?php
+
+namespace MasterStudy\Lms\Http\Controllers\Review;
+
+use MasterStudy\Lms\Http\WpResponseFactory;
+use MasterStudy\Lms\Repositories\AdminReviewRepository;
+use MasterStudy\Lms\Validation\Validator;
+use WP_REST_Request;
+use WP_REST_Response;
+
+final class GetCourseStudentsController {
+	public function __invoke( int $course_id, WP_REST_Request $request ): WP_REST_Response {
+		$validator = new Validator(
+			$request->get_params(),
+			array(
+				'per_page' => 'nullable|integer',
+				'page'     => 'nullable|integer',
+				'search'   => 'nullable|string',
+			)
+		);
+
+		if ( $validator->fails() ) {
+			return WpResponseFactory::validation_failed( $validator->get_errors_array() );
+		}
+
+		$data = ( new AdminReviewRepository() )->get_course_students( $course_id, $validator->get_validated() );
+
+		return WpResponseFactory::ok_with_data( $data );
+	}
+}

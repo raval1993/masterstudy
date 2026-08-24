@@ -1,0 +1,3714 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: MasterStudy\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-06-16 12:10+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.2; wp-6.0\n"
+"X-Domain: masterstudy"
+
+#: woocommerce/order/tracking.php:25
+msgid " ago"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2243
+#, php-format
+msgctxt "%1$s = install status, %2$s = update status"
+msgid "%1$s, %2$s"
+msgstr ""
+
+#. %s: date and time
+#: inc/custom.php:41
+#, php-format
+msgid "%1$s at %2$s"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3379
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3385
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2508
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Activate %2$s"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2499
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Install %2$s"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2503
+#, php-format
+msgctxt "%2$s = plugin name in screen reader markup"
+msgid "Update %2$s"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:77
+#, php-format
+msgid "%d %s"
+msgstr ""
+
+#: woocommerce/single-product/review.php:61
+#: woocommerce/single-product/review.php:62
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "%s ago"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:1889
+#, php-format
+msgctxt "%s = version number"
+msgid "TGMPA v%s"
+msgstr ""
+
+#: partials/vc_parts/courses_categories/style_1.php:71
+#: partials/vc_parts/courses_categories/style_2.php:81
+#, php-format
+msgid "%s Courses"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:41
+#, php-format
+msgid "%s customer review"
+msgid_plural "%s customer reviews"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/myaccount/my-downloads.php:42
+#, php-format
+msgid "%s download remaining"
+msgid_plural "%s downloads remaining"
+msgstr[0] ""
+msgstr[1] ""
+
+#: paid-memberships-pro/pages/billing.php:50
+#, php-format
+msgid "%s every %d %s."
+msgstr ""
+
+#: woocommerce/myaccount/my-orders.php:69
+#, php-format
+msgid "%s for %s item"
+msgid_plural "%s for %s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: paid-memberships-pro/pages/billing.php:52
+#, php-format
+msgid "%s per %s."
+msgstr ""
+
+#: partials/vc_parts/product_categories/stm_vc_product_cat_card.php:29
+#, php-format
+msgid "%s Program"
+msgid_plural "%s Programs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/cart/cart-totals.php:76
+#, php-format
+msgid "(estimated for %s)"
+msgstr ""
+
+#: inc/visual_composer.php:250
+msgid "0px"
+msgstr ""
+
+#: inc/visual_composer.php:256 inc/visual_composer.php:879
+msgid "10px"
+msgstr ""
+
+#: inc/visual_composer.php:880
+msgid "11px"
+msgstr ""
+
+#: inc/visual_composer.php:881
+msgid "12px"
+msgstr ""
+
+#: inc/visual_composer.php:882
+msgid "13px"
+msgstr ""
+
+#: inc/visual_composer.php:883
+msgid "14px"
+msgstr ""
+
+#: inc/visual_composer.php:257 inc/visual_composer.php:884
+msgid "15px"
+msgstr ""
+
+#: inc/visual_composer.php:885
+msgid "16px"
+msgstr ""
+
+#: inc/visual_composer.php:886
+msgid "17px"
+msgstr ""
+
+#: inc/visual_composer.php:887
+msgid "18px"
+msgstr ""
+
+#: inc/visual_composer.php:888
+msgid "19px"
+msgstr ""
+
+#: inc/visual_composer.php:251
+msgid "1px"
+msgstr ""
+
+#: inc/visual_composer.php:258 inc/visual_composer.php:889
+msgid "20px"
+msgstr ""
+
+#: inc/visual_composer.php:259
+msgid "25px"
+msgstr ""
+
+#: inc/visual_composer.php:252
+msgid "2px"
+msgstr ""
+
+#: inc/visual_composer.php:260
+msgid "30px"
+msgstr ""
+
+#: inc/visual_composer.php:261
+msgid "35px"
+msgstr ""
+
+#: inc/visual_composer.php:231
+msgid "3d"
+msgstr ""
+
+#: inc/visual_composer.php:253
+msgid "3px"
+msgstr ""
+
+#: inc/visual_composer.php:262
+msgid "40px"
+msgstr ""
+
+#: inc/visual_composer.php:263
+msgid "45px"
+msgstr ""
+
+#: inc/visual_composer.php:254
+msgid "4px"
+msgstr ""
+
+#: inc/visual_composer.php:264
+msgid "50px"
+msgstr ""
+
+#: inc/visual_composer.php:265
+msgid "55px"
+msgstr ""
+
+#: inc/visual_composer.php:255
+msgid "5px"
+msgstr ""
+
+#: inc/visual_composer.php:266
+msgid "60px"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:70
+#, php-format
+msgid ""
+"<p class=\"pmpro_level_discount_applied\">The <strong>%s</strong> code has "
+"been applied to your order.</p>"
+msgstr ""
+
+#: inc/custom.php:62
+msgid ""
+"<span class=\"vertical_divider\"></span>Edit <i class=\"fa fa-pencil-square-"
+"o\"></i>"
+msgstr ""
+
+#: inc/custom.php:53
+msgid ""
+"<span class=\"vertical_divider\"></span>Reply <i class=\"fa fa-reply\"></i>"
+msgstr ""
+
+#: woocommerce/content-single-product.php:246
+msgid "About Instructor"
+msgstr ""
+
+#: woocommerce/content-single-product.php:184
+msgid "About Instructors"
+msgstr ""
+
+#: inc/theme-config.php:49
+msgid "Academy"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:52
+#: paid-memberships-pro/pages/confirmation.php:135
+msgid "Account"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:215
+msgid "Account Information"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2620
+msgid "Activate"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2223
+#: partials/vc_templates/buddypress_groups.php:22
+msgid "Active"
+msgstr ""
+
+#. %s = last activity timestamp (e.g. "active 1 hour ago")
+#: buddypress/groups/single/cover-image-header.php:35
+#, php-format
+msgid "active %s"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:158
+msgid "Active conversation:"
+msgstr ""
+
+#: inc/visual_composer.php:1529 partials/vc_templates/course_lesson.php:80
+msgid "Activity"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:67
+msgid "Add a review"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:120
+#: paid-memberships-pro/pages/checkout.php:403
+msgid "Address 1"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:126
+#: paid-memberships-pro/pages/checkout.php:409
+msgid "Address 2"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:67
+msgid "Address line 1"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:71
+msgid "Address line 2"
+msgstr ""
+
+#: inc/visual_composer.php:87
+msgid ""
+"Adjust column for different screen sizes. Control width, offset and "
+"visibility settings."
+msgstr ""
+
+#: woocommerce/order/tracking.php:23
+msgid "ago"
+msgstr ""
+
+#: inc/vc/modules/stm_image_box.php:29
+msgid "Align"
+msgstr ""
+
+#: paid-memberships-pro/pages/levels.php:43
+msgid "All"
+msgstr ""
+
+#: woocommerce/global/helpbar.php:57
+msgid "All courses"
+msgstr ""
+
+#: archive-gallery.php:68 partials/vc_templates/gallery_grid.php:49
+msgid "All images"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3380
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3386
+msgid "All installations have been completed."
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:99
+msgid "All Messages"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:403
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: inc/visual_composer.php:351
+msgid "All teachers"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:46
+msgid ""
+"Almost done. Review the membership information and pricing below then "
+"<strong>click the \"Complete Payment\" button</strong> to finish your order."
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:216
+msgid "Already have an account?"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3373
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: woocommerce/order/tracking.php:25
+msgid "and was completed"
+msgstr ""
+
+#: inc/visual_composer.php:1411
+msgid "Animation Block"
+msgstr ""
+
+#: inc/visual_composer.php:172
+msgid "Animation position on Desktop"
+msgstr ""
+
+#: inc/visual_composer.php:182
+msgid "Animation position on Laptop"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:96
+msgid "Anti-spam"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:129
+#: paid-memberships-pro/pages/checkout.php:736
+msgid "Apply"
+msgstr ""
+
+#: woocommerce/cart/cart.php:142 woocommerce/checkout/form-coupon.php:36
+msgid "Apply coupon"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2379
+msgctxt "as in: \"version nr unknown\""
+msgid "unknown"
+msgstr ""
+
+#: inc/visual_composer.php:318
+msgid "Ascending"
+msgstr ""
+
+#: inc/visual_composer.php:307
+msgid "Author"
+msgstr ""
+
+#: partials/content.php:171 partials/vc_templates/post_author.php:9
+msgid "Author:"
+msgstr ""
+
+#: woocommerce/content-product-list.php:194
+#: woocommerce/content-product-list.php:202
+msgid "Available"
+msgstr ""
+
+#: woocommerce/myaccount/my-downloads.php:30
+msgid "Available downloads"
+msgstr ""
+
+#: woocommerce/cart/cart.php:91
+msgid "Available on backorder"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2407
+msgid "Available version:"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:128
+#: buddypress/common/js-templates/messages/index.php:139
+#: buddypress/common/js-templates/messages/index.php:271
+msgid "Avatar"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:91
+msgid "Average"
+msgstr ""
+
+#: woocommerce/content-single-product.php:299
+msgid "Average Rating"
+msgstr ""
+
+#: woocommerce/single-product/product-image.php:43
+msgid "Awaiting product image"
+msgstr ""
+
+#: inc/visual_composer.php:146
+msgid "Background position"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:38
+#, php-format
+msgid "based on %s customer rating"
+msgid_plural "based on %s customer ratings"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:67
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr ""
+
+#: partials/headers/mobile/account.php:109 partials/headers/parts/links.php:7
+msgid "Become an Instructor"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:392
+msgid "Begin activating plugin"
+msgid_plural "Begin activating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:382
+msgid "Begin installing plugin"
+msgid_plural "Begin installing plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:387
+msgid "Begin updating plugin"
+msgid_plural "Begin updating plugins"
+msgstr[0] ""
+msgstr[1] ""
+
+#: paid-memberships-pro/pages/confirmation.php:28
+#, php-format
+msgid ""
+"Below are details about your membership account and a receipt for your "
+"initial membership invoice. A welcome email with a copy of your initial "
+"membership invoice has been sent to %s."
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:122
+#, php-format
+msgid ""
+"Below are details about your membership account. A welcome email has been "
+"sent to %s."
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:28
+msgid "Billing &amp; Shipping"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:104
+#: paid-memberships-pro/pages/checkout.php:383
+#: paid-memberships-pro/pages/confirmation.php:73
+msgid "Billing Address"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:27
+#: woocommerce/myaccount/my-address.php:32
+msgid "Billing address"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:32
+msgid "Billing details"
+msgstr ""
+
+#: partials/frontend_customizer.php:29
+msgid "Blue skin"
+msgstr ""
+
+#: inc/visual_composer.php:565
+msgid "Bottom"
+msgstr ""
+
+#: inc/visual_composer.php:622
+msgid "Box Align"
+msgstr ""
+
+#: inc/visual_composer.php:571
+msgid "Box background color"
+msgstr ""
+
+#: inc/visual_composer.php:583
+msgid "Box icon color"
+msgstr ""
+
+#: inc/visual_composer.php:970
+msgid "Box text Color"
+msgstr ""
+
+#: inc/visual_composer.php:577
+msgid "Box text color"
+msgstr ""
+
+#: inc/theme-config.php:84
+msgid "BuddyPress Demo"
+msgstr ""
+
+#: inc/vc/modules/buddypress_groups.php:11
+msgid "BuddyPress groups"
+msgstr ""
+
+#: inc/vc/modules/buddypress_instructors.php:11
+msgid "BuddyPress instructors"
+msgstr ""
+
+#: inc/vc/modules/stm_image_box.php:60
+msgid "Button"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:112
+#: buddypress/common/js-templates/messages/index.php:114
+msgctxt "button"
+msgid "Apply"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:43
+msgctxt "button"
+msgid "Send"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:347
+msgctxt "button"
+msgid "Send Reply"
+msgstr ""
+
+#: inc/visual_composer.php:813
+msgid "Button alignment"
+msgstr ""
+
+#: inc/visual_composer.php:846
+msgid "Button Background Color"
+msgstr ""
+
+#: inc/visual_composer.php:852
+msgid "Button Background Color Hover"
+msgstr ""
+
+#: inc/visual_composer.php:858
+msgid "Button Border Color"
+msgstr ""
+
+#: inc/visual_composer.php:864
+msgid "Button Border Color Hover"
+msgstr ""
+
+#: inc/visual_composer.php:1213
+msgid "Button color"
+msgstr ""
+
+#: inc/visual_composer.php:824
+msgid "Button Size"
+msgstr ""
+
+#: inc/visual_composer.php:834
+msgid "Button Text Color"
+msgstr ""
+
+#: inc/visual_composer.php:840
+msgid "Button Text Color Hover"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:422
+#: woocommerce/myaccount/my-orders.php:85
+msgid "Cancel"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:335
+#: paid-memberships-pro/pages/checkout.php:653
+msgid "Card Number"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:295
+#: paid-memberships-pro/pages/checkout.php:607
+msgid "Card Type"
+msgstr ""
+
+#: inc/visual_composer.php:946 inc/visual_composer.php:1115
+msgid "Carousel Auto Scroll"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:30
+msgid "Cart totals"
+msgstr ""
+
+#: partials/headers/parts/categories.php:25
+msgid "Category"
+msgstr ""
+
+#: partials/vc_templates/product_categories.php:97
+msgid "Category image"
+msgstr ""
+
+#: partials/content.php:98 woocommerce/content-single-product.php:137
+#: partials/vc_templates/post_info.php:17
+msgid "Category:"
+msgstr ""
+
+#: inc/visual_composer.php:1698
+msgid "Certificate"
+msgstr ""
+
+#: inc/visual_composer.php:1704
+msgid "Certificate name"
+msgstr ""
+
+#: inc/visual_composer.php:1709
+msgid "Certificate Print"
+msgstr ""
+
+#: partials/vc_templates/experts.php:125
+msgid "Certified by"
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:52
+msgid "Change address"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:55
+msgid "Change level"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:359
+msgid "Check Out with a Credit Card Here"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:365
+msgid "Check Out with PayPal"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:88 partials/headers/mobile/account.php:79
+msgid "Checkout"
+msgstr ""
+
+#: inc/visual_composer.php:1519 partials/vc_templates/course_lesson.php:70
+msgid "Choose Badge"
+msgstr ""
+
+#: inc/visual_composer.php:1095
+msgid "Choose category"
+msgstr ""
+
+#: inc/visual_composer.php:1071
+msgid "Choose expert"
+msgstr ""
+
+#: inc/visual_composer.php:1281
+msgid "Choose form"
+msgstr ""
+
+#: inc/visual_composer.php:462
+msgid "Choose post type"
+msgstr ""
+
+#: inc/visual_composer.php:1083
+msgid "Choose tag"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:348
+msgid "Choose your Payment Method"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:138
+#: paid-memberships-pro/pages/checkout.php:420
+msgid "City"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:159
+#: paid-memberships-pro/pages/checkout.php:441
+msgid "City, State Zip"
+msgstr ""
+
+#: inc/visual_composer.php:228
+msgid "Classic"
+msgstr ""
+
+#: inc/theme-config.php:34
+msgid "Classic LMS"
+msgstr ""
+
+#: inc/theme-config.php:89
+msgid "Classic LMS 2"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:88
+msgid "Click here to change your discount code"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Click here to enter your code"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:94
+msgid "Click here to enter your discount code"
+msgstr ""
+
+#: inc/visual_composer.php:1343 inc/visual_composer.php:1820
+msgid "Code"
+msgstr ""
+
+#: inc/theme-config.php:104
+msgid "Coding School"
+msgstr ""
+
+#: partials/frontend_customizer.php:24
+msgid "Color Scheme"
+msgstr ""
+
+#: inc/visual_composer.php:905
+msgid "Colored Separator"
+msgstr ""
+
+#: inc/visual_composer.php:311
+msgid "Comment count"
+msgstr ""
+
+#: comments.php:29
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:46
+msgid "Comments are closed."
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:829
+msgid "Complete Payment"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:257
+#: paid-memberships-pro/pages/checkout.php:543
+msgid "Confirm E-mail"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:276
+msgid "Confirm E-mail Address"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:247
+msgid "Confirm Password"
+msgstr ""
+
+#: inc/visual_composer.php:1614
+msgid "Contact"
+msgstr ""
+
+#: inc/vc/modules/buddypress_groups.php:13
+#: inc/vc/modules/buddypress_instructors.php:13
+#: inc/vc/modules/stm_image_box.php:13 inc/vc/modules/stm_image_box.php:55
+msgid "Content"
+msgstr ""
+
+#: inc/visual_composer.php:2180
+msgid "Content with left sidebar"
+msgstr ""
+
+#: inc/visual_composer.php:2167
+msgid "Content with Right sidebar"
+msgstr ""
+
+#: inc/theme-config.php:99
+msgid "Cooking courses"
+msgstr ""
+
+#: inc/visual_composer.php:1235
+msgid "Count to date"
+msgstr ""
+
+#: inc/visual_composer.php:1228
+msgid "Countdown"
+msgstr ""
+
+#: inc/visual_composer.php:765
+msgid "Counter text color"
+msgstr ""
+
+#: inc/visual_composer.php:767
+msgid "Counter Text color(yellow - default)"
+msgstr ""
+
+#: inc/visual_composer.php:771
+msgid "Counter text font size (px)"
+msgstr ""
+
+#: inc/visual_composer.php:697
+msgid "Counter Value"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:212
+#: paid-memberships-pro/pages/checkout.php:494
+msgid "Country"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:105
+msgid "Coupon"
+msgstr ""
+
+#: woocommerce/cart/cart.php:142 woocommerce/checkout/form-coupon.php:32
+msgid "Coupon code"
+msgstr ""
+
+#: partials/vc_templates/course_lesson.php:86
+#, php-format
+msgctxt "Course Badge (masterstudy Offline courses via WooCommerce)"
+msgid "%s"
+msgstr ""
+
+#: inc/theme-config.php:64
+msgid "Course Hub"
+msgstr ""
+
+#: woocommerce/content-product-list.php:142
+#, php-format
+msgctxt "Course status"
+msgid "%s"
+msgstr ""
+
+#: partials/headers/mobile/account.php:65
+msgid "Courses"
+msgstr ""
+
+#: paid-memberships-pro/pages/levels.php:100
+#, php-format
+msgid "Courses included: %s"
+msgstr ""
+
+#: partials/buddypress/instructors-carousel/instructor-single.php:53
+#, php-format
+msgid "Courses: %s"
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:70
+msgid ""
+"Create an account by entering the information below. If you are a returning "
+"customer please login at the top of the page."
+msgstr ""
+
+#: woocommerce/checkout/form-billing.php:60
+msgid "Create an account?"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:283
+msgid "Credit Card Information"
+msgstr ""
+
+#: inc/visual_composer.php:72 inc/visual_composer.php:106
+#: inc/visual_composer.php:134 inc/visual_composer.php:383
+#: inc/visual_composer.php:517 inc/visual_composer.php:674
+#: inc/visual_composer.php:785 inc/visual_composer.php:895
+#: inc/visual_composer.php:917 inc/visual_composer.php:1003
+#: inc/visual_composer.php:1185 inc/visual_composer.php:1218
+#: inc/visual_composer.php:1246 inc/visual_composer.php:1287
+#: inc/visual_composer.php:1305 inc/visual_composer.php:1322
+#: inc/visual_composer.php:1351 inc/visual_composer.php:1368
+#: inc/visual_composer.php:1385 inc/visual_composer.php:1402
+#: inc/visual_composer.php:1475 inc/visual_composer.php:1604
+#: inc/visual_composer.php:1656 inc/visual_composer.php:1689
+#: inc/visual_composer.php:1714 inc/visual_composer.php:1731
+#: inc/visual_composer.php:1769 inc/visual_composer.php:1792
+#: inc/visual_composer.php:1835 inc/vc/modules/stm_image_box.php:83
+msgid "Css"
+msgstr ""
+
+#: inc/visual_composer.php:232
+msgid "Custom"
+msgstr ""
+
+#: inc/visual_composer.php:511
+msgid "Custom color"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:400
+#: paid-memberships-pro/pages/checkout.php:718
+msgid "CVV"
+msgstr ""
+
+#: inc/visual_composer.php:305 woocommerce/myaccount/my-orders.php:14
+#: woocommerce/myaccount/my-orders.php:43
+#: woocommerce/myaccount/my-orders.php:62
+msgid "Date"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:57
+msgid "Date:"
+msgstr ""
+
+#: partials/footers/after_footer.php:7
+msgid "Days"
+msgstr ""
+
+#: inc/visual_composer.php:37
+msgid "Default"
+msgstr ""
+
+#: partials/frontend_customizer.php:27
+msgid "Default skin"
+msgstr ""
+
+#: inc/visual_composer.php:1451
+msgid "Delay (ms)"
+msgstr ""
+
+#: woocommerce/cart/cart.php:29 woocommerce/cart/cart.php:57
+#: buddypress/common/js-templates/messages/index.php:179
+msgid "Delete"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:180
+#: buddypress/common/js-templates/messages/index.php:181
+#: buddypress/common/js-templates/messages/index.php:257
+#: buddypress/common/js-templates/messages/index.php:258
+msgid "Delete conversation."
+msgstr ""
+
+#: inc/visual_composer.php:317
+msgid "Descending"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:115
+msgid "Description:"
+msgstr ""
+
+#: inc/visual_composer.php:168 inc/visual_composer.php:174
+#: inc/visual_composer.php:184 inc/visual_composer.php:1606
+msgid "Design Options"
+msgstr ""
+
+#: inc/visual_composer.php:74 inc/visual_composer.php:108
+#: inc/visual_composer.php:136 inc/visual_composer.php:519
+#: inc/visual_composer.php:676 inc/visual_composer.php:787
+#: inc/visual_composer.php:897 inc/visual_composer.php:919
+#: inc/visual_composer.php:1005 inc/visual_composer.php:1187
+#: inc/visual_composer.php:1220 inc/visual_composer.php:1248
+#: inc/visual_composer.php:1289 inc/visual_composer.php:1353
+#: inc/visual_composer.php:1477 inc/visual_composer.php:1658
+#: inc/visual_composer.php:1837 inc/vc/modules/stm_image_box.php:85
+msgid "Design options"
+msgstr ""
+
+#: woocommerce/content-single-product.php:343
+msgid "Detailed Rating"
+msgstr ""
+
+#: buddypress/common/nav/directory-nav.php:10
+msgid "Directory menu"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:98
+#: paid-memberships-pro/pages/checkout.php:124
+#: paid-memberships-pro/pages/checkout.php:731
+#: paid-memberships-pro/pages/confirmation.php:64
+msgid "Discount Code"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:404
+msgid "Dismiss this notice"
+msgstr ""
+
+#: inc/theme-config.php:94
+msgid "Distance Learning"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:92
+msgid "Do you have a discount code?"
+msgstr ""
+
+#: inc/visual_composer.php:1167
+msgid "Don't Show comments number"
+msgstr ""
+
+#: inc/visual_composer.php:1155
+msgid "Don't Show price"
+msgstr ""
+
+#: inc/visual_composer.php:1161
+msgid "Don't Show rating"
+msgstr ""
+
+#: partials/headers/parts/menu.php:40
+msgid "Download App"
+msgstr ""
+
+#: inc/visual_composer.php:704 paid-memberships-pro/pages/billing.php:62
+msgid "Duration"
+msgstr ""
+
+#: inc/visual_composer.php:1445
+msgid "Duration (ms)"
+msgstr ""
+
+#: woocommerce/content-single-product-meta-side.php:48
+msgid "Duration:"
+msgstr ""
+
+#: inc/custom.php:96 partials/event-form.php:23
+#: woocommerce/single-product-reviews.php:75
+msgid "E-mail"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:250
+#: paid-memberships-pro/pages/checkout.php:265
+#: paid-memberships-pro/pages/checkout.php:532
+msgid "E-mail Address"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:94
+msgid "Edit"
+msgstr ""
+
+#: inc/custom.php:470
+msgid "Element not found"
+msgstr ""
+
+#: inc/visual_composer.php:1646 woocommerce/myaccount/form-login.php:84
+msgid "Email"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:63
+msgid "Email:"
+msgstr ""
+
+#: partials/vc_templates/contact.php:34
+msgid "Email: "
+msgstr ""
+
+#: vc_templates/vc_accordion_tab.php:13
+msgid "Empty section. Edit page to add content here."
+msgstr ""
+
+#: partials/content-event.php:97 partials/vc_templates/event_info.php:40
+msgid "End:"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:88
+msgid "ending in"
+msgstr ""
+
+#: partials/headers/parts/wpml_switcher.php:39
+msgid "English"
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:67
+msgid "Enter a different address"
+msgstr ""
+
+#: inc/visual_composer.php:148
+msgid "Enter background-position in CSS like format"
+msgstr ""
+
+#: inc/visual_composer.php:200 inc/visual_composer.php:206
+#: inc/visual_composer.php:212
+msgid "Enter empty space height (Note: CSS measurement units allowed)."
+msgstr ""
+
+#: inc/visual_composer.php:641 inc/visual_composer.php:652
+#: inc/visual_composer.php:733
+msgid "Enter icon height in px"
+msgstr ""
+
+#: inc/visual_composer.php:594 inc/visual_composer.php:607
+#: inc/visual_composer.php:618 inc/visual_composer.php:630
+#: inc/visual_composer.php:719
+msgid "Enter icon size in px"
+msgstr ""
+
+#: inc/visual_composer.php:726
+msgid "Enter icon width in px"
+msgstr ""
+
+#: inc/visual_composer.php:1632 inc/visual_composer.php:1755
+msgid ""
+"Enter image size. Example: \"thumbnail\", \"medium\", \"large\", \"full\" or "
+"other sizes defined by current theme. Alternatively enter image size in "
+"pixels: 200x100 (Width x Height). Leave empty to use \"projects_gallery\" "
+"size."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:61
+msgid "Enter your address to view shipping options."
+msgstr ""
+
+#: woocommerce/notices/error.php:31
+msgid "Error"
+msgstr ""
+
+#. $s shipping destination.
+#: woocommerce/cart/cart-shipping.php:51
+#, php-format
+msgid "Estimate for %s."
+msgstr ""
+
+#: inc/visual_composer.php:1723
+msgid "Event info"
+msgstr ""
+
+#: partials/title_box.php:43
+msgid "Events"
+msgstr ""
+
+#: inc/visual_composer.php:1778
+msgid "Events Grid"
+msgstr ""
+
+#: inc/visual_composer.php:1785
+msgid "Events per page"
+msgstr ""
+
+#: inc/visual_composer.php:1522 partials/vc_templates/course_lesson.php:73
+msgid "Exam"
+msgstr ""
+
+#: inc/visual_composer.php:1528 partials/vc_templates/course_lesson.php:79
+msgid "Exercise"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:89
+msgid "Expiration"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:341
+#: paid-memberships-pro/pages/checkout.php:662
+msgid "Expiration Date"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:77
+msgid "Expires after:"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2197
+msgid "External Source"
+msgstr ""
+
+#: partials/headers/mobile/account.php:94
+msgid "Favorites"
+msgstr ""
+
+#: paid-memberships-pro/pages/levels.php:105
+#, php-format
+msgid "Featured courses quote included: %s"
+msgstr ""
+
+#: inc/visual_composer.php:338 inc/visual_composer.php:407
+#: inc/visual_composer.php:469
+msgid "Fill field with number only"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:108
+#: paid-memberships-pro/pages/checkout.php:391
+#: woocommerce/myaccount/my-address.php:59
+msgid "First Name"
+msgstr ""
+
+#: inc/visual_composer.php:229
+msgid "Flat"
+msgstr ""
+
+#: inc/visual_composer.php:165
+msgid "Flying Students"
+msgstr ""
+
+#: inc/setup.php:63
+msgid "Footer Bottom"
+msgstr ""
+
+#: inc/setup.php:65
+msgid "Footer Bottom Widgets Area"
+msgstr ""
+
+#: partials/footers/copyright.php:23
+#, php-format
+msgctxt "Footer Copyright text"
+msgid "%s"
+msgstr ""
+
+#: partials/footers/copyright.php:16 partials/footers/copyright.php:18
+msgid "Footer logo"
+msgstr ""
+
+#: inc/setup.php:53
+msgid "Footer Top"
+msgstr ""
+
+#: inc/setup.php:55
+msgid "Footer Top Widgets Area"
+msgstr ""
+
+#: partials/headers/mobile/account.php:115 partials/headers/parts/links.php:8
+msgid "For Enterprise"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:44
+msgctxt "form reset button"
+msgid "Reset"
+msgstr ""
+
+#: inc/visual_composer.php:1526 inc/woocommerce_setups.php:92
+#: woocommerce/content-product-list.php:106 woocommerce/content-product.php:129
+#: paid-memberships-pro/pages/levels.php:58
+#: partials/vc_templates/course_lesson.php:77
+#: partials/vc_templates/featured_products.php:120
+msgid "Free"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:129
+msgid "From:"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:296
+msgid "Full Name"
+msgstr ""
+
+#: archive-gallery.php:58
+msgid "Gallery"
+msgstr ""
+
+#: inc/visual_composer.php:1666
+msgid "Gallery Grid"
+msgstr ""
+
+#: inc/visual_composer.php:1683
+msgid "Gallery per page"
+msgstr ""
+
+#: inc/visual_composer.php:53
+msgid "Gallery type"
+msgstr ""
+
+#: inc/visual_composer.php:247
+msgid "Gap"
+msgstr ""
+
+#: paid-memberships-pro/pages/levels.php:46
+msgid "Get now"
+msgstr ""
+
+#: 404.php:11
+msgid "GO BACK TO HOMEPAGE"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:90
+msgid "Good"
+msgstr ""
+
+#: inc/scripts_styles.php:184
+msgctxt "Google font: on or off"
+msgid "on"
+msgstr ""
+
+#: inc/visual_composer.php:234
+msgid "Gradient"
+msgstr ""
+
+#: inc/visual_composer.php:235
+msgid "Gradient Custom"
+msgstr ""
+
+#: buddypress/groups/single/parts/header-item-actions.php:16
+msgid "Group Administrators"
+msgstr ""
+
+#: buddypress/groups/single/parts/header-item-actions.php:13
+msgid "Group Leadership"
+msgstr ""
+
+#: buddypress/groups/single/parts/header-item-actions.php:28
+msgid "Group Mods"
+msgstr ""
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Have a coupon?"
+msgstr ""
+
+#: partials/frontend_customizer.php:14
+msgid "Header transparency"
+msgstr ""
+
+#: partials/frontend_customizer.php:4
+msgid "Header type"
+msgstr ""
+
+#: partials/headers/parts/left_bar.php:31
+#, php-format
+msgid "Hey, %s"
+msgstr ""
+
+#: inc/custom.php:1931
+msgid "Hot"
+msgstr ""
+
+#: partials/footers/after_footer.php:8
+msgid "Hours"
+msgstr ""
+
+#: inc/visual_composer.php:558
+msgid "Hover position"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://stylemixthemes.com/"
+msgstr ""
+
+#. URI of the theme
+msgid "https://stylemixthemes.com/masterstudy/"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:808
+#, php-format
+msgid "I agree to the %s"
+msgstr ""
+
+#: inc/visual_composer.php:598 inc/visual_composer.php:710
+#: inc/visual_composer.php:870 inc/visual_composer.php:1504
+#: inc/vc/modules/stm_image_box.php:65
+msgid "Icon"
+msgstr ""
+
+#: inc/visual_composer.php:611
+msgid "Icon Align"
+msgstr ""
+
+#: inc/visual_composer.php:756 inc/vc/modules/stm_image_box.php:74
+msgid "Icon Background Color"
+msgstr ""
+
+#: inc/visual_composer.php:754
+msgid "Icon background color"
+msgstr ""
+
+#: inc/visual_composer.php:527
+msgid "Icon Box"
+msgstr ""
+
+#: inc/visual_composer.php:795
+msgid "Icon Button"
+msgstr ""
+
+#: inc/visual_composer.php:656
+msgid "Icon Color"
+msgstr ""
+
+#: inc/visual_composer.php:668
+msgid "Icon Css"
+msgstr ""
+
+#: inc/visual_composer.php:670
+msgid "Icon Design options"
+msgstr ""
+
+#: inc/visual_composer.php:634 inc/visual_composer.php:730
+msgid "Icon Height"
+msgstr ""
+
+#: inc/visual_composer.php:995
+msgid "Icon height"
+msgstr ""
+
+#: inc/visual_composer.php:604 inc/visual_composer.php:716
+msgid "Icon Size"
+msgstr ""
+
+#: inc/visual_composer.php:987
+msgid "Icon size"
+msgstr ""
+
+#: inc/visual_composer.php:645 inc/visual_composer.php:723
+msgid "Icon Width"
+msgstr ""
+
+#: inc/visual_composer.php:306
+msgid "ID"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:164
+msgid ""
+"If your account is not activated within a few minutes, please contact the "
+"site owner."
+msgstr ""
+
+#: inc/visual_composer.php:118
+msgid "Iframe Link"
+msgstr ""
+
+#: inc/visual_composer.php:1625 inc/vc/modules/stm_image_box.php:40
+msgid "Image"
+msgstr ""
+
+#: inc/vc/modules/stm_image_box.php:11
+msgid "Image box"
+msgstr ""
+
+#: inc/visual_composer.php:56
+msgid "Image grid"
+msgstr ""
+
+#: inc/visual_composer.php:1630 inc/visual_composer.php:1753
+#: inc/vc/modules/stm_image_box.php:50
+msgid "Image Size"
+msgstr ""
+
+#: inc/visual_composer.php:776
+msgid "Include Border"
+msgstr ""
+
+#: woocommerce/notices/notice.php:31
+msgid "Informational"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2611
+msgid "Install"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:334
+msgid "Install Plugins"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:333
+msgid "Install Required Plugins"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2221
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2387
+msgid "Installed version:"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3381
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3387
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:335
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: buddypress/members/members-loop.php:29
+msgid "Instructor"
+msgstr ""
+
+#: buddypress/common/nav/directory-nav.php:38
+msgid "Instructors"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:47
+#, php-format
+msgid "Invoice #%s on %s"
+msgstr ""
+
+#: inc/visual_composer.php:489 inc/visual_composer.php:495
+#: inc/visual_composer.php:501 inc/visual_composer.php:507
+#: inc/visual_composer.php:513
+msgid "Item design"
+msgstr ""
+
+#: inc/visual_composer.php:1636
+msgid "Job"
+msgstr ""
+
+#: partials/content-event.php:108 partials/vc_templates/event_info.php:64
+msgid "Join!"
+msgstr ""
+
+#: woocommerce/order/tracking.php:38
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr ""
+
+#: woocommerce/product-searchform.php:26
+msgctxt "label"
+msgid "Search for:"
+msgstr ""
+
+#: inc/visual_composer.php:1241
+msgid "Labels color"
+msgstr ""
+
+#: inc/theme-config.php:74
+msgid "Language Center"
+msgstr ""
+
+#: inc/visual_composer.php:198
+msgid "Laptop Height"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:114
+#: paid-memberships-pro/pages/checkout.php:397
+#: woocommerce/myaccount/my-address.php:63
+msgid "Last Name"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:68
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: inc/visual_composer.php:1122
+msgid "Leave empty to display all"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:299
+msgid "LEAVE THIS BLANK"
+msgstr ""
+
+#: inc/visual_composer.php:1524 partials/vc_templates/course_lesson.php:75
+msgid "Lecture"
+msgstr ""
+
+#: woocommerce/content-single-product-meta-side.php:59
+msgid "Lectures:"
+msgstr ""
+
+#: inc/visual_composer.php:564
+msgid "Left"
+msgstr ""
+
+#: inc/visual_composer.php:1486
+msgid "Lesson"
+msgstr ""
+
+#: inc/visual_composer.php:1516
+msgid "Lesson badge"
+msgstr ""
+
+#: inc/visual_composer.php:1553
+msgid "Lesson Icon"
+msgstr ""
+
+#: inc/visual_composer.php:1546
+msgid "Lesson meta"
+msgstr ""
+
+#: inc/visual_composer.php:1493
+msgid "Lesson title"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:44
+msgid "Level"
+msgstr ""
+
+#: inc/visual_composer.php:540 inc/visual_composer.php:802
+msgid "Link"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:83
+msgctxt "link"
+msgid "Next page"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:76
+msgctxt "link"
+msgid "Previous page"
+msgstr ""
+
+#: inc/visual_composer.php:588
+msgid "Link color style"
+msgstr ""
+
+#: inc/visual_composer.php:807
+msgid "Link tooltip (title)"
+msgstr ""
+
+#: inc/visual_composer.php:483
+msgid "List design"
+msgstr ""
+
+#: inc/theme-config.php:54
+msgid "LMS Dark"
+msgstr ""
+
+#: inc/theme-config.php:39
+msgid "LMS Light"
+msgstr ""
+
+#: partials/content-event.php:101 partials/vc_templates/event_info.php:48
+msgid "Location:"
+msgstr ""
+
+#: partials/headers/parts/log-in.php:7
+msgid "Log in"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:322
+msgid "log in"
+msgstr ""
+
+#: partials/headers/parts/woocommerce_login.php:14
+#: partials/headers/parts/woocommerce_login.php:15
+#: partials/headers/parts/woocommerce_login.php:39
+#: partials/headers/parts/woocommerce_login.php:40
+msgid "Log out"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:325
+msgid "log out now"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:22
+#, php-format
+msgid "Logged in as <strong>%s</strong>."
+msgstr ""
+
+#: woocommerce/global/form-login.php:49 woocommerce/myaccount/form-login.php:32
+#: woocommerce/myaccount/form-login.php:49
+#: partials/headers/parts/woocommerce_login.php:19
+#: partials/headers/parts/woocommerce_login.php:44
+msgid "Login"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:217
+msgid "Login here"
+msgstr ""
+
+#: partials/headers/parts/left_bar.php:37
+msgid "Login/Sign UP"
+msgstr ""
+
+#: partials/headers/mobile/account.php:55
+msgid "Login/Sign Up"
+msgstr ""
+
+#: partials/headers/mobile/account.php:124
+msgid "Logout"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:24
+msgid "logout"
+msgstr ""
+
+#: woocommerce/global/form-login.php:57 woocommerce/myaccount/form-login.php:55
+msgid "Lost your password?"
+msgstr ""
+
+#: woocommerce/myaccount/form-lost-password.php:27
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+
+#: inc/visual_composer.php:1196
+msgid "Mailchimp"
+msgstr ""
+
+#: inc/setup.php:45
+msgid "Main sidebar that appears on the right or left."
+msgstr ""
+
+#: inc/visual_composer.php:1678
+msgid "Masonry Mode"
+msgstr ""
+
+#. Name of the theme
+msgid "MasterStudy"
+msgstr ""
+
+#: inc/visual_composer.php:161
+msgid "MasterStudy Animations"
+msgstr ""
+
+#. Description of the theme
+msgid ""
+"MasterStudy is the best WordPress theme for the Education &amp; Learning "
+"Center - for educational organizations, who sell courses and organize "
+"classes locally. Using Masterstudy you can easily setup a WordPress site for "
+"your education company."
+msgstr ""
+
+#: buddypress/members/single/home.php:53
+msgid "Member primary navigation"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:59
+msgid "Membership Expires"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:46
+msgid "Membership Fee"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:53
+#: paid-memberships-pro/pages/confirmation.php:56
+#: paid-memberships-pro/pages/confirmation.php:139
+msgid "Membership Level"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:67
+msgid "Membership level:"
+msgstr ""
+
+#: paid-memberships-pro/pages/levels.php:30
+msgid "Membership plans"
+msgstr ""
+
+#: partials/headers/header_4.php:17 partials/headers/mobile/menu.php:6
+#: partials/headers/mobile/search.php:10 partials/headers/parts/menu-3.php:16
+#: partials/headers/parts/menu.php:17
+msgid "Menu"
+msgstr ""
+
+#: inc/visual_composer.php:312
+msgid "Menu order"
+msgstr ""
+
+#: partials/event-form.php:29
+msgid "Message"
+msgstr ""
+
+#: partials/headers/mobile/account.php:84
+msgid "Messages"
+msgstr ""
+
+#: inc/visual_composer.php:1058
+msgid "Meta sorting key"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2395
+msgid "Minimum required version:"
+msgstr ""
+
+#: partials/footers/after_footer.php:9
+msgid "Minutes"
+msgstr ""
+
+#: inc/visual_composer.php:210
+msgid "Mobile Height"
+msgstr ""
+
+#: inc/visual_composer.php:227
+msgid "Modern"
+msgstr ""
+
+#: inc/visual_composer.php:309
+msgid "Modified"
+msgstr ""
+
+#: inc/visual_composer.php:1361
+msgid "Multiply separator"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:41 partials/headers/parts/sign-up.php:7
+msgid "My account"
+msgstr ""
+
+#: partials/headers/mobile/account.php:47
+msgid "My Profile"
+msgstr ""
+
+#: inc/custom.php:91 inc/visual_composer.php:1620 partials/event-form.php:13
+#: woocommerce/single-product-reviews.php:73 woocommerce/cart/cart.php:67
+msgid "Name"
+msgstr ""
+
+#: inc/custom.php:1933
+msgid "New"
+msgstr ""
+
+#: comments.php:35
+msgid "Newer Comments"
+msgstr ""
+
+#: partials/vc_templates/buddypress_groups.php:23
+msgid "Newest"
+msgstr ""
+
+#: partials/title_box.php:30
+msgid "News"
+msgstr ""
+
+#: partials/title_box.php:70
+msgid "News & Events"
+msgstr ""
+
+#: archive-events.php:67 archive-gallery.php:95 index.php:92
+#: partials/vc_templates/events_grid.php:56
+#: partials/vc_templates/teachers_grid.php:84
+msgid "Next"
+msgstr ""
+
+#: inc/visual_composer.php:155
+msgid "No"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:401
+#, php-format
+msgid "No action taken. Plugin %1$s was already active."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2822
+msgid "No plugins are available to be activated at this time."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2689
+msgid "No plugins are available to be installed at this time."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2691
+msgid "No plugins are available to be updated at this time."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2430
+#, php-format
+msgid ""
+"No plugins to install, update or activate. <a href=\"%1$s\">Return to the "
+"Dashboard</a>"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2796
+msgid "No plugins were selected to be activated. No action taken."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2651
+msgid "No plugins were selected to be installed. No action taken."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2653
+msgid "No plugins were selected to be updated. No action taken."
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:74
+msgid "No products in the cart."
+msgstr ""
+
+#: index.php:121
+msgid "No result has been found. Please check for correctness."
+msgstr ""
+
+#. $s shipping destination.
+#: woocommerce/cart/cart-shipping.php:66
+#, php-format
+msgid "No shipping options were found for %s."
+msgstr ""
+
+#: inc/custom.php:1930
+msgid "No Status"
+msgstr ""
+
+#: partials/loop-grid.php:43
+msgid "No title"
+msgstr ""
+
+#: inc/visual_composer.php:164 inc/visual_composer.php:561
+msgid "None"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2217
+msgid "Not Installed"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:92
+msgid "Not that bad"
+msgstr ""
+
+#: inc/custom.php:111
+msgctxt "noun"
+msgid "Message"
+msgstr ""
+
+#: inc/visual_composer.php:957 inc/visual_composer.php:1126
+msgid "Number of items per row"
+msgstr ""
+
+#: inc/visual_composer.php:467 inc/visual_composer.php:951
+#: inc/visual_composer.php:1120
+msgid "Number of items to output"
+msgstr ""
+
+#: inc/visual_composer.php:473
+msgid "Number of items to output per row"
+msgstr ""
+
+#: inc/visual_composer.php:361
+msgid "Number of Teachers per row"
+msgstr ""
+
+#: inc/visual_composer.php:336
+msgid "Number of Teachers to output"
+msgstr ""
+
+#: inc/visual_composer.php:431
+msgid "Number of testimonials per row"
+msgstr ""
+
+#: inc/visual_composer.php:405
+msgid "Number of testimonials to output"
+msgstr ""
+
+#: inc/visual_composer.php:698
+msgid "Number Only"
+msgstr ""
+
+#: partials/frontend_customizer.php:19
+msgid "Off"
+msgstr ""
+
+#: inc/visual_composer.php:1462
+msgid "Offline Course Lessons"
+msgstr ""
+
+#: inc/theme-config.php:59
+msgid "Offline Courses"
+msgstr ""
+
+#: comments.php:32
+msgid "Older Comments"
+msgstr ""
+
+#: partials/frontend_customizer.php:17
+msgid "On"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:106
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+
+#: inc/visual_composer.php:1684
+msgid "Only numbers"
+msgstr ""
+
+#: inc/visual_composer.php:1726
+msgid "Only on event page"
+msgstr ""
+
+#: inc/visual_composer.php:379
+msgid "Only on expert page"
+msgstr ""
+
+#: inc/visual_composer.php:1300 inc/visual_composer.php:1318
+#: inc/visual_composer.php:1380 inc/visual_composer.php:1397
+msgid "Only on post page"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:130
+msgid "optional"
+msgstr ""
+
+#: inc/visual_composer.php:1138 woocommerce/myaccount/my-orders.php:13
+#: woocommerce/myaccount/my-orders.php:42
+msgid "Order"
+msgstr ""
+
+#: woocommerce/order/tracking.php:23
+#, php-format
+msgid "Order #%s which was made %s has the status &ldquo;%s&rdquo;"
+msgstr ""
+
+#: inc/visual_composer.php:1148
+msgid "Order by"
+msgstr ""
+
+#: woocommerce/myaccount/my-orders.php:57
+msgid "Order Number"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:52
+msgid "Order number:"
+msgstr ""
+
+#: woocommerce/order/tracking.php:32
+msgid "Order updates"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:37
+#, php-format
+msgid "out of %s5%s"
+msgstr ""
+
+#: woocommerce/single-product/review.php:49
+msgid "out of 5"
+msgstr ""
+
+#: inc/visual_composer.php:230
+msgid "Outline"
+msgstr ""
+
+#: inc/visual_composer.php:233
+msgid "Outline custom"
+msgstr ""
+
+#: page.php:24 partials/content-event.php:16 partials/content.php:19
+msgid "Page"
+msgstr ""
+
+#: page.php:20 partials/content-event.php:12 partials/content-event.php:124
+#: partials/content.php:15 partials/content.php:133
+msgid "Pages:"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:164
+#: buddypress/common/js-templates/messages/index.php:245
+msgid "Participants:"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:237
+#: woocommerce/global/form-login.php:40 woocommerce/myaccount/form-login.php:42
+#: woocommerce/myaccount/form-login.php:90
+msgid "Password"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:38 woocommerce/myaccount/my-orders.php:78
+msgid "Pay"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:102
+msgid "Pay for order"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:74 woocommerce/checkout/payment.php:23
+msgid "Payment"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:584
+msgid "Payment Information"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:87
+msgid "Payment Method"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:75
+msgid "Payment method:"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:140
+msgid "Pending"
+msgstr ""
+
+#: paid-memberships-pro/pages/levels.php:90
+#, php-format
+msgid "per %s"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:89
+msgid "Perfect"
+msgstr ""
+
+#: inc/visual_composer.php:1641 partials/event-form.php:17
+#: paid-memberships-pro/pages/billing.php:237
+#: paid-memberships-pro/pages/checkout.php:517
+msgid "Phone"
+msgstr ""
+
+#: partials/vc_templates/contact.php:30
+msgid "Phone: "
+msgstr ""
+
+#: inc/visual_composer.php:1599
+msgid "Plan Button"
+msgstr ""
+
+#: inc/visual_composer.php:1576
+msgid "Plan Color"
+msgstr ""
+
+#: inc/visual_composer.php:1587
+msgid "Plan payment period"
+msgstr ""
+
+#: inc/visual_composer.php:1581
+msgid "Plan price"
+msgstr ""
+
+#: inc/visual_composer.php:1593
+msgid "Plan Text"
+msgstr ""
+
+#: inc/visual_composer.php:1570
+msgid "Plan title"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:405
+msgid "Please contact the administrator of this site for help."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:932 inc/tgm/tgm-plugin-activation.php:935
+msgid ""
+"Please contact the plugin provider and ask them to package their plugin "
+"according to the WordPress guidelines."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:37
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2444
+msgid "Plugin"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:1113
+#: inc/tgm/tgm-plugin-activation.php:2836
+msgctxt "plugin A *and* plugin B"
+msgid "and"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:399 inc/tgm/tgm-plugin-activation.php:3038
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3037
+msgid "Plugin activation failed."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:402
+#, php-format
+msgid ""
+"Plugin not activated. A higher version of %s is needed for this theme. "
+"Please update the plugin."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2288
+#, php-format
+msgctxt "plugins"
+msgid "All <span class=\"count\">(%s)</span>"
+msgid_plural "All <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: partials/vc_templates/buddypress_groups.php:21
+msgid "Popular"
+msgstr ""
+
+#: inc/visual_composer.php:1377
+msgid "Post author"
+msgstr ""
+
+#: inc/visual_composer.php:1394
+msgid "Post comments"
+msgstr ""
+
+#: inc/visual_composer.php:460
+msgid "Post Data"
+msgstr ""
+
+#: inc/visual_composer.php:1297
+msgid "Post info"
+msgstr ""
+
+#: inc/visual_composer.php:1314
+msgid "Post tags"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:150
+#: paid-memberships-pro/pages/checkout.php:432
+msgid "Postal Code"
+msgstr ""
+
+#: partials/content.php:93 partials/vc_templates/post_info.php:13
+msgid "Posted by:"
+msgstr ""
+
+#: partials/loop-grid.php:68 partials/loop-list.php:42
+#: partials/vc_templates/post_list.php:81
+msgid "Posted in:"
+msgstr ""
+
+#: inc/visual_composer.php:1527 partials/vc_templates/course_lesson.php:78
+msgid "Practice"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2200
+msgid "Pre-Packaged"
+msgstr ""
+
+#: partials/vc_templates/course_lesson.php:99
+msgid "Preview"
+msgstr ""
+
+#: inc/visual_composer.php:123
+msgid "Preview Image"
+msgstr ""
+
+#: inc/visual_composer.php:1534
+msgid "Preview video"
+msgstr ""
+
+#: archive-events.php:66 archive-gallery.php:94 index.php:91
+#: partials/vc_templates/events_grid.php:55
+#: partials/vc_templates/teachers_grid.php:83
+msgid "Previous"
+msgstr ""
+
+#: woocommerce/cart/cart.php:31 woocommerce/cart/cart.php:96
+#: woocommerce/single-product/price.php:28
+msgid "Price"
+msgstr ""
+
+#: inc/visual_composer.php:1179
+msgid "Price Badge (Free) background color"
+msgstr ""
+
+#: inc/visual_composer.php:1173
+msgid "Price Badge background color"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:75
+#: partials/vc_templates/event_info.php:55
+msgid "Price:"
+msgstr ""
+
+#: inc/visual_composer.php:1563
+msgid "Pricing Plan"
+msgstr ""
+
+#: inc/setup.php:43
+msgid "Primary Sidebar"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:49
+msgid "Print"
+msgstr ""
+
+#: inc/visual_composer.php:1499 partials/vc_templates/course_lesson.php:81
+#: partials/vc_templates/course_lesson.php:119
+msgid "Private"
+msgstr ""
+
+#: inc/theme-config.php:69
+msgid "Private Instructor"
+msgstr ""
+
+#: inc/visual_composer.php:1540
+msgid "Private lesson content placeholder"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:854
+msgid "Processing..."
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:27
+#: woocommerce/checkout/review-order.php:23
+msgid "Product"
+msgstr ""
+
+#: inc/visual_composer.php:928
+msgid "Product Categories"
+msgstr ""
+
+#: woocommerce/cart/cart.php:30
+msgid "Product name"
+msgstr ""
+
+#: woocommerce/global/quantity-input.php:30
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr ""
+
+#: inc/visual_composer.php:1051
+msgid "Products List (All, featured, teacher courses)"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:28
+msgid "Qty"
+msgstr ""
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:102
+msgid "Quantity"
+msgstr ""
+
+#: inc/visual_composer.php:1523 partials/vc_templates/course_lesson.php:74
+msgid "Quiz"
+msgstr ""
+
+#: inc/visual_composer.php:310 partials/vc_templates/buddypress_groups.php:24
+msgid "Random"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:88
+msgid "Rate&hellip;"
+msgstr ""
+
+#: woocommerce/single-product/review.php:48
+#, php-format
+msgid "Rated %d out of 5"
+msgstr ""
+
+#: woocommerce/single-product/rating.php:35
+#, php-format
+msgid "Rated %s out of 5"
+msgstr ""
+
+#: woocommerce/content-single-product.php:306
+msgid "Ratings"
+msgstr ""
+
+#: partials/loop-list.php:22 partials/loop-list.php:66
+#: partials/loop-list.php:66
+msgid "Read more"
+msgstr ""
+
+#: woocommerce/myaccount/my-orders.php:30
+msgid "Recent Orders"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2178
+msgid "Recommended"
+msgstr ""
+
+#: partials/frontend_customizer.php:28
+msgid "Red skin"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:154
+msgid "Redirecting to course..."
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:69
+#: woocommerce/myaccount/form-login.php:102
+#: partials/headers/parts/woocommerce_login.php:22
+#: partials/headers/parts/woocommerce_login.php:47
+msgid "Register"
+msgstr ""
+
+#: woocommerce/single-product/related.php:27
+msgid "Related products"
+msgstr ""
+
+#: woocommerce/global/form-login.php:53 woocommerce/myaccount/form-login.php:51
+msgid "Remember me"
+msgstr ""
+
+#: woocommerce/cart/cart.php:50
+msgid "Remove"
+msgstr ""
+
+#: inc/visual_composer.php:152
+msgid "Remove Background on mobile"
+msgstr ""
+
+#: woocommerce/cart/cart.php:58 woocommerce/cart/mini-cart.php:47
+msgid "Remove this item"
+msgstr ""
+
+#: paid-memberships-pro/pages/levels.php:50
+msgid "Renew"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:341
+msgid "Reply to Message"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2175
+msgid "Required"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2229
+msgid "Required Update not Available"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2232
+msgid "Requires Update"
+msgstr ""
+
+#: inc/visual_composer.php:84
+msgid "Responsiveness"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:397
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:825 inc/tgm/tgm-plugin-activation.php:3447
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:398
+msgid "Return to the dashboard"
+msgstr ""
+
+#: woocommerce/content-single-product.php:157
+#: woocommerce/content-single-product.php:295
+msgid "Reviews"
+msgstr ""
+
+#: inc/visual_composer.php:563
+msgid "Right"
+msgstr ""
+
+#: buddypress/common/search-and-filters-bar.php:17
+msgid "RSS"
+msgstr ""
+
+#: buddypress/common/search-and-filters-bar.php:16
+msgid "RSS Feed"
+msgstr ""
+
+#: inc/theme-config.php:79
+msgid "RTL Demo"
+msgstr ""
+
+#: partials/vc_templates/experts.php:52
+#: partials/vc_parts/testimonials/style_1.php:26
+#: partials/vc_parts/testimonials/style_7.php:30
+msgid "Scroll Carousel left"
+msgstr ""
+
+#: partials/vc_templates/experts.php:56
+#: partials/vc_parts/testimonials/style_1.php:29
+#: partials/vc_parts/testimonials/style_7.php:33
+msgid "Scroll Carousel right"
+msgstr ""
+
+#: partials/searchform.php:6 partials/title_box.php:57
+#: partials/headers/mobile/search.php:16 partials/headers/mobile/search.php:23
+msgid "Search"
+msgstr ""
+
+#: partials/headers/parts/courses_categories_with_search.php:40
+msgid "Search Courses"
+msgstr ""
+
+#: partials/headers/parts/courses-search.php:23
+msgid "Search courses"
+msgstr ""
+
+#: partials/headers/parts/left_bar.php:53
+msgid "Search Courses..."
+msgstr ""
+
+#: woocommerce/product-searchform.php:25
+msgid "Search for:"
+msgstr ""
+
+#: woocommerce/product-searchform.php:26
+msgid "Search the Courses"
+msgstr ""
+
+#: partials/headers/header_5.php:36 partials/headers/header_6.php:41
+#: partials/headers/header_default.php:36
+msgid "Search..."
+msgstr ""
+
+#: woocommerce/content-product-list.php:195
+#: woocommerce/content-product-list.php:203
+msgid "seats"
+msgstr ""
+
+#: inc/setup.php:35
+msgid "Secondary menu in the footer"
+msgstr ""
+
+#: partials/footers/after_footer.php:10
+msgid "Seconds"
+msgstr ""
+
+#: vc_templates/vc_accordion_tab.php:5
+msgid "Section"
+msgstr ""
+
+#: inc/visual_composer.php:1469
+msgid "Section Title"
+msgstr ""
+
+#: inc/visual_composer.php:329 inc/visual_composer.php:399
+msgid "Section title"
+msgstr ""
+
+#: woocommerce/content-product-list.php:212
+msgid "See more"
+msgstr ""
+
+#: inc/visual_composer.php:1805
+msgid "Select"
+msgstr ""
+
+#: inc/visual_composer.php:1419
+msgid "Select Animation type"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:103
+msgid "Select bulk action"
+msgstr ""
+
+#: inc/visual_composer.php:223
+msgid "Select button display style."
+msgstr ""
+
+#: inc/visual_composer.php:269
+msgid "Select gap between grid elements."
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:122
+msgid "Select message:"
+msgstr ""
+
+#: inc/visual_composer.php:1525 partials/vc_templates/course_lesson.php:76
+msgid "Seminar"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:32
+msgid "Send @Username"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:330
+msgid "Send a Reply"
+msgstr ""
+
+#: inc/visual_composer.php:912
+msgid "Separator Color"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:635
+msgid "Set the parent_slug config variable instead."
+msgstr ""
+
+#: partials/headers/mobile/account.php:101
+msgid "Settings"
+msgstr ""
+
+#: inc/visual_composer.php:1331
+msgid "Share"
+msgstr ""
+
+#: inc/visual_composer.php:1339
+msgid "Share:"
+msgstr ""
+
+#: woocommerce/cart/cart-totals.php:60 woocommerce/cart/cart-totals.php:61
+msgid "Shipping"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:28
+msgid "Shipping address"
+msgstr ""
+
+#: inc/setup.php:74
+msgid "Shop"
+msgstr ""
+
+#: inc/visual_composer.php:505
+msgid "Show comments tags"
+msgstr ""
+
+#: inc/visual_composer.php:1759
+msgid "Show Pagination"
+msgstr ""
+
+#: inc/visual_composer.php:493
+msgid "Show post categories"
+msgstr ""
+
+#: inc/visual_composer.php:487
+msgid "Show post date"
+msgstr ""
+
+#: inc/visual_composer.php:499
+msgid "Show post tags"
+msgstr ""
+
+#: inc/visual_composer.php:1826
+msgid "Sidebar position"
+msgstr ""
+
+#: partials/event-form.php:34
+msgid "Sign Up"
+msgstr ""
+
+#: partials/headers/parts/sign-up.php:6
+msgid "Sign up"
+msgstr ""
+
+#: partials/event-form.php:5
+msgid "Sign up for event"
+msgstr ""
+
+#: inc/visual_composer.php:1269
+msgid "Sign Up Now"
+msgstr ""
+
+#: woocommerce/checkout/payment.php:44
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the <em>Update Totals</em> button before placing your order."
+" You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+
+#: inc/visual_composer.php:1651
+msgid "Skype"
+msgstr ""
+
+#: partials/vc_templates/contact.php:40
+msgid "Skype: "
+msgstr ""
+
+#: inc/visual_composer.php:57
+msgid "Slick slider"
+msgstr ""
+
+#: inc/visual_composer.php:58
+msgid "Slick slider 2"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:336
+msgid "Something went wrong with the plugin API."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:377
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to activate the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:347
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to install the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:362
+#, php-format
+msgid ""
+"Sorry, but you do not have the correct permissions to update the %1$s plugin."
+msgid_plural ""
+"Sorry, but you do not have the correct permissions to update the %1$s "
+"plugins."
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/checkout/form-pay.php:94
+msgid ""
+"Sorry, it seems that there are no available payment methods for your "
+"location. Please contact us if you require assistance or wish to make "
+"alternate arrangements."
+msgstr ""
+
+#: woocommerce/checkout/payment.php:37
+msgid ""
+"Sorry, it seems that there are no available payment methods for your state. "
+"Please contact us if you require assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+
+#: partials/vc_templates/buddypress_groups.php:19
+msgid "Sort by: "
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2445
+msgid "Source"
+msgstr ""
+
+#: inc/custom.php:1932
+msgid "Special"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:201
+msgid "Star"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:202
+#: buddypress/common/js-templates/messages/index.php:203
+msgid "Star Conversation"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:284
+#: buddypress/common/js-templates/messages/index.php:285
+msgid "Star Message"
+msgstr ""
+
+#: woocommerce/content-single-product.php:354
+msgid "Stars"
+msgstr ""
+
+#: partials/searchform.php:9
+msgid "Start typing here..."
+msgstr ""
+
+#: partials/content-event.php:94 partials/vc_templates/event_info.php:32
+msgid "Start:"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:144
+#: paid-memberships-pro/pages/checkout.php:426
+msgid "State"
+msgstr ""
+
+#: partials/frontend_customizer.php:7
+msgid "Static"
+msgstr ""
+
+#: inc/visual_composer.php:684
+msgid "Stats Counter"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2451
+#: woocommerce/myaccount/my-orders.php:15
+#: woocommerce/myaccount/my-orders.php:44
+#: woocommerce/myaccount/my-orders.php:65
+msgid "Status"
+msgstr ""
+
+#: partials/frontend_customizer.php:9
+msgid "Sticky"
+msgstr ""
+
+#: partials/loop-list.php:17 partials/vc_templates/post_list.php:65
+msgid "Sticky Post"
+msgstr ""
+
+#: inc/visual_composer.php:378 inc/visual_composer.php:530
+#: inc/visual_composer.php:687 inc/visual_composer.php:798
+#: inc/visual_composer.php:908 inc/visual_composer.php:931
+#: inc/visual_composer.php:1054 inc/visual_composer.php:1199
+#: inc/visual_composer.php:1231 inc/visual_composer.php:1272
+#: inc/visual_composer.php:1301 inc/visual_composer.php:1317
+#: inc/visual_composer.php:1333 inc/visual_composer.php:1364
+#: inc/visual_composer.php:1381 inc/visual_composer.php:1398
+#: inc/visual_composer.php:1415 inc/visual_composer.php:1465
+#: inc/visual_composer.php:1489 inc/visual_composer.php:1566
+#: inc/visual_composer.php:1616 inc/visual_composer.php:1669
+#: inc/visual_composer.php:1700 inc/visual_composer.php:1727
+#: inc/visual_composer.php:1743 inc/visual_composer.php:1781
+#: inc/visual_composer.php:1816
+msgid "STM"
+msgstr ""
+
+#: inc/visual_composer.php:1950
+msgid "STM Add User"
+msgstr ""
+
+#: inc/visual_composer.php:1951
+msgid "STM Adope PhotoShop"
+msgstr ""
+
+#: inc/visual_composer.php:1928
+msgid "STM Alarm"
+msgstr ""
+
+#: inc/visual_composer.php:1942
+msgid "STM Bike Riding"
+msgstr ""
+
+#: inc/visual_composer.php:1927
+msgid "STM Book"
+msgstr ""
+
+#: inc/visual_composer.php:1957
+msgid "STM Book solid"
+msgstr ""
+
+#: inc/visual_composer.php:1958
+msgid "STM Book stack"
+msgstr ""
+
+#: inc/visual_composer.php:1935
+msgid "STM Brain"
+msgstr ""
+
+#: inc/visual_composer.php:1929
+msgid "STM Briefcase"
+msgstr ""
+
+#: inc/vc/modules/buddypress_groups.php:8
+msgid "STM BuddyPress groups"
+msgstr ""
+
+#: inc/vc/modules/buddypress_instructors.php:8
+msgid "STM BuddyPress instructors"
+msgstr ""
+
+#: inc/visual_composer.php:1922
+msgid "STM Bullhorn"
+msgstr ""
+
+#: inc/visual_composer.php:1919
+msgid "STM Category"
+msgstr ""
+
+#: inc/visual_composer.php:1960 inc/visual_composer.php:1971
+msgid "STM Certificate"
+msgstr ""
+
+#: inc/visual_composer.php:1941
+msgid "STM Champion Medal"
+msgstr ""
+
+#: inc/visual_composer.php:1953
+msgid "STM Chevrone Left"
+msgstr ""
+
+#: inc/visual_composer.php:1952
+msgid "STM Chevrone Right"
+msgstr ""
+
+#: inc/visual_composer.php:1963
+msgid "STM Circle Drawer"
+msgstr ""
+
+#: inc/visual_composer.php:1921
+msgid "STM Clock"
+msgstr ""
+
+#: inc/visual_composer.php:1962
+msgid "STM Comment solid"
+msgstr ""
+
+#: inc/visual_composer.php:1930
+msgid "STM Diamond"
+msgstr ""
+
+#: inc/visual_composer.php:1964
+msgid "STM Diploma Paper"
+msgstr ""
+
+#: inc/visual_composer.php:1967
+msgid "STM Document Edit"
+msgstr ""
+
+#: inc/visual_composer.php:1966
+msgid "STM Dribble"
+msgstr ""
+
+#: inc/visual_composer.php:1931
+msgid "STM Earth"
+msgstr ""
+
+#: inc/visual_composer.php:1959
+msgid "STM Ecommerce cart"
+msgstr ""
+
+#: inc/visual_composer.php:1945
+msgid "STM Fax"
+msgstr ""
+
+#: inc/visual_composer.php:1920
+msgid "STM Film play"
+msgstr ""
+
+#: inc/visual_composer.php:1932
+msgid "STM Graduation Hat"
+msgstr ""
+
+#: inc/visual_composer.php:1949
+msgid "STM Guitar"
+msgstr ""
+
+#: inc/visual_composer.php:1936
+msgid "STM Handshake"
+msgstr ""
+
+#: inc/vc/modules/stm_image_box.php:8
+msgid "STM Image box"
+msgstr ""
+
+#: inc/visual_composer.php:1933
+msgid "STM License"
+msgstr ""
+
+#: inc/visual_composer.php:1972
+msgid "STM Like"
+msgstr ""
+
+#: inc/visual_composer.php:1938
+msgid "STM LinkedIn"
+msgstr ""
+
+#: inc/visual_composer.php:1923
+msgid "STM Mail-o"
+msgstr ""
+
+#: inc/visual_composer.php:1940
+msgid "STM Market Researches"
+msgstr ""
+
+#: inc/visual_composer.php:1973
+msgid "STM Miracle"
+msgstr ""
+
+#: inc/visual_composer.php:1961
+msgid "STM Mountain Climbing"
+msgstr ""
+
+#: inc/visual_composer.php:1937
+msgid "STM Net"
+msgstr ""
+
+#: inc/visual_composer.php:1974
+msgid "STM Notebook"
+msgstr ""
+
+#: inc/visual_composer.php:1943
+msgid "STM Paint Palette"
+msgstr ""
+
+#: inc/visual_composer.php:1944
+msgid "STM Phone"
+msgstr ""
+
+#: inc/visual_composer.php:1924
+msgid "STM Phone-o"
+msgstr ""
+
+#: inc/visual_composer.php:1939
+msgid "STM Pin"
+msgstr ""
+
+#: inc/visual_composer.php:1925
+msgid "STM Pin-o"
+msgstr ""
+
+#: inc/visual_composer.php:1965
+msgid "STM Point Drawer"
+msgstr ""
+
+#: inc/visual_composer.php:454
+msgid "STM Post List"
+msgstr ""
+
+#: inc/visual_composer.php:1975
+msgid "STM question answers"
+msgstr ""
+
+#: inc/visual_composer.php:1946
+msgid "STM SEO monitoring"
+msgstr ""
+
+#: inc/visual_composer.php:1947
+msgid "STM SEO performance up"
+msgstr ""
+
+#: inc/visual_composer.php:1814
+msgid "STM Sidebar"
+msgstr ""
+
+#: inc/visual_composer.php:1926
+msgid "STM Skype-o"
+msgstr ""
+
+#: inc/visual_composer.php:1969
+msgid "STM Small logo"
+msgstr ""
+
+#: inc/visual_composer.php:1976
+msgid "STM Students"
+msgstr ""
+
+#: inc/visual_composer.php:1918 inc/visual_composer.php:1977
+msgid "STM Teacher"
+msgstr ""
+
+#: inc/visual_composer.php:375
+msgid "STM Teacher Details"
+msgstr ""
+
+#: inc/visual_composer.php:322
+msgid "STM Teachers"
+msgstr ""
+
+#: inc/visual_composer.php:392
+msgid "STM Testimonials"
+msgstr ""
+
+#: inc/visual_composer.php:1948
+msgid "STM User"
+msgstr ""
+
+#: inc/visual_composer.php:1934
+msgid "STM Users"
+msgstr ""
+
+#: inc/visual_composer.php:1968
+msgid "STM Users group"
+msgstr ""
+
+#: inc/visual_composer.php:1954
+msgid "STM Viral Marketing"
+msgstr ""
+
+#: inc/visual_composer.php:1955
+msgid "STM Yoga"
+msgstr ""
+
+#: inc/visual_composer.php:1956
+msgid "STM Youtube Play"
+msgstr ""
+
+#: inc/visual_composer.php:34
+msgid "Stretch column"
+msgstr ""
+
+#: inc/visual_composer.php:38
+msgid "Stretch out to the left"
+msgstr ""
+
+#: inc/visual_composer.php:39
+msgid "Stretch out to the right"
+msgstr ""
+
+#: buddypress/members/members-loop.php:29
+msgid "Student"
+msgstr ""
+
+#: woocommerce/content-single-product-meta-side.php:37
+msgid "Students"
+msgstr ""
+
+#: inc/visual_composer.php:222 inc/visual_composer.php:342
+#: inc/visual_composer.php:417 inc/vc/modules/stm_image_box.php:18
+msgid "Style"
+msgstr ""
+
+#. Author of the theme
+msgid "StylemixThemes"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:35
+msgid "Subject"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:77
+#: woocommerce/myaccount/form-lost-password.php:42
+#: woocommerce/myaccount/form-lost-password.php:42
+msgid "Submit"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:841
+msgid "Submit and Check Out"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:843
+msgid "Submit and Confirm"
+msgstr ""
+
+#: woocommerce/product-searchform.php:27
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: inc/vc/modules/buddypress_instructors.php:23
+msgid "Subtitle"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:101
+#: woocommerce/cart/cart-totals.php:38 woocommerce/cart/cart-totals.php:39
+#: woocommerce/cart/mini-cart.php:82 woocommerce/checkout/review-order.php:56
+msgid "Subtotal"
+msgstr ""
+
+#: woocommerce/notices/success.php:31
+msgid "Success"
+msgstr ""
+
+#: inc/visual_composer.php:204
+msgid "Tablet Height"
+msgstr ""
+
+#: partials/loop-grid.php:81 partials/loop-list.php:56
+#: partials/vc_templates/post_list.php:96
+msgid "Tags:"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:103
+msgid "Tax"
+msgstr ""
+
+#: woocommerce/content-product-list.php:164
+#: woocommerce/content-product-list.php:182
+#: woocommerce/content-single-product.php:114
+msgid "Teacher"
+msgstr ""
+
+#: inc/visual_composer.php:1747
+msgid "Teacher per page"
+msgstr ""
+
+#: partials/title_box.php:40 woocommerce/content-single-product.php:105
+msgid "Teachers"
+msgstr ""
+
+#: inc/visual_composer.php:1740
+msgid "Teachers Grid"
+msgstr ""
+
+#: inc/visual_composer.php:1520 partials/vc_templates/course_lesson.php:71
+msgid "Test"
+msgstr ""
+
+#: inc/visual_composer.php:663
+msgid "Text"
+msgstr ""
+
+#: inc/visual_composer.php:737
+msgid "Text alignment"
+msgstr ""
+
+#: inc/visual_composer.php:744
+msgid "Text alignment in block"
+msgstr ""
+
+#: inc/visual_composer.php:976
+msgid "Text box Align"
+msgstr ""
+
+#: inc/visual_composer.php:411
+msgid "Text Color"
+msgstr ""
+
+#: inc/visual_composer.php:748
+msgid "Text color"
+msgstr ""
+
+#: inc/visual_composer.php:750
+msgid "Text color(white - default)"
+msgstr ""
+
+#: inc/visual_composer.php:760
+msgid "Text font size (px)"
+msgstr ""
+
+#: vc_templates/vc_cta_button2.php:11
+msgid "Text on the button"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:13
+#, php-format
+msgid "Thank you for your membership to %s. Your %s membership is now active."
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:47 woocommerce/checkout/thankyou.php:90
+msgid "Thank you. Your order has been received."
+msgstr ""
+
+#: partials/vc_templates/course_lesson.php:159
+msgid ""
+"The content of this lesson is locked. To unlock it, you need to Buy this "
+"Course."
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:41
+msgid "The following addresses will be used on the checkout page by default."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:352
+#, php-format
+msgid ""
+"The following plugin needs to be updated to its latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgid_plural ""
+"The following plugins need to be updated to their latest version to ensure "
+"maximum compatibility with this theme: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:400 inc/tgm/tgm-plugin-activation.php:2840
+msgid "The following plugin was activated successfully:"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:372
+#, php-format
+msgid "The following recommended plugin is currently inactive: %1$s."
+msgid_plural "The following recommended plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:367
+#, php-format
+msgid "The following required plugin is currently inactive: %1$s."
+msgid_plural "The following required plugins are currently inactive: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:3378
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3374
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3384
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: 404.php:9
+msgid "The page you are looking for does not exist."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:935
+msgid ""
+"The remote plugin package consists of more than one file, but the files are "
+"not packaged in a folder."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:932
+msgid ""
+"The remote plugin package does not contain a folder with the desired slug "
+"and renaming did not work."
+msgstr ""
+
+#: inc/visual_composer.php:236
+msgid "Theme Button"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:53
+msgid "There are no reviews yet."
+msgstr ""
+
+#: woocommerce/cart/cart-shipping.php:63
+msgid ""
+"There are no shipping methods available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:357
+#, php-format
+msgid "There is an update available for: %1$s."
+msgid_plural "There are updates available for the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/cart/cart-shipping.php:54
+msgid "This is only an estimate. Prices will be updated during checkout."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:520
+msgid "This plugin needs to be updated to be compatible with your theme."
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:438
+msgid ""
+"This subscription is not recurring. So you don't need to update your billing "
+"information."
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:342
+#, php-format
+msgid "This theme recommends the following plugin: %1$s."
+msgid_plural "This theme recommends the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:337
+#, php-format
+msgid "This theme requires the following plugin: %1$s."
+msgid_plural "This theme requires the following plugins: %1$s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/visual_composer.php:1535
+msgid ""
+"This video will be opened in popup by clicking \"Preview\" button (just "
+"insert link to the video)"
+msgstr ""
+
+#: inc/visual_composer.php:63
+msgid "Thumbnail size"
+msgstr ""
+
+#: partials/vc_templates/countdown.php:23
+msgid "Time is up, sorry!"
+msgstr ""
+
+#: inc/visual_composer.php:308 inc/visual_composer.php:535
+#: inc/visual_composer.php:692 inc/visual_composer.php:1203
+#: inc/visual_composer.php:1276 inc/visual_composer.php:1337
+#: inc/visual_composer.php:1673 inc/vc/modules/buddypress_groups.php:18
+#: inc/vc/modules/buddypress_instructors.php:18
+#: inc/vc/modules/stm_image_box.php:45
+msgid "Title"
+msgstr ""
+
+#: inc/visual_composer.php:1208
+msgid "Title color"
+msgstr ""
+
+#: inc/visual_composer.php:545
+msgid "Title Holder"
+msgstr ""
+
+#: inc/visual_composer.php:331 inc/visual_composer.php:401
+msgid "Title will be shown on the top of section"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2297
+#, php-format
+msgid "To Activate <span class=\"count\">(%s)</span>"
+msgid_plural "To Activate <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/tgm/tgm-plugin-activation.php:2291
+#, php-format
+msgid "To Install <span class=\"count\">(%s)</span>"
+msgid_plural "To Install <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: buddypress/common/js-templates/messages/index.php:140
+msgid "To:"
+msgstr ""
+
+#: inc/visual_composer.php:562
+msgid "Top"
+msgstr ""
+
+#: partials/headers/parts/data_info.php:21
+#, php-format
+msgctxt "Top bar address"
+msgid "%s"
+msgstr ""
+
+#: partials/headers/parts/data_info.php:26
+#, php-format
+msgctxt "Top bar phone"
+msgid "%s"
+msgstr ""
+
+#: partials/headers/parts/data_info.php:16
+#, php-format
+msgctxt "Top bar Working hours"
+msgid "%s"
+msgstr ""
+
+#: inc/setup.php:34
+msgid "Top primary menu"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:108
+#: woocommerce/cart/cart-totals.php:97 woocommerce/cart/cart-totals.php:98
+#: woocommerce/cart/cart.php:33 woocommerce/cart/cart.php:124
+#: woocommerce/checkout/review-order.php:24
+#: woocommerce/checkout/review-order.php:103
+#: woocommerce/myaccount/my-orders.php:16
+#: woocommerce/myaccount/my-orders.php:45
+#: woocommerce/myaccount/my-orders.php:68
+msgid "Total"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:98
+msgid "Total Billed"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:69
+msgid "Total:"
+msgstr ""
+
+#: woocommerce/checkout/form-pay.php:29
+msgid "Totals"
+msgstr ""
+
+#: inc/visual_composer.php:97 inc/tgm/tgm-plugin-activation.php:2446
+msgid "Type"
+msgstr ""
+
+#: inc/visual_composer.php:100
+msgid "Type 1"
+msgstr ""
+
+#: inc/visual_composer.php:101
+msgid "Type 2"
+msgstr ""
+
+#: inc/theme-config.php:44
+msgid "Udemy Affiliate"
+msgstr ""
+
+#: woocommerce/checkout/thankyou.php:34
+msgid ""
+"Unfortunately your order cannot be processed as the originating "
+"bank/merchant has declined your transaction. Please attempt your purchase "
+"again."
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:190
+msgid "Unstar"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:192
+#: buddypress/common/js-templates/messages/index.php:193
+msgid "Unstar Conversation"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:280
+#: buddypress/common/js-templates/messages/index.php:281
+msgid "Unstar Message"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2617
+#: paid-memberships-pro/pages/billing.php:420
+msgid "Update"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2294
+#, php-format
+msgid "Update Available <span class=\"count\">(%s)</span>"
+msgid_plural "Update Available <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/cart/cart.php:147
+msgid "Update cart"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2235
+msgid "Update recommended"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:521
+msgid "Update Required"
+msgstr ""
+
+#: woocommerce/checkout/payment.php:45
+msgid "Update totals"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:3371
+#, php-format
+msgid "Updating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2578
+msgid "Upgrade message from the plugin author:"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:226
+#: woocommerce/myaccount/form-login.php:78
+msgid "Username"
+msgstr ""
+
+#: woocommerce/global/form-login.php:35
+#: woocommerce/myaccount/form-lost-password.php:30
+msgid "Username or email"
+msgstr ""
+
+#: woocommerce/myaccount/form-login.php:39
+msgid "Username or email address"
+msgstr ""
+
+#: woocommerce/single-product/review.php:34
+msgid "verified owner"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2450
+msgid "Version"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:93
+msgid "Very poor"
+msgstr ""
+
+#: inc/visual_composer.php:1521 partials/vc_templates/course_lesson.php:72
+msgid "Video"
+msgstr ""
+
+#: woocommerce/content-single-product-meta-side.php:70
+msgid "Video:"
+msgstr ""
+
+#: woocommerce/myaccount/my-orders.php:91
+#: buddypress/common/js-templates/messages/index.php:212
+msgid "View"
+msgstr ""
+
+#: partials/vc_templates/experts.php:66
+msgid "View all"
+msgstr ""
+
+#: partials/vc_templates/experts.php:65
+msgid "View all teachers"
+msgstr ""
+
+#: woocommerce/cart/mini-cart.php:87
+msgid "View Cart"
+msgstr ""
+
+#: woocommerce/content-product-list.php:128 woocommerce/content-product.php:151
+#: woocommerce/content-product.php:163
+#: partials/vc_templates/featured_products.php:145
+#: partials/vc_templates/featured_products.php:155
+#: partials/vc_templates/product_categories.php:85
+#: partials/vc_parts/product_categories/stm_vc_product_cat_card.php:34
+msgid "View course"
+msgstr ""
+
+#: woocommerce/content-single-product.php:216
+#: partials/vc_templates/teachers_grid.php:54
+msgid "View expert on"
+msgstr ""
+
+#: partials/loop-teacher.php:25 woocommerce/content-single-product.php:265
+#: partials/vc_templates/experts.php:104
+#: partials/vc_templates/teacher_detail.php:27
+#, php-format
+msgid "View expert on %s"
+msgstr ""
+
+#: partials/loop-events.php:27 partials/loop-list.php:5
+#: partials/vc_templates/events_grid.php:24
+msgid "View full"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:213
+#: buddypress/common/js-templates/messages/index.php:214
+msgid "View full conversation and reply."
+msgstr ""
+
+#: woocommerce/content-product.php:218
+#: partials/vc_templates/featured_products.php:213
+#: partials/vc_templates/featured_products.php:213
+msgid "View more"
+msgstr ""
+
+#: partials/vc_templates/post_list.php:45
+msgid "View post details"
+msgstr ""
+
+#: partials/vc_templates/experts.php:114
+msgid "View teacher page"
+msgstr ""
+
+#: inc/visual_composer.php:935 inc/visual_composer.php:1106
+msgid "View type"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:162
+msgid "View Your Account"
+msgstr ""
+
+#: woocommerce/content-single-product.php:199
+#: woocommerce/content-single-product.php:249
+msgid "Watch Expert Page"
+msgstr ""
+
+#: partials/loop-grid.php:32
+msgid "Watch full"
+msgstr ""
+
+#: partials/loop-gallery.php:10 partials/vc_templates/gallery_grid.php:77
+msgid "Watch full image"
+msgstr ""
+
+#: partials/loop-teacher.php:15 partials/loop-teacher.php:34
+#: partials/vc_templates/teachers_grid.php:44
+#: partials/vc_templates/teachers_grid.php:63
+msgid "Watch teacher page"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:585
+#, php-format
+msgid "We Accept %s"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:284
+#, php-format
+msgid "We accept %s"
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:406
+#: paid-memberships-pro/pages/checkout.php:724
+msgid "what's this?"
+msgstr ""
+
+#: inc/visual_composer.php:86
+msgid "Width & Responsiveness"
+msgstr ""
+
+#: inc/setup.php:76
+msgid "Woocommerce pages sidebar"
+msgstr ""
+
+#: inc/tgm/tgm-plugin-activation.php:2194
+msgid "WordPress Repository"
+msgstr ""
+
+#: inc/visual_composer.php:156
+msgid "Yes"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:331
+#, php-format
+msgid ""
+"You are logged in as <strong>%s</strong>. If you would like to use a "
+"different account for this membership, <a href=\"%s\">%s</a>."
+msgstr ""
+
+#: inc/visual_composer.php:1541
+msgid "You can change standart placeholder to your custom text"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:78
+msgid "You have not set up this type of address yet."
+msgstr ""
+
+#: woocommerce/single-product/up-sells.php:27
+msgid "You may also like&hellip;"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:83
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/single-product/review.php:56
+msgid "Your comment is awaiting approval"
+msgstr ""
+
+#: inc/custom.php:65
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: paid-memberships-pro/pages/levels.php:53
+msgid "Your Level"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:59
+msgid "Your order"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:11
+msgid ""
+"Your payment has been submitted. Your membership will be activated shortly."
+msgstr ""
+
+#: paid-memberships-pro/pages/billing.php:82
+#: paid-memberships-pro/pages/billing.php:83
+msgid ""
+"Your payment subscription is managed by PayPal. Please login to PayPal to "
+"update your billing information."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:87
+msgid "Your rating"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:97
+msgid "Your Review"
+msgstr ""

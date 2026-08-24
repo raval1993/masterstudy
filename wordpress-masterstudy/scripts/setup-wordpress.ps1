@@ -34,7 +34,7 @@ if ! wp core is-installed --allow-root >/dev/null 2>&1; then
 fi
 
 wp theme activate masterstudy --allow-root
-wp plugin install masterstudy-lms-learning-management-system --activate --allow-root
+wp plugin activate masterstudy-lms-learning-management-system --allow-root
 wp plugin activate course-automation-publisher --allow-root
 wp rewrite structure '/%postname%/' --allow-root
 wp rewrite flush --allow-root

@@ -1,0 +1,301 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/instructors-grid",
+  "version": "0.1.2",
+  "title": "MasterStudy Instructors Grid",
+  "category": "masterstudy-lms-blocks",
+  "description": "Use this block to display your instructors in a grid layout and set up its look.",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "instructorPerPage": {
+      "type": "string",
+      "default": "all",
+      "enum": [
+        "all",
+        "quantity"
+      ]
+    },
+    "quantity": {
+      "type": "number",
+      "default": 8
+    },
+    "instructorsPerRow": {
+      "type": "number",
+      "default": 4
+    },
+    "instructorsPerRowTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "instructorsPerRowMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "registered_date desc"
+    },
+    "instructors": {
+      "type": "array",
+      "default": []
+    },
+    "layoutMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPadding": {
+      "type": "object",
+      "default": {
+        "top": "100",
+        "right": "0",
+        "bottom": "100",
+        "left": "0"
+      }
+    },
+    "layoutPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "70",
+        "right": "0",
+        "bottom": "70",
+        "left": "0"
+      }
+    },
+    "layoutPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "50",
+        "right": "0",
+        "bottom": "50",
+        "left": "0"
+      }
+    },
+    "layoutPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "cardGap": {
+      "type": "number",
+      "default": 30
+    },
+    "cardGapTablet": {
+      "type": "number",
+      "default": null
+    },
+    "cardGapMobile": {
+      "type": "number",
+      "default": null
+    },
+    "cardGapUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "cardGapUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "cardGapUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBackground": {
+      "type": "string",
+      "default": "#EEF1F7"
+    },
+    "layoutBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "layoutBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutWidth": {
+      "type": "string",
+      "default": "alignfull"
+    },
+    "layoutWidthTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutWidthMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutZIndex": {
+      "type": "number",
+      "default": null
+    },
+    "layoutZIndexTablet": {
+      "type": "number",
+      "default": null
+    },
+    "layoutZIndexMobile": {
+      "type": "number",
+      "default": null
+    }
+  },
+  "keywords": [
+    "lms",
+    "tab",
+    "instructors",
+    "grid",
+    "masterstudy"
+  ],
+  "example": {},
+  "providesContext": {
+    "masterstudy/instructorPerPage": "instructorPerPage",
+    "masterstudy/quantity": "quantity",
+    "masterstudy/instructorsPerRow": "instructorsPerRow",
+    "masterstudy/instructorsPerRowTablet": "instructorsPerRowTablet",
+    "masterstudy/instructorsPerRowMobile": "instructorsPerRowMobile",
+    "masterstudy/orderBy": "orderBy",
+    "masterstudy/instructors": "instructors"
+  },
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

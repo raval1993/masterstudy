@@ -1,0 +1,2615 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/courses-search-container",
+  "version": "0.1.0",
+  "title": "MasterStudy Courses Search",
+  "category": "masterstudy-lms-blocks",
+  "icon": "store",
+  "description": "Customize how course search will look on the page",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "courseSearchPresets": {
+      "type": "string",
+      "enum": [
+        "buttonInside",
+        "buttonInsideLeft",
+        "buttonOutside",
+        "buttonCompact"
+      ],
+      "default": "buttonInside"
+    },
+    "coursesSearchCategory": {
+      "type": "boolean",
+      "default": true
+    },
+    "coursesSearchPopup": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchPopupStyle": {
+      "type": "array",
+      "default": "default",
+      "enum": [
+        "default",
+        "with_sidebar"
+      ]
+    },
+    "coursesSearchOptions": {
+      "type": "array",
+      "default": []
+    },
+    "coursesSearchValues": {
+      "type": "array",
+      "default": []
+    },
+    "coursesSearchMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchPadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchBackground": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "coursesSearchBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchWidth": {
+      "type": "string",
+      "default": "alignauto"
+    },
+    "coursesSearchWidthTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchWidthMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchAlign": {
+      "type": "string",
+      "default": "center"
+    },
+    "coursesSearchMaxWidth": {
+      "type": "number",
+      "default": 370
+    },
+    "coursesSearchMaxWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchZIndex": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchZIndexTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchZIndexMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldFontSize": {
+      "type": "number",
+      "default": 14
+    },
+    "coursesSearchFieldFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldFontWeight": {
+      "type": "string",
+      "default": "500"
+    },
+    "coursesSearchFieldTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldLineHeight": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchFieldLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldColor": {
+      "type": "string",
+      "default": "#001931"
+    },
+    "coursesSearchFieldPlaceholderColor": {
+      "type": "string",
+      "default": "#B3BAC2"
+    },
+    "coursesSearchFieldBackground": {
+      "type": "string",
+      "default": "#FFFFFF"
+    },
+    "coursesSearchFieldBorderStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "coursesSearchFieldBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldBorderColor": {
+      "type": "string",
+      "default": "#DBE0E9"
+    },
+    "coursesSearchFieldBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "0"
+      }
+    },
+    "coursesSearchFieldBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "4",
+        "bottom": "4",
+        "left": "0"
+      }
+    },
+    "coursesSearchFieldBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldPadding": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "20"
+      }
+    },
+    "coursesSearchFieldPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldShadowColor": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldShadowColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldShadowColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldShadowHorizontal": {
+      "type": "number",
+      "default": 8
+    },
+    "coursesSearchFieldShadowHorizontalTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldShadowHorizontalMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldShadowVertical": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldShadowVerticalTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldShadowVerticalMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldShadowBlur": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchFieldShadowBlurTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldShadowBlurMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldShadowSpread": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldShadowSpreadTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldShadowSpreadMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldShadowInset": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchFieldShadowInsetTablet": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchFieldShadowInsetMobile": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchFieldDropdownFontSize": {
+      "type": "number",
+      "default": 14
+    },
+    "coursesSearchFieldDropdownFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownFontWeight": {
+      "type": "string",
+      "default": "500"
+    },
+    "coursesSearchFieldDropdownTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldDropdownFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldDropdownTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldDropdownLineHeight": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchFieldDropdownLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldDropdownLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldDropdownWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownColor": {
+      "type": "string",
+      "default": "#001931"
+    },
+    "coursesSearchFieldDropdownColorHover": {
+      "type": "string",
+      "default": "#227AFF"
+    },
+    "coursesSearchFieldDropdownBackground": {
+      "type": "string",
+      "default": "#FFFFFF"
+    },
+    "coursesSearchFieldDropdownBorderStyle": {
+      "type": "string",
+      "default": "solid"
+    },
+    "coursesSearchFieldDropdownBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldDropdownBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldDropdownBorderColor": {
+      "type": "string",
+      "default": "#DBE0E9"
+    },
+    "coursesSearchFieldDropdownBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldDropdownBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldDropdownBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "1",
+        "right": "1",
+        "bottom": "1",
+        "left": "1"
+      }
+    },
+    "coursesSearchFieldDropdownBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldDropdownBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldDropdownBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "4",
+        "right": "4",
+        "bottom": "4",
+        "left": "4"
+      }
+    },
+    "coursesSearchFieldDropdownBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldDropdownBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldDropdownBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownMargin": {
+      "type": "object",
+      "default": {
+        "top": "5",
+        "right": "0",
+        "bottom": "0",
+        "left": "0"
+      }
+    },
+    "coursesSearchFieldDropdownMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldDropdownMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldDropdownMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownPadding": {
+      "type": "object",
+      "default": {
+        "top": "10",
+        "right": "10",
+        "bottom": "10",
+        "left": "10"
+      }
+    },
+    "coursesSearchFieldDropdownPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldDropdownPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldDropdownPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldDropdownShadowColor": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldDropdownShadowColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldDropdownShadowColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldDropdownShadowHorizontal": {
+      "type": "number",
+      "default": 8
+    },
+    "coursesSearchFieldDropdownShadowHorizontalTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownShadowHorizontalMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownShadowVertical": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldDropdownShadowVerticalTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownShadowVerticalMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownShadowBlur": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchFieldDropdownShadowBlurTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownShadowBlurMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownShadowSpread": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldDropdownShadowSpreadTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownShadowSpreadMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldDropdownShadowInset": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchFieldDropdownShadowInsetTablet": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchFieldDropdownShadowInsetMobile": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchFieldButtonFontSize": {
+      "type": "number",
+      "default": 14
+    },
+    "coursesSearchFieldButtonFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "coursesSearchFieldButtonTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldButtonFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldButtonTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchFieldButtonLineHeight": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchFieldButtonLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldButtonLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldButtonWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonColor": {
+      "type": "string",
+      "default": "#001931"
+    },
+    "coursesSearchFieldButtonColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBackground": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBackgroundHover": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonWidth": {
+      "type": "number",
+      "default": 40
+    },
+    "coursesSearchFieldButtonWidthTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonWidthMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonWidthTabletUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonWidthMobileUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonHeight": {
+      "type": "number",
+      "default": 40
+    },
+    "coursesSearchFieldButtonHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonHeightTabletUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonHeightMobileUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "coursesSearchFieldButtonBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderStyleHover": {
+      "type": "string",
+      "default": "none"
+    },
+    "coursesSearchFieldButtonBorderStyleHoverTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderStyleHoverMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderColorHoverTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderColorHoverMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonBorderWidthHover": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonBorderWidthHoverTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonBorderWidthHoverMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonBorderWidthHoverUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderWidthUnitHoverTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderWidthUnitHoverMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "4",
+        "right": "4",
+        "bottom": "4",
+        "left": "4"
+      }
+    },
+    "coursesSearchFieldButtonBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonMargin": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0"
+      }
+    },
+    "coursesSearchFieldButtonMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonPadding": {
+      "type": "object",
+      "default": {
+        "top": "10",
+        "right": "10",
+        "bottom": "10",
+        "left": "10"
+      }
+    },
+    "coursesSearchFieldButtonPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchFieldButtonPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchFieldButtonShadowColor": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonShadowColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonShadowColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchFieldButtonShadowHorizontal": {
+      "type": "number",
+      "default": 8
+    },
+    "coursesSearchFieldButtonShadowHorizontalTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonShadowHorizontalMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonShadowVertical": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldButtonShadowVerticalTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonShadowVerticalMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonShadowBlur": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchFieldButtonShadowBlurTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonShadowBlurMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonShadowSpread": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchFieldButtonShadowSpreadTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonShadowSpreadMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchFieldButtonShadowInset": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchFieldButtonShadowInsetTablet": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchFieldButtonShadowInsetMobile": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchCategoryButtonFontSize": {
+      "type": "number",
+      "default": 14
+    },
+    "coursesSearchCategoryButtonFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonFontWeight": {
+      "type": "string",
+      "default": "500"
+    },
+    "coursesSearchCategoryButtonTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchCategoryButtonFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchCategoryButtonTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchCategoryButtonLineHeight": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchCategoryButtonLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchCategoryButtonLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchCategoryButtonWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonColor": {
+      "type": "string",
+      "default": "#001931"
+    },
+    "coursesSearchCategoryButtonColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBackground": {
+      "type": "string",
+      "default": "#EEF1F7"
+    },
+    "coursesSearchCategoryButtonBackgroundHover": {
+      "type": "string",
+      "default": "#e7eaf1"
+    },
+    "coursesSearchCategoryButtonIconFontSize": {
+      "type": "number",
+      "default": 15
+    },
+    "coursesSearchCategoryButtonIconFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonIconFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryButtonIconFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonIconFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonIconFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonIconColor": {
+      "type": "string",
+      "default": "#001931"
+    },
+    "coursesSearchCategoryButtonIconColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "coursesSearchCategoryButtonBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonBorderStyleHover": {
+      "type": "string",
+      "default": "none"
+    },
+    "coursesSearchCategoryButtonBorderStyleHoverTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderStyleHoverMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderColorHoverTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderColorHoverMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryButtonBorderWidthHover": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonBorderWidthHoverTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonBorderWidthHoverMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonBorderWidthHoverUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonBorderWidthHoverUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonBorderWidthHoverUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "4",
+        "right": "0",
+        "bottom": "0",
+        "left": "4"
+      }
+    },
+    "coursesSearchCategoryButtonBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonPadding": {
+      "type": "object",
+      "default": {
+        "top": "11",
+        "right": "20",
+        "bottom": "11",
+        "left": "20"
+      }
+    },
+    "coursesSearchCategoryButtonPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryButtonPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "5",
+        "bottom": "0",
+        "left": "5"
+      }
+    },
+    "coursesSearchCategoryButtonPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryButtonPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownWidth": {
+      "type": "number",
+      "default": 240
+    },
+    "coursesSearchCategoryDropdownWidthTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownWidthMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownWidthTabletUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownWidthMobileUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownFontSize": {
+      "type": "number",
+      "default": 13
+    },
+    "coursesSearchCategoryDropdownFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "coursesSearchCategoryDropdownTextTransform": {
+      "type": "string",
+      "default": "uppercase"
+    },
+    "coursesSearchCategoryDropdownFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchCategoryDropdownTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchCategoryDropdownLineHeight": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchCategoryDropdownLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchCategoryDropdownLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchCategoryDropdownWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "coursesSearchCategoryDropdownColorHover": {
+      "type": "string",
+      "default": "#234dd4"
+    },
+    "coursesSearchCategoryDropdownBackground": {
+      "type": "string",
+      "default": "#227aff"
+    },
+    "coursesSearchCategoryDropdownBackgroundHover": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "coursesSearchCategoryDropdownBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "coursesSearchCategoryDropdownBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownPadding": {
+      "type": "object",
+      "default": {
+        "top": "10",
+        "right": "30",
+        "bottom": "10",
+        "left": "30"
+      }
+    },
+    "coursesSearchCategoryDropdownPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsFontSize": {
+      "type": "number",
+      "default": 16
+    },
+    "coursesSearchCategoryDropdownChildsFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownChildsFontSizeMobile": {
+      "type": "number",
+      "default": 14
+    },
+    "coursesSearchCategoryDropdownChildsFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsFontWeight": {
+      "type": "string",
+      "default": "500"
+    },
+    "coursesSearchCategoryDropdownChildsTextTransform": {
+      "type": "string",
+      "default": "none"
+    },
+    "coursesSearchCategoryDropdownChildsFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchCategoryDropdownChildsTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "coursesSearchCategoryDropdownChildsLineHeight": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchCategoryDropdownChildsLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownChildsLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownChildsLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchCategoryDropdownChildsLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownChildsLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownChildsLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchCategoryDropdownChildsWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownChildsWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownChildsWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsColor": {
+      "type": "string",
+      "default": "#4D5E6F"
+    },
+    "coursesSearchCategoryDropdownChildsColorHover": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownChildsBackground": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "coursesSearchCategoryDropdownChildsHeightTabletUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsHeightMobileUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "coursesSearchCategoryDropdownChildsBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownChildsBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownChildsBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownChildsBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownChildsBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownChildsBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownChildsBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownChildsBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownChildsBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownChildsBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownChildsBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownChildsBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsPadding": {
+      "type": "object",
+      "default": {
+        "top": "40",
+        "right": "40",
+        "bottom": "40",
+        "left": "40"
+      }
+    },
+    "coursesSearchCategoryDropdownChildsPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchCategoryDropdownChildsPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "10",
+        "right": "30",
+        "bottom": "30",
+        "left": "30"
+      }
+    },
+    "coursesSearchCategoryDropdownChildsPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownChildsPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchCategoryDropdownShadowColor": {
+      "type": "string",
+      "default": "#00000040"
+    },
+    "coursesSearchCategoryDropdownShadowColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownShadowColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "coursesSearchCategoryDropdownShadowHorizontal": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchCategoryDropdownShadowHorizontalTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownShadowHorizontalMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownShadowVertical": {
+      "type": "number",
+      "default": 20
+    },
+    "coursesSearchCategoryDropdownShadowVerticalTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownShadowVerticalMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownShadowBlur": {
+      "type": "number",
+      "default": 50
+    },
+    "coursesSearchCategoryDropdownShadowBlurTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownShadowBlurMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownShadowSpread": {
+      "type": "number",
+      "default": 0
+    },
+    "coursesSearchCategoryDropdownShadowSpreadTablet": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownShadowSpreadMobile": {
+      "type": "number",
+      "default": null
+    },
+    "coursesSearchCategoryDropdownShadowInset": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchCategoryDropdownShadowInsetTablet": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchCategoryDropdownShadowInsetMobile": {
+      "type": "boolean",
+      "default": false
+    },
+    "coursesSearchPopupBackground": {
+      "type": "string",
+      "default": "#000000cc"
+    },
+    "coursesSearchPopupSidebarPadding": {
+      "type": "object",
+      "default": {
+        "top": "20",
+        "right": "20",
+        "bottom": "20",
+        "left": "20"
+      }
+    },
+    "coursesSearchPopupSidebarPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchPopupSidebarPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "coursesSearchPopupSidebarPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchPopupSidebarPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchPopupSidebarPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "coursesSearchPopupSidebarBackground": {
+      "type": "string",
+      "default": "#2D2D2DCC"
+    }
+  },
+  "keywords": [
+    "lms",
+    "tab",
+    "course search",
+    "categories",
+    "masterstudy"
+  ],
+  "example": {},
+  "providesContext": {},
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

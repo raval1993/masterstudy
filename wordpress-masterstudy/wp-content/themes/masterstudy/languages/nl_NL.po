@@ -1,0 +1,4384 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Master Study\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-27 10:16+0000\n"
+"PO-Revision-Date: 2021-07-28 10:21+0000\n"
+"Language-Team: Dutch\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"Last-Translator: Stylemix Themes\n"
+"Language: nl_NL\n"
+"X-Loco-Version: 2.3.3; wp-5.4.1"
+
+#: woocommerce/order/tracking.php:25
+msgid " ago"
+msgstr "geleden"
+
+#: inc/admin/product_registration/screens/system_status.php:141
+#: inc/admin/product_registration/screens/system_status.php:177
+#: inc/admin/product_registration/screens/system_status.php:206
+#, php-format
+msgid ""
+"%1$s - Recommended Value: %2$s.<br />Max input vars limitation will truncate "
+"POST data such as menus. See: <a href=\"%3$s\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">Increasing max input vars limit.</a>"
+msgstr ""
+"%1$s - Aanbevolen Waarde: %2$s.<br />Maximale invoer vars beperking zal "
+"BERICHT data, zoals menu’s, afknotten. Zie <a href=\"%3$s\" "
+"target=\"_blank\" rel=\"noopener noreferrer\">Verhogen maximale invoer vars "
+"limiet.</a>"
+
+#: inc/admin/product_registration/screens/system_status.php:221
+#, php-format
+msgid ""
+"%1$s - Recommended Value: %2$s.<br />Post Max Value Length limitation may "
+"prohibit the Theme Options data from being saved to your database. See: <a "
+"href=\"%3$s\" target=\"_blank\" rel=\"noopener noreferrer\">Suhosin "
+"Configuration Info</a>."
+msgstr ""
+"%1$s - Aanbevolen Waarde: %2$s.<br />Bericht Maximale Waarde Lengte "
+"beperking kan de Theme Opties data verhinderen om te worden bewaard in uw "
+"database. Zie: <a href=\"%3$s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Suhosin Configuratie Info</a>."
+
+#: inc/admin/product_registration/screens/system_status.php:109
+#, php-format
+msgid ""
+"%1$s - We recommend setting max execution time to at least 180. <br /> To "
+"import classic demo content, <strong>300</strong> seconds of max execution "
+"time is required.<br />See: <a href=\"%2$s\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">Increasing max execution to PHP</a>"
+msgstr ""
+"%1$s - We raden aan om de maximale uitvoertijd tenminste op 180 in te "
+"stellen. <br /> Om inhoud van klassieke demo te importeren, is <strong>"
+"300</strong> seconden maximale uitvoertijd vereist.<br /> Zie: <a "
+"href=\"%2$s\" target=\"_blank\" rel=\"noopener noreferrer\">verhogen "
+"maximale uitvoer naar PHP</a>"
+
+#: inc/admin/product_registration/screens/system_status.php:48
+#, php-format
+msgid ""
+"%1$s - We recommend setting memory to at least <strong>128MB</strong>. <br />"
+" To import classic demo data, <strong>256MB</strong> of memory limit is "
+"required. <br /> Please define memory limit in <strong>wp-config.php</strong>"
+" file. To learn how, see: <a href=\"%2$s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">Increasing memory allocated to PHP.</a>"
+msgstr ""
+"%1$s - We raden aan om de geheugeninstelling tenminste op <strong>"
+"128MB</strong> in te stellen. <br /> Om klassieke demo data te importeren, "
+"is  <strong>256MB</strong> geheugenlimiet vereist. <br /> Definieer het "
+"geheugenlimiet in het <strong>wp-config.php</strong> bestand. Om te leren "
+"hoe dit moet, zie: <a href=\"%2$s\" target=\"_blank\" rel=\"noopener "
+"noreferrer\">voor het verhogen van het geheugen dat toegewezen is aan PHP."
+"</a>"
+
+#: inc/custom.php:39
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s op %2$s"
+
+#: paid-memberships-pro/pages/checkout.php:77
+#, php-format
+msgid "%d %s"
+msgstr "%d %s"
+
+#: woocommerce/single-product/review.php:61
+#: woocommerce/single-product/review.php:62
+#, php-format
+msgctxt "%s = human-readable time difference"
+msgid "%s ago"
+msgstr "%s geleden"
+
+#: inc/admin/product_registration/screens/support.php:15
+#, php-format
+msgid ""
+"%s comes with 6 months of free support for every license you purchase. "
+"Support can be extended through subscriptions via ThemeForest."
+msgstr ""
+"%s wordt geleverd met 6 maanden gratis ondersteuning voor iedere licentie "
+"die u koopt. Ondersteuning kan worden verlengd door middel van abonnementen "
+"via ThemeForest."
+
+#: partials/vc_parts/courses_categories/style_1.php:59
+#: partials/vc_parts/courses_categories/style_2.php:69
+#, php-format
+msgid "%s Courses"
+msgstr "%s Cursussen"
+
+#: woocommerce/single-product/rating.php:41
+#, php-format
+msgid "%s customer review"
+msgid_plural "%s customer reviews"
+msgstr[0] "op basis van %s klantenbeoordeling"
+msgstr[1] "op basis van %s klantenbeoordelingen"
+
+#: woocommerce/myaccount/my-downloads.php:42
+#, php-format
+msgid "%s download remaining"
+msgid_plural "%s downloads remaining"
+msgstr[0] "%s download over"
+msgstr[1] "%s downloads over"
+
+#: paid-memberships-pro/pages/billing.php:50
+#, php-format
+msgid "%s every %d %s."
+msgstr "%s iedere %d %s."
+
+#: woocommerce/myaccount/my-orders.php:69
+#, php-format
+msgid "%s for %s item"
+msgid_plural "%s for %s items"
+msgstr[0] "%s voor %s item"
+msgstr[1] "%s voor %s items"
+
+#: inc/admin/product_registration/includes/admin_screens.php:167
+#, php-format
+msgid ""
+"%s is now installed and ready to use! Get ready to build something beautiful."
+" Please register your purchase to get automatic theme updates, import %1$s "
+"demos and install premium plugins. Read below for additional information. We "
+"hope you enjoy it! %s"
+msgstr ""
+"%s is nu geïnstalleerd en klaar voor gebruik! Wees klaar om iets moois te "
+"maken. Registreer uw aankoop om automatisch thema updates te ontvangen, "
+"importeer %1$s demo’s en installeer premium plugins. Lees hieronder voor "
+"extra informatie. We hopen dat u het leuk vindt! %s"
+
+#: paid-memberships-pro/pages/billing.php:52
+#, php-format
+msgid "%s per %s."
+msgstr "%s per %s."
+
+#: partials/vc_parts/product_categories/stm_vc_product_cat_card.php:29
+#, php-format
+msgid "%s Program"
+msgid_plural "%s Programs"
+msgstr[0] "%s Programma"
+msgstr[1] "%s Program's"
+
+#: inc/admin/product_registration/includes/envato-market/inc/github.php:294
+#, php-format
+msgid ""
+"%sActivate the Envato Market plugin%s to get updates for your ThemeForest "
+"and CodeCanyon items."
+msgstr ""
+"%sActiveer de Envato Market plugin%s om updates te krijgen voor uw "
+"ThemeForest en CodeCanyon-artikelen."
+
+#: inc/admin/product_registration/includes/envato-market/inc/github.php:305
+#, php-format
+msgid ""
+"%sInstall the Envato Market plugin%s to get updates for your ThemeForest and "
+"CodeCanyon items."
+msgstr ""
+"%sInstalleer de Envato Market plugin%s om updates te krijgen voor uw "
+"ThemeForest en CodeCanyon-artikelen."
+
+#: woocommerce/cart/cart-totals.php:76
+#, php-format
+msgid "(estimated for %s)"
+msgstr "(geschat voor %s)"
+
+#: inc/visual_composer.php:224
+msgid "0px"
+msgstr "0px"
+
+#: inc/visual_composer.php:230 inc/visual_composer.php:840
+msgid "10px"
+msgstr "10px"
+
+#: inc/visual_composer.php:841
+msgid "11px"
+msgstr "11px"
+
+#: inc/visual_composer.php:842
+msgid "12px"
+msgstr "12px"
+
+#: inc/visual_composer.php:843
+msgid "13px"
+msgstr "13px"
+
+#: inc/visual_composer.php:844
+msgid "14px"
+msgstr "14px"
+
+#: inc/visual_composer.php:231 inc/visual_composer.php:845
+msgid "15px"
+msgstr "15px"
+
+#: inc/visual_composer.php:846
+msgid "16px"
+msgstr "15px"
+
+#: inc/visual_composer.php:847
+msgid "17px"
+msgstr "17px"
+
+#: inc/visual_composer.php:848
+msgid "18px"
+msgstr "18px"
+
+#: inc/visual_composer.php:849
+msgid "19px"
+msgstr "19px"
+
+#: inc/visual_composer.php:225
+msgid "1px"
+msgstr "1px"
+
+#: inc/visual_composer.php:232 inc/visual_composer.php:850
+msgid "20px"
+msgstr "20px"
+
+#: inc/visual_composer.php:233
+msgid "25px"
+msgstr "25px"
+
+#: inc/visual_composer.php:226
+msgid "2px"
+msgstr "2px"
+
+#: inc/visual_composer.php:234
+msgid "30px"
+msgstr "30px"
+
+#: inc/visual_composer.php:235
+msgid "35px"
+msgstr "35px"
+
+#: inc/visual_composer.php:208
+msgid "3d"
+msgstr "3d"
+
+#: inc/visual_composer.php:227
+msgid "3px"
+msgstr "3px"
+
+#: inc/visual_composer.php:236
+msgid "40px"
+msgstr "40px"
+
+#: inc/visual_composer.php:237
+msgid "45px"
+msgstr "45px"
+
+#: inc/visual_composer.php:228
+msgid "4px"
+msgstr "4px"
+
+#: inc/visual_composer.php:238
+msgid "50px"
+msgstr "50px"
+
+#: inc/visual_composer.php:239
+msgid "55px"
+msgstr "55px"
+
+#: inc/visual_composer.php:229
+msgid "5px"
+msgstr "5px"
+
+#: inc/visual_composer.php:240
+msgid "60px"
+msgstr "60px"
+
+#: paid-memberships-pro/pages/checkout.php:70
+#, php-format
+msgid ""
+"<p class=\"pmpro_level_discount_applied\">The <strong>%s</strong> code has "
+"been applied to your order.</p>"
+msgstr ""
+"<p class=\"pmpro_level_discount_applied\">De <strong>%s</strong> code is "
+"toegepast op uw bestelling.</p>"
+
+#: inc/custom.php:42
+msgid ""
+"<span class=\"vertical_divider\"></span>Edit <i class=\"fa fa-pencil-square-"
+"o\"></i>"
+msgstr ""
+"<span class=\"vertical_divider\"></span>Bewerken <i class=\"fa fa-pencil-"
+"square-o\"></i>"
+
+#: inc/custom.php:41
+msgid ""
+"<span class=\"vertical_divider\"></span>Reply <i class=\"fa fa-reply\"></i>"
+msgstr ""
+"<span class=\"vertical_divider\"></span>Antwoorden <i class=\"fa fa-reply\">"
+"</i>"
+
+#: inc/admin/product_registration/screens/startup.php:71
+msgid ""
+"A new page will load with a token number in a box. Copy the token number "
+"then come back to this registration page and paste it into the field below "
+"and click the <strong>Submit</strong> button."
+msgstr ""
+"Een nieuwe pagina zal laden met een token nummer in een box. Kopieer het "
+"token nummer en keer dan terug naar deze registratiepagina en plak het in "
+"onderstaand veld en klik op de <strong>Indienen</strong> knop."
+
+#: woocommerce/content-single-product.php:246
+msgid "About Instructor"
+msgstr "Over Instructeur"
+
+#: woocommerce/content-single-product.php:184
+msgid "About Instructors"
+msgstr "Over instructeurs"
+
+#: inc/admin/product_registration/screens/install_demo.php:21
+msgid "Academy"
+msgstr "Academie"
+
+#: paid-memberships-pro/pages/confirmation.php:52
+#: paid-memberships-pro/pages/confirmation.php:135
+msgid "Account"
+msgstr "Account"
+
+#: paid-memberships-pro/pages/checkout.php:215
+msgid "Account Information"
+msgstr "Accountinformatie"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:130
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:320
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:66
+msgid "Activate"
+msgstr "Activeren"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:321
+#, php-format
+msgid "Activate %s"
+msgstr "Deactiveer %s"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:130
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:66
+#, php-format
+msgid "Activate &#8220;%s&#8221;"
+msgstr "Activeer &#8220;%s&#8221;"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:103
+msgid "Activate Plugin"
+msgstr "Activeer Plugin"
+
+#: partials/vc_templates/buddypress_groups.php:22
+msgid "Active"
+msgstr "Actief"
+
+#. %s = last activity timestamp (e.g. "active 1 hour ago")
+#: buddypress/groups/single/cover-image-header.php:35
+#, php-format
+msgid "active %s"
+msgstr "actieve %s"
+
+#: buddypress/common/js-templates/messages/index.php:162
+msgid "Active conversation:"
+msgstr "Actief gesprek:"
+
+#: inc/admin/product_registration/screens/system_status.php:253
+#: inc/admin/product_registration/screens/system_status.php:257
+msgid "Active Plugins"
+msgstr "Actieve Plugins"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/intro.php:18
+msgid "Active Theme"
+msgstr "Actief Theme"
+
+#: inc/visual_composer.php:1457
+msgid "Activity"
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:67
+msgid "Add a review"
+msgstr "Een recensie toevoegen"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/section/items.php:10
+msgid ""
+"Add Envato Market themes & plugins using multiple OAuth tokens. This is "
+"especially useful when an item has been purchased on behalf of a third-party."
+" This works similarly to the global OAuth Personal Token, but for individual "
+"items and additionally requires the Envato Market item ID."
+msgstr ""
+"Voeg Envato Market themes & plugins toe met behulp van meerdere OAuth tokens."
+" Dit is vooral nuttig als een artikel is gekocht namens een derde partij. "
+"Dit werkt op dezelfde manier als de wereldwijde OAuth Persoonlijke Tokens, "
+"maar dan voor individuen. items en vereist bovendien de Envato Market-item-"
+"ID."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:402
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/setting/items.php:37
+msgid "Add Item"
+msgstr "Item toevoegen"
+
+#: paid-memberships-pro/pages/checkout.php:403
+#: paid-memberships-pro/pages/billing.php:120
+msgid "Address 1"
+msgstr "Adres 1"
+
+#: paid-memberships-pro/pages/checkout.php:409
+#: paid-memberships-pro/pages/billing.php:126
+msgid "Address 2"
+msgstr "Adres 2"
+
+#: woocommerce/myaccount/my-address.php:67
+msgid "Address line 1"
+msgstr ""
+
+#: woocommerce/myaccount/my-address.php:71
+msgid "Address line 2"
+msgstr ""
+
+#: inc/visual_composer.php:82
+msgid ""
+"Adjust column for different screen sizes. Control width, offset and "
+"visibility settings."
+msgstr ""
+"Verstel kolom voor verschillende schermgrootten. Beheer breedte, offset en "
+"zichtbaarheidsinstellingen."
+
+#: woocommerce/order/tracking.php:23
+msgid "ago"
+msgstr "geleden"
+
+#: inc/vc/modules/stm_image_box.php:29
+msgid "Align"
+msgstr "Uitlijnen"
+
+#: paid-memberships-pro/pages/levels.php:43
+msgid "All"
+msgstr "Alle"
+
+#: woocommerce/global/helpbar.php:57
+msgid "All courses"
+msgstr "Alle cursussen"
+
+#: archive-gallery.php:68 partials/vc_templates/gallery_grid.php:49
+msgid "All images"
+msgstr "Alle afbeeldingen"
+
+#: buddypress/common/js-templates/messages/index.php:103
+msgid "All Messages"
+msgstr "Alle berichten"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/notice/success-single-use.php:11
+msgid "All Single Use OAuth Personal Tokens have been verified."
+msgstr ""
+"Alle OAuth persoonlijke Tokens voor eenmalig gebruik zijn geverifieerd."
+
+#: inc/visual_composer.php:323
+msgid "All teachers"
+msgstr "Alle leerkrachten"
+
+#: paid-memberships-pro/pages/checkout.php:46
+msgid ""
+"Almost done. Review the membership information and pricing below then "
+"<strong>click the \"Complete Payment\" button</strong> to finish your order."
+msgstr ""
+"Bijna klaar. Beoordeel de lidmaatschapsinformatie en prijzen hieronder en "
+"klik dan op de <strong>”Betaling Afronden” knop</strong> om uw bestelling af "
+"te ronden."
+
+#: paid-memberships-pro/pages/checkout.php:216
+msgid "Already have an account?"
+msgstr "Heeft u al een account?"
+
+#: inc/admin/product_registration/includes/envato-market/inc/api.php:135
+msgid "An API token is required."
+msgstr "Een API-token is vereist."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:788
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:846
+msgid "An error occurred, please check that the item ID is correct."
+msgstr "Er is een fout opgetreden, controleer of de item-ID correct is."
+
+#: inc/admin/product_registration/includes/envato-market/inc/api.php:148
+#: inc/admin/product_registration/includes/envato-market/inc/api.php:152
+msgid "An unknown API error occurred."
+msgstr "Er is een onbekende API-fout opgetreden."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:1040
+msgid "An unknown error occurred."
+msgstr "Er is een onbekende fout opgetreden."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:358
+msgid "An unknown error occurred. Try again."
+msgstr "Er is een onbekende fout opgetreden. Probeer het nog eens."
+
+#: woocommerce/order/tracking.php:25
+msgid "and was completed"
+msgstr "en was voltooid"
+
+#: inc/visual_composer.php:1343
+msgid "Animation Block"
+msgstr "Animatie Blok"
+
+#: inc/visual_composer.php:155
+msgid "Animation position on Desktop"
+msgstr "Animatie positie op Desktop"
+
+#: inc/visual_composer.php:165
+msgid "Animation position on Laptop"
+msgstr "Animatie positie op Laptop"
+
+#: woocommerce/myaccount/form-login.php:96
+msgid "Anti-spam"
+msgstr "Anti-spam"
+
+#: paid-memberships-pro/pages/checkout.php:129
+#: paid-memberships-pro/pages/checkout.php:736
+msgid "Apply"
+msgstr "Toepassen"
+
+#: woocommerce/checkout/form-coupon.php:36 woocommerce/cart/cart.php:142
+msgid "Apply coupon"
+msgstr "Korting toepassen"
+
+#: inc/visual_composer.php:291
+msgid "Ascending"
+msgstr "Oplopend"
+
+#: inc/visual_composer.php:280
+msgid "Author"
+msgstr "Auteur"
+
+#: partials/content.php:156 partials/vc_templates/post_author.php:9
+msgid "Author:"
+msgstr "Schrijver:"
+
+#: woocommerce/content-product-list.php:194
+#: woocommerce/content-product-list.php:202
+msgid "Available"
+msgstr "Beschikbaar"
+
+#: woocommerce/myaccount/my-downloads.php:30
+msgid "Available downloads"
+msgstr "Beschikbare downloads"
+
+#: woocommerce/cart/cart.php:91
+msgid "Available on backorder"
+msgstr "Beschikbaar op nabestelling"
+
+#: buddypress/common/js-templates/messages/index.php:132
+#: buddypress/common/js-templates/messages/index.php:143
+#: buddypress/common/js-templates/messages/index.php:275
+msgid "Avatar"
+msgstr "Avatar"
+
+#: woocommerce/single-product-reviews.php:91
+msgid "Average"
+msgstr "Gemiddeld"
+
+#: woocommerce/content-single-product.php:299
+msgid "Average Rating"
+msgstr "Gemiddelde Beoordeling"
+
+#: woocommerce/single-product/product-image.php:43
+msgid "Awaiting product image"
+msgstr "Wachtend op productbeeld"
+
+#: inc/visual_composer.php:129
+msgid "Background position"
+msgstr "Achtergrondpositie"
+
+#: woocommerce/single-product/rating.php:38
+#, php-format
+msgid "based on %s customer rating"
+msgid_plural "based on %s customer ratings"
+msgstr[0] ""
+msgstr[1] ""
+
+#: woocommerce/single-product-reviews.php:67
+#, php-format
+msgid "Be the first to review &ldquo;%s&rdquo;"
+msgstr "Wees de eerste om &ldquo;%s&rdquo; te beoordelen"
+
+#: partials/headers/mobile/account.php:109 partials/headers/parts/links.php:7
+msgid "Become an Instructor"
+msgstr "Wordt een Instructeur"
+
+#: paid-memberships-pro/pages/confirmation.php:28
+#, php-format
+msgid ""
+"Below are details about your membership account and a receipt for your "
+"initial membership invoice. A welcome email with a copy of your initial "
+"membership invoice has been sent to %s."
+msgstr ""
+"Hieronder staan de details van uw lidmaatschap en het ontvangstbewijs van uw "
+"eerst lidmaatschap factuur. Een welkomstmail met een kopie van uw eerste "
+"lidmaatschap factuur is verzonden naar %s."
+
+#: paid-memberships-pro/pages/confirmation.php:122
+#, php-format
+msgid ""
+"Below are details about your membership account. A welcome email has been "
+"sent to %s."
+msgstr ""
+"Hieronder staat de details over uw lidmaatschap account. Een welkomstmail is "
+"verzonden naar %s."
+
+#: woocommerce/checkout/form-billing.php:28
+msgid "Billing &amp; Shipping"
+msgstr "Facturering &amp; Verzending"
+
+#: paid-memberships-pro/pages/confirmation.php:73
+#: paid-memberships-pro/pages/checkout.php:383
+#: paid-memberships-pro/pages/billing.php:104
+msgid "Billing Address"
+msgstr "Factuuradres"
+
+#: woocommerce/myaccount/my-address.php:27
+#: woocommerce/myaccount/my-address.php:32
+msgid "Billing address"
+msgstr "Factuuradres"
+
+#: woocommerce/checkout/form-billing.php:32
+msgid "Billing details"
+msgstr "Factureringsdetails"
+
+#: partials/frontend_customizer.php:29
+msgid "Blue skin"
+msgstr "Blauwe skin"
+
+#: inc/visual_composer.php:530
+msgid "Bottom"
+msgstr "Onderkant"
+
+#: inc/visual_composer.php:587
+msgid "Box Align"
+msgstr ""
+
+#: inc/visual_composer.php:536
+msgid "Box background color"
+msgstr "Box achtergrondkleur"
+
+#: inc/visual_composer.php:548
+msgid "Box icon color"
+msgstr "Box icoonkleur"
+
+#: inc/visual_composer.php:927
+msgid "Box text Color"
+msgstr "Box tekstkleur"
+
+#: inc/visual_composer.php:542
+msgid "Box text color"
+msgstr "Box tekstkleur"
+
+#: inc/admin/product_registration/screens/install_demo.php:49
+msgid "BuddyPress Demo"
+msgstr "BuddyPress Demo"
+
+#: inc/vc/modules/buddypress_groups.php:11
+msgid "BuddyPress groups"
+msgstr "BuddyPress groepen"
+
+#: inc/vc/modules/buddypress_instructors.php:11
+msgid "BuddyPress instructors"
+msgstr "BuddyPress instructeurs"
+
+#: inc/vc/modules/stm_image_box.php:60
+msgid "Button"
+msgstr "Knop"
+
+#: buddypress/common/js-templates/messages/index.php:116
+#: buddypress/common/js-templates/messages/index.php:118
+msgctxt "button"
+msgid "Apply"
+msgstr "Toepassen"
+
+#: buddypress/common/js-templates/messages/index.php:47
+msgctxt "button"
+msgid "Send"
+msgstr "Verstuur"
+
+#: buddypress/common/js-templates/messages/index.php:351
+msgctxt "button"
+msgid "Send Reply"
+msgstr "Stuur antwoord"
+
+#: inc/visual_composer.php:774
+msgid "Button alignment"
+msgstr "Knop uitlijning"
+
+#: inc/visual_composer.php:807
+msgid "Button Background Color"
+msgstr "Knop Achtergrondkleur"
+
+#: inc/visual_composer.php:813
+msgid "Button Background Color Hover"
+msgstr "Knop Achtergrondkleur Hover"
+
+#: inc/visual_composer.php:819
+msgid "Button Border Color"
+msgstr "Knop Rand Kleur"
+
+#: inc/visual_composer.php:825
+msgid "Button Border Color Hover"
+msgstr "Knop Rand Kleur Hover"
+
+#: inc/visual_composer.php:1167
+msgid "Button color"
+msgstr "Kleur knop"
+
+#: inc/visual_composer.php:785
+msgid "Button Size"
+msgstr "Formaat Knop"
+
+#: inc/visual_composer.php:795
+msgid "Button Text Color"
+msgstr "Knop Tekstkleur"
+
+#: inc/visual_composer.php:801
+msgid "Button Text Color Hover"
+msgstr "Knop Tekstkleur Hover"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:177
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:382
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:441
+msgid "By"
+msgstr "Van"
+
+#: inc/admin/product_registration/screens/system_status.php:287
+#, php-format
+msgctxt "by author"
+msgid "by %s"
+msgstr "door %s"
+
+#: woocommerce/myaccount/my-orders.php:85
+#: paid-memberships-pro/pages/billing.php:422
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:357
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: paid-memberships-pro/pages/checkout.php:653
+#: paid-memberships-pro/pages/billing.php:335
+msgid "Card Number"
+msgstr "Kaartnummer"
+
+#: paid-memberships-pro/pages/checkout.php:607
+#: paid-memberships-pro/pages/billing.php:295
+msgid "Card Type"
+msgstr "Kaart Type"
+
+#: inc/visual_composer.php:903 inc/visual_composer.php:1071
+msgid "Carousel Auto Scroll"
+msgstr "Carrousel Automatisch Scrollen"
+
+#: woocommerce/cart/cart-totals.php:30
+msgid "Cart totals"
+msgstr "Winkelwagen-totalen"
+
+#: partials/headers/parts/categories.php:23
+msgid "Category"
+msgstr "Categorie"
+
+#: partials/vc_templates/product_categories.php:97
+msgid "Category image"
+msgstr "Categorie afbeelding"
+
+#: woocommerce/content-single-product.php:137 partials/content.php:93
+#: partials/vc_templates/post_info.php:17
+msgid "Category:"
+msgstr "Categorie:"
+
+#: inc/visual_composer.php:1618
+msgid "Certificate"
+msgstr "Certificaat"
+
+#: inc/visual_composer.php:1624
+msgid "Certificate name"
+msgstr "Naam certificaat"
+
+#: inc/visual_composer.php:1629
+msgid "Certificate Print"
+msgstr "Print certificaat"
+
+#: partials/vc_templates/experts.php:125
+msgid "Certified by"
+msgstr "Gecertificeerd door"
+
+#: woocommerce/cart/cart-shipping.php:52
+msgid "Change address"
+msgstr "Wijzig adres"
+
+#: paid-memberships-pro/pages/checkout.php:55
+msgid "Change level"
+msgstr "Wijzig niveau"
+
+#: inc/admin/product_registration/includes/envato-market/envato-market.php:157
+#: inc/admin/product_registration/includes/envato-market/envato-market.php:167
+#: inc/admin/product_registration/includes/envato-market/inc/items.php:100
+#: inc/admin/product_registration/includes/envato-market/inc/items.php:110
+#: inc/admin/product_registration/includes/envato-market/inc/github.php:87
+#: inc/admin/product_registration/includes/envato-market/inc/github.php:97
+#: inc/admin/product_registration/includes/envato-market/inc/api.php:84
+#: inc/admin/product_registration/includes/envato-market/inc/api.php:95
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:77
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:87
+msgid "Cheatin&#8217; huh?"
+msgstr "&#8217 aan het cheaten?"
+
+#: paid-memberships-pro/pages/checkout.php:359
+msgid "Check Out with a Credit Card Here"
+msgstr "Hier afrekenen met een Creditkaart"
+
+#: paid-memberships-pro/pages/checkout.php:365
+msgid "Check Out with PayPal"
+msgstr "Afrekenen met Paypal"
+
+#: woocommerce/cart/mini-cart.php:89 partials/headers/mobile/account.php:79
+msgid "Checkout"
+msgstr "Afrekenen"
+
+#: inc/visual_composer.php:1447
+msgid "Choose Badge"
+msgstr ""
+
+#: inc/admin/product_registration/screens/install_demo.php:136
+msgid "Choose Builder"
+msgstr ""
+
+#: inc/visual_composer.php:1051
+msgid "Choose category"
+msgstr "Kies categorie"
+
+#: inc/visual_composer.php:1027
+msgid "Choose expert"
+msgstr "Kies expert"
+
+#: inc/visual_composer.php:1227
+msgid "Choose form"
+msgstr "Kies formulier"
+
+#: inc/visual_composer.php:429
+msgid "Choose post type"
+msgstr "Kies berichtensoort"
+
+#: inc/visual_composer.php:1039
+msgid "Choose tag"
+msgstr "Kies tag"
+
+#: paid-memberships-pro/pages/checkout.php:348
+msgid "Choose your Payment Method"
+msgstr "Kies uw Betalingsmethode"
+
+#: paid-memberships-pro/pages/checkout.php:420
+#: paid-memberships-pro/pages/billing.php:138
+msgid "City"
+msgstr "Woonplaats"
+
+#: paid-memberships-pro/pages/checkout.php:441
+#: paid-memberships-pro/pages/billing.php:159
+msgid "City, State Zip"
+msgstr "Stad, Postcode"
+
+#: inc/visual_composer.php:205
+msgid "Classic"
+msgstr "Klassiek"
+
+#: inc/admin/product_registration/screens/install_demo.php:9
+msgid "Classic LMS"
+msgstr "Klassiek LMS"
+
+#: inc/admin/product_registration/screens/install_demo.php:53
+msgid "Classic LMS 2"
+msgstr "Classic LMS 2"
+
+#: paid-memberships-pro/pages/checkout.php:88
+msgid "Click here to change your discount code"
+msgstr "Klik hier om uw kortingscode te wijzigen"
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Click here to enter your code"
+msgstr "Klik hier om uw code in te voeren"
+
+#: paid-memberships-pro/pages/checkout.php:94
+msgid "Click here to enter your discount code"
+msgstr "Klik hier om uw kortingscode in te vullen"
+
+#: inc/admin/product_registration/screens/startup.php:69
+#, php-format
+msgid ""
+"Click on this <a href=\"%s\" target=\"_blank\">Generate A Personal Token</a> "
+"link. <strong>IMPORTANT:</strong> You must be logged into the same "
+"Themeforest account that purchased %s. If you are logged in already, look in "
+"the top menu bar to ensure it is the right account. If you are not logged in,"
+" you will be directed to login then directed back to the Create A Token Page."
+msgstr ""
+"Klik op deze koppeling <a href=“%s” target=“_blank”> Genereer Een "
+"Persoonlijke Token </a>. <strong>BELANGRIJK:</ strong> U moet zijn ingelogd "
+"bij hetzelfde Themeforest account dat %s heeft gekocht. Als u al bent "
+"ingelogd, kijk dan in de bovenste menubalk om te zien of dit het juiste "
+"account is. Als u niet bent ingelogd, wordt u doorgestuurd om in te loggen "
+"en vervolgens teruggestuurd naar de Pagina Een token Aanmaken."
+
+#: inc/visual_composer.php:1283 inc/visual_composer.php:1727
+msgid "Code"
+msgstr "Code"
+
+#: inc/admin/product_registration/screens/install_demo.php:65
+msgid "Coding School"
+msgstr ""
+
+#: partials/frontend_customizer.php:24
+msgid "Color Scheme"
+msgstr "Kleurenschema"
+
+#: inc/visual_composer.php:864
+msgid "Colored Separator"
+msgstr "Gekleurde Seperator"
+
+#: inc/visual_composer.php:284
+msgid "Comment count"
+msgstr "Aantal reactie’s"
+
+#: comments.php:29
+msgid "Comment navigation"
+msgstr "Reactie navigatie"
+
+#: comments.php:46
+msgid "Comments are closed."
+msgstr "Reacties zijn niet meer mogelijk."
+
+#: paid-memberships-pro/pages/checkout.php:829
+msgid "Complete Payment"
+msgstr "Betaling Afgerond"
+
+#: paid-memberships-pro/pages/checkout.php:543
+#: paid-memberships-pro/pages/billing.php:257
+msgid "Confirm E-mail"
+msgstr "Bevestig E-mail"
+
+#: paid-memberships-pro/pages/checkout.php:276
+msgid "Confirm E-mail Address"
+msgstr "Bevestig e-mailadres"
+
+#: paid-memberships-pro/pages/checkout.php:247
+msgid "Confirm Password"
+msgstr "Bevestig Wachtwoord"
+
+#: inc/visual_composer.php:1538
+msgid "Contact"
+msgstr "Contact"
+
+#: inc/vc/modules/stm_image_box.php:13 inc/vc/modules/stm_image_box.php:55
+#: inc/vc/modules/buddypress_instructors.php:13
+#: inc/vc/modules/buddypress_groups.php:13
+msgid "Content"
+msgstr "Inhoud"
+
+#: inc/visual_composer.php:2087
+msgid "Content with left sidebar"
+msgstr "Inhoud met linker zijbalk"
+
+#: inc/visual_composer.php:2074
+msgid "Content with Right sidebar"
+msgstr "Inhoud met Rechter zijbalk"
+
+#: inc/admin/product_registration/screens/install_demo.php:61
+msgid "Cooking courses"
+msgstr ""
+
+#: inc/visual_composer.php:1187
+msgid "Count to date"
+msgstr "Tel tot datum"
+
+#: inc/visual_composer.php:1180
+msgid "Countdown"
+msgstr "Aftellen"
+
+#: inc/visual_composer.php:728
+msgid "Counter text color"
+msgstr "Teller tekstkleur"
+
+#: inc/visual_composer.php:730
+msgid "Counter Text color(yellow - default)"
+msgstr "Teller Tekstkleur(geel - standaard)"
+
+#: inc/visual_composer.php:734
+msgid "Counter text font size (px)"
+msgstr "Teller tekst lettertype format (px)"
+
+#: inc/visual_composer.php:660
+msgid "Counter Value"
+msgstr "Teller Waarde"
+
+#: paid-memberships-pro/pages/checkout.php:494
+#: paid-memberships-pro/pages/billing.php:212
+msgid "Country"
+msgstr "Land"
+
+#: paid-memberships-pro/pages/confirmation.php:105
+msgid "Coupon"
+msgstr "Kortingsbon:"
+
+#: woocommerce/checkout/form-coupon.php:32 woocommerce/cart/cart.php:142
+msgid "Coupon code"
+msgstr "Kortingscode"
+
+#: partials/vc_templates/course_lesson.php:70
+#, php-format
+msgctxt "Course Badge (masterstudy Offline courses via WooCommerce)"
+msgid "%s"
+msgstr "%s"
+
+#: inc/admin/product_registration/screens/install_demo.php:33
+msgid "Course Hub"
+msgstr "Cursus Hub"
+
+#: inc/visual_composer.php:1392
+msgid "Course Lessons"
+msgstr "Cursus Lessen"
+
+#: woocommerce/content-product-list.php:142
+#, php-format
+msgctxt "Course status"
+msgid "%s"
+msgstr "%s"
+
+#: partials/headers/mobile/account.php:65
+msgid "Courses"
+msgstr "Cursussen"
+
+#: paid-memberships-pro/pages/levels.php:100
+#, php-format
+msgid "Courses included: %s"
+msgstr "Inclusief cursussen: %s"
+
+#: partials/buddypress/instructors-carousel/instructor-single.php:53
+#, php-format
+msgid "Courses: %s"
+msgstr "Cursussen: %s"
+
+#: woocommerce/checkout/form-billing.php:70
+msgid ""
+"Create an account by entering the information below. If you are a returning "
+"customer please login at the top of the page."
+msgstr ""
+"Maak een account aan door onderstaande gegevens in te voeren. Als u een "
+"terugkerende klant bent gelieve in te loggen bovenaan de pagina."
+
+#: woocommerce/checkout/form-billing.php:60
+msgid "Create an account?"
+msgstr "Een account aanmaken?"
+
+#: paid-memberships-pro/pages/billing.php:283
+msgid "Credit Card Information"
+msgstr "Creditkaart informatie"
+
+#: inc/visual_composer.php:70 inc/visual_composer.php:98
+#: inc/visual_composer.php:120 inc/visual_composer.php:353
+#: inc/visual_composer.php:484 inc/visual_composer.php:639
+#: inc/visual_composer.php:748 inc/visual_composer.php:856
+#: inc/visual_composer.php:876 inc/visual_composer.php:960
+#: inc/visual_composer.php:1141 inc/visual_composer.php:1172
+#: inc/visual_composer.php:1198 inc/visual_composer.php:1233
+#: inc/visual_composer.php:1249 inc/visual_composer.php:1264
+#: inc/visual_composer.php:1291 inc/visual_composer.php:1306
+#: inc/visual_composer.php:1321 inc/visual_composer.php:1336
+#: inc/visual_composer.php:1405 inc/visual_composer.php:1530
+#: inc/visual_composer.php:1580 inc/visual_composer.php:1611
+#: inc/visual_composer.php:1634 inc/visual_composer.php:1649
+#: inc/visual_composer.php:1685 inc/visual_composer.php:1706
+#: inc/visual_composer.php:1742 inc/vc/modules/stm_image_box.php:83
+msgid "Css"
+msgstr "Css"
+
+#: inc/admin/product_registration/screens/system_status.php:113
+msgid ""
+"Current time limit is sufficient, but if you need import demo content, the "
+"required time is <strong>300</strong>."
+msgstr ""
+"De huidige tijdslimiet is onvoldoende, maar als u demo inhoud moet "
+"importeren, is de vereiste tijd <strong>300</strong>."
+
+#: inc/visual_composer.php:209
+msgid "Custom"
+msgstr "Aangepast"
+
+#: inc/visual_composer.php:478
+msgid "Custom color"
+msgstr ""
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:103
+msgid "Customize"
+msgstr "Aanpassen"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:103
+#, php-format
+msgid "Customize &#8220;%s&#8221;"
+msgstr "Pas &#8220; %s&#8221; aan"
+
+#: paid-memberships-pro/pages/checkout.php:718
+#: paid-memberships-pro/pages/billing.php:400
+msgid "CVV"
+msgstr "CVV"
+
+#: inc/visual_composer.php:278 woocommerce/myaccount/my-orders.php:14
+#: woocommerce/myaccount/my-orders.php:43
+#: woocommerce/myaccount/my-orders.php:62
+msgid "Date"
+msgstr "Datum"
+
+#: woocommerce/checkout/thankyou.php:57
+msgid "Date:"
+msgstr "Datum"
+
+#: partials/footers/after_footer.php:10
+msgid "Days"
+msgstr "Dagen"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:293
+msgid "Deactivate"
+msgstr "Deactiveer"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:294
+#, php-format
+msgid "Deactivate %s"
+msgstr "Deactiveer %s"
+
+#: inc/visual_composer.php:37
+msgid "Default"
+msgstr "Standaard"
+
+#: partials/frontend_customizer.php:27
+msgid "Default skin"
+msgstr "Standaard skin"
+
+#: inc/admin/product_registration/screens/system_status.php:215
+msgid ""
+"Defines the maximum length of a variable that is registered through a POST "
+"request."
+msgstr ""
+"Definieer de maximale lengte van een variabele die geregistreerd is door "
+"middel van een BERICHT aanvraag."
+
+#: inc/visual_composer.php:1383
+msgid "Delay (ms)"
+msgstr "Vertraging (ms)"
+
+#: woocommerce/cart/cart.php:29 woocommerce/cart/cart.php:57
+#: buddypress/common/js-templates/messages/index.php:183
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:306
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:385
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/setting/items.php:24
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:307
+#, php-format
+msgid "Delete %s"
+msgstr "Verwijder %s"
+
+#: buddypress/common/js-templates/messages/index.php:184
+#: buddypress/common/js-templates/messages/index.php:185
+#: buddypress/common/js-templates/messages/index.php:261
+#: buddypress/common/js-templates/messages/index.php:262
+msgid "Delete conversation."
+msgstr "Verwijder gesprek."
+
+#: inc/admin/product_registration/screens/install_demo.php:170
+msgid "Demo content"
+msgstr "Demo inhoud"
+
+#: inc/admin/product_registration/screens/install_demo.php:144
+msgid "Demo Installation"
+msgstr "Demo Installatie"
+
+#: inc/visual_composer.php:290
+msgid "Descending"
+msgstr "Aflopend"
+
+#: paid-memberships-pro/pages/checkout.php:115
+msgid "Description:"
+msgstr "Beschrijving:"
+
+#: inc/visual_composer.php:151 inc/visual_composer.php:157
+#: inc/visual_composer.php:167 inc/visual_composer.php:1532
+msgid "Design Options"
+msgstr "Ontwerpopties"
+
+#: inc/visual_composer.php:72 inc/visual_composer.php:100
+#: inc/visual_composer.php:122 inc/visual_composer.php:486
+#: inc/visual_composer.php:641 inc/visual_composer.php:750
+#: inc/visual_composer.php:858 inc/visual_composer.php:878
+#: inc/visual_composer.php:962 inc/visual_composer.php:1143
+#: inc/visual_composer.php:1174 inc/visual_composer.php:1200
+#: inc/visual_composer.php:1235 inc/visual_composer.php:1293
+#: inc/visual_composer.php:1407 inc/visual_composer.php:1582
+#: inc/visual_composer.php:1744 inc/vc/modules/stm_image_box.php:85
+msgid "Design options"
+msgstr "Ontwerpopties"
+
+#: woocommerce/content-single-product.php:343
+msgid "Detailed Rating"
+msgstr "Gedetailleerde Beoordelingen"
+
+#: buddypress/common/nav/directory-nav.php:10
+msgid "Directory menu"
+msgstr "Directory menu"
+
+#: paid-memberships-pro/pages/confirmation.php:64
+#: paid-memberships-pro/pages/checkout.php:98
+#: paid-memberships-pro/pages/checkout.php:124
+#: paid-memberships-pro/pages/checkout.php:731
+msgid "Discount Code"
+msgstr "Kortingscode"
+
+#: inc/admin/product_registration/screens/system_status.php:60
+msgid "Displays whether or not WordPress is in Debug Mode."
+msgstr "Toont of Wordpress in Debug Modus is of niet."
+
+#: inc/admin/product_registration/screens/install_demo.php:57
+msgid "Distance Learning"
+msgstr ""
+
+#: paid-memberships-pro/pages/checkout.php:92
+msgid "Do you have a discount code?"
+msgstr "Heeft u een kortingscode?"
+
+#: inc/admin/product_registration/screens/support.php:49
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: inc/visual_composer.php:1123
+msgid "Don't Show comments number"
+msgstr "Aantal reactie’s niet tonen"
+
+#: inc/visual_composer.php:1111
+msgid "Don't Show price"
+msgstr "Prijs niet tonen"
+
+#: inc/visual_composer.php:1117
+msgid "Don't Show rating"
+msgstr "Beoordeling niet tonen"
+
+#: partials/headers/parts/menu.php:40
+msgid "Download App"
+msgstr ""
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader.php:45
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader.php:83
+msgid "Downloading the Envato Market install package&#8230;"
+msgstr "Downloaden van het Envato Market-upgradepakket&#8230;"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader.php:34
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader.php:72
+msgid "Downloading the Envato Market upgrade package&#8230;"
+msgstr ""
+
+#: inc/visual_composer.php:667 paid-memberships-pro/pages/billing.php:62
+msgid "Duration"
+msgstr "Tijdsduur"
+
+#: inc/visual_composer.php:1377
+msgid "Duration (ms)"
+msgstr "Tijdsduur (ms)"
+
+#: woocommerce/content-single-product-meta-side.php:48
+msgid "Duration:"
+msgstr "Looptijd:"
+
+#: woocommerce/single-product-reviews.php:75 inc/custom.php:77
+#: partials/event-form.php:23
+msgid "E-mail"
+msgstr "E-mail"
+
+#: paid-memberships-pro/pages/checkout.php:265
+#: paid-memberships-pro/pages/checkout.php:532
+#: paid-memberships-pro/pages/billing.php:250
+msgid "E-mail Address"
+msgstr "E-mailadres"
+
+#: woocommerce/myaccount/my-address.php:94
+msgid "Edit"
+msgstr "Bewerken"
+
+#: inc/admin/product_registration/screens/choose_plugin.php:12
+msgid "Elementor"
+msgstr ""
+
+#: inc/visual_composer.php:1570 woocommerce/myaccount/form-login.php:84
+msgid "Email"
+msgstr "E-mail"
+
+#: woocommerce/checkout/thankyou.php:63
+msgid "Email:"
+msgstr "E-mail"
+
+#: partials/vc_templates/contact.php:34
+msgid "Email: "
+msgstr "E-mail:"
+
+#: vc_templates/vc_accordion_tab.php:13
+msgid "Empty section. Edit page to add content here."
+msgstr "Lege sectie. Bewerk pagina hier om inhoud toe te voegen."
+
+#: partials/content-event.php:97 partials/vc_templates/event_info.php:40
+msgid "End:"
+msgstr "Einde:"
+
+#: paid-memberships-pro/pages/confirmation.php:88
+msgid "ending in"
+msgstr "Eindigt in"
+
+#: partials/headers/parts/wpml_switcher.php:39
+msgid "English"
+msgstr "Engels"
+
+#: woocommerce/cart/cart-shipping.php:67
+msgid "Enter a different address"
+msgstr "Voer een ander adres in"
+
+#: inc/admin/product_registration/screens/startup.php:70
+msgid ""
+"Enter a name for your token, then check the boxes for <strong>View Your "
+"Envato Account Username, Download Your Purchased Items, Verify Purchases "
+"You've Made</strong> and <strong>List Purchases You've Made</strong> from "
+"the permissions needed section. Check the box to agree to the terms and "
+"conditions, then click the <strong>Create Token button</strong>"
+msgstr ""
+"Voer een naam in voor uw token en vink vervolgens de selectievakjes aan voor "
+"<strong> Bekijk Uw Envato Account Gebruikersnaam, Download Uw Gekochte Items,"
+" Verifieer Aankopen Die U Heeft Gedaan</strong> en <strong> Weergeven Van "
+"Aankopen Die U Heeft Gedaan</strong> uit de permissies benodigde sectie. "
+"Vink het selectievakje aan om akkoord te gaan met de algemene voorwaarden en "
+"klik vervolgens op de knop <strong> Token Aanmaken</strong>"
+
+#: inc/visual_composer.php:131
+msgid "Enter background-position in CSS like format"
+msgstr "Vul achtergrondpositie in CSS-achtig formaat in"
+
+#: inc/visual_composer.php:180 inc/visual_composer.php:186
+#: inc/visual_composer.php:192
+msgid "Enter empty space height (Note: CSS measurement units allowed)."
+msgstr "Vul hoogte lege ruimte in (Opmerking: CSS meeteenheid toegestaan)."
+
+#: inc/visual_composer.php:606 inc/visual_composer.php:617
+#: inc/visual_composer.php:696
+msgid "Enter icon height in px"
+msgstr "Vul icoon hoogte in px in"
+
+#: inc/visual_composer.php:559 inc/visual_composer.php:572
+#: inc/visual_composer.php:583 inc/visual_composer.php:595
+#: inc/visual_composer.php:682
+msgid "Enter icon size in px"
+msgstr "Vul icoon formaat in px in"
+
+#: inc/visual_composer.php:689
+msgid "Enter icon width in px"
+msgstr ""
+
+#: inc/visual_composer.php:1556 inc/visual_composer.php:1671
+msgid ""
+"Enter image size. Example: \"thumbnail\", \"medium\", \"large\", \"full\" or "
+"other sizes defined by current theme. Alternatively enter image size in "
+"pixels: 200x100 (Width x Height). Leave empty to use \"projects_gallery\" "
+"size."
+msgstr ""
+"Vul afbeeldingsgrootte in. Bijvoorbeeld: “miniatuurafbeelding”, “gemiddeld”, "
+"“groot”, “volledig” of een ander formaat aangegeven door het huidige thema. "
+"Als alternatief kunt u het afbeeldingsformaat in pixels ingeven: 200x100 "
+"(Breedte x Hoogte). Laat leeg om “projects_gallery” formaat te gebruiken."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:407
+msgid "Enter the Envato API Personal Token."
+msgstr "Voer de Envato API-Personal Token in."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:410
+msgid "Enter the Envato Item ID."
+msgstr "Voer de Envato Item-ID in."
+
+#: woocommerce/cart/cart-shipping.php:61
+msgid "Enter your address to view shipping options."
+msgstr "Voer uw adres in om de verzendopties te bekijken."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/setting/token.php:12
+msgid "Enter your Envato API Personal Token."
+msgstr "Voer uw Envato API-Persoonlijke Token in."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/intro.php:12
+msgid "Envato Market"
+msgstr "Envato Market"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:496
+msgid "Envato Market Items"
+msgstr "Envato Markt Items"
+
+#: woocommerce/notices/error.php:31
+msgid "Error"
+msgstr "Fout"
+
+#: inc/admin/product_registration/includes/theme.php:200
+msgid "Error occured"
+msgstr "Er is een fout opgetreden"
+
+#. $s shipping destination.
+#: woocommerce/cart/cart-shipping.php:51
+#, php-format
+msgid "Estimate for %s."
+msgstr "Schatting voor %s"
+
+#: inc/visual_composer.php:1641
+msgid "Event info"
+msgstr "Evenement info"
+
+#: partials/title_box.php:43
+msgid "Events"
+msgstr "Evenementen"
+
+#: inc/visual_composer.php:1692
+msgid "Events Grid"
+msgstr "Evenementen Raster"
+
+#: inc/visual_composer.php:1699
+msgid "Events per page"
+msgstr "Evenementen per pagina"
+
+#: inc/visual_composer.php:1450
+msgid "Exam"
+msgstr ""
+
+#: inc/visual_composer.php:1456
+msgid "Exercise"
+msgstr ""
+
+#: paid-memberships-pro/pages/confirmation.php:89
+msgid "Expiration"
+msgstr "Vervaltijd"
+
+#: paid-memberships-pro/pages/checkout.php:662
+#: paid-memberships-pro/pages/billing.php:341
+msgid "Expiration Date"
+msgstr "Vervaldatum"
+
+#: paid-memberships-pro/pages/checkout.php:77
+msgid "Expires after:"
+msgstr "Verloopt na:"
+
+#: inc/admin/product_registration/screens/support.php:87
+msgid "Facebook"
+msgstr ""
+
+#: partials/headers/mobile/account.php:94
+msgid "Favorites"
+msgstr "Favorieten"
+
+#: paid-memberships-pro/pages/levels.php:105
+#, php-format
+msgid "Featured courses quote included: %s"
+msgstr "Uitgelichte cursusprijs is inclusief: %s"
+
+#: inc/visual_composer.php:310 inc/visual_composer.php:376
+#: inc/visual_composer.php:436
+msgid "Fill field with number only"
+msgstr "Vul veld met alleen cijfers"
+
+#: woocommerce/myaccount/my-address.php:59
+#: paid-memberships-pro/pages/checkout.php:391
+#: paid-memberships-pro/pages/billing.php:108
+msgid "First Name"
+msgstr "Voornaam"
+
+#: inc/visual_composer.php:206
+msgid "Flat"
+msgstr "Plat"
+
+#: inc/visual_composer.php:148
+msgid "Flying Students"
+msgstr "Vliegende Studenten"
+
+#: inc/setup.php:63
+msgid "Footer Bottom"
+msgstr "Voettekst Onderkant"
+
+#: inc/setup.php:65
+msgid "Footer Bottom Widgets Area"
+msgstr "Voettekst Onderkant Widgets Gedeelte"
+
+#: partials/footers/copyright.php:23
+#, php-format
+msgctxt "Footer Copyright text"
+msgid "%s"
+msgstr "%s"
+
+#: partials/footers/copyright.php:16 partials/footers/copyright.php:18
+msgid "Footer logo"
+msgstr "Voettekst logo"
+
+#: inc/setup.php:53
+msgid "Footer Top"
+msgstr "Bovenkant Voettekst"
+
+#: inc/setup.php:55
+msgid "Footer Top Widgets Area"
+msgstr "Bovenkant Voettekst Widgets Gedeelte"
+
+#: partials/headers/mobile/account.php:115 partials/headers/parts/links.php:8
+msgid "For Enterprise"
+msgstr "Voor Bedrijven"
+
+#: buddypress/common/js-templates/messages/index.php:48
+msgctxt "form reset button"
+msgid "Reset"
+msgstr "Resetten"
+
+#: woocommerce/content-product-list.php:106 woocommerce/content-product.php:129
+#: inc/woocommerce_setups.php:92 inc/visual_composer.php:1454
+#: paid-memberships-pro/pages/levels.php:58
+#: partials/vc_templates/featured_products.php:120
+msgid "Free"
+msgstr "Gratis"
+
+#: buddypress/common/js-templates/messages/index.php:133
+msgid "From:"
+msgstr "Van:"
+
+#: paid-memberships-pro/pages/checkout.php:296
+msgid "Full Name"
+msgstr "Volledige Naam"
+
+#: archive-gallery.php:58
+msgid "Gallery"
+msgstr "Gallerij"
+
+#: inc/visual_composer.php:1588
+msgid "Gallery Grid"
+msgstr "Galerij Raster"
+
+#: inc/visual_composer.php:1605
+msgid "Gallery per page"
+msgstr "Galerij per pagina"
+
+#: inc/visual_composer.php:51
+msgid "Gallery type"
+msgstr "Gallerij soort"
+
+#: inc/visual_composer.php:221
+msgid "Gap"
+msgstr "Ruimte"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/section/oauth.php:12
+msgid "generate a personal token"
+msgstr "genereer een persoonlijke token"
+
+#: paid-memberships-pro/pages/levels.php:46
+msgid "Get now"
+msgstr "Ontvang nu"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:471
+msgid "Global OAuth Personal Token"
+msgstr "Global OAuth Persoonlijk Token"
+
+#: 404.php:11
+msgid "GO BACK TO HOMEPAGE"
+msgstr "GA TERUG NAAR DE HOMEPAGINA"
+
+#: woocommerce/single-product-reviews.php:90
+msgid "Good"
+msgstr "Goed"
+
+#: inc/scripts_styles.php:165
+msgctxt "Google font: on or off"
+msgid "on"
+msgstr "op"
+
+#: inc/visual_composer.php:211
+msgid "Gradient"
+msgstr "Verloop"
+
+#: inc/visual_composer.php:212
+msgid "Gradient Custom"
+msgstr "Aangepast Verloop"
+
+#: buddypress/groups/single/parts/header-item-actions.php:16
+msgid "Group Administrators"
+msgstr "Groep Administrators"
+
+#: buddypress/groups/single/parts/header-item-actions.php:13
+msgid "Group Leadership"
+msgstr "Groep leider"
+
+#: buddypress/groups/single/parts/header-item-actions.php:28
+msgid "Group Mods"
+msgstr "Groep Mods"
+
+#: woocommerce/checkout/form-coupon.php:26
+msgid "Have a coupon?"
+msgstr "Heeft u een kortingscode"
+
+#: partials/frontend_customizer.php:14
+msgid "Header transparency"
+msgstr "Koptekst transparant"
+
+#: partials/frontend_customizer.php:4
+msgid "Header type"
+msgstr "Soort koptekst"
+
+#: partials/headers/parts/left_bar.php:31
+#, php-format
+msgid "Hey, %s"
+msgstr ""
+
+#: inc/admin/product_registration/screens/system_status.php:22
+msgid "Home URL:"
+msgstr "Home URL:"
+
+#: inc/custom.php:624
+msgid "Hot"
+msgstr "Populair"
+
+#: partials/footers/after_footer.php:11
+msgid "Hours"
+msgstr "Uren"
+
+#: inc/visual_composer.php:523
+msgid "Hover position"
+msgstr "Over positie"
+
+#. Author URI of the theme
+msgid "https://stylemixthemes.com/"
+msgstr "https://stylemixthemes.com/"
+
+#. URI of the theme
+msgid "https://stylemixthemes.com/masterstudy/"
+msgstr "https://stylemixthemes.com/masterstudy/"
+
+#: paid-memberships-pro/pages/checkout.php:808
+#, php-format
+msgid "I agree to the %s"
+msgstr "Ik ga akkoord met de %s"
+
+#: inc/admin/product_registration/screens/install_demo.php:129
+msgid "I understand"
+msgstr "Ik begrijp het"
+
+#: inc/visual_composer.php:563 inc/visual_composer.php:673
+#: inc/visual_composer.php:831 inc/visual_composer.php:1432
+#: inc/vc/modules/stm_image_box.php:65
+msgid "Icon"
+msgstr "Icoon"
+
+#: inc/visual_composer.php:576
+msgid "Icon Align"
+msgstr "Icoon Uitlijnen"
+
+#: inc/visual_composer.php:719 inc/vc/modules/stm_image_box.php:74
+msgid "Icon Background Color"
+msgstr "Icoon achtergrondkleur"
+
+#: inc/visual_composer.php:717
+msgid "Icon background color"
+msgstr ""
+
+#: inc/visual_composer.php:492
+msgid "Icon Box"
+msgstr "Iconen Box"
+
+#: inc/visual_composer.php:756
+msgid "Icon Button"
+msgstr "Icoon Knop"
+
+#: inc/visual_composer.php:621
+msgid "Icon Color"
+msgstr "Icoon Kleur"
+
+#: inc/visual_composer.php:633
+msgid "Icon Css"
+msgstr "Icoon Css"
+
+#: inc/visual_composer.php:635
+msgid "Icon Design options"
+msgstr "Icoon Ontwerpopties"
+
+#: inc/visual_composer.php:599 inc/visual_composer.php:693
+msgid "Icon Height"
+msgstr "Icoon Hoogte"
+
+#: inc/visual_composer.php:952
+msgid "Icon height"
+msgstr "Icoon hoogte"
+
+#: inc/visual_composer.php:569 inc/visual_composer.php:679
+msgid "Icon Size"
+msgstr "Icoon Formaat"
+
+#: inc/visual_composer.php:944
+msgid "Icon size"
+msgstr "Icoon formaat"
+
+#: inc/visual_composer.php:610 inc/visual_composer.php:686
+msgid "Icon Width"
+msgstr "Icoon Breedte"
+
+#: inc/visual_composer.php:279
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:383
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/setting/items.php:22
+msgid "ID"
+msgstr "ID"
+
+#: paid-memberships-pro/pages/confirmation.php:164
+msgid ""
+"If your account is not activated within a few minutes, please contact the "
+"site owner."
+msgstr ""
+"Als uw account niet binnen een paar minuten geactiveerd is, neem dan contact "
+"op met de eigenaar van de site."
+
+#: inc/visual_composer.php:107
+msgid "Iframe Link"
+msgstr "Iframe Link"
+
+#: inc/visual_composer.php:1549 inc/vc/modules/stm_image_box.php:40
+msgid "Image"
+msgstr "Afbeelding"
+
+#: inc/vc/modules/stm_image_box.php:11
+msgid "Image box"
+msgstr "Afbeelding box"
+
+#: inc/visual_composer.php:54
+msgid "Image grid"
+msgstr "Beeldraster"
+
+#: inc/visual_composer.php:1554 inc/visual_composer.php:1669
+#: inc/vc/modules/stm_image_box.php:50
+msgid "Image Size"
+msgstr "Afbeeldingsgrootte"
+
+#: inc/admin/product_registration/screens/install_demo.php:97
+msgid "Import"
+msgstr "Importeren"
+
+#: inc/admin/product_registration/screens/install_demo.php:359
+msgid "Imported"
+msgstr "Geïmporteerd"
+
+#: inc/admin/product_registration/screens/install_demo.php:358
+msgid "Importing Demo"
+msgstr "Importeren Demo"
+
+#: inc/visual_composer.php:739
+msgid "Include Border"
+msgstr "Inclusief Rand"
+
+#: inc/admin/product_registration/screens/system_status.php:87
+msgid "Information about the web server that is currently hosting your site."
+msgstr "Informatie over de webserver die momenteel uw site host."
+
+#: woocommerce/notices/notice.php:31
+msgid "Informational"
+msgstr "Informatief"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:150
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:355
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:448
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:449
+msgid "Install"
+msgstr "Installeren"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:151
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:356
+#, php-format
+msgid "Install %s"
+msgstr "Installeer %s"
+
+#: inc/admin/product_registration/includes/admin_screens.php:179
+#: inc/admin/product_registration/includes/admin_screens.php:191
+msgid "Install Demos"
+msgstr "Installeer Demo’s"
+
+#: inc/admin/product_registration/includes/admin_screens.php:42
+#: inc/admin/product_registration/includes/admin_screens.php:43
+msgid "Install demos"
+msgstr "Installeer demo’s"
+
+#: inc/admin/product_registration/screens/install_demo.php:93
+msgid "Installed"
+msgstr "Geïnstalleerd"
+
+#: inc/admin/product_registration/screens/install_demo.php:149
+#: inc/admin/product_registration/screens/install_demo.php:297
+msgid "Installed & Activated"
+msgstr "Geïnstalleerd & Geactiveerd"
+
+#: inc/admin/product_registration/screens/install_demo.php:296
+msgid "Installing"
+msgstr "Installeren"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:762
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:787
+msgid "Installing Plugin..."
+msgstr "Plugin installeren..."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:794
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr "Installeren Plugin: %s"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:820
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:845
+msgid "Installing Theme..."
+msgstr "Theme installeren..."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:854
+#, php-format
+msgid "Installing Theme: %s"
+msgstr "Installatie van theme: %s"
+
+#: inc/admin/product_registration/screens/startup.php:67
+msgid "Instructions For Generating A Token"
+msgstr "Instructies voor Het Aanmaken van een Token"
+
+#: buddypress/members/members-loop.php:29
+msgid "Instructor"
+msgstr "Instructeur"
+
+#: buddypress/common/nav/directory-nav.php:38
+msgid "Instructors"
+msgstr "Instructeurs"
+
+#: paid-memberships-pro/pages/confirmation.php:47
+#, php-format
+msgid "Invoice #%s on %s"
+msgstr "Factuur #%s op %s"
+
+#: inc/visual_composer.php:456 inc/visual_composer.php:462
+#: inc/visual_composer.php:468 inc/visual_composer.php:474
+#: inc/visual_composer.php:480
+msgid "Item design"
+msgstr "Item ontwerp"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:408
+msgid "Item ID"
+msgstr "Item-ID"
+
+#: inc/visual_composer.php:1560
+msgid "Job"
+msgstr "Baan"
+
+#: inc/admin/product_registration/screens/support.php:94
+msgid "Join Now!"
+msgstr ""
+
+#: partials/content-event.php:108 partials/vc_templates/event_info.php:64
+msgid "Join!"
+msgstr "Abonneer!"
+
+#: woocommerce/order/tracking.php:38
+msgid "l jS \\o\\f F Y, h:ia"
+msgstr "l jS \\o\\f F Y, h:ia"
+
+#: woocommerce/product-searchform.php:26
+msgctxt "label"
+msgid "Search for:"
+msgstr "Zoek op:"
+
+#: inc/visual_composer.php:1193
+msgid "Labels color"
+msgstr "Kleur labels"
+
+#: inc/admin/product_registration/screens/install_demo.php:41
+msgid "Language Center"
+msgstr "Taalcentrum"
+
+#: inc/admin/product_registration/screens/system_status.php:70
+msgid "Language:"
+msgstr "Taal"
+
+#: inc/visual_composer.php:178
+msgid "Laptop Height"
+msgstr "Laptophoogte"
+
+#: woocommerce/myaccount/my-address.php:63
+#: paid-memberships-pro/pages/checkout.php:397
+#: paid-memberships-pro/pages/billing.php:114
+msgid "Last Name"
+msgstr "Achternaam"
+
+#: inc/admin/product_registration/screens/support.php:55
+msgid "Learn more"
+msgstr "Lees verder"
+
+#: woocommerce/single-product-reviews.php:68
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "Laat een antwoord achter aan %s"
+
+#: inc/visual_composer.php:1078
+msgid "Leave empty to display all"
+msgstr "Laat leeg om alle te tonen"
+
+#: paid-memberships-pro/pages/checkout.php:299
+msgid "LEAVE THIS BLANK"
+msgstr "DIT LEEG LATEN"
+
+#: inc/visual_composer.php:1452
+msgid "Lecture"
+msgstr ""
+
+#: woocommerce/content-single-product-meta-side.php:59
+msgid "Lectures:"
+msgstr "Lezingen:"
+
+#: inc/visual_composer.php:529
+msgid "Left"
+msgstr "Links"
+
+#: inc/visual_composer.php:1414
+msgid "Lesson"
+msgstr "Les"
+
+#: inc/visual_composer.php:1444
+msgid "Lesson badge"
+msgstr "Les badge"
+
+#: inc/visual_composer.php:1481
+msgid "Lesson Icon"
+msgstr "Les icoon"
+
+#: inc/visual_composer.php:1474
+msgid "Lesson meta"
+msgstr "Les meta"
+
+#: inc/visual_composer.php:1421
+msgid "Lesson title"
+msgstr "Titel les"
+
+#: paid-memberships-pro/pages/billing.php:44
+msgid "Level"
+msgstr "Niveau"
+
+#: inc/visual_composer.php:505 inc/visual_composer.php:763
+msgid "Link"
+msgstr "Link"
+
+#: buddypress/common/js-templates/messages/index.php:87
+msgctxt "link"
+msgid "Next page"
+msgstr "Volgende pagina"
+
+#: buddypress/common/js-templates/messages/index.php:80
+msgctxt "link"
+msgid "Previous page"
+msgstr "Vorige pagina"
+
+#: inc/visual_composer.php:553
+msgid "Link color style"
+msgstr "Link kleurstijl"
+
+#: inc/visual_composer.php:768
+msgid "Link tooltip (title)"
+msgstr "Link tooltip (titel)"
+
+#: inc/visual_composer.php:450
+msgid "List design"
+msgstr "Lijst ontwerp"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:137
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:53
+msgid "Live Preview"
+msgstr "Live Voorbeeld"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:137
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:53
+#, php-format
+msgid "Live Preview &#8220;%s&#8221;"
+msgstr "Live Voorbeeld &#8220;%s&#8221;"
+
+#: inc/admin/product_registration/screens/install_demo.php:25
+msgid "LMS Dark"
+msgstr "LMS Donker"
+
+#: inc/admin/product_registration/screens/install_demo.php:13
+msgid "LMS Light"
+msgstr "LMS Licht"
+
+#: partials/content-event.php:101 partials/vc_templates/event_info.php:48
+msgid "Location:"
+msgstr "Locatie:"
+
+#: partials/headers/parts/log-in.php:7
+msgid "Log in"
+msgstr "Inloggen"
+
+#: paid-memberships-pro/pages/checkout.php:322
+msgid "log in"
+msgstr "Inloggen"
+
+#: partials/headers/parts/woocommerce_login.php:14
+#: partials/headers/parts/woocommerce_login.php:15
+#: partials/headers/parts/woocommerce_login.php:39
+#: partials/headers/parts/woocommerce_login.php:40
+msgid "Log out"
+msgstr "Uitloggen"
+
+#: paid-memberships-pro/pages/checkout.php:325
+msgid "log out now"
+msgstr "Nu uitloggen"
+
+#: paid-memberships-pro/pages/billing.php:22
+#, php-format
+msgid "Logged in as <strong>%s</strong>."
+msgstr "Inloggen als <strong>%s</strong>."
+
+#: woocommerce/myaccount/form-login.php:32
+#: woocommerce/myaccount/form-login.php:49 woocommerce/global/form-login.php:49
+#: partials/headers/parts/woocommerce_login.php:19
+#: partials/headers/parts/woocommerce_login.php:44
+msgid "Login"
+msgstr "Inloggen"
+
+#: paid-memberships-pro/pages/checkout.php:217
+msgid "Login here"
+msgstr "Hier inloggen"
+
+#: partials/headers/parts/left_bar.php:37
+msgid "Login/Sign UP"
+msgstr ""
+
+#: partials/headers/mobile/account.php:55
+msgid "Login/Sign Up"
+msgstr "Inloggen/Aanmelden"
+
+#: partials/headers/mobile/account.php:124
+msgid "Logout"
+msgstr "Uitloggen"
+
+#: paid-memberships-pro/pages/billing.php:24
+msgid "logout"
+msgstr "uitloggen"
+
+#: woocommerce/myaccount/form-login.php:55 woocommerce/global/form-login.php:57
+msgid "Lost your password?"
+msgstr "Wachtwoord kwijt?"
+
+#: woocommerce/myaccount/form-lost-password.php:27
+msgid ""
+"Lost your password? Please enter your username or email address. You will "
+"receive a link to create a new password via email."
+msgstr ""
+"Bent u uw wachtwoord kwijt? Voer uw gebruikersnaam of e-mailadres in. U zult "
+"via e-mail een link te ontvangen om een nieuw wachtwoord aan te maken."
+
+#: inc/visual_composer.php:1150
+msgid "Mailchimp"
+msgstr "Mailchimp"
+
+#: inc/setup.php:45
+msgid "Main sidebar that appears on the right or left."
+msgstr "Hoofdzijbalk die verschijnt aan de rechter- of linkerkant."
+
+#: inc/visual_composer.php:1600
+msgid "Masonry Mode"
+msgstr "Masonry Modus"
+
+#. Name of the theme
+msgid "MasterStudy"
+msgstr "MasterStudy"
+
+#: inc/visual_composer.php:144
+msgid "MasterStudy Animations"
+msgstr "MasterStudie Animaties"
+
+#. Description of the theme
+msgid ""
+"MasterStudy is the best WordPress theme for the Education &amp; Learning "
+"Center - for educational organizations, who sell courses and organize "
+"classes locally. Using Masterstudy you can easily setup a WordPress site for "
+"your education company."
+msgstr ""
+"MasterStudie is het beste Wordpress thema voor Opleiding &amp; Leercentrum - "
+"voor educatieve organisaties, die cursussen verkopen en lokaal lessen "
+"organiseren. Met behulp van Masterstudie kunt u eenvoudig een WordPress site "
+"opzetten voor uw onderwijsbedrijf."
+
+#: inc/admin/product_registration/screens/system_status.php:246
+msgid "Max Upload Size:"
+msgstr "Maximale Upload Formaat:"
+
+#: buddypress/members/single/home.php:53
+msgid "Member primary navigation"
+msgstr "Lid hoofdnavigatie"
+
+#: paid-memberships-pro/pages/confirmation.php:59
+msgid "Membership Expires"
+msgstr "Lidmaatschap Verloopt"
+
+#: paid-memberships-pro/pages/billing.php:46
+msgid "Membership Fee"
+msgstr "Lidmaatschapskosten"
+
+#: paid-memberships-pro/pages/confirmation.php:56
+#: paid-memberships-pro/pages/confirmation.php:139
+#: paid-memberships-pro/pages/checkout.php:53
+msgid "Membership Level"
+msgstr "Niveau Lidmaatschap"
+
+#: paid-memberships-pro/pages/checkout.php:67
+msgid "Membership level:"
+msgstr "Niveau lidmaatschap:"
+
+#: paid-memberships-pro/pages/levels.php:30
+msgid "Membership plans"
+msgstr "Lidmaatschapsplannen"
+
+#: partials/headers/header_4.php:17 partials/headers/mobile/menu.php:6
+#: partials/headers/parts/menu-3.php:16 partials/headers/parts/menu.php:17
+msgid "Menu"
+msgstr "Menu"
+
+#: inc/visual_composer.php:285
+msgid "Menu order"
+msgstr "Menu volgorde"
+
+#: partials/event-form.php:29
+msgid "Message"
+msgstr "Bericht"
+
+#: partials/headers/mobile/account.php:84
+msgid "Messages"
+msgstr "Berichten"
+
+#: inc/visual_composer.php:1014
+msgid "Meta sorting key"
+msgstr "Meta sorteersleutel"
+
+#: partials/footers/after_footer.php:12
+msgid "Minutes"
+msgstr "Minuten"
+
+#: inc/visual_composer.php:190
+msgid "Mobile Height"
+msgstr "Mobiele Hoogte"
+
+#: inc/visual_composer.php:204
+msgid "Modern"
+msgstr "Modern"
+
+#: inc/visual_composer.php:282
+msgid "Modified"
+msgstr "Gewijzigd"
+
+#: inc/visual_composer.php:1299
+msgid "Multiply separator"
+msgstr "Vermenigvuldiger"
+
+#: woocommerce/checkout/thankyou.php:41 partials/headers/parts/sign-up.php:7
+msgid "My account"
+msgstr "Mijn account"
+
+#: partials/headers/mobile/account.php:47
+msgid "My Profile"
+msgstr "Mijn Profiel"
+
+#: inc/admin/product_registration/screens/system_status.php:235
+msgid "MySQL Version:"
+msgstr "MySQL Versie:"
+
+#: woocommerce/single-product-reviews.php:73 inc/custom.php:72
+#: inc/visual_composer.php:1544 partials/event-form.php:13
+#: woocommerce/cart/cart.php:67
+msgid "Name"
+msgstr "Naam"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:339
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:114
+msgid "Network Activate"
+msgstr "Activeer netwerk"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:340
+#, php-format
+msgid "Network Activate %s"
+msgstr "Activeer netwerk %s"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:117
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:62
+msgid "Network Enable"
+msgstr "Netwerk Inschakelen"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:117
+#, php-format
+msgid "Network Enable &#8220;%s&#8221;"
+msgstr "Netwerk Inschakelen &#8220;%s&#8221;"
+
+#: inc/custom.php:626
+msgid "New"
+msgstr "Nieuw"
+
+#: comments.php:35
+msgid "Newer Comments"
+msgstr "Nieuwere Reacties"
+
+#: partials/vc_templates/buddypress_groups.php:23
+msgid "Newest"
+msgstr "Nieuwste"
+
+#: partials/title_box.php:30
+msgid "News"
+msgstr "Nieuws"
+
+#: partials/title_box.php:70
+msgid "News & Events"
+msgstr "Nieuws & Evenementen"
+
+#: index.php:93 archive-gallery.php:95 archive-events.php:67
+#: partials/vc_templates/events_grid.php:56
+#: partials/vc_templates/teachers_grid.php:84
+msgid "Next"
+msgstr "Volgende"
+
+#: inc/visual_composer.php:138
+msgid "No"
+msgstr "Nee"
+
+#: woocommerce/cart/mini-cart.php:75
+msgid "No products in the cart."
+msgstr "Geen producten in de winkelwagen."
+
+#: index.php:114
+msgid "No result has been found. Please check for correctness."
+msgstr "Geen resultaten gevonden. Controleer de juistheid."
+
+#. $s shipping destination.
+#: woocommerce/cart/cart-shipping.php:66
+#, php-format
+msgid "No shipping options were found for %s."
+msgstr "Er werden geen verzendingsopties gevonden voor %s."
+
+#: inc/custom.php:623
+msgid "No Status"
+msgstr "Geen Status"
+
+#: partials/loop-grid.php:43
+msgid "No title"
+msgstr "Geen titel"
+
+#: inc/visual_composer.php:147 inc/visual_composer.php:526
+msgid "None"
+msgstr "Geen"
+
+#: inc/admin/product_registration/screens/install_demo.php:149
+msgid "Not installed"
+msgstr "Niet Geïnstalleerd"
+
+#: woocommerce/single-product-reviews.php:92
+msgid "Not that bad"
+msgstr "Niet slecht"
+
+#: inc/custom.php:93
+msgctxt "noun"
+msgid "Message"
+msgstr "Bericht"
+
+#: inc/visual_composer.php:914 inc/visual_composer.php:1082
+msgid "Number of items per row"
+msgstr "Aantal item per rij"
+
+#: inc/visual_composer.php:434 inc/visual_composer.php:908
+#: inc/visual_composer.php:1076
+msgid "Number of items to output"
+msgstr "Aantal uit te voeren items"
+
+#: inc/visual_composer.php:440
+msgid "Number of items to output per row"
+msgstr "Aantal uit te voeren items per rij"
+
+#: inc/visual_composer.php:333
+msgid "Number of Teachers per row"
+msgstr "Aantal Leerkrachten per rij"
+
+#: inc/visual_composer.php:308
+msgid "Number of Teachers to output"
+msgstr "Aantal uit te voeren Leerkrachten "
+
+#: inc/visual_composer.php:400
+msgid "Number of testimonials per row"
+msgstr "Aantal getuigenissen per rijd"
+
+#: inc/visual_composer.php:374
+msgid "Number of testimonials to output"
+msgstr "Aantal uit te voeren getuigenissen"
+
+#: inc/visual_composer.php:661
+msgid "Number Only"
+msgstr ""
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/section/oauth.php:10
+msgid ""
+"OAuth is a protocol that lets external apps request authorization to private "
+"details in a user's Envato Market account without entering their password. "
+"This is preferred over Basic Authentication because tokens can be limited to "
+"specific types of data, and can be revoked by users at any time."
+msgstr ""
+"OAuth is een protocol dat externe applicaties toestemming laat vragen "
+"omprivégegevens in het Envato Market-account van een gebruiker zonder zijn "
+"of haar wachtwoord in te voeren. Dit heeft de voorkeur boven Basis "
+"Authenticatie, omdat tokens  kunnen worden beperkt tot specifieke soorten "
+"gegevens, en kan door gebruikers op elk moment worden herroepen."
+
+#: partials/frontend_customizer.php:19
+msgid "Off"
+msgstr "Uit"
+
+#: inc/admin/product_registration/screens/install_demo.php:29
+msgid "Offline Courses"
+msgstr ""
+
+#: comments.php:32
+msgid "Older Comments"
+msgstr "Oudere Reacties"
+
+#: partials/frontend_customizer.php:17
+msgid "On"
+msgstr "Aan"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/notice/error-single-use.php:11
+msgid ""
+"One or more Single Use OAuth Personal Tokens could not be verified and "
+"should be removed."
+msgstr ""
+"Een of meer persoonlijke OAuth Tokens voor eenmalig gebruik konden niet "
+"worden geverifieerd enmoet worden verwijderd."
+
+#: woocommerce/single-product-reviews.php:106
+msgid ""
+"Only logged in customers who have purchased this product may leave a review."
+msgstr ""
+"Alleen ingelogde klanten die dit product hebben gekocht, kunnen een "
+"beoordeling achterlaten."
+
+#: inc/visual_composer.php:1606
+msgid "Only numbers"
+msgstr ""
+
+#: inc/visual_composer.php:1644
+msgid "Only on event page"
+msgstr "Alleen op evenement pagina"
+
+#: inc/visual_composer.php:349
+msgid "Only on expert page"
+msgstr "Alleen op expert pagina"
+
+#: inc/visual_composer.php:1244 inc/visual_composer.php:1260
+#: inc/visual_composer.php:1316 inc/visual_composer.php:1331
+msgid "Only on post page"
+msgstr "Alleen op berichtenpagina"
+
+#: paid-memberships-pro/pages/billing.php:130
+msgid "optional"
+msgstr "optioneel"
+
+#: inc/visual_composer.php:1094 woocommerce/myaccount/my-orders.php:13
+#: woocommerce/myaccount/my-orders.php:42
+msgid "Order"
+msgstr "Sorteren"
+
+#: woocommerce/order/tracking.php:23
+#, php-format
+msgid "Order #%s which was made %s has the status &ldquo;%s&rdquo;"
+msgstr "Order #%s aangemaakt op %s, heeft de status &ldquo;%s&rdquo;"
+
+#: inc/visual_composer.php:1104
+msgid "Order by"
+msgstr "Sorteer op"
+
+#: woocommerce/myaccount/my-orders.php:57
+msgid "Order Number"
+msgstr "Ordernummer"
+
+#: woocommerce/checkout/thankyou.php:52
+msgid "Order number:"
+msgstr "Ordernummer"
+
+#: woocommerce/order/tracking.php:32
+msgid "Order updates"
+msgstr "Oderupdates"
+
+#: inc/admin/product_registration/screens/support.php:52
+#, php-format
+msgid ""
+"Our online documentaiton is a useful resource for learning the every aspect "
+"and features of %s."
+msgstr ""
+"Onze online documentatie is een bruikbare bron voor het leren van ieder "
+"aspect en functies van %s."
+
+#: woocommerce/single-product/rating.php:37
+#, php-format
+msgid "out of %s5%s"
+msgstr "van %s5%s"
+
+#: woocommerce/single-product/review.php:49
+msgid "out of 5"
+msgstr "Van 5"
+
+#: inc/visual_composer.php:207
+msgid "Outline"
+msgstr "Omlijnd"
+
+#: inc/visual_composer.php:210
+msgid "Outline custom"
+msgstr "Aangepaste omlijning"
+
+#: page.php:24 partials/content-event.php:16 partials/content.php:18
+msgid "Page"
+msgstr "Pagina"
+
+#: page.php:20 partials/content-event.php:12 partials/content-event.php:124
+#: partials/content.php:14 partials/content.php:125
+msgid "Pages:"
+msgstr "Pagina’s"
+
+#: buddypress/common/js-templates/messages/index.php:168
+#: buddypress/common/js-templates/messages/index.php:249
+msgid "Participants:"
+msgstr "Deelnemers:"
+
+#: woocommerce/myaccount/form-login.php:42
+#: woocommerce/myaccount/form-login.php:90 woocommerce/global/form-login.php:40
+#: paid-memberships-pro/pages/checkout.php:237
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: woocommerce/myaccount/my-orders.php:78 woocommerce/checkout/thankyou.php:38
+msgid "Pay"
+msgstr "Betalen"
+
+#: woocommerce/checkout/form-pay.php:102
+msgid "Pay for order"
+msgstr "Betaal voor order"
+
+#: woocommerce/checkout/payment.php:23 woocommerce/checkout/form-pay.php:74
+msgid "Payment"
+msgstr "Betaling"
+
+#: paid-memberships-pro/pages/checkout.php:584
+msgid "Payment Information"
+msgstr "Betalingsinformatie"
+
+#: paid-memberships-pro/pages/confirmation.php:87
+msgid "Payment Method"
+msgstr "Betalingsmethode"
+
+#: woocommerce/checkout/thankyou.php:75
+msgid "Payment method:"
+msgstr "Betaalmethode"
+
+#: paid-memberships-pro/pages/confirmation.php:140
+msgid "Pending"
+msgstr "In afwachting"
+
+#: paid-memberships-pro/pages/levels.php:90
+#, php-format
+msgid "per %s"
+msgstr "per %s"
+
+#: woocommerce/single-product-reviews.php:89
+msgid "Perfect"
+msgstr "Perfect"
+
+#: inc/visual_composer.php:1565 partials/event-form.php:17
+#: paid-memberships-pro/pages/checkout.php:517
+#: paid-memberships-pro/pages/billing.php:237
+msgid "Phone"
+msgstr "Telefoon"
+
+#: partials/vc_templates/contact.php:30
+msgid "Phone: "
+msgstr "Telefoon:"
+
+#: inc/admin/product_registration/screens/system_status.php:120
+msgid "PHP Max Input Vars:"
+msgstr "PHP Maximale Invoer Vars:"
+
+#: inc/admin/product_registration/screens/system_status.php:97
+msgid "PHP Post Max Size:"
+msgstr "PHP Bericht Maximaal Formaat:"
+
+#: inc/admin/product_registration/screens/system_status.php:102
+msgid "PHP Time Limit:"
+msgstr "PHP Tijdslimiet:"
+
+#: inc/admin/product_registration/screens/system_status.php:91
+msgid "PHP Version:"
+msgstr "PHP Versie:"
+
+#: inc/visual_composer.php:1525
+msgid "Plan Button"
+msgstr "Knop abonnement"
+
+#: inc/visual_composer.php:1502
+msgid "Plan Color"
+msgstr "Kleur abonnement"
+
+#: inc/visual_composer.php:1513
+msgid "Plan payment period"
+msgstr "Betalingsperiode abonnement"
+
+#: inc/visual_composer.php:1507
+msgid "Plan price"
+msgstr "Prijs abonnement"
+
+#: inc/visual_composer.php:1519
+msgid "Plan Text"
+msgstr "Tekst abonnement"
+
+#: inc/visual_composer.php:1496
+msgid "Plan title"
+msgstr "Titel abonnement"
+
+#: inc/admin/product_registration/screens/install_demo.php:183
+msgid "Please enter your Activation Token before running the MasterStudy."
+msgstr "Vul uw Activatie Token in voor de MasterStudie te draaien."
+
+#: woocommerce/checkout/payment.php:37
+msgid "Please fill in your details above to see available payment methods."
+msgstr ""
+"Gelieve uw gegevens hierboven in te vullen om de beschikbare "
+"betalingsmogelijkheden te zien."
+
+#: inc/admin/product_registration/screens/startup.php:23
+msgid ""
+"Please make sure you have purchased this theme with the account you "
+"registered current token"
+msgstr ""
+"Zorg ervoor dat u dit thema hebt gekocht met het account dat u hebt "
+"geregistreerd met het huidige token"
+
+#: inc/admin/product_registration/includes/admin_screens.php:71
+#: inc/admin/product_registration/includes/admin_screens.php:72
+#: inc/admin/product_registration/includes/admin_screens.php:189
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/tabs.php:42
+msgid "Plugins"
+msgstr "Plugins"
+
+#: partials/vc_templates/buddypress_groups.php:21
+msgid "Popular"
+msgstr "Populair"
+
+#: inc/visual_composer.php:1313
+msgid "Post author"
+msgstr "Plaats auteur"
+
+#: inc/visual_composer.php:1328
+msgid "Post comments"
+msgstr "Plaats reactie"
+
+#: inc/visual_composer.php:427
+msgid "Post Data"
+msgstr "Plaats Data"
+
+#: inc/visual_composer.php:1241
+msgid "Post info"
+msgstr "Bericht info"
+
+#: inc/visual_composer.php:1256
+msgid "Post tags"
+msgstr "Plaats tags"
+
+#: paid-memberships-pro/pages/checkout.php:432
+#: paid-memberships-pro/pages/billing.php:150
+msgid "Postal Code"
+msgstr "Postcode"
+
+#: partials/content.php:88 partials/vc_templates/post_info.php:13
+msgid "Posted by:"
+msgstr "Geplaatst door:"
+
+#: partials/loop-grid.php:68 partials/loop-list.php:42
+#: partials/vc_templates/post_list.php:81
+msgid "Posted in:"
+msgstr "Geplaatst in:"
+
+#: inc/visual_composer.php:1455
+msgid "Practice"
+msgstr ""
+
+#: partials/vc_templates/course_lesson.php:83
+msgid "Preview"
+msgstr "Voorvertoning"
+
+#: inc/visual_composer.php:112
+msgid "Preview Image"
+msgstr "Voorvertoning Afbeelding"
+
+#: inc/visual_composer.php:1462
+msgid "Preview video"
+msgstr "Voorvertoning video"
+
+#: index.php:92 archive-gallery.php:94 archive-events.php:66
+#: partials/vc_templates/events_grid.php:55
+#: partials/vc_templates/teachers_grid.php:83
+msgid "Previous"
+msgstr "Vorige"
+
+#: woocommerce/cart/cart.php:31 woocommerce/cart/cart.php:96
+#: woocommerce/single-product/price.php:28
+msgid "Price"
+msgstr "Prijs"
+
+#: inc/visual_composer.php:1135
+msgid "Price Badge (Free) background color"
+msgstr "Prijs Badge (Gratis) achtergrondkleur"
+
+#: inc/visual_composer.php:1129
+msgid "Price Badge background color"
+msgstr "Prijs Badge achtergrond kleur"
+
+#: paid-memberships-pro/pages/checkout.php:75
+#: partials/vc_templates/event_info.php:55
+msgid "Price:"
+msgstr "Prijs:"
+
+#: inc/visual_composer.php:1489
+msgid "Pricing Plan"
+msgstr "Prijs abonnement"
+
+#: inc/setup.php:43
+msgid "Primary Sidebar"
+msgstr "Eerste Zijbalk"
+
+#: paid-memberships-pro/pages/confirmation.php:49
+msgid "Print"
+msgstr "Print"
+
+#: inc/visual_composer.php:1427 partials/vc_templates/course_lesson.php:99
+msgid "Private"
+msgstr "Privé"
+
+#: inc/admin/product_registration/screens/install_demo.php:37
+msgid "Private Instructor"
+msgstr "Privé-instructeur"
+
+#: inc/visual_composer.php:1468
+msgid "Private lesson content placeholder"
+msgstr "Privéles inhoud placeholder"
+
+#: paid-memberships-pro/pages/checkout.php:854
+msgid "Processing..."
+msgstr "Verwerken"
+
+#: woocommerce/checkout/review-order.php:23
+#: woocommerce/checkout/form-pay.php:27
+msgid "Product"
+msgstr "Product"
+
+#: inc/visual_composer.php:885
+msgid "Product Categories"
+msgstr "Product Categorieën"
+
+#: woocommerce/cart/cart.php:30
+msgid "Product name"
+msgstr "Productnaam"
+
+#: woocommerce/global/quantity-input.php:30
+msgctxt "Product quantity input tooltip"
+msgid "Qty"
+msgstr "St"
+
+#: inc/visual_composer.php:1007
+msgid "Products List (All, featured, teacher courses)"
+msgstr "Productlijst (Alle, aanbevolen, leerkracht cursussen)"
+
+#: woocommerce/checkout/form-pay.php:28
+msgid "Qty"
+msgstr "St"
+
+#: woocommerce/cart/cart.php:32 woocommerce/cart/cart.php:102
+msgid "Quantity"
+msgstr "Hoeveelheid"
+
+#: inc/visual_composer.php:1451
+msgid "Quiz"
+msgstr ""
+
+#: inc/visual_composer.php:283 partials/vc_templates/buddypress_groups.php:24
+msgid "Random"
+msgstr "Aangepast"
+
+#: woocommerce/single-product-reviews.php:88
+msgid "Rate&hellip;"
+msgstr "Beoordeling&hellip;"
+
+#: woocommerce/single-product/review.php:48
+#, php-format
+msgid "Rated %d out of 5"
+msgstr "B%d van 5 beoordeeld"
+
+#: woocommerce/single-product/rating.php:35
+#, php-format
+msgid "Rated %s out of 5"
+msgstr "%s uit 5 beoordeeld"
+
+#: woocommerce/content-single-product.php:306
+msgid "Ratings"
+msgstr "Beoordelingen"
+
+#: partials/loop-list.php:22 partials/loop-list.php:66
+#: partials/loop-list.php:66
+msgid "Read more"
+msgstr "Lees verder"
+
+#: woocommerce/myaccount/my-orders.php:30
+msgid "Recent Orders"
+msgstr "Recnte orders"
+
+#: partials/frontend_customizer.php:28
+msgid "Red skin"
+msgstr "Rode skin"
+
+#: paid-memberships-pro/pages/confirmation.php:154
+msgid "Redirecting to course..."
+msgstr "Aan het doorsturen naar cursus..."
+
+#: woocommerce/myaccount/form-login.php:69
+#: woocommerce/myaccount/form-login.php:102
+#: partials/headers/parts/woocommerce_login.php:22
+#: partials/headers/parts/woocommerce_login.php:47
+msgid "Register"
+msgstr "Registreren"
+
+#: inc/admin/product_registration/includes/admin_screens.php:177
+msgid "Registration"
+msgstr "Registratie"
+
+#: woocommerce/single-product/related.php:27
+msgid "Related products"
+msgstr "Gerelateerde producten"
+
+#: woocommerce/myaccount/form-login.php:51 woocommerce/global/form-login.php:53
+msgid "Remember me"
+msgstr "Onthoud mij"
+
+#: woocommerce/cart/cart.php:50
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:356
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: inc/visual_composer.php:135
+msgid "Remove Background on mobile"
+msgstr "Verwijder Achtergrond op mobiel"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:396
+msgid "Remove Item"
+msgstr "Verwijder Item"
+
+#: woocommerce/cart/cart.php:58 woocommerce/cart/mini-cart.php:47
+msgid "Remove this item"
+msgstr "Verwijder dit item"
+
+#: paid-memberships-pro/pages/levels.php:50
+msgid "Renew"
+msgstr "Vernieuwen"
+
+#: buddypress/common/js-templates/messages/index.php:345
+msgid "Reply to Message"
+msgstr "Beantwoord bericht"
+
+#: inc/visual_composer.php:79
+msgid "Responsiveness"
+msgstr "Responsiviteit"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:118
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:764
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:789
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:847
+msgid "Return to Plugin Installer"
+msgstr "Terug naar Plugin Installer"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:68
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:822
+msgid "Return to Theme Installer"
+msgstr "Terug naar Theme Installer"
+
+#: woocommerce/content-single-product.php:157
+#: woocommerce/content-single-product.php:295
+msgid "Reviews"
+msgstr "Beoordelingen"
+
+#: inc/visual_composer.php:528
+msgid "Right"
+msgstr "Rechts"
+
+#: buddypress/common/search-and-filters-bar.php:17
+msgid "RSS"
+msgstr "RSS"
+
+#: buddypress/common/search-and-filters-bar.php:16
+msgid "RSS Feed"
+msgstr "RSS Feed"
+
+#: inc/admin/product_registration/screens/install_demo.php:45
+msgid "RTL Demo"
+msgstr "RTL Demo"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:355
+msgid "Save"
+msgstr "Opslaan"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/settings.php:17
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/intro.php:19
+msgid "Screenshot"
+msgstr "Screenshot"
+
+#: partials/vc_templates/experts.php:52
+#: partials/vc_parts/testimonials/style_1.php:26
+msgid "Scroll Carousel left"
+msgstr "Scroll Carrousel links"
+
+#: partials/vc_templates/experts.php:56
+#: partials/vc_parts/testimonials/style_1.php:29
+msgid "Scroll Carousel right"
+msgstr "Scroll Carrousel rechts"
+
+#: partials/title_box.php:57 partials/searchform.php:6
+#: partials/headers/mobile/search.php:6
+msgid "Search"
+msgstr "Zoeken"
+
+#: partials/headers/parts/courses_categories_with_search.php:40
+msgid "Search Courses"
+msgstr "Zoek Cursussen"
+
+#: partials/headers/parts/courses-search.php:23
+msgid "Search courses"
+msgstr "Zoek cursussen"
+
+#: partials/headers/parts/left_bar.php:53
+msgid "Search Courses..."
+msgstr "Zoek Cursussen…"
+
+#: woocommerce/product-searchform.php:25
+msgid "Search for:"
+msgstr "Zoeken op:"
+
+#: woocommerce/product-searchform.php:26
+msgid "Search the Courses"
+msgstr "Zoek de Cursussen"
+
+#: partials/headers/header_6.php:41 partials/headers/header_5.php:36
+#: partials/headers/header_default.php:36
+msgid "Search..."
+msgstr "Zoeken…"
+
+#: woocommerce/content-product-list.php:195
+#: woocommerce/content-product-list.php:203
+msgid "seats"
+msgstr "zitplaatsen"
+
+#: inc/setup.php:35
+msgid "Secondary menu in the footer"
+msgstr "Tweede menu in de voettekst"
+
+#: partials/footers/after_footer.php:13
+msgid "Seconds"
+msgstr "Seconden"
+
+#: vc_templates/vc_accordion_tab.php:5
+msgid "Section"
+msgstr "Sectie"
+
+#: inc/visual_composer.php:1399
+msgid "Section Title"
+msgstr "Sectie Titel"
+
+#: inc/visual_composer.php:301 inc/visual_composer.php:368
+msgid "Section title"
+msgstr "Sectie titel"
+
+#: woocommerce/content-product-list.php:212
+msgid "See more"
+msgstr "Toon meer"
+
+#: inc/visual_composer.php:1713
+msgid "Select"
+msgstr "Selecteer"
+
+#: inc/visual_composer.php:1351
+msgid "Select Animation type"
+msgstr "Selecteer Animatie soort"
+
+#: buddypress/common/js-templates/messages/index.php:107
+msgid "Select bulk action"
+msgstr "Slecteer bulkactie"
+
+#: inc/visual_composer.php:200
+msgid "Select button display style."
+msgstr "Selecteer knop weergave stijl."
+
+#: inc/visual_composer.php:243
+msgid "Select gap between grid elements."
+msgstr "Selecteer ruimte tussen rasterelementen."
+
+#: buddypress/common/js-templates/messages/index.php:126
+msgid "Select message:"
+msgstr "Selecteer bericht"
+
+#: inc/visual_composer.php:1453
+msgid "Seminar"
+msgstr ""
+
+#: buddypress/common/js-templates/messages/index.php:36
+msgid "Send @Username"
+msgstr "Stuur @gebruikersnaam"
+
+#: buddypress/common/js-templates/messages/index.php:334
+msgid "Send a Reply"
+msgstr "Stuur een antwoord"
+
+#: inc/visual_composer.php:871
+msgid "Separator Color"
+msgstr "Kleur Seperator"
+
+#: inc/admin/product_registration/screens/system_status.php:77
+#: inc/admin/product_registration/screens/system_status.php:81
+msgid "Server Environment"
+msgstr "Server Omgeving"
+
+#: inc/admin/product_registration/screens/system_status.php:86
+msgid "Server Info:"
+msgstr "Server Info:"
+
+#: partials/headers/mobile/account.php:101
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/tabs.php:45
+msgid "Settings"
+msgstr "Instellingen"
+
+#: inc/admin/product_registration/screens/install_demo.php:176
+msgid "Setup Layout"
+msgstr "Setup Layout"
+
+#: inc/visual_composer.php:1271
+msgid "Share"
+msgstr "Delen"
+
+#: inc/visual_composer.php:1279
+msgid "Share:"
+msgstr "Delen:"
+
+#: woocommerce/cart/cart-totals.php:60 woocommerce/cart/cart-totals.php:61
+msgid "Shipping"
+msgstr "Verzending"
+
+#: woocommerce/myaccount/my-address.php:28
+msgid "Shipping address"
+msgstr "Verzendadres"
+
+#: inc/setup.php:74
+msgid "Shop"
+msgstr "Winkelen"
+
+#: inc/visual_composer.php:472
+msgid "Show comments tags"
+msgstr "Toon reactie’s tags"
+
+#: inc/visual_composer.php:1675
+msgid "Show Pagination"
+msgstr "Paginering tonen"
+
+#: inc/visual_composer.php:460
+msgid "Show post categories"
+msgstr "Toon bericht categorieën"
+
+#: inc/visual_composer.php:454
+msgid "Show post date"
+msgstr "Toon datum bericht"
+
+#: inc/visual_composer.php:466
+msgid "Show post tags"
+msgstr "Toon berichtentags"
+
+#: inc/visual_composer.php:1733
+msgid "Sidebar position"
+msgstr "Zijbalk positie"
+
+#: partials/event-form.php:34
+msgid "Sign Up"
+msgstr "Aanmelden"
+
+#: partials/headers/parts/sign-up.php:6
+#, fuzzy
+#| msgid "Sign in"
+msgid "Sign up"
+msgstr "Inloggen"
+
+#: partials/event-form.php:5
+msgid "Sign up for event"
+msgstr "Aanmelden voor evenement"
+
+#: inc/visual_composer.php:1215
+msgid "Sign Up Now"
+msgstr "Nu aanmelden"
+
+#: woocommerce/checkout/payment.php:44
+msgid ""
+"Since your browser does not support JavaScript, or it is disabled, please "
+"ensure you click the <em>Update Totals</em> button before placing your order."
+" You may be charged more than the amount stated above if you fail to do so."
+msgstr ""
+"Aangezien uw browser geen JavaScript ondersteunt, of het is uitgeschakeld, "
+"zorg erAlstublieft voor dat u op de <em>Update Totalen</em> knop klikt "
+"voordat u uw bestelling plaatst Als u dit niet doet, kan het zijn dat u meer "
+"dan het hierboven vermelde bedrag in rekening wordt gebracht."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:488
+msgid "Single Use OAuth Personal Tokens"
+msgstr "Eenmalig gebruik OAuth Persoonlijke Tokens"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:331
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:110
+msgid "Site Activate"
+msgstr "Activeer site"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:332
+#, php-format
+msgid "Site Activate %s"
+msgstr "Activeer sit %s"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:113
+#: inc/admin/product_registration/includes/envato-market/inc/admin/upgrader-skins.php:58
+msgid "Site Enable"
+msgstr "Site inschakelen"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:113
+#, php-format
+msgid "Site Enable &#8220;%s&#8221;"
+msgstr "Site Inschakelen &#8220;%s&#8221;"
+
+#: inc/admin/product_registration/screens/system_status.php:27
+msgid "Site URL:"
+msgstr "Site URL:"
+
+#: inc/visual_composer.php:1575
+msgid "Skype"
+msgstr "Skype"
+
+#: partials/vc_templates/contact.php:40
+msgid "Skype: "
+msgstr "Skype:"
+
+#: inc/visual_composer.php:55
+msgid "Slick slider"
+msgstr "Handige schuifregelaar"
+
+#: inc/visual_composer.php:56
+msgid "Slick slider 2"
+msgstr "Handige schuifregelaar"
+
+#: woocommerce/checkout/form-pay.php:94
+msgid ""
+"Sorry, it seems that there are no available payment methods for your "
+"location. Please contact us if you require assistance or wish to make "
+"alternate arrangements."
+msgstr ""
+"Sorry, het lijkt erop dat er geen beschikbare betalingsmogelijkheden zijn "
+"voor uwlocatie. Neem contact met ons op als u hulp nodig heeft of als u een "
+"alternatieve regeling wenst."
+
+#: woocommerce/checkout/payment.php:37
+msgid ""
+"Sorry, it seems that there are no available payment methods for your state. "
+"Please contact us if you require assistance or wish to make alternate "
+"arrangements."
+msgstr ""
+"Sorry, het lijkt erop dat er geen betaalmethoden beschikbaar zijn voor uw "
+"staat. Neem contact met ons op als u hulp nodig heeft of als u een "
+"alternatieveregeling wilt opzetten."
+
+#: partials/vc_templates/buddypress_groups.php:19
+msgid "Sort by: "
+msgstr "Sorteren op"
+
+#: inc/custom.php:625
+msgid "Special"
+msgstr "Speciaal"
+
+#: buddypress/common/js-templates/messages/index.php:205
+msgid "Star"
+msgstr "Start"
+
+#: buddypress/common/js-templates/messages/index.php:206
+#: buddypress/common/js-templates/messages/index.php:207
+msgid "Star Conversation"
+msgstr "Start gesprek"
+
+#: buddypress/common/js-templates/messages/index.php:288
+#: buddypress/common/js-templates/messages/index.php:289
+msgid "Star Message"
+msgstr "Ster bericht"
+
+#: woocommerce/content-single-product.php:354
+msgid "Stars"
+msgstr "Sterren"
+
+#: partials/searchform.php:9
+msgid "Start typing here..."
+msgstr "Start hier met typen…"
+
+#: partials/content-event.php:94 partials/vc_templates/event_info.php:32
+msgid "Start:"
+msgstr "Start:"
+
+#: paid-memberships-pro/pages/checkout.php:426
+#: paid-memberships-pro/pages/billing.php:144
+msgid "State"
+msgstr "Staat"
+
+#: partials/frontend_customizer.php:7
+msgid "Static"
+msgstr "Statisch"
+
+#: inc/visual_composer.php:647
+msgid "Stats Counter"
+msgstr "Statistieken Teller"
+
+#: woocommerce/myaccount/my-orders.php:15
+#: woocommerce/myaccount/my-orders.php:44
+#: woocommerce/myaccount/my-orders.php:65
+msgid "Status"
+msgstr "Status"
+
+#: partials/frontend_customizer.php:9
+msgid "Sticky"
+msgstr "Kleverig"
+
+#: partials/loop-list.php:17 partials/vc_templates/post_list.php:65
+msgid "Sticky Post"
+msgstr "Plaknotitie"
+
+#: inc/visual_composer.php:348 inc/visual_composer.php:495
+#: inc/visual_composer.php:650 inc/visual_composer.php:759
+#: inc/visual_composer.php:867 inc/visual_composer.php:888
+#: inc/visual_composer.php:1010 inc/visual_composer.php:1153
+#: inc/visual_composer.php:1183 inc/visual_composer.php:1218
+#: inc/visual_composer.php:1245 inc/visual_composer.php:1259
+#: inc/visual_composer.php:1273 inc/visual_composer.php:1302
+#: inc/visual_composer.php:1317 inc/visual_composer.php:1332
+#: inc/visual_composer.php:1347 inc/visual_composer.php:1395
+#: inc/visual_composer.php:1417 inc/visual_composer.php:1492
+#: inc/visual_composer.php:1540 inc/visual_composer.php:1591
+#: inc/visual_composer.php:1620 inc/visual_composer.php:1645
+#: inc/visual_composer.php:1659 inc/visual_composer.php:1695
+#: inc/visual_composer.php:1723
+msgid "STM"
+msgstr "STM"
+
+#: inc/visual_composer.php:1857
+msgid "STM Add User"
+msgstr "STM Gebruiker Toevoegen"
+
+#: inc/visual_composer.php:1858
+msgid "STM Adope PhotoShop"
+msgstr "STM Adobe Photoshop"
+
+#: inc/visual_composer.php:1835
+msgid "STM Alarm"
+msgstr "STM Alarm"
+
+#: inc/visual_composer.php:1849
+msgid "STM Bike Riding"
+msgstr "STM Fiets Rijden"
+
+#: inc/visual_composer.php:1834
+msgid "STM Book"
+msgstr "STM Boek"
+
+#: inc/visual_composer.php:1864
+msgid "STM Book solid"
+msgstr "STM Stevig boek"
+
+#: inc/visual_composer.php:1865
+msgid "STM Book stack"
+msgstr "STM Boekenstapel"
+
+#: inc/visual_composer.php:1842
+msgid "STM Brain"
+msgstr "STM Hersens"
+
+#: inc/visual_composer.php:1836
+msgid "STM Briefcase"
+msgstr "STM Boekentas"
+
+#: inc/vc/modules/buddypress_groups.php:8
+msgid "STM BuddyPress groups"
+msgstr "STM BuddyPress groepen"
+
+#: inc/vc/modules/buddypress_instructors.php:8
+msgid "STM BuddyPress instructors"
+msgstr "STM BuddyPress instructeurs"
+
+#: inc/visual_composer.php:1829
+msgid "STM Bullhorn"
+msgstr "STM Megafoon"
+
+#: inc/visual_composer.php:1826
+msgid "STM Category"
+msgstr "STM Categorie"
+
+#: inc/visual_composer.php:1867 inc/visual_composer.php:1878
+msgid "STM Certificate"
+msgstr "STM Certificaat"
+
+#: inc/visual_composer.php:1848
+msgid "STM Champion Medal"
+msgstr "STM Kampioensmedaille"
+
+#: inc/visual_composer.php:1860
+msgid "STM Chevrone Left"
+msgstr "STM Chevrone Links"
+
+#: inc/visual_composer.php:1859
+msgid "STM Chevrone Right"
+msgstr "STM Chevrone Rechts"
+
+#: inc/visual_composer.php:1870
+msgid "STM Circle Drawer"
+msgstr "STM Cirkel Tekenaar"
+
+#: inc/visual_composer.php:1828
+msgid "STM Clock"
+msgstr "STM Klok"
+
+#: inc/visual_composer.php:1869
+msgid "STM Comment solid"
+msgstr "STM Stevige Reactie"
+
+#: inc/visual_composer.php:1837
+msgid "STM Diamond"
+msgstr "STM Diamand"
+
+#: inc/visual_composer.php:1871
+msgid "STM Diploma Paper"
+msgstr "STM Diploma Papier"
+
+#: inc/visual_composer.php:1874
+msgid "STM Document Edit"
+msgstr "STM Document Bewerken"
+
+#: inc/visual_composer.php:1873
+msgid "STM Dribble"
+msgstr "STM Dribble"
+
+#: inc/visual_composer.php:1838
+msgid "STM Earth"
+msgstr "STM Aarde"
+
+#: inc/visual_composer.php:1866
+msgid "STM Ecommerce cart"
+msgstr "STM Ecommerce wagentje"
+
+#: inc/visual_composer.php:1852
+msgid "STM Fax"
+msgstr "STM Fax"
+
+#: inc/visual_composer.php:1827
+msgid "STM Film play"
+msgstr "STM Film afspelen"
+
+#: inc/visual_composer.php:1839
+msgid "STM Graduation Hat"
+msgstr "STM Afstudeer Hoed"
+
+#: inc/visual_composer.php:1856
+msgid "STM Guitar"
+msgstr "STM Guitaar"
+
+#: inc/visual_composer.php:1843
+msgid "STM Handshake"
+msgstr "STM Handdruk"
+
+#: inc/vc/modules/stm_image_box.php:8
+msgid "STM Image box"
+msgstr "STM afbeelding box"
+
+#: inc/visual_composer.php:1840
+msgid "STM License"
+msgstr "STM Licentie"
+
+#: inc/visual_composer.php:1879
+msgid "STM Like"
+msgstr "Zoals STM"
+
+#: inc/visual_composer.php:1845
+msgid "STM LinkedIn"
+msgstr "STM LinkedIn"
+
+#: inc/visual_composer.php:1830
+msgid "STM Mail-o"
+msgstr "STM Mail-o"
+
+#: inc/visual_composer.php:1847
+msgid "STM Market Researches"
+msgstr "STM Marktonderzoeken"
+
+#: inc/visual_composer.php:1880
+msgid "STM Miracle"
+msgstr "STM Wonder"
+
+#: inc/visual_composer.php:1868
+msgid "STM Mountain Climbing"
+msgstr "STM Bergklimmen"
+
+#: inc/visual_composer.php:1844
+msgid "STM Net"
+msgstr "STM Net"
+
+#: inc/visual_composer.php:1881
+msgid "STM Notebook"
+msgstr "STM Notebook"
+
+#: inc/visual_composer.php:1850
+msgid "STM Paint Palette"
+msgstr "STM Verfpalet"
+
+#: inc/visual_composer.php:1851
+msgid "STM Phone"
+msgstr "STM Telefoon"
+
+#: inc/visual_composer.php:1831
+msgid "STM Phone-o"
+msgstr "STM Telefoon-o"
+
+#: inc/visual_composer.php:1846
+msgid "STM Pin"
+msgstr "STM Pin"
+
+#: inc/visual_composer.php:1832
+msgid "STM Pin-o"
+msgstr "STM Pin-o"
+
+#: inc/visual_composer.php:1872
+msgid "STM Point Drawer"
+msgstr "STM Punt Tekenaar"
+
+#: inc/visual_composer.php:421
+msgid "STM Post List"
+msgstr "STM Berichtenlijst"
+
+#: inc/visual_composer.php:1882
+msgid "STM question answers"
+msgstr "STM vraag antwoorden"
+
+#: inc/visual_composer.php:1853
+msgid "STM SEO monitoring"
+msgstr "STM SEO controle"
+
+#: inc/visual_composer.php:1854
+msgid "STM SEO performance up"
+msgstr "STM SEO prestatie omhoog"
+
+#: inc/visual_composer.php:1721
+msgid "STM Sidebar"
+msgstr "STM Zijbalk"
+
+#: inc/visual_composer.php:1833
+msgid "STM Skype-o"
+msgstr "STM Skype-o"
+
+#: inc/visual_composer.php:1876
+msgid "STM Small logo"
+msgstr "STM Klein logo"
+
+#: inc/visual_composer.php:1883
+msgid "STM Students"
+msgstr "STM-studenten"
+
+#: inc/visual_composer.php:1825 inc/visual_composer.php:1884
+msgid "STM Teacher"
+msgstr "STM Leerkracht"
+
+#: inc/visual_composer.php:345
+msgid "STM Teacher Details"
+msgstr "STM Leerkracht Details"
+
+#: inc/visual_composer.php:294
+msgid "STM Teachers"
+msgstr "STM Leerkrachten"
+
+#: inc/visual_composer.php:361
+msgid "STM Testimonials"
+msgstr "STM Getuigenissen"
+
+#: inc/visual_composer.php:1855
+msgid "STM User"
+msgstr "STM Gebruiker"
+
+#: inc/visual_composer.php:1841
+msgid "STM Users"
+msgstr "STM Gebruikers"
+
+#: inc/visual_composer.php:1875
+msgid "STM Users group"
+msgstr "STM Gebruikersgroep"
+
+#: inc/visual_composer.php:1861
+msgid "STM Viral Marketing"
+msgstr "STM Virale Marketing"
+
+#: inc/visual_composer.php:1862
+msgid "STM Yoga"
+msgstr "STM Yoga"
+
+#: inc/visual_composer.php:1863
+msgid "STM Youtube Play"
+msgstr "STM Youtube Afspelen"
+
+#: inc/visual_composer.php:34
+msgid "Stretch column"
+msgstr "Kolom uitrekken"
+
+#: inc/visual_composer.php:38
+msgid "Stretch out to the left"
+msgstr "Uitrekken naar links"
+
+#: inc/visual_composer.php:39
+msgid "Stretch out to the right"
+msgstr "Uitrekken naar rechts"
+
+#: buddypress/members/members-loop.php:29
+msgid "Student"
+msgstr "Student"
+
+#: woocommerce/content-single-product-meta-side.php:37
+msgid "Students"
+msgstr "Studenten"
+
+#: inc/visual_composer.php:199 inc/visual_composer.php:314
+#: inc/visual_composer.php:386 inc/vc/modules/stm_image_box.php:18
+msgid "Style"
+msgstr "Stijl"
+
+#. Author of the theme
+msgid "StylemixThemes"
+msgstr "StylemixThema’s"
+
+#: buddypress/common/js-templates/messages/index.php:39
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: woocommerce/single-product-reviews.php:77
+#: woocommerce/myaccount/form-lost-password.php:42
+#: woocommerce/myaccount/form-lost-password.php:42
+#: inc/admin/product_registration/screens/startup.php:59
+msgid "Submit"
+msgstr "Indienen"
+
+#: inc/admin/product_registration/screens/support.php:38
+msgid "Submit a ticket"
+msgstr "Dien een ticket in"
+
+#: paid-memberships-pro/pages/checkout.php:841
+msgid "Submit and Check Out"
+msgstr "Indienen en Afrekenen"
+
+#: paid-memberships-pro/pages/checkout.php:843
+msgid "Submit and Confirm"
+msgstr "Indienen en Bevestigen"
+
+#: woocommerce/product-searchform.php:27
+msgctxt "submit button"
+msgid "Search"
+msgstr "Zoeken"
+
+#: inc/vc/modules/buddypress_instructors.php:23
+msgid "Subtitle"
+msgstr "Ondertitel"
+
+#: woocommerce/checkout/review-order.php:56 woocommerce/cart/cart-totals.php:38
+#: woocommerce/cart/cart-totals.php:39 woocommerce/cart/mini-cart.php:83
+#: paid-memberships-pro/pages/confirmation.php:101
+msgid "Subtotal"
+msgstr "Subtotaal"
+
+#: woocommerce/notices/success.php:31
+msgid "Success"
+msgstr "Gelukt"
+
+#: inc/admin/product_registration/screens/system_status.php:149
+msgid "SUHOSIN Installed:"
+msgstr "SUHOSIN Geïnstalleerd:"
+
+#: inc/admin/product_registration/screens/system_status.php:150
+msgid ""
+"Suhosin is an advanced protection system for PHP installations. It was "
+"designed to protect your servers on the one hand against a number of well "
+"known problems in PHP applications and on the other hand against potential "
+"unknown vulnerabilities within these applications or the PHP core itself.\n"
+"\t\t\tIf enabled on your server, Suhosin may need to be configured to "
+"increase its data submission limits."
+msgstr ""
+"Suhosin is een geavanceerd beschermingssysteem voor PHP installatie’s. Het "
+"werd ontworpen om aan de ene kant uw servers te beschermen tegen een aantal "
+"bekende problemen in PHP applicaties en aan de andere kant tegen potentiële "
+"onbekende kwetsbaarheden binnen deze applicaties of de PHP kern zelf.\n"
+"\t\t\tIndien ingeschakeld op uw server, moet Suhosin wellicht worden "
+"geconfigureerd om de limieten voor het indienen van gegevens te verhogen."
+
+#: inc/admin/product_registration/screens/system_status.php:214
+msgid "Suhosin Post Max Value Length:"
+msgstr "Suhosin Bericht Maximale Waarde Lengte:"
+
+#: inc/admin/product_registration/screens/system_status.php:156
+msgid "Suhosin Post Max Vars:"
+msgstr "Suhosin Bericht Maximale Vars:"
+
+#: inc/admin/product_registration/screens/system_status.php:185
+msgid "Suhosin Request Max Vars:"
+msgstr "Suhosin Aanvraag Maximale Vars:"
+
+#: inc/admin/product_registration/includes/admin_screens.php:52
+#: inc/admin/product_registration/includes/admin_screens.php:53
+#: inc/admin/product_registration/includes/admin_screens.php:181
+msgid "Support"
+msgstr "Ondersteuning"
+
+#: inc/admin/product_registration/includes/admin_screens.php:184
+msgid "System Status"
+msgstr "Systeemstatus"
+
+#: inc/admin/product_registration/includes/admin_screens.php:62
+#: inc/admin/product_registration/includes/admin_screens.php:63
+msgid "System status"
+msgstr "Systeemstatus"
+
+#: inc/visual_composer.php:184
+msgid "Tablet Height"
+msgstr "Hoogte Tablet"
+
+#: partials/loop-grid.php:81 partials/loop-list.php:56
+#: partials/vc_templates/post_list.php:96
+msgid "Tags:"
+msgstr "Tags"
+
+#: paid-memberships-pro/pages/confirmation.php:103
+msgid "Tax"
+msgstr "Belasting"
+
+#: woocommerce/content-product-list.php:164
+#: woocommerce/content-product-list.php:182
+#: woocommerce/content-single-product.php:114
+msgid "Teacher"
+msgstr "Leraar"
+
+#: inc/visual_composer.php:1663
+msgid "Teacher per page"
+msgstr "Leerkrachten per pagina"
+
+#: woocommerce/content-single-product.php:105 partials/title_box.php:40
+msgid "Teachers"
+msgstr "Leerkrachten"
+
+#: inc/visual_composer.php:1656
+msgid "Teachers Grid"
+msgstr "Leerkrachten Raster"
+
+#: inc/visual_composer.php:1448
+msgid "Test"
+msgstr ""
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:378
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/settings.php:19
+msgid "Test API Connection"
+msgstr "Test API-verbinding"
+
+#: inc/visual_composer.php:628
+msgid "Text"
+msgstr "Tekst"
+
+#: inc/visual_composer.php:700
+msgid "Text alignment"
+msgstr "Tekst uitlijning"
+
+#: inc/visual_composer.php:707
+msgid "Text alignment in block"
+msgstr "Tekst uitlijning in blok"
+
+#: inc/visual_composer.php:933
+msgid "Text box Align"
+msgstr "Tekst box Uitlijnen"
+
+#: inc/visual_composer.php:380
+msgid "Text Color"
+msgstr "Tekstkleur"
+
+#: inc/visual_composer.php:711
+msgid "Text color"
+msgstr "Tekstkleur"
+
+#: inc/visual_composer.php:713
+msgid "Text color(white - default)"
+msgstr "Tekstkleur (wit - standaard)"
+
+#: inc/visual_composer.php:723
+msgid "Text font size (px)"
+msgstr "Tekst lettertype formaat (px)"
+
+#: vc_templates/vc_cta_button2.php:11
+msgid "Text on the button"
+msgstr "Tekst op de knop"
+
+#: inc/admin/product_registration/screens/startup.php:39
+#, php-format
+msgid ""
+"Thank you for choosing %s! Please register it to enable the %1$s demos and "
+"theme auto updates. The instructions below must be followed exactly."
+msgstr ""
+"Bedankt voor het kiezen van %s! Registreer het om de %1$s demo’s en "
+"automatische thema updates in te schakelen. De onderstaande instructies "
+"moeten exact worden opgevolgd."
+
+#: paid-memberships-pro/pages/confirmation.php:13
+#, php-format
+msgid "Thank you for your membership to %s. Your %s membership is now active."
+msgstr "Bedankt voor uw lidmaatschap van %s. Uw %s lidmaatschap is nu actief."
+
+#: woocommerce/checkout/thankyou.php:47 woocommerce/checkout/thankyou.php:90
+msgid "Thank you. Your order has been received."
+msgstr "Bedankt. Uw order is ontvangen."
+
+#: inc/admin/product_registration/screens/install_demo.php:123
+#, php-format
+msgid ""
+"The %s layout is already installed on the website.\n"
+"                            Please reset your WordPress via the %s plugin to "
+"install another layout.\n"
+"                            Please note, the resetting process removes all "
+"your current settings and data!"
+msgstr ""
+
+#: inc/admin/product_registration/screens/system_status.php:103
+msgid ""
+"The amount of time (in seconds) that your site will spend on a single "
+"operation before timing out (to avoid server lockups)"
+msgstr ""
+"De hoeveelheid tijd (in seconden) die uw site zal gebruiken bij een enkele "
+"bewerking voordat er een time out is (om het vastlopen van de server te "
+"voorkomen)"
+
+#: partials/vc_templates/course_lesson.php:135
+msgid ""
+"The content of this lesson is locked. To unlock it, you need to Buy this "
+"Course."
+msgstr ""
+"De inhoud van deze sessie is vergrendeld. Om te ontgrendelen, moet u zede "
+"Cursus Kopen."
+
+#: inc/admin/product_registration/screens/system_status.php:71
+msgid "The current language used by WordPress. Default = English"
+msgstr "De huidige taal die gebruik wordt door Wordpress. Standaard = Engels"
+
+#: woocommerce/myaccount/my-address.php:41
+msgid "The following addresses will be used on the checkout page by default."
+msgstr "De volgende adressen worden standaard gebruikt op de afrekenpagina"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:977
+msgid "The item cannot be downloaded."
+msgstr "Het item kan niet worden gedownload."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:962
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:1054
+msgid "The Item ID is missing."
+msgstr "Het Item ID ontbreekt."
+
+#: inc/admin/product_registration/screens/system_status.php:98
+msgid "The largest file size that can be contained in one post."
+msgstr "Het grootste bestandsformaat wat kan worden bereikt in een bericht."
+
+#: inc/admin/product_registration/screens/system_status.php:247
+msgid ""
+"The largest file size that can be uploaded to your WordPress installation."
+msgstr ""
+"De grootste bestandsgrootte die kan worden geüpload naar uw Wordpress "
+"installatie."
+
+#: inc/admin/product_registration/screens/system_status.php:43
+msgid "The maximum amount of memory (RAM) that your site can use at one time."
+msgstr ""
+"De maximale hoeveelheid geheugen (RAM) die uw site tegelijk kan gebruiken."
+
+#: inc/admin/product_registration/screens/system_status.php:121
+#: inc/admin/product_registration/screens/system_status.php:157
+#: inc/admin/product_registration/screens/system_status.php:186
+msgid ""
+"The maximum number of variables your server can use for a single function to "
+"avoid overloads."
+msgstr ""
+"Het maximale aantal variabelen die uw server kan gebruiken voor een enkele "
+"functie om overbelastingen te voorkomen."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/notice/error.php:11
+msgid ""
+"The OAuth Personal Token could not be verified. Please check that the Token "
+"has been entered correctly and has the minimum required permissions."
+msgstr ""
+"De OAuth Personal Token kon niet worden geverifieerd. Controleer of het "
+"Token correct is ingevoerd en de minimaal vereiste toestemmingen heeft."
+
+#: 404.php:9
+msgid "The page you are looking for does not exist."
+msgstr "De pagina waarnaar u op zoek bent bestaat niet."
+
+#: inc/admin/product_registration/screens/system_status.php:28
+msgid "The root URL of your site."
+msgstr "De root URL van uw site."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:960
+msgid "The Token is missing."
+msgstr "De Token ontbreekt."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:973
+msgid "The Token or Item ID is incorrect."
+msgstr "De Token of Item ID is onjuist."
+
+#: inc/admin/product_registration/screens/system_status.php:23
+msgid "The URL of your site's homepage."
+msgstr "De URL van de homepagina van uw site."
+
+#: inc/admin/product_registration/screens/system_status.php:236
+msgid "The version of MySQL installed on your hosting server."
+msgstr "De versie van MySQL geïnstalleerd op uw hosting server."
+
+#: inc/admin/product_registration/screens/system_status.php:92
+msgid "The version of PHP installed on your hosting server."
+msgstr "De versie van PHP die geïnstalleerd is op uw hosting server."
+
+#: inc/admin/product_registration/screens/system_status.php:33
+msgid "The version of WordPress installed on your site."
+msgstr "De versie van Wordpress die geïnstalleerd is op uw site."
+
+#: inc/visual_composer.php:213
+msgid "Theme Button"
+msgstr "Thema Knop"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/tabs.php:28
+msgid "Themes"
+msgstr "Themes"
+
+#: woocommerce/single-product-reviews.php:53
+msgid "There are no reviews yet."
+msgstr "Er zijn nog geen beoordelingen."
+
+#: woocommerce/cart/cart-shipping.php:63
+msgid ""
+"There are no shipping methods available. Please ensure that your address has "
+"been entered correctly, or contact us if you need any help."
+msgstr ""
+"Er zijn geen verzendmethoden beschikbaar. Zorg ervoor dat uw adres correct "
+"is ingevoerd, of neem contact met ons op als u hulp nodig heeft."
+
+#: woocommerce/cart/cart-shipping.php:54
+msgid "This is only an estimate. Prices will be updated during checkout."
+msgstr ""
+"Dit is slechts een schatting. De prijzen worden bijgewerkt tijdens het "
+"afrekenen."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/intro.php:14
+msgid ""
+"This plugin can install WordPress themes and plugins purchased from "
+"ThemeForest & CodeCanyon by connecting with the Envato Market API using a "
+"secure OAuth personal token. Once your themes & plugins are installed "
+"WordPress will periodically check for updates, so keeping your items up to "
+"date is as simple as a few clicks."
+msgstr ""
+"Deze plugin kan WordPress-themes en plugins installeren die zijn aangeschaft "
+"bij ThemeForest & CodeCanyon door verbinding te maken met de Envato Market "
+"API met behulp van een beveiligd OAuth persoonlijke token. Zodra uw themes & "
+"plugins zijn geïnstalleerd zal WordPress regelmatig controleren op updates, "
+"dus houd uw items up to datemet een paar klikken."
+
+#: paid-memberships-pro/pages/billing.php:438
+msgid ""
+"This subscription is not recurring. So you don't need to update your billing "
+"information."
+msgstr ""
+"Dit abonnement is niet herhalend. Dus u hoeft niet uw factuurinformatie bij "
+"te werken."
+
+#: inc/visual_composer.php:1463
+msgid ""
+"This video will be opened in popup by clicking \"Preview\" button (just "
+"insert link to the video)"
+msgstr ""
+"Deze video zal worden geopend in een popup door te klikken op "
+"“Voorvertoning” knop (gewoon link van video invoegen)"
+
+#: inc/visual_composer.php:61
+msgid "Thumbnail size"
+msgstr "Grootte miniatuurafbeelding"
+
+#: inc/admin/product_registration/screens/support.php:32
+msgid "Ticket System"
+msgstr "Ticketsysteem"
+
+#: partials/vc_templates/countdown.php:23
+msgid "Time is up, sorry!"
+msgstr "De tijd is voorbij, sorry!"
+
+#: inc/visual_composer.php:281 inc/visual_composer.php:500
+#: inc/visual_composer.php:655 inc/visual_composer.php:1157
+#: inc/visual_composer.php:1222 inc/visual_composer.php:1277
+#: inc/visual_composer.php:1595 inc/vc/modules/stm_image_box.php:45
+#: inc/vc/modules/buddypress_instructors.php:18
+#: inc/vc/modules/buddypress_groups.php:18
+msgid "Title"
+msgstr "Titel"
+
+#: inc/visual_composer.php:1162
+msgid "Title color"
+msgstr "Kleur titel"
+
+#: inc/visual_composer.php:510
+msgid "Title Holder"
+msgstr "Titel Houder"
+
+#: inc/visual_composer.php:303 inc/visual_composer.php:370
+msgid "Title will be shown on the top of section"
+msgstr "Titel zal worden getoond aan de bovenkant van de sectie"
+
+#: buddypress/common/js-templates/messages/index.php:144
+msgid "To:"
+msgstr "Naar:"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:405
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:479
+msgid "Token"
+msgstr "Token"
+
+#: inc/visual_composer.php:527
+msgid "Top"
+msgstr "Bovenkant"
+
+#: partials/headers/parts/data_info.php:21
+#, php-format
+msgctxt "Top bar address"
+msgid "%s"
+msgstr "%s"
+
+#: partials/headers/parts/data_info.php:26
+#, php-format
+msgctxt "Top bar phone"
+msgid "%s"
+msgstr "%s"
+
+#: partials/headers/parts/data_info.php:16
+#, php-format
+msgctxt "Top bar Working hours"
+msgid "%s"
+msgstr "%s"
+
+#: inc/setup.php:34
+msgid "Top primary menu"
+msgstr "Bovenste hoofdmenu"
+
+#: woocommerce/myaccount/my-orders.php:16
+#: woocommerce/myaccount/my-orders.php:45
+#: woocommerce/myaccount/my-orders.php:68
+#: woocommerce/checkout/review-order.php:24
+#: woocommerce/checkout/review-order.php:103 woocommerce/cart/cart.php:33
+#: woocommerce/cart/cart.php:124 woocommerce/cart/cart-totals.php:97
+#: woocommerce/cart/cart-totals.php:98
+#: paid-memberships-pro/pages/confirmation.php:108
+msgid "Total"
+msgstr "Totaal"
+
+#: paid-memberships-pro/pages/confirmation.php:98
+msgid "Total Billed"
+msgstr "Totaal Gefactureerd"
+
+#: woocommerce/checkout/thankyou.php:69
+msgid "Total:"
+msgstr "Totaal"
+
+#: woocommerce/checkout/form-pay.php:29
+msgid "Totals"
+msgstr "Totalen"
+
+#: inc/visual_composer.php:89
+msgid "Type"
+msgstr "Soort"
+
+#: inc/visual_composer.php:92
+msgid "Type 1"
+msgstr "Soort 1"
+
+#: inc/visual_composer.php:93
+msgid "Type 2"
+msgstr "Soort 2"
+
+#: inc/admin/product_registration/screens/install_demo.php:17
+msgid "Udemy Affiliate"
+msgstr "Udemy Affiliate"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:938
+msgid "Unable to connect to the filesystem. Please confirm your credentials."
+msgstr ""
+"Niet in staat om verbinding te maken met het bestandssysteem. Bevestig uw "
+"gegevens."
+
+#: woocommerce/checkout/thankyou.php:34
+msgid ""
+"Unfortunately your order cannot be processed as the originating "
+"bank/merchant has declined your transaction. Please attempt your purchase "
+"again."
+msgstr ""
+"Helaas kan uw order niet worden verwerkt omdat debank/handelaar uw "
+"transactie heeftgeweigerd. Probeer uw aankoop opnieuw te doen."
+
+#: buddypress/common/js-templates/messages/index.php:194
+msgid "Unstar"
+msgstr "Ster verwijderen"
+
+#: buddypress/common/js-templates/messages/index.php:196
+#: buddypress/common/js-templates/messages/index.php:197
+msgid "Unstar Conversation"
+msgstr "Ster verwijderen van gesprek"
+
+#: buddypress/common/js-templates/messages/index.php:284
+#: buddypress/common/js-templates/messages/index.php:285
+msgid "Unstar Message"
+msgstr "Ster bericht verwijderen"
+
+#: paid-memberships-pro/pages/billing.php:420
+msgid "Update"
+msgstr "Updaten"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:69
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:261
+#, php-format
+msgid "Update %s now"
+msgstr "Update %s nu"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:73
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:266
+msgid "Update Available"
+msgstr "Update beschibkaar"
+
+#: woocommerce/cart/cart.php:147
+msgid "Update cart"
+msgstr "Winkelwagen bijwerken"
+
+#: woocommerce/checkout/payment.php:45
+msgid "Update totals"
+msgstr "Update totalen"
+
+#: woocommerce/myaccount/form-login.php:78
+#: paid-memberships-pro/pages/checkout.php:226
+msgid "Username"
+msgstr "Gebruikernaam"
+
+#: woocommerce/myaccount/form-lost-password.php:30
+#: woocommerce/global/form-login.php:35
+msgid "Username or email"
+msgstr "Gebruikersnaam of e-mail"
+
+#: woocommerce/myaccount/form-login.php:39
+msgid "Username or email address"
+msgstr "Gebruikersnaam of e-mailadres"
+
+#: woocommerce/single-product/review.php:34
+msgid "verified owner"
+msgstr "geverifieerde eigenaar"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:433
+msgid "Version"
+msgstr "Versie"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:169
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:374
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:374
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:433
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:892
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:928
+#, php-format
+msgid "Version %s"
+msgstr "Versie %s"
+
+#: woocommerce/single-product-reviews.php:93
+msgid "Very poor"
+msgstr "Heel slecht"
+
+#: inc/visual_composer.php:1449
+msgid "Video"
+msgstr ""
+
+#: inc/admin/product_registration/includes/admin_screens.php:80
+#: inc/admin/product_registration/includes/admin_screens.php:81
+msgid "Video Manuals"
+msgstr ""
+
+#: inc/admin/product_registration/includes/admin_screens.php:186
+msgid "Video manuals"
+msgstr ""
+
+#: inc/admin/product_registration/screens/support.php:69
+msgid "Video Tutorials"
+msgstr "Video Uitleg"
+
+#: woocommerce/content-single-product-meta-side.php:70
+msgid "Video:"
+msgstr "Video:"
+
+#: woocommerce/myaccount/my-orders.php:91
+#: buddypress/common/js-templates/messages/index.php:216
+msgid "View"
+msgstr "Bekijken"
+
+#: partials/vc_templates/experts.php:66
+msgid "View all"
+msgstr "Bekijk alle"
+
+#: partials/vc_templates/experts.php:65
+msgid "View all teachers"
+msgstr "Bekijk alle leerkrachten"
+
+#: woocommerce/cart/mini-cart.php:88
+msgid "View Cart"
+msgstr "Bekijk winkelwagen"
+
+#: woocommerce/content-product-list.php:128 woocommerce/content-product.php:151
+#: woocommerce/content-product.php:163
+#: partials/vc_templates/featured_products.php:145
+#: partials/vc_templates/featured_products.php:155
+#: partials/vc_templates/product_categories.php:85
+#: partials/vc_parts/product_categories/stm_vc_product_cat_card.php:34
+msgid "View course"
+msgstr "Toon cursus"
+
+#: woocommerce/content-single-product.php:216
+#: partials/vc_templates/teachers_grid.php:54
+msgid "View expert on"
+msgstr "Toon expert aan"
+
+#: woocommerce/content-single-product.php:265 partials/loop-teacher.php:25
+#: partials/vc_templates/experts.php:104
+#: partials/vc_templates/teacher_detail.php:27
+#, php-format
+msgid "View expert on %s"
+msgstr "Bekijk expert in %s"
+
+#: partials/loop-events.php:27 partials/loop-list.php:5
+#: partials/vc_templates/events_grid.php:24
+msgid "View full"
+msgstr "Bekijk volledig"
+
+#: buddypress/common/js-templates/messages/index.php:217
+#: buddypress/common/js-templates/messages/index.php:218
+msgid "View full conversation and reply."
+msgstr "Bekijk volledig gesprek en reageer."
+
+#: woocommerce/content-product.php:218
+#: partials/vc_templates/featured_products.php:213
+#: partials/vc_templates/featured_products.php:213
+msgid "View more"
+msgstr "Bekijk meer"
+
+#: partials/vc_templates/post_list.php:45
+msgid "View post details"
+msgstr "Toon bericht details"
+
+#: partials/vc_templates/experts.php:114
+msgid "View teacher page"
+msgstr "Bekijk leerkracht pagina"
+
+#: inc/visual_composer.php:892 inc/visual_composer.php:1062
+msgid "View type"
+msgstr "Bekijk soort"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:88
+#: inc/admin/product_registration/includes/envato-market/inc/admin/functions.php:274
+#, php-format
+msgid "View version %1$s details."
+msgstr "Bekijk versie %1$s details."
+
+#: paid-memberships-pro/pages/confirmation.php:162
+msgid "View Your Account"
+msgstr "Bekijk Uw Account"
+
+#: inc/admin/product_registration/screens/support.php:90
+msgid ""
+"Visit our Facebook group for MasterStudy LMS Theme and plugin. This is a "
+"user-driven community, where you may find the answers to your questions."
+msgstr ""
+
+#: inc/admin/product_registration/screens/system_status.php:281
+msgid "Visit plugin homepage"
+msgstr "Bezoek plugin homepagina"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/section/items.php:12
+msgid "Warning: These tokens can be revoked by the account holder at any time."
+msgstr ""
+"Waarschuwing: Deze tokesn kunnen door de accounthouder op elk moment worden "
+"ingetrokken."
+
+#: woocommerce/content-single-product.php:199
+#: woocommerce/content-single-product.php:249
+msgid "Watch Expert Page"
+msgstr "Bekijk Expert Pagina"
+
+#: partials/loop-grid.php:32
+msgid "Watch full"
+msgstr "Bekijk volledig"
+
+#: partials/loop-gallery.php:10 partials/vc_templates/gallery_grid.php:77
+msgid "Watch full image"
+msgstr "Bekijk volledige afbeelding"
+
+#: inc/admin/product_registration/includes/admin_screens.php:167
+msgid "Watch Our Quick Guided Tour!"
+msgstr "Bekijk Onze Snelle Start Tour!"
+
+#: partials/loop-teacher.php:15 partials/loop-teacher.php:34
+#: partials/vc_templates/teachers_grid.php:44
+#: partials/vc_templates/teachers_grid.php:63
+msgid "Watch teacher page"
+msgstr "Bekijk leerkracht pagina"
+
+#: inc/admin/product_registration/screens/support.php:76
+msgid "Watch Videos"
+msgstr "Bekijk Video’s"
+
+#: paid-memberships-pro/pages/checkout.php:585
+#, php-format
+msgid "We Accept %s"
+msgstr "We Accepteren %s"
+
+#: paid-memberships-pro/pages/billing.php:284
+#, php-format
+msgid "We accept %s"
+msgstr "We accepteren %s"
+
+#: inc/admin/product_registration/screens/support.php:35
+msgid ""
+"We offer excellent 24/7 support through our advanced ticket system. To "
+"access the ticket system dashboard, please register with your purchase code."
+msgstr ""
+"We bieden uitstekende 24/7 ondersteuning door middel van ons geavanceerd "
+"ticketsysteem. Voor toegang tot het ticketsysteem dashboard, registreer met "
+"uw aankoopcode."
+
+#: inc/admin/product_registration/screens/support.php:72
+#, php-format
+msgid ""
+"We recommend you to watch video tutorials before you start the theme "
+"customization. Our video tutorials can teach you the different aspects of "
+"using %s."
+msgstr ""
+"We raden aan om de video uitleg te bekijken voordat u van start gaat met de "
+"thema aanpassing. Onze video uitleg kan u de verschillende aspecten van het "
+"gebruik van %s leren."
+
+#: inc/admin/product_registration/includes/admin_screens.php:164
+#, php-format
+msgid "Welcome to %s"
+msgstr "Welkom bij %s"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/intro.php:13
+msgid "Welcome!"
+msgstr "Welkom"
+
+#: paid-memberships-pro/pages/checkout.php:724
+#: paid-memberships-pro/pages/billing.php:406
+msgid "what's this?"
+msgstr "Wat is dit?"
+
+#: inc/admin/product_registration/screens/system_status.php:38
+msgid "Whether or not you have WordPress Multisite enabled."
+msgstr "Of u wel of niet Wordpress Multisite ingeschakeld heeft."
+
+#: inc/visual_composer.php:81
+msgid "Width & Responsiveness"
+msgstr "Breedte & Responsiviteit"
+
+#: inc/setup.php:76
+msgid "Woocommerce pages sidebar"
+msgstr "Woocommerce pagina’s zijbalk"
+
+#: inc/admin/product_registration/screens/system_status.php:13
+#: inc/admin/product_registration/screens/system_status.php:17
+msgid "WordPress Environment"
+msgstr "Wordpress Omgeving"
+
+#: inc/admin/product_registration/screens/system_status.php:59
+msgid "WP Debug Mode:"
+msgstr "WP Debug Modus:"
+
+#: inc/admin/product_registration/screens/system_status.php:42
+msgid "WP Memory Limit:"
+msgstr "WP Geheugen Limiet:"
+
+#: inc/admin/product_registration/screens/system_status.php:37
+msgid "WP Multisite:"
+msgstr "WP Multisite:"
+
+#: inc/admin/product_registration/screens/install_demo.php:117
+msgid "WP Reset"
+msgstr "WP Reset"
+
+#: inc/admin/product_registration/screens/system_status.php:32
+msgid "WP Version:"
+msgstr "WP Versie:"
+
+#: inc/admin/product_registration/screens/choose_plugin.php:5
+msgid "WPBakery Page Builder"
+msgstr ""
+
+#: inc/visual_composer.php:139
+msgid "Yes"
+msgstr "Ja"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:397
+msgid ""
+"You are about to remove the connection between the Envato Market API and "
+"this item. You cannot undo this action."
+msgstr ""
+"U staat op het punt de verbinding tussen de Envato Market API en dit item te "
+"verwijderen. U kunt deze actie niet ongedaan maken."
+
+#: paid-memberships-pro/pages/checkout.php:331
+#, php-format
+msgid ""
+"You are logged in as <strong>%s</strong>. If you would like to use a "
+"different account for this membership, <a href=\"%s\">%s</a>."
+msgstr ""
+"U bent ingelogd als <strong>%s</strong>. Als u een ander account voor dit "
+"lidmaatschap wilt gebruiken <a href=\"%s\">%s</a>."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/partials/intro.php:15
+msgid ""
+"You can add a global token to connect all your items from your account, "
+"and/or connect directly with a specific item using a singe-use token & item "
+"ID. When the global token and single-use token are set for the same item, "
+"the single-use token will be used to communicate with the API."
+msgstr ""
+"U kunt een globale token toevoegen om al uw items van uw account te "
+"verbinden,en/of direct verbinding maken met een specifiek item met behulp "
+"van een eenmalig token & itemID. Wanneer de globale token en de token voor "
+"eenmalig gebruik zijn ingesteld voor hetzelfde item, zal het eenmalige token "
+"worden gebruikt om te communiceren met de API."
+
+#: inc/visual_composer.php:1469
+msgid "You can change standart placeholder to your custom text"
+msgstr ""
+"U kunt de standaard tijdelijke placeholder wijzigen in uw aangepaste tekst"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:204
+msgid "You do not have sufficient permissions to delete transients."
+msgstr "Je hebt niet voldoende rechten om transiënten te verwijderen."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:763
+msgid "You do not have sufficient permissions to install plugins on this site."
+msgstr "U heeft niet voldoende rechten om plugins te installeren op deze site."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:821
+msgid "You do not have sufficient permissions to install themes on this site."
+msgstr "U hebt niet voldoende rechten om themes op deze site te installeren."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/admin.php:896
+msgid "You do not have sufficient permissions to update themes for this site."
+msgstr "U hebt niet voldoende rechten om themes voor deze site bij te werken."
+
+#: woocommerce/myaccount/my-address.php:78
+msgid "You have not set up this type of address yet."
+msgstr " U hebt dit type adres nog niet ingesteld."
+
+#: woocommerce/single-product/up-sells.php:27
+msgid "You may also like&hellip;"
+msgstr "U vindt&hellip wellicht ook leuk"
+
+#: woocommerce/single-product-reviews.php:83
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a review."
+msgstr ""
+"Je moet <a href=\"%s\">ingelogd </a> zijn om een beoordeling te plaatsen."
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr "U moet ingelogd zijn om af te rekenen."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/callback/section/oauth.php:12
+#, php-format
+msgid "You will need to %s, and then insert it below."
+msgstr "U heeft %s nodig, en voegt het dan hieronder in."
+
+#: inc/admin/product_registration/screens/startup.php:72
+msgid ""
+"You will see a green check mark for success, or a failure message if "
+"something went wrong. If it failed, please make sure you followed the steps "
+"above correctly."
+msgstr ""
+"U ziet een groen vinkje als het gelukt is of een foutmelding als er iets "
+"fout is gegaan. Als het mislukt is, moet u ervoor zorgen dat u de "
+"bovenstaande stappen correct hebt uitgevoerd."
+
+#: woocommerce/single-product/review.php:56
+msgid "Your comment is awaiting approval"
+msgstr "Uw opmerking wacht op goedkeuring"
+
+#: inc/custom.php:45
+msgid "Your comment is awaiting moderation."
+msgstr "Uw reactie wacht op moderatie."
+
+#: inc/admin/product_registration/screens/system_status.php:52
+msgid ""
+"Your current memory limit is sufficient, but if you need to import classic "
+"demo content, the required memory limit is <strong>256MB.</strong>"
+msgstr ""
+"Uw huidige geheugenlimiet is onvoldoende, maar als u inhoud van klassieke "
+"demo moet importeren, is het vereiste geheugenlimiet <strong>256MB.</strong>"
+
+#: paid-memberships-pro/pages/levels.php:53
+msgid "Your Level"
+msgstr "Uw Niveau"
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/notice/success.php:11
+msgid "Your OAuth Personal Token has been verified."
+msgstr "Uw OAuth Persoonlijk Token is geverifieerd."
+
+#: inc/admin/product_registration/includes/envato-market/inc/admin/view/notice/success-no-items.php:11
+msgid ""
+"Your OAuth Personal Token has been verified. However, there are no WordPress "
+"downloadable items in your account."
+msgstr ""
+"Uw OAuth Persoonlijk Token is geverifieerd. Echter, er zijn geen "
+"WordPressdownloadbare items in uw account."
+
+#: woocommerce/checkout/form-checkout.php:59
+msgid "Your order"
+msgstr "Uw order"
+
+#: paid-memberships-pro/pages/confirmation.php:11
+msgid ""
+"Your payment has been submitted. Your membership will be activated shortly."
+msgstr "Uw betaling is ingediend. Uw lidmaatschap zal snel worden geactiveerd."
+
+#: paid-memberships-pro/pages/billing.php:82
+#: paid-memberships-pro/pages/billing.php:83
+msgid ""
+"Your payment subscription is managed by PayPal. Please login to PayPal to "
+"update your billing information."
+msgstr ""
+
+#: woocommerce/single-product-reviews.php:87
+msgid "Your rating"
+msgstr "Uw beoordeling"
+
+#: woocommerce/single-product-reviews.php:97
+msgid "Your Review"
+msgstr "Uw beoordeling"
+
+#: inc/admin/product_registration/screens/system_status.php:231
+msgid ""
+"ZipArchive is required for importing demos. They are used to import and "
+"export zip files specifically for sliders."
+msgstr ""
+"ZipArchief is vereist voor het importeren van demo’s. Ze worden gebruikt om "
+"zip bestanden specifiek voor sliders te importeren en exporteren."
+
+#: inc/admin/product_registration/screens/system_status.php:230
+msgid "ZipArchive:"
+msgstr "ZipArchief:"

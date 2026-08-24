@@ -6,9 +6,13 @@ The local course automation project is here:
 
 `../course-automation`
 
-The MasterStudy theme source is:
+The tracked MasterStudy theme source is:
 
-`../masterstudy-4.5.2`
+`wp-content/themes/masterstudy`
+
+The tracked MasterStudy LMS plugin is:
+
+`wp-content/plugins/masterstudy-lms-learning-management-system`
 
 The generated course packages are:
 
@@ -79,13 +83,13 @@ cd C:\cws\LMS\wordpress-masterstudy
 
 This copies:
 
-- `../masterstudy-4.5.2` into `wp-content/themes/masterstudy`
+- `wp-content/themes/masterstudy` into the local WordPress theme folder
 - `course-automation-publisher` into `wp-content/plugins`
-- generated course packages into `wp-content/course-automation/courses`
-- extracted images into `wp-content/course-automation/media`
-- generated videos into `wp-content/course-automation/videos`
+- bundled `masterstudy-lms-learning-management-system` into `wp-content/plugins`
+- generated course packages into `wp-content/course-automation/courses`, when available
+- extracted images into `wp-content/course-automation/media`, when available
+- generated videos into `wp-content/course-automation/videos`, when available
 - generated blueprints into `wp-content/course-automation/blueprints`
-- latest MasterStudy LMS plugin from WordPress.org into `wp-content/plugins`
 
 #### 3. Activate In WordPress Admin
 

@@ -28,8 +28,9 @@ services:
       COURSE_AUTOMATION_BLUEPRINT_DIR: ${COURSE_AUTOMATION_BLUEPRINT_DIR:-/course-automation/processed/blueprints}
     volumes:
       - wordpress-core:/var/www/html
-      - ../masterstudy-4.5.2:/var/www/html/wp-content/themes/masterstudy
+      - ./wp-content/themes/masterstudy:/var/www/html/wp-content/themes/masterstudy
       - ./wp-content/plugins/course-automation-publisher:/var/www/html/wp-content/plugins/course-automation-publisher
+      - ./wp-content/plugins/masterstudy-lms-learning-management-system:/var/www/html/wp-content/plugins/masterstudy-lms-learning-management-system
       - ../course-automation/data/processed:/course-automation/processed:ro
 
   wpcli:
@@ -49,8 +50,9 @@ services:
       WORDPRESS_SITE_TITLE: ${WORDPRESS_SITE_TITLE:-AI Course LMS}
     volumes:
       - wordpress-core:/var/www/html
-      - ../masterstudy-4.5.2:/var/www/html/wp-content/themes/masterstudy
+      - ./wp-content/themes/masterstudy:/var/www/html/wp-content/themes/masterstudy
       - ./wp-content/plugins/course-automation-publisher:/var/www/html/wp-content/plugins/course-automation-publisher
+      - ./wp-content/plugins/masterstudy-lms-learning-management-system:/var/www/html/wp-content/plugins/masterstudy-lms-learning-management-system
       - ../course-automation/data/processed:/course-automation/processed:ro
     working_dir: /var/www/html
 

@@ -1,0 +1,1 @@
+var e=e=>e.endsWith(`/`)?e:`${e}/`,t=(e,t)=>{let n=new URL(window.location.href);return t&&n.searchParams.set(`page`,t),[`course_id`,`bundle_id`,`user_id`,`role`].forEach(e=>n.searchParams.delete(e)),Object.entries(e).forEach(([e,t])=>{if(t===void 0){n.searchParams.delete(e);return}n.searchParams.set(e,String(t))}),n.toString()},n=e=>t(e);export{n,e as r,t};

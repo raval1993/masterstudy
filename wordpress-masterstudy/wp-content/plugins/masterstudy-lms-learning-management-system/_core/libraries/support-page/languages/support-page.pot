@@ -1,0 +1,248 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Support page\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-04-27 07:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.7.2; wp-6.8\n"
+"X-Domain: support-page"
+
+#: data/default-data.php:224
+msgid ""
+"<span>Get all the latest news & updates</span> delivered straight to your "
+"inbox."
+msgstr ""
+
+#: data/default-data.php:166
+msgid "Affiliate"
+msgstr ""
+
+#: data/default-data.php:170
+msgid "Become an Affiliate"
+msgstr ""
+
+#: data/default-data.php:183
+msgid "Book a Call"
+msgstr ""
+
+#: data/default-data.php:180
+msgid ""
+"Book a quick call with us. We’ll answer your questions and guide you in the "
+"right direction."
+msgstr ""
+
+#: data/default-data.php:99
+msgid "Community"
+msgstr ""
+
+#: data/default-data.php:100
+msgid ""
+"Connect with fellow users, ask questions, and share experiences in a "
+"collaborative space."
+msgstr ""
+
+#: data/default-data.php:66
+msgid "Create Ticket"
+msgstr ""
+
+#: data/default-data.php:112
+msgid "Customization"
+msgstr ""
+
+#: data/default-data.php:51
+msgid "Documentation"
+msgstr ""
+
+#: data/default-data.php:149
+msgid "Enjoy personalized assistance to ensure smooth operation and support."
+msgstr ""
+
+#: data/default-data.php:225
+msgid "Enter your email here"
+msgstr ""
+
+#: data/default-data.php:145
+msgid "Expert Setup & Optimization"
+msgstr ""
+
+#: data/default-data.php:52
+msgid ""
+"Explore in-depth guides and resources to help you navigate and maximize our "
+"products."
+msgstr ""
+
+#: data/default-data.php:87
+msgid "Feature Requests"
+msgstr ""
+
+#: data/default-data.php:45 data/default-data.php:210
+msgid "Find instant help with all resources in one place."
+msgstr ""
+
+#: data/default-data.php:209
+msgid "From Our Blog"
+msgstr ""
+
+#: data/default-data.php:148
+msgid "Get a custom setup that’s perfectly tailored to your specific needs."
+msgstr ""
+
+#: data/default-data.php:113
+msgid "Get custom changes and improvements done to suit your website’s needs."
+msgstr ""
+
+#: data/default-data.php:146
+msgid ""
+"Get expert help to get started, customize, and improve your website for the "
+"best results."
+msgstr ""
+
+#: data/default-data.php:124
+msgid "Get MasterStudy and Enjoy PRO Features"
+msgstr ""
+
+#: data/default-data.php:128
+msgid "Get PRO"
+msgstr ""
+
+#: data/default-data.php:116
+msgid "Get Quotes"
+msgstr ""
+
+#: data/default-data.php:63
+msgid "Have a problem?"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://bitbucket.org/stylemixthemes/support-page/src/master/"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://stylemixthemes.com"
+msgstr ""
+
+#: data/default-data.php:226
+msgid "I agree with storage and handling of my data by this website"
+msgstr ""
+
+#: data/default-data.php:103
+msgid "Join Community"
+msgstr ""
+
+#: data/default-data.php:167
+msgid ""
+"Join our affiliate program and earn 30% for each sale you make. Start "
+"promoting and earning today!"
+msgstr ""
+
+#: data/default-data.php:27
+msgid "Learn More"
+msgstr ""
+
+#: data/default-data.php:134
+msgid "Learn more"
+msgstr ""
+
+#: data/default-data.php:193
+msgid "Leave Review"
+msgstr ""
+
+#: data/default-data.php:151
+msgid "Make your platform stand out with unique features and design changes."
+msgstr ""
+
+#: data/default-data.php:44
+msgid "MasterStudy Help Center"
+msgstr ""
+
+#: data/default-data.php:213
+msgid "More Posts"
+msgstr ""
+
+#: data/default-data.php:179
+msgid "Onboarding"
+msgstr ""
+
+#: data/default-data.php:71
+msgid "Only for pro users"
+msgstr ""
+
+#: data/default-data.php:150
+msgid ""
+"Optimize performance by boosting your platform’s speed and user experience."
+msgstr ""
+
+#: data/default-data.php:229
+msgid "Please check your email inbox to confirm."
+msgstr ""
+
+#: data/default-data.php:55
+msgid "Read Docs"
+msgstr ""
+
+#: data/default-data.php:91
+msgid "Request Feature"
+msgstr ""
+
+#: data/default-data.php:155
+msgid "Start a Project"
+msgstr ""
+
+#. Author of the plugin
+msgid "StylemixThemes"
+msgstr ""
+
+#: data/default-data.php:88
+msgid ""
+"Submit your ideas, vote on what matters most, and help us shape future "
+"updates."
+msgstr ""
+
+#. Name of the plugin
+msgid "Support page"
+msgstr ""
+
+#. Description of the plugin
+msgid "Support page."
+msgstr ""
+
+#: data/default-data.php:228
+msgid "Thank you, your sign-up request was successful!"
+msgstr ""
+
+#: data/default-data.php:125
+msgid ""
+"Upgrade now and access a world of pro features, advanced addons, and "
+"limitless possibilities for your journey. Turbocharge your courses and make "
+"your e-learning platform truly outstanding!"
+msgstr ""
+
+#: data/default-data.php:75
+msgid "Video Guides"
+msgstr ""
+
+#: data/default-data.php:79
+msgid "Watch Guides"
+msgstr ""
+
+#: data/default-data.php:76
+msgid ""
+"Watch step-by-step tutorials on how to use features and get the best results."
+msgstr ""
+
+#: data/default-data.php:194
+msgid "We’d love to hear your experience with our tools"
+msgstr ""
+
+#: data/default-data.php:197
+msgid "Write Review"
+msgstr ""

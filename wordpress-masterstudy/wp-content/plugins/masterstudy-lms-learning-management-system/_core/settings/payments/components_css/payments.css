@@ -1,0 +1,287 @@
+.stm-lms-payment_info_field {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 20px 0;
+	margin-bottom: 0 !important;
+	gap: 20px;
+}
+
+.stm-lms-payment_info_field input,
+.stm-lms-payment_info_field textarea,
+.stm-lms-payment_info_field select {
+	background-color: #fff !important;
+}
+
+.stm-lms-payment_info_field input::placeholder,
+.stm-lms-payment_info_field textarea::placeholder {
+	color: #8C99A5;
+}
+
+.stm-lms-payment_info_field select {
+	line-height: 1;
+}
+
+.stm-lms-payment_info_block {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.stm-lms-payment_info_block_hint{
+	position: relative;
+	z-index: 990;
+	height: 14px;
+	display: inline-block;
+	font-size: 0;
+}
+
+.stm-lms-payment_info_block_hint i {
+	z-index: 99999;
+	font-size: 14px;
+	color: #8C99A5FF;
+	display: inline-block;
+}
+
+.stm-lms-payment_info_block_hint i:before {
+	content: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2014%2014%22%3E%3Cpath%20fill%3D%22%238c99a5%22%20d%3D%22M6.158%204.028a.765.765%200%201%200%201.529-.002.765.765%200%200%200-1.53.002zm.765%206.5a.573.573%200%200%200%20.573-.574v-3.44a.572.572%200%201%200-1.147%200v3.44c0%20.317.258.574.574.574zm-.002-8.794a5.168%205.168%200%200%201%205.163%205.16%205.169%205.169%200%200%201-5.163%205.163%205.168%205.168%200%200%201-5.16-5.162%205.168%205.168%200%200%201%205.16-5.161zm0%2011.47c3.48%200%206.311-2.83%206.311-6.31A6.318%206.318%200%200%200%206.922.587%206.315%206.315%200%200%200%20.613%206.895c0%203.48%202.83%206.309%206.307%206.309z%22%2F%3E%3C%2Fsvg%3E);
+	display: block;
+	width: 14px;
+	height: 14px;
+	opacity: 0.9;
+}
+
+.stm-lms-payment_info_block_hint:hover .hint{
+	opacity: 1;
+	visibility: visible;
+}
+
+.stm-lms-payment_info_block_description {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.stm-lms-payment_info_block_description span {
+	color: #8C99A5;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	font-family: Roboto, sans-serif;
+}
+
+.stm-lms-payment_info_block_title {
+	color: #27374E;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	font-family: Roboto, sans-serif;
+}
+
+.stm_metaboxes_grid__inner .wpcfto-box.payment_methods .stm-lms-payments {
+	padding: 0;
+}
+
+.stm-lms-payment_info {
+	padding: 20px;
+	border-right: 1px solid #DBE0E9;
+	border-bottom: 1px solid #DBE0E9;
+	border-left: 1px solid #DBE0E9;
+	background: #EEF1F7;
+}
+
+.stm-lms-payment_info_field:first-child {
+	padding-top: 0;
+}
+
+.stm-lms-payment_info_field:last-child {
+	margin-bottom: 0 !important;
+	padding-bottom: 0;
+}
+
+.stm_metaboxes_grid__inner .wpcfto-box.payment_methods .stm-lms-payments .stm-lms-payment_method:not(:last-of-type) {
+	margin-bottom: 0;
+}
+
+.stm_metaboxes_grid__inner .wpcfto-box.payment_methods .stm-lms-payments .wpcfto_checkbox {
+	margin-bottom: 0;
+}
+
+.wpcfto_checkbox i.fa-check {
+	top: 0;
+	left: 0;
+}
+
+.stm-lms-payment_header {
+	padding: 20px;
+	border-bottom: 1px solid #DBE0E9;
+	background: #FFF;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.stm-lms-payment_header:first-child {
+	border-radius: 10px 10px 0 0;
+}
+
+.stm-lms-payment_method:last-child .stm-lms-payment_header {
+	border-radius: 0 0 10px 10px;
+	border-bottom: none;
+}
+
+.stm-lms-payment_method:last-child .stm-lms-payment_header.active {
+	border-radius: 0;
+	border-bottom: 1px solid #DBE0E9;
+}
+
+.stm-lms-payment_header_info {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.stm-lms-payment_header_img {
+	width: 40px;
+	height: 40px;
+}
+
+.stm-lms-payment_header_title {
+	color: #27374E;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.stm-lms-payment_header label {
+	width: max-content;
+}
+
+.stm-lms-payment_header_block {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.stm-lms-payment_header_block_description {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.stm-lms-payment_header_block_description span {
+	color: #8C99A5;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.stm-lms-payment_method:first-child {
+	border-radius: 10px;
+}
+
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_header {
+	background: #f6f8fb;
+}
+
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_header_img img {
+	opacity: 0.5;
+}
+
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_header_title {
+	color: #8c99a5;
+}
+
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_header-toggle-arrow {
+	background-color: #e8edf4;
+}
+
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_info {
+	background: #f6f8fb;
+}
+
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_info input,
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_info textarea,
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_info select {
+	background-color: #f9fbfe !important;
+	color: #8c99a5;
+	border-color: #dbe0e9;
+}
+
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_header .wpcfto-admin-checkbox-wrapper.is_toggle {
+	opacity: 0.6;
+}
+
+.stm-lms-payment_method.is-pro-locked .stm-lms-payment_header .wpcfto-admin-checkbox-wrapper.is_toggle input {
+	cursor: not-allowed;
+}
+
+.stm-lms-payment_method.is-pro-locked .pro-notice {
+	font-size: 13px;
+	color: #8c99a5;
+}
+
+.stm-lms-payment_method.is-pro-locked .pro-notice a {
+	color: #2985f7;
+	font-weight: 500;
+}
+
+.stm-lms-payment_header-toggle {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+
+.stm-lms-payment_header-toggle-arrow {
+	width: 24px;
+	height: 24px;
+	background-color: #f1f4f9;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: .2s linear;
+}
+
+.stm-lms-payment_header-toggle-arrow i {
+	font-size: 6px;
+	margin-top: 1px;
+}
+
+.stm-lms-payment_header-toggle-arrow.rotate {
+	transform: rotate(180deg);
+}
+
+.stm-lms-payment_content {
+	position: relative;
+}
+
+.readonly-tooltip {
+	position: absolute;
+	top: -40px;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 6px 16px;
+	background-color: black;
+	border-radius: 50px;
+	color: #ffffff;
+}
+
+.readonly-tooltip:before {
+	content: "";
+	position: absolute;
+	bottom: -6px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 6px solid transparent;
+	border-top-color: black;
+	border-bottom: 0;
+}

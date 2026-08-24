@@ -1,0 +1,7 @@
+{
+  "icons": [
+    <%= _.map(glyphs, function (glyph) {
+      return '{ "properties": { "name": "' + glyph.name + '" } }';
+    }).join(',\n    ') %>
+  ]
+}

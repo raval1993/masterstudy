@@ -1,0 +1,270 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/archive-container",
+  "version": "0.1.0",
+  "title": "MasterStudy Archive Courses Container",
+  "category": "masterstudy-lms-blocks",
+  "icon": "store",
+  "description": "Add and customize an Archive courses page with this block",
+  "supports": {
+    "anchor": true,
+    "html": false
+  },
+  "attributes": {
+    "coursesOrderBy": {
+      "type": "string",
+      "default": "date_high"
+    },
+    "coursesPerPage": {
+      "type": "number",
+      "default": 9
+    },
+    "coursesPerRow": {
+      "type": "number",
+      "default": 3
+    },
+    "coursesPerRowTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "coursesPerRowMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "filterPosition": {
+      "type": "string",
+      "default": "start",
+      "enum": [
+        "start",
+        "end"
+      ]
+    },
+    "layoutMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPadding": {
+      "type": "object",
+      "default": {
+        "top": "100",
+        "right": "80",
+        "bottom": "100",
+        "left": "80"
+      }
+    },
+    "layoutPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "50",
+        "right": "50",
+        "bottom": "50",
+        "left": "50"
+      }
+    },
+    "layoutPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBackground": {
+      "type": "string",
+      "default": "#EEF1F7"
+    },
+    "layoutBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "layoutBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutWidth": {
+      "type": "string",
+      "default": "alignfull"
+    },
+    "layoutContentWidth": {
+      "type": "number",
+      "default": 1170
+    },
+    "layoutContentWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutZIndex": {
+      "type": "number",
+      "default": null
+    },
+    "layoutZIndexTablet": {
+      "type": "number",
+      "default": null
+    },
+    "layoutZIndexMobile": {
+      "type": "number",
+      "default": null
+    }
+  },
+  "keywords": [
+    "lms",
+    "courses",
+    "archive",
+    "masterstudy"
+  ],
+  "example": {},
+  "providesContext": {
+    "masterstudy/coursesPerPage": "coursesPerPage",
+    "masterstudy/coursesPerRow": "coursesPerRow",
+    "masterstudy/coursesPerRowTablet": "coursesPerRowTablet",
+    "masterstudy/coursesPerRowMobile": "coursesPerRowMobile",
+    "masterstudy/coursesOrderBy": "coursesOrderBy"
+  },
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

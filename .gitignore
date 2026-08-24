@@ -27,12 +27,10 @@ wordpress-masterstudy/tools/
 wordpress-masterstudy/wp-content/course-automation/
 wordpress-masterstudy/wp-content/uploads/
 wordpress-masterstudy/wp-content/cache/
-wordpress-masterstudy/wp-content/plugins/masterstudy-lms-learning-management-system/
-wordpress-masterstudy/wp-content/themes/masterstudy/
 
-# Full local theme/source copies; keep the repo focused on custom code
-masterstudy/
-masterstudy-4.5.2/
+# Duplicate local theme/source copies
+/masterstudy/
+/masterstudy-4.5.2/
 
 # Local research/export dumps and archives
 chatgpt-share.html

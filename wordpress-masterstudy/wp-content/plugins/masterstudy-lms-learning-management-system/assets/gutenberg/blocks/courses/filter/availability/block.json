@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/courses-filter-availability-inner",
+  "version": "0.1.0",
+  "title": "MasterStudy Courses Filter by Availability",
+  "category": "masterstudy-lms-blocks",
+  "icon": "store",
+  "description": "MasterStudy Courses Filter by Availability",
+  "parent": [
+    "masterstudy/courses-filter-availability"
+  ],
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "keywords": [],
+  "example": {},
+  "usesContext": [
+    "masterstudy/hideDefault"
+  ],
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

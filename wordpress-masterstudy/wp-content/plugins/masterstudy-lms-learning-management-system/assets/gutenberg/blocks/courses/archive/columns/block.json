@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/archive-container-columns",
+  "version": "0.1.0",
+  "title": "MasterStudy Courses Filter Columns",
+  "category": "masterstudy-lms-blocks",
+  "icon": "store",
+  "description": "MasterStudy Courses Filter Columns",
+  "parent": [
+    "masterstudy/archive-container"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "columnEndWidth": {
+      "type": "number",
+      "default": 870
+    }
+  },
+  "keywords": [],
+  "example": {},
+  "providesContext": {},
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

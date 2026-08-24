@@ -1,0 +1,1 @@
+var e=e=>e.replace(/\s+/g,` `).trim(),t=e=>{if(typeof document>`u`)return e;let t=document.createElement(`textarea`);return t.innerHTML=e,t.value},n=t=>t?e(typeof DOMParser>`u`?t.replace(/<[^>]*>/g,` `):new DOMParser().parseFromString(t,`text/html`).body.textContent||``):``;export{n,t};

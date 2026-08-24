@@ -1,0 +1,22 @@
+.lms-free  p{
+    display:inline;
+    margin-right: 10px;
+
+}
+.lms-free {
+    padding:15px;
+}
+.lms-notice {
+    padding:5px 5px 5px 15px;
+}
+.lms-free .stm_lms_install_button {
+    background-color: #385bce;
+    padding: 8px 18px;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.lms-free .stm_lms_install_button:hover {
+    background-color: #38cd64;
+}

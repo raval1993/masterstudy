@@ -1,0 +1,431 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/courses-tab-category",
+  "version": "0.1.2",
+  "title": "MasterStudy Courses Tab Category",
+  "category": "masterstudy-lms-blocks",
+  "icon": "store",
+  "description": "Filters courses",
+  "parent": [
+    "masterstudy/courses-container"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "tabCategoryIncluded": {
+      "type": "boolean",
+      "default": true
+    },
+    "tabCategoryViewType": {
+      "type": "string",
+      "enum": [
+        "buttons",
+        "tabs",
+        "select"
+      ],
+      "default": "buttons"
+    },
+    "tabCategoryOptions": {
+      "type": "array",
+      "default": []
+    },
+    "tabCategoryPosition": {
+      "type": "string",
+      "enum": [
+        "start",
+        "center",
+        "end"
+      ],
+      "default": "center"
+    },
+    "tabCategoryValues": {
+      "type": "array",
+      "default": []
+    },
+    "fontSize": {
+      "type": "number",
+      "default": 14
+    },
+    "fontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "fontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "fontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "fontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "fontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "fontWeight": {
+      "type": "string",
+      "default": "500"
+    },
+    "textTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "fontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "textDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "lineHeight": {
+      "type": "number",
+      "default": 14
+    },
+    "lineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "lineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "lineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "lineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "lineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "letterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "letterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "letterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "letterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "letterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "letterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "wordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "wordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "wordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "wordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "wordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "wordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "tabsBackground": {
+      "type": "string",
+      "default": "#DAE5F8"
+    },
+    "background": {
+      "type": "string",
+      "default": "#DAE5F8"
+    },
+    "backgroundHover": {
+      "type": "string",
+      "default": "#438EFF"
+    },
+    "color": {
+      "type": "string",
+      "default": "#227AFF"
+    },
+    "colorHover": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "borderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "borderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "borderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "borderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "borderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "borderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "borderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "borderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "borderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "borderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "borderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "borderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "borderRadius": {
+      "type": "object",
+      "default": {
+        "top": "20",
+        "right": "20",
+        "bottom": "20",
+        "left": "20"
+      }
+    },
+    "borderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "borderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "borderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "borderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "borderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "margin": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "50",
+        "left": "0"
+      }
+    },
+    "marginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "marginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "marginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "marginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "marginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "paddingGroup": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "paddingGroupTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "paddingGroupMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "paddingGroupUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "paddingGroupUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "paddingGroupUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "11",
+        "right": "20",
+        "bottom": "11",
+        "left": "20"
+      }
+    },
+    "paddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "paddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "paddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "paddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "paddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "itemsGap": {
+      "type": "number",
+      "default": 10
+    },
+    "itemsGapTablet": {
+      "type": "number",
+      "default": null
+    },
+    "itemsGapMobile": {
+      "type": "number",
+      "default": null
+    },
+    "itemsGapUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "itemsGapUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "itemsGapUnitMobile": {
+      "type": "string",
+      "default": "px"
+    }
+  },
+  "keywords": [],
+  "example": {},
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

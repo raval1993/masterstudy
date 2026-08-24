@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/featured-teacher-about",
+  "version": "0.1.2",
+  "title": "MasterStudy Featured Teacher About",
+  "category": "masterstudy-lms-blocks",
+  "icon": "carrot",
+  "description": "Create a section about a featured instructor and his courses on the page",
+  "parent": [
+    "masterstudy/featured-teacher"
+  ],
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "keywords": [],
+  "usesContext": [
+    "masterstudy/teacherId",
+    "masterstudy/showLabel",
+    "masterstudy/label",
+    "masterstudy/showPosition",
+    "masterstudy/showBiography"
+  ],
+  "example": {},
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php"
+}

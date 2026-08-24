@@ -34,13 +34,23 @@ if (-not (Test-Path -LiteralPath $wpContent)) {
 
 $workspaceRoot = Resolve-Path -LiteralPath (Join-Path $PSScriptRoot "..\..")
 $workspaceRoot = $workspaceRoot.Path
-$themeSource = Join-Path $workspaceRoot "masterstudy-4.5.2"
+$trackedThemeSource = Join-Path $workspaceRoot "wordpress-masterstudy\wp-content\themes\masterstudy"
+$legacyThemeSource = Join-Path $workspaceRoot "masterstudy-4.5.2"
+$themeSource = if (Test-Path -LiteralPath $trackedThemeSource) { $trackedThemeSource } else { $legacyThemeSource }
 $publisherSource = Join-Path $workspaceRoot "wordpress-masterstudy\wp-content\plugins\course-automation-publisher"
+$lmsPluginSource = Join-Path $workspaceRoot "wordpress-masterstudy\wp-content\plugins\masterstudy-lms-learning-management-system"
 $blueprintsSource = Join-Path $workspaceRoot "course-automation\data\processed\blueprints"
+$coursePackagesSource = Join-Path $workspaceRoot "course-automation\data\processed\generated\courses"
+$mediaSource = Join-Path $workspaceRoot "course-automation\data\processed\media\source"
+$videosSource = Join-Path $workspaceRoot "course-automation\data\processed\generated\videos"
 
 $themeDestination = Join-Path $wpContent "themes\masterstudy"
 $publisherDestination = Join-Path $wpContent "plugins\course-automation-publisher"
+$lmsPluginDestination = Join-Path $wpContent "plugins\masterstudy-lms-learning-management-system"
 $blueprintsDestination = Join-Path $wpContent "course-automation\blueprints"
+$coursePackagesDestination = Join-Path $wpContent "course-automation\courses"
+$mediaDestination = Join-Path $wpContent "course-automation\media"
+$videosDestination = Join-Path $wpContent "course-automation\videos"
 
 Write-Host "Copying MasterStudy theme..."
 Copy-DirectoryContents -Source $themeSource -Destination $themeDestination
@@ -48,10 +58,38 @@ Copy-DirectoryContents -Source $themeSource -Destination $themeDestination
 Write-Host "Copying Course Automation Publisher plugin..."
 Copy-DirectoryContents -Source $publisherSource -Destination $publisherDestination
 
-Write-Host "Copying generated course blueprints..."
-Copy-DirectoryContents -Source $blueprintsSource -Destination $blueprintsDestination
+if (Test-Path -LiteralPath $coursePackagesSource) {
+    Write-Host "Copying generated course packages..."
+    Copy-DirectoryContents -Source $coursePackagesSource -Destination $coursePackagesDestination
+} else {
+    Write-Warning "Generated course packages not found yet: $coursePackagesSource"
+}
 
-if (-not $SkipMasterStudyLmsDownload) {
+if (Test-Path -LiteralPath $mediaSource) {
+    Write-Host "Copying extracted lesson images..."
+    Copy-DirectoryContents -Source $mediaSource -Destination $mediaDestination
+} else {
+    Write-Warning "Extracted media not found yet: $mediaSource"
+}
+
+if (Test-Path -LiteralPath $videosSource) {
+    Write-Host "Copying generated course videos..."
+    Copy-DirectoryContents -Source $videosSource -Destination $videosDestination
+} else {
+    Write-Warning "Generated videos not found yet: $videosSource"
+}
+
+if (Test-Path -LiteralPath $blueprintsSource) {
+    Write-Host "Copying generated course blueprints..."
+    Copy-DirectoryContents -Source $blueprintsSource -Destination $blueprintsDestination
+} else {
+    Write-Warning "Generated blueprints not found yet: $blueprintsSource"
+}
+
+if (Test-Path -LiteralPath $lmsPluginSource) {
+    Write-Host "Copying bundled MasterStudy LMS plugin..."
+    Copy-DirectoryContents -Source $lmsPluginSource -Destination $lmsPluginDestination
+} elseif (-not $SkipMasterStudyLmsDownload) {
     Write-Host "Downloading latest MasterStudy LMS plugin from WordPress.org..."
     $apiUrl = "https://api.wordpress.org/plugins/info/1.2/?action=plugin_information&request%5Bslug%5D=masterstudy-lms-learning-management-system"
     $pluginInfo = (Invoke-WebRequest -Uri $apiUrl -UseBasicParsing).Content | ConvertFrom-Json -AsHashTable
@@ -77,6 +115,8 @@ if (-not $SkipMasterStudyLmsDownload) {
     $pluginDestination = Join-Path $wpContent "plugins\$($pluginFolder.Name)"
     Write-Host "Copying MasterStudy LMS plugin..."
     Copy-DirectoryContents -Source $pluginFolder.FullName -Destination $pluginDestination
+} else {
+    Write-Warning "MasterStudy LMS plugin is not bundled and download was skipped."
 }
 
 Write-Host ""

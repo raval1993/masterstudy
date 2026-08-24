@@ -1,0 +1,208 @@
+[
+  {
+    "id": "996eced",
+    "elType": "section",
+    "settings": {
+      "layout": "full_width",
+      "stretch_section": "section-stretched",
+      "margin": {
+        "unit": "px",
+        "top": "0",
+        "right": 0,
+        "bottom": "0",
+        "left": 0,
+        "isLinked": false
+      }
+    },
+    "elements": [
+      {
+        "id": "ccc5758",
+        "elType": "column",
+        "settings": {
+          "_column_size": 100,
+          "_inline_size": null,
+          "margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "0",
+            "left": "0",
+            "isLinked": false
+          },
+          "padding_mobile": {
+            "unit": "px",
+            "top": "0",
+            "right": "25",
+            "bottom": "0",
+            "left": "25",
+            "isLinked": false
+          }
+        },
+        "elements": [
+          {
+            "id": "2e90786",
+            "elType": "widget",
+            "settings": {
+              "categories": "",
+              "search_placeholder": "Search courses...",
+              "search_field_align": "center",
+              "search_field_width": { "unit": "%", "size": 30, "sizes": [] },
+              "search_field_width_tablet": {
+                "unit": "%",
+                "size": 40,
+                "sizes": []
+              },
+              "search_field_width_mobile": {
+                "unit": "%",
+                "size": 100,
+                "sizes": []
+              },
+              "search_field_height": { "unit": "px", "size": 45, "sizes": [] },
+              "search_field_padding": {
+                "unit": "px",
+                "top": "0",
+                "right": "20",
+                "bottom": "0",
+                "left": "20",
+                "isLinked": false
+              },
+              "search_field_border_radius": {
+                "unit": "px",
+                "top": "25",
+                "right": "25",
+                "bottom": "25",
+                "left": "25",
+                "isLinked": true
+              },
+              "search_button_typography_typography": "custom",
+              "search_button_typography_font_size": {
+                "unit": "px",
+                "size": 16,
+                "sizes": []
+              },
+              "search_button_color": "#FFFFFF",
+              "search_button_background_background": "classic",
+              "search_button_background_color": "#227AFF",
+              "search_button_border_radius": {
+                "unit": "px",
+                "top": "25",
+                "right": "25",
+                "bottom": "25",
+                "left": "25",
+                "isLinked": true
+              },
+              "search_button_hover_color": "#FFFFFF",
+              "search_button_hover_background_background": "classic",
+              "search_button_hover_background_color": "#1C69DD",
+              "search_button_hover_border_radius": {
+                "unit": "px",
+                "top": "25",
+                "right": "25",
+                "bottom": "25",
+                "left": "25",
+                "isLinked": true
+              },
+              "search_button_width": { "unit": "px", "size": 35, "sizes": [] },
+              "search_button_height": { "unit": "px", "size": 35, "sizes": [] },
+              "search_button_margin": {
+                "unit": "px",
+                "top": "5",
+                "right": "5",
+                "bottom": "0",
+                "left": "0",
+                "isLinked": false
+              },
+              "search_field_dropdown_link_hover_color": "#227AFF",
+              "search_field_dropdown_padding": {
+                "unit": "px",
+                "top": "15",
+                "right": "20",
+                "bottom": "15",
+                "left": "20",
+                "isLinked": false
+              },
+              "search_field_dropdown_border_radius": {
+                "unit": "px",
+                "top": "25",
+                "right": "25",
+                "bottom": "25",
+                "left": "25",
+                "isLinked": true
+              }
+            },
+            "elements": [],
+            "widgetType": "ms_lms_courses_searchbox"
+          }
+        ],
+        "isInner": false
+      }
+    ],
+    "isInner": false
+  },
+  {
+    "id": "c3a5d84",
+    "elType": "section",
+    "settings": {
+      "stretch_section": "section-stretched",
+      "padding": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": false
+      },
+      "padding_tablet": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": false
+      },
+      "padding_mobile": {
+        "unit": "px",
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0",
+        "isLinked": true
+      }
+    },
+    "elements": [
+      {
+        "id": "d6c9055",
+        "elType": "column",
+        "settings": {
+          "_column_size": 100,
+          "_inline_size": 100,
+          "margin": {
+            "unit": "px",
+            "top": "0",
+            "right": "0",
+            "bottom": "30",
+            "left": "0",
+            "isLinked": false
+          }
+        },
+        "elements": [
+          {
+            "id": "0708b0e",
+            "elType": "widget",
+            "settings": {
+              "title_text": "",
+              "show_filter": "yes",
+              "cards_per_row": "33.333333%",
+              "type": "courses-archive",
+              "sort_presets": "sorting-style-3"
+            },
+            "elements": [],
+            "widgetType": "ms_lms_courses"
+          }
+        ],
+        "isInner": false
+      }
+    ],
+    "isInner": false
+  }
+]

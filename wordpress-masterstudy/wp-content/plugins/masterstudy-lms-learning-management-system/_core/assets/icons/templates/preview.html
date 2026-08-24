@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= fontName %> Icons Preview</title>
+    <style>
+        body {
+            background: #202324;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(384px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .icon-item {
+            display: flex;
+            border: 1px solid #35393b;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 32px;
+            word-break: break-all;
+            gap: 10px;
+            color: #e8e6e3;
+        }
+
+        .icon-item__text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .icon-item__text span {
+            font-size: 21px;
+        }
+
+        .icon-item__text small {
+            font-size: 16px;
+        }
+    </style>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="icon-grid">
+    <% glyphs.forEach(function(glyph) { %>
+    <div class="icon-item">
+        <span class="stmlms-<%= glyph.name %>"></span>
+        <div class="icon-item__text">
+            <span><%= glyph.name %></span>
+            <small><%= glyph.codepoint %></small>
+        </div>
+    </div>
+    <% }); %>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+"use strict";
+
+Vue.component('wpcfto_image_select', {
+  props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
+  data: function data() {
+    return {
+      value: '',
+      style: ''
+    };
+  },
+  template: "\n        <div class=\"wpcfto_generic_field wpcfto_generic_field_image_select\" v-bind:class=\"field_id\">\n\n            <wpcfto_fields_aside_before :fields=\"fields\" :field_label=\"field_label\"></wpcfto_fields_aside_before>\n\n            <div class=\"wpcfto-field-content\">\n                <div class=\"wpcfto_image_select\">\n                    <label v-for=\"(option, key) in fields['options']\" v-bind:class=\"{'active' : value == key}\">\n                        <span class=\"wpcfto-img-wrap\"><img v-bind:src=\"option.img\" v-bind:alt=\"option.alt\" v-bind:style=\"style\"></span>\n                        <input type=\"radio\" v-bind:name=\"field_name\" v-model=\"value\" v-bind:value=\"key\"/>\n                        <span v-html=\"option.alt\" class=\"wpcfto-img-alt\"></span>\n                    </label>\n                </div>\n            </div>\n\n            <wpcfto_fields_aside_after :fields=\"fields\"></wpcfto_fields_aside_after>\n            \n        </div>\n    ",
+  mounted: function mounted() {
+    this.value = this.field_value;
+    if (this.fields['width']) {
+      this.style += 'width: ' + this.fields['width'] + 'px;';
+    }
+    if (this.fields['height']) {
+      this.style += 'height: ' + this.fields['height'] + 'px;';
+    }
+  },
+  methods: {},
+  watch: {
+    value: function value(_value) {
+      this.$emit('wpcfto-get-value', _value);
+    }
+  }
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJWdWUiLCJjb21wb25lbnQiLCJwcm9wcyIsImRhdGEiLCJ2YWx1ZSIsInN0eWxlIiwidGVtcGxhdGUiLCJtb3VudGVkIiwiZmllbGRfdmFsdWUiLCJmaWVsZHMiLCJtZXRob2RzIiwid2F0Y2giLCJfdmFsdWUiLCIkZW1pdCJdLCJzb3VyY2VzIjpbImZha2VfOWFlN2E4Yi5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcblxuVnVlLmNvbXBvbmVudCgnd3BjZnRvX2ltYWdlX3NlbGVjdCcsIHtcbiAgcHJvcHM6IFsnZmllbGRzJywgJ2ZpZWxkX2xhYmVsJywgJ2ZpZWxkX25hbWUnLCAnZmllbGRfaWQnLCAnZmllbGRfdmFsdWUnXSxcbiAgZGF0YTogZnVuY3Rpb24gZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgdmFsdWU6ICcnLFxuICAgICAgc3R5bGU6ICcnXG4gICAgfTtcbiAgfSxcbiAgdGVtcGxhdGU6IFwiXFxuICAgICAgICA8ZGl2IGNsYXNzPVxcXCJ3cGNmdG9fZ2VuZXJpY19maWVsZCB3cGNmdG9fZ2VuZXJpY19maWVsZF9pbWFnZV9zZWxlY3RcXFwiIHYtYmluZDpjbGFzcz1cXFwiZmllbGRfaWRcXFwiPlxcblxcbiAgICAgICAgICAgIDx3cGNmdG9fZmllbGRzX2FzaWRlX2JlZm9yZSA6ZmllbGRzPVxcXCJmaWVsZHNcXFwiIDpmaWVsZF9sYWJlbD1cXFwiZmllbGRfbGFiZWxcXFwiPjwvd3BjZnRvX2ZpZWxkc19hc2lkZV9iZWZvcmU+XFxuXFxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cXFwid3BjZnRvLWZpZWxkLWNvbnRlbnRcXFwiPlxcbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPVxcXCJ3cGNmdG9faW1hZ2Vfc2VsZWN0XFxcIj5cXG4gICAgICAgICAgICAgICAgICAgIDxsYWJlbCB2LWZvcj1cXFwiKG9wdGlvbiwga2V5KSBpbiBmaWVsZHNbJ29wdGlvbnMnXVxcXCIgdi1iaW5kOmNsYXNzPVxcXCJ7J2FjdGl2ZScgOiB2YWx1ZSA9PSBrZXl9XFxcIj5cXG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBjbGFzcz1cXFwid3BjZnRvLWltZy13cmFwXFxcIj48aW1nIHYtYmluZDpzcmM9XFxcIm9wdGlvbi5pbWdcXFwiIHYtYmluZDphbHQ9XFxcIm9wdGlvbi5hbHRcXFwiIHYtYmluZDpzdHlsZT1cXFwic3R5bGVcXFwiPjwvc3Bhbj5cXG4gICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT1cXFwicmFkaW9cXFwiIHYtYmluZDpuYW1lPVxcXCJmaWVsZF9uYW1lXFxcIiB2LW1vZGVsPVxcXCJ2YWx1ZVxcXCIgdi1iaW5kOnZhbHVlPVxcXCJrZXlcXFwiLz5cXG4gICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiB2LWh0bWw9XFxcIm9wdGlvbi5hbHRcXFwiIGNsYXNzPVxcXCJ3cGNmdG8taW1nLWFsdFxcXCI+PC9zcGFuPlxcbiAgICAgICAgICAgICAgICAgICAgPC9sYWJlbD5cXG4gICAgICAgICAgICAgICAgPC9kaXY+XFxuICAgICAgICAgICAgPC9kaXY+XFxuXFxuICAgICAgICAgICAgPHdwY2Z0b19maWVsZHNfYXNpZGVfYWZ0ZXIgOmZpZWxkcz1cXFwiZmllbGRzXFxcIj48L3dwY2Z0b19maWVsZHNfYXNpZGVfYWZ0ZXI+XFxuICAgICAgICAgICAgXFxuICAgICAgICA8L2Rpdj5cXG4gICAgXCIsXG4gIG1vdW50ZWQ6IGZ1bmN0aW9uIG1vdW50ZWQoKSB7XG4gICAgdGhpcy52YWx1ZSA9IHRoaXMuZmllbGRfdmFsdWU7XG4gICAgaWYgKHRoaXMuZmllbGRzWyd3aWR0aCddKSB7XG4gICAgICB0aGlzLnN0eWxlICs9ICd3aWR0aDogJyArIHRoaXMuZmllbGRzWyd3aWR0aCddICsgJ3B4Oyc7XG4gICAgfVxuICAgIGlmICh0aGlzLmZpZWxkc1snaGVpZ2h0J10pIHtcbiAgICAgIHRoaXMuc3R5bGUgKz0gJ2hlaWdodDogJyArIHRoaXMuZmllbGRzWydoZWlnaHQnXSArICdweDsnO1xuICAgIH1cbiAgfSxcbiAgbWV0aG9kczoge30sXG4gIHdhdGNoOiB7XG4gICAgdmFsdWU6IGZ1bmN0aW9uIHZhbHVlKF92YWx1ZSkge1xuICAgICAgdGhpcy4kZW1pdCgnd3BjZnRvLWdldC12YWx1ZScsIF92YWx1ZSk7XG4gICAgfVxuICB9XG59KTsiXSwibWFwcGluZ3MiOiJBQUFBLFlBQVk7O0FBRVpBLEdBQUcsQ0FBQ0MsU0FBUyxDQUFDLHFCQUFxQixFQUFFO0VBQ25DQyxLQUFLLEVBQUUsQ0FBQyxRQUFRLEVBQUUsYUFBYSxFQUFFLFlBQVksRUFBRSxVQUFVLEVBQUUsYUFBYSxDQUFDO0VBQ3pFQyxJQUFJLEVBQUUsU0FBU0EsSUFBSUEsQ0FBQSxFQUFHO0lBQ3BCLE9BQU87TUFDTEMsS0FBSyxFQUFFLEVBQUU7TUFDVEMsS0FBSyxFQUFFO0lBQ1QsQ0FBQztFQUNILENBQUM7RUFDREMsUUFBUSxFQUFFLHErQkFBcStCO0VBQy8rQkMsT0FBTyxFQUFFLFNBQVNBLE9BQU9BLENBQUEsRUFBRztJQUMxQixJQUFJLENBQUNILEtBQUssR0FBRyxJQUFJLENBQUNJLFdBQVc7SUFDN0IsSUFBSSxJQUFJLENBQUNDLE1BQU0sQ0FBQyxPQUFPLENBQUMsRUFBRTtNQUN4QixJQUFJLENBQUNKLEtBQUssSUFBSSxTQUFTLEdBQUcsSUFBSSxDQUFDSSxNQUFNLENBQUMsT0FBTyxDQUFDLEdBQUcsS0FBSztJQUN4RDtJQUNBLElBQUksSUFBSSxDQUFDQSxNQUFNLENBQUMsUUFBUSxDQUFDLEVBQUU7TUFDekIsSUFBSSxDQUFDSixLQUFLLElBQUksVUFBVSxHQUFHLElBQUksQ0FBQ0ksTUFBTSxDQUFDLFFBQVEsQ0FBQyxHQUFHLEtBQUs7SUFDMUQ7RUFDRixDQUFDO0VBQ0RDLE9BQU8sRUFBRSxDQUFDLENBQUM7RUFDWEMsS0FBSyxFQUFFO0lBQ0xQLEtBQUssRUFBRSxTQUFTQSxLQUFLQSxDQUFDUSxNQUFNLEVBQUU7TUFDNUIsSUFBSSxDQUFDQyxLQUFLLENBQUMsa0JBQWtCLEVBQUVELE1BQU0sQ0FBQztJQUN4QztFQUNGO0FBQ0YsQ0FBQyxDQUFDIiwiaWdub3JlTGlzdCI6W119
+},{}]},{},[1])

@@ -1,0 +1,1648 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/featured-teacher",
+  "version": "0.1.2",
+  "title": "MasterStudy Featured Teacher",
+  "category": "masterstudy-lms-blocks",
+  "icon": "store",
+  "description": "Create a section about a featured instructor and his courses on the page",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "coursesPerPage": {
+      "type": "number",
+      "default": 4
+    },
+    "coursesPerRow": {
+      "type": "number",
+      "default": 4
+    },
+    "coursesPerRowTablet": {
+      "type": "number",
+      "default": 2
+    },
+    "coursesPerRowMobile": {
+      "type": "number",
+      "default": 1
+    },
+    "teacherId": {
+      "type": "number",
+      "default": 1
+    },
+    "orderBy": {
+      "type": "string",
+      "default": "date_high"
+    },
+    "category": {
+      "type": "array",
+      "default": []
+    },
+    "showLabel": {
+      "type": "boolean",
+      "default": true
+    },
+    "label": {
+      "type": "string",
+      "default": "Teacher of Month"
+    },
+    "showPosition": {
+      "type": "boolean",
+      "default": true
+    },
+    "showBiography": {
+      "type": "boolean",
+      "default": true
+    },
+    "showViewAllButton": {
+      "type": "boolean",
+      "default": true
+    },
+    "buttonText": {
+      "type": "string",
+      "default": "View All"
+    },
+    "buttonUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutMargin": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "0",
+        "left": "0"
+      }
+    },
+    "layoutMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPadding": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "40",
+        "left": "0"
+      }
+    },
+    "layoutPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBackground": {
+      "type": "string",
+      "default": "#001931"
+    },
+    "layoutBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "layoutBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "layoutBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "layoutWidth": {
+      "type": "string",
+      "default": "alignfull"
+    },
+    "layoutWidthTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutWidthMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "layoutZIndex": {
+      "type": "number",
+      "default": 0
+    },
+    "layoutZIndexTablet": {
+      "type": "number",
+      "default": null
+    },
+    "layoutZIndexMobile": {
+      "type": "number",
+      "default": null
+    },
+    "instructorContainerBackground": {
+      "type": "string",
+      "default": "#EEF1F7"
+    },
+    "instructorContainerBackgroundImage": {
+      "type": "string",
+      "default": ""
+    },
+    "instructorContainerBackgroundImageTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "instructorContainerBackgroundImageMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "instructorContainerBackgroundSize": {
+      "type": "string",
+      "default": ""
+    },
+    "instructorContainerBackgroundPosition": {
+      "type": "string",
+      "default": ""
+    },
+    "instructorContainerPadding": {
+      "type": "object",
+      "default": {
+        "top": "40",
+        "right": "15",
+        "bottom": "0",
+        "left": "15"
+      }
+    },
+    "instructorContainerPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorContainerPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "40",
+        "right": "15",
+        "bottom": "",
+        "left": "15"
+      }
+    },
+    "instructorContainerPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorContainerPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorContainerPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorContainerMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorContainerMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorContainerMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorContainerMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorContainerMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorContainerMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelFontSize": {
+      "type": "number",
+      "default": 12
+    },
+    "instructorLabelFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "instructorLabelFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "instructorLabelFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "instructorLabelTextTransform": {
+      "type": "string",
+      "default": "uppercase"
+    },
+    "instructorLabelFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "instructorLabelTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "instructorLabelLineHeight": {
+      "type": "number",
+      "default": 12
+    },
+    "instructorLabelLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "instructorLabelLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "instructorLabelLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "instructorLabelLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "instructorLabelLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "instructorLabelLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "instructorLabelWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "instructorLabelWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "instructorLabelWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelPadding": {
+      "type": "object",
+      "default": {
+        "top": "7",
+        "right": "15",
+        "bottom": "7",
+        "left": "15"
+      }
+    },
+    "instructorLabelPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorLabelPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorLabelPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelMargin": {
+      "type": "object",
+      "default": {
+        "top": "120",
+        "right": "0",
+        "bottom": "10",
+        "left": "0"
+      }
+    },
+    "instructorLabelMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorLabelMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorLabelMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelBackground": {
+      "type": "string",
+      "default": "#227AFF"
+    },
+    "instructorLabelColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "instructorLabelBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "instructorLabelBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "instructorLabelBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorLabelBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorLabelBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "20",
+        "right": "20",
+        "bottom": "20",
+        "left": "20"
+      }
+    },
+    "instructorLabelBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "instructorBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "instructorBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonFontSize": {
+      "type": "number",
+      "default": 14
+    },
+    "buttonFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "buttonFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "buttonFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonFontWeight": {
+      "type": "string",
+      "default": "500"
+    },
+    "buttonTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "buttonFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "buttonTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "buttonLineHeight": {
+      "type": "number",
+      "default": 14
+    },
+    "buttonLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "buttonLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "buttonLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "buttonLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "buttonLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "buttonLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "buttonWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "buttonWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "buttonWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonPadding": {
+      "type": "object",
+      "default": {
+        "top": "11",
+        "right": "20",
+        "bottom": "11",
+        "left": "20"
+      }
+    },
+    "buttonPaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonPaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonPaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonPaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonPaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonMargin": {
+      "type": "object",
+      "default": {
+        "top": "40",
+        "right": "0",
+        "bottom": "0",
+        "left": "0"
+      }
+    },
+    "buttonMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonBackground": {
+      "type": "string",
+      "default": "#227AFF"
+    },
+    "buttonBackgroundHover": {
+      "type": "string",
+      "default": "#438EFF"
+    },
+    "buttonColor": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "buttonColorHover": {
+      "type": "string",
+      "default": "#ffffff"
+    },
+    "buttonBorderStyle": {
+      "type": "string",
+      "default": "none"
+    },
+    "buttonBorderStyleTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonBorderStyleMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonBorderColorTablet": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonBorderColorMobile": {
+      "type": "string",
+      "default": ""
+    },
+    "buttonBorderWidth": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonBorderWidthTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonBorderWidthMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonBorderWidthUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonBorderWidthUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonBorderWidthUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonBorderRadius": {
+      "type": "object",
+      "default": {
+        "top": "20",
+        "right": "20",
+        "bottom": "20",
+        "left": "20"
+      }
+    },
+    "buttonBorderRadiusTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonBorderRadiusMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "buttonBorderRadiusUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonBorderRadiusUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "buttonBorderRadiusUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameFontSize": {
+      "type": "number",
+      "default": 65
+    },
+    "nameFontSizeTablet": {
+      "type": "number",
+      "default": 48
+    },
+    "nameFontSizeMobile": {
+      "type": "number",
+      "default": 36
+    },
+    "nameFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "nameTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "nameFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "nameTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "nameLineHeight": {
+      "type": "number",
+      "default": 65
+    },
+    "nameLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "nameLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "nameLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "nameLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "nameLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "nameLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "nameWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "nameWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "nameWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "namePadding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "namePaddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "namePaddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "namePaddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "namePaddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "namePaddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameMargin": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "10",
+        "left": "0"
+      }
+    },
+    "nameMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "nameMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "nameMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "nameColor": {
+      "type": "string",
+      "default": "#001931"
+    },
+    "positionFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "positionFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "positionFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "positionFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "positionTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "positionFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "positionTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "positionLineHeight": {
+      "type": "number",
+      "default": 18
+    },
+    "positionLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "positionLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "positionLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "positionLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "positionLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "positionLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "positionWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "positionWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "positionWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionMargin": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "positionMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "positionMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "positionMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "positionColor": {
+      "type": "string",
+      "default": "#4D5E6F"
+    },
+    "biographyFontSize": {
+      "type": "number",
+      "default": 18
+    },
+    "biographyFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "biographyFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "biographyFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyFontWeight": {
+      "type": "string",
+      "default": "400"
+    },
+    "biographyTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "biographyFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "biographyTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "biographyLineHeight": {
+      "type": "number",
+      "default": 28
+    },
+    "biographyLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "biographyLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "biographyLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "biographyLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "biographyLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "biographyLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "biographyWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "biographyWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "biographyWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyMargin": {
+      "type": "object",
+      "default": {
+        "top": "50",
+        "right": "0",
+        "bottom": "50",
+        "left": "0"
+      }
+    },
+    "biographyMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "biographyMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "biographyMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "biographyColor": {
+      "type": "string",
+      "default": "#4D5E6F"
+    },
+    "courseTitleFontSize": {
+      "type": "number",
+      "default": 24
+    },
+    "courseTitleFontSizeTablet": {
+      "type": "number",
+      "default": null
+    },
+    "courseTitleFontSizeMobile": {
+      "type": "number",
+      "default": null
+    },
+    "courseTitleFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleFontSizeUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleFontSizeUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "courseTitleTextTransform": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "courseTitleFontStyle": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "courseTitleTextDecoration": {
+      "type": "string",
+      "default": "inherit"
+    },
+    "courseTitleLineHeight": {
+      "type": "number",
+      "default": 24
+    },
+    "courseTitleLineHeightTablet": {
+      "type": "number",
+      "default": null
+    },
+    "courseTitleLineHeightMobile": {
+      "type": "number",
+      "default": null
+    },
+    "courseTitleLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleLineHeightUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleLineHeightUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleLetterSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "courseTitleLetterSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "courseTitleLetterSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "courseTitleLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleLetterSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleLetterSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleWordSpacing": {
+      "type": "number",
+      "default": 0
+    },
+    "courseTitleWordSpacingTablet": {
+      "type": "number",
+      "default": null
+    },
+    "courseTitleWordSpacingMobile": {
+      "type": "number",
+      "default": null
+    },
+    "courseTitleWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleWordSpacingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleWordSpacingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleMargin": {
+      "type": "object",
+      "default": {
+        "top": "0",
+        "right": "0",
+        "bottom": "30",
+        "left": "0"
+      }
+    },
+    "courseTitleMarginTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "courseTitleMarginMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "courseTitleMarginUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleMarginUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleMarginUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "courseTitleColor": {
+      "type": "string",
+      "default": "#001931"
+    }
+  },
+  "keywords": [
+    "lms",
+    "author",
+    "teacher",
+    "instructor",
+    "masterstudy"
+  ],
+  "example": {},
+  "providesContext": {
+    "masterstudy/coursesPerPage": "coursesPerPage",
+    "masterstudy/coursesPerRow": "coursesPerRow",
+    "masterstudy/coursesPerRowTablet": "coursesPerRowTablet",
+    "masterstudy/coursesPerRowMobile": "coursesPerRowMobile",
+    "masterstudy/coursesOrderBy": "orderBy",
+    "masterstudy/coursesCategory": "category",
+    "masterstudy/teacherId": "teacherId",
+    "masterstudy/showLabel": "showLabel",
+    "masterstudy/label": "label",
+    "masterstudy/showPosition": "showPosition",
+    "masterstudy/showBiography": "showBiography",
+    "masterstudy/showViewAllButton": "showViewAllButton",
+    "masterstudy/buttonText": "buttonText",
+    "masterstudy/buttonUrl": "buttonUrl"
+  },
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

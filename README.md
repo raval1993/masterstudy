@@ -8,9 +8,11 @@ The current local milestone processes the Dropbox `INFORMATION TECHNOLOGY` sampl
 
 - `course-automation/`: Python ingestion, course generation, media extraction, video rendering, dashboard, and WordPress publishing scripts.
 - `wordpress-masterstudy/wp-content/plugins/course-automation-publisher/`: custom WordPress plugin that imports generated packages into MasterStudy courses, lessons, curriculum rows, images, and video metadata.
+- `wordpress-masterstudy/wp-content/plugins/masterstudy-lms-learning-management-system/`: bundled MasterStudy LMS plugin from the working local site.
+- `wordpress-masterstudy/wp-content/themes/masterstudy/`: active MasterStudy theme used by the working local site.
 - `wordpress-masterstudy/scripts/`: Laragon and optional Docker setup helpers.
 
-Generated Dropbox data, extracted course files, images, videos, local WordPress uploads, downloaded MasterStudy plugin/theme copies, and machine-specific files are intentionally excluded from Git.
+Generated Dropbox data, extracted course files, generated images, generated videos, local WordPress uploads, duplicate root theme copies, and machine-specific files are intentionally excluded from Git.
 
 ## Local Pipeline
 
@@ -31,4 +33,6 @@ Next planned production steps are TTS audio generation, per-lesson video renderi
 
 ## Deployment Direction
 
-For cPanel or another server, keep WordPress/MasterStudy on the server and store generated videos either on server disk for MVP or later in object/video storage such as S3-compatible storage, Cloudflare R2, Bunny Stream, or DigitalOcean Spaces.
+For cPanel or another server, install WordPress on the server, then deploy/copy the tracked `wordpress-masterstudy/wp-content` folders into the server's `wp-content`. Do not commit or overwrite server-specific `wp-config.php`, database exports, uploads, or generated course media.
+
+For generated videos, use server disk for the MVP or later move them to object/video storage such as S3-compatible storage, Cloudflare R2, Bunny Stream, or DigitalOcean Spaces.

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/courses-filter-level-inner",
+  "version": "0.1.0",
+  "title": "MasterStudy Courses Filter by Level",
+  "category": "masterstudy-lms-blocks",
+  "icon": "store",
+  "description": "MasterStudy Courses Filter by Level",
+  "parent": [
+    "masterstudy/courses-filter-level"
+  ],
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "keywords": [],
+  "example": {},
+  "usesContext": [
+    "masterstudy/hideDefault"
+  ],
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js",
+  "render": "file:./render.php"
+}

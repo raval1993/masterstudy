@@ -1,0 +1,205 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/courses-filter-price",
+  "version": "0.1.0",
+  "title": "MasterStudy Courses Filter by Price",
+  "category": "masterstudy-lms-blocks",
+  "icon": "store",
+  "description": "MasterStudy Courses Filter by Price",
+  "parent": [
+    "masterstudy/courses-filter"
+  ],
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "hideDefault": {
+      "type": "boolean",
+      "default": false
+    },
+    "padding": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "paddingTablet": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "paddingMobile": {
+      "type": "object",
+      "default": {
+        "top": "",
+        "right": "",
+        "bottom": "",
+        "left": ""
+      }
+    },
+    "paddingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "paddingUnitTablet": {
+      "type": "string",
+      "default": "px"
+    },
+    "paddingUnitMobile": {
+      "type": "string",
+      "default": "px"
+    },
+    "background": {
+      "type": "string",
+      "default": ""
+    },
+    "titleColor": {
+      "type": "string",
+      "default": ""
+    },
+    "titleFontSize": {
+      "type": "number",
+      "default": 16
+    },
+    "titleFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "titleFontWeight": {
+      "type": "string",
+      "default": "700"
+    },
+    "titleTextTransform": {
+      "type": "string",
+      "default": ""
+    },
+    "titleFontStyle": {
+      "type": "string",
+      "default": ""
+    },
+    "titleTextDecoration": {
+      "type": "string",
+      "default": ""
+    },
+    "titleLineHeight": {
+      "type": "number",
+      "default": 24
+    },
+    "titleLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "titleLetterSpacing": {
+      "type": "number",
+      "default": null
+    },
+    "titleLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "titleWordSpacing": {
+      "type": "number",
+      "default": null
+    },
+    "titleWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "togglerColor": {
+      "type": "string",
+      "default": ""
+    },
+    "itemColor": {
+      "type": "string",
+      "default": ""
+    },
+    "itemFontSize": {
+      "type": "number",
+      "default": 14
+    },
+    "itemFontSizeUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "itemFontWeight": {
+      "type": "string",
+      "default": "500"
+    },
+    "itemTextTransform": {
+      "type": "string",
+      "default": ""
+    },
+    "itemFontStyle": {
+      "type": "string",
+      "default": ""
+    },
+    "itemTextDecoration": {
+      "type": "string",
+      "default": ""
+    },
+    "itemLineHeight": {
+      "type": "number",
+      "default": 16
+    },
+    "itemLineHeightUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "itemLetterSpacing": {
+      "type": "number",
+      "default": null
+    },
+    "itemLetterSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "itemWordSpacing": {
+      "type": "number",
+      "default": null
+    },
+    "itemWordSpacingUnit": {
+      "type": "string",
+      "default": "px"
+    },
+    "inputColor": {
+      "type": "string",
+      "default": ""
+    },
+    "inputColorActive": {
+      "type": "string",
+      "default": ""
+    },
+    "inputBgColor": {
+      "type": "string",
+      "default": ""
+    },
+    "inputBgColorActive": {
+      "type": "string",
+      "default": ""
+    },
+    "inputBorderColor": {
+      "type": "string",
+      "default": ""
+    },
+    "inputBorderColorActive": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "keywords": [],
+  "example": {},
+  "providesContext": {},
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

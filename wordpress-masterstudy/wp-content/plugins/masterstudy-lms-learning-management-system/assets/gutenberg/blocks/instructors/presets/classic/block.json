@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "masterstudy/instructors-preset-classic",
+  "version": "0.1.1",
+  "title": "MasterStudy Instructors Preset Classic",
+  "category": "masterstudy-lms-blocks",
+  "icon": "carrot",
+  "description": "Displays Instructors Preset Classic",
+  "parent": [
+    "masterstudy/instructors-preset"
+  ],
+  "supports": {
+    "html": false
+  },
+  "attributes": {},
+  "keywords": [
+    "lms",
+    "instructors",
+    "grid",
+    "classic",
+    "masterstudy"
+  ],
+  "usesContext": [
+    "masterstudy/cardPreset",
+    "masterstudy/showPosition",
+    "masterstudy/showCourseCount",
+    "masterstudy/showBiography",
+    "masterstudy/showRating",
+    "masterstudy/ratingStyle",
+    "masterstudy/showSocials",
+    "masterstudy/instructorPerPage",
+    "masterstudy/quantity",
+    "masterstudy/orderBy",
+    "masterstudy/instructors"
+  ],
+  "example": {},
+  "textdomain": "masterstudy-lms-learning-management-system",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./view.js"
+}

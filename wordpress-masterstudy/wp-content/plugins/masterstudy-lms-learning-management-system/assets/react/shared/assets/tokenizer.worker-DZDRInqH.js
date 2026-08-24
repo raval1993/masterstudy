@@ -1,0 +1,1 @@
+let e=null;self.onmessage=async t=>{let n=t.data??``,r=e;r||(r=(await import(`./main-DHQraUJQ.js`)).encode,e=r);let i=r(n).length;self.postMessage(i)};
