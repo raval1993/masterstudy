@@ -1,0 +1,5 @@
+python-docx>=1.1.0
+Pillow>=10.0.0
+imageio>=2.34.0
+imageio-ffmpeg>=0.5.0
+numpy>=1.26.0

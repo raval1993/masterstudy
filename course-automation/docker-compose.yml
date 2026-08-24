@@ -1,0 +1,9 @@
+services:
+  dashboard:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      COURSE_AUTOMATION_DATA_DIR: /app/data
+    volumes:
+      - ./data:/app/data

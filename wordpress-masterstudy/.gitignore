@@ -1,0 +1,7 @@
+.env
+db-data/
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/languages/
+*.log
