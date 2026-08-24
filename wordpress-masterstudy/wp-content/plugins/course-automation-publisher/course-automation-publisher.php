@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Course Automation Publisher
  * Description: Imports generated course packages into WordPress/MasterStudy draft courses, lessons, and curriculum.
- * Version: 0.2.0
+ * Version: 0.3.0
  * Author: Course Automation
  * Text Domain: course-automation-publisher
  */
@@ -296,6 +296,7 @@ function ca_publisher_import_blueprint_file( string $file ) {
 	update_post_meta( $post_id, '_ca_source_image_count', intval( $data['source_image_count'] ?? 0 ) );
 	update_post_meta( $post_id, '_ca_blueprint_imported_at', gmdate( 'c' ) );
 	ca_publisher_update_course_video_meta( $post_id, $data );
+	ca_publisher_update_course_featured_image( $post_id, $data );
 
 	$curriculum = ca_publisher_sync_masterstudy_curriculum( $post_id, $data );
 	update_post_meta( $post_id, '_ca_curriculum_sections', intval( $curriculum['sections'] ) );
@@ -333,6 +334,179 @@ function ca_publisher_update_course_video_meta( int $post_id, array $data ): voi
 	update_post_meta( $post_id, 'video_duration', ca_publisher_video_duration_label( $video ) );
 	update_post_meta( $post_id, '_ca_course_video_url', $url );
 	update_post_meta( $post_id, '_ca_course_video_status', ca_publisher_string_value( $video, 'status', 'rendered' ) );
+}
+
+function ca_publisher_update_course_featured_image( int $post_id, array $data ): void {
+	$asset = ca_publisher_pick_course_featured_asset( $data );
+	if ( empty( $asset ) ) {
+		update_post_meta( $post_id, '_ca_featured_image_status', 'no_source_image' );
+		return;
+	}
+
+	$relative_path = ca_publisher_string_value( $asset, 'relative_path' );
+	if ( '' === $relative_path ) {
+		update_post_meta( $post_id, '_ca_featured_image_status', 'missing_relative_path' );
+		return;
+	}
+
+	$current_thumbnail_id = get_post_thumbnail_id( $post_id );
+	if ( $current_thumbnail_id > 0 ) {
+		$current_relative_path = get_post_meta( $current_thumbnail_id, '_ca_media_relative_path', true );
+		if ( '' !== $current_relative_path && $current_relative_path !== $relative_path ) {
+			delete_post_thumbnail( $post_id );
+		} elseif ( '' === $current_relative_path ) {
+			update_post_meta( $post_id, '_ca_featured_image_status', 'kept_existing_manual_thumbnail' );
+			return;
+		}
+	}
+
+	$attachment_id = ca_publisher_ensure_media_attachment( $asset, $post_id );
+	if ( $attachment_id <= 0 ) {
+		update_post_meta( $post_id, '_ca_featured_image_status', 'attachment_failed' );
+		return;
+	}
+
+	set_post_thumbnail( $post_id, $attachment_id );
+	update_post_meta( $post_id, '_ca_featured_image_status', 'set' );
+	update_post_meta( $post_id, '_ca_featured_image_relative_path', $relative_path );
+}
+
+function ca_publisher_pick_course_featured_asset( array $data ): array {
+	$candidates = array();
+
+	foreach ( array( 'featured_image', 'course_image' ) as $key ) {
+		if ( is_array( $data[ $key ] ?? null ) ) {
+			$candidates[] = $data[ $key ];
+		}
+	}
+
+	$modules = is_array( $data['modules'] ?? null ) ? $data['modules'] : array();
+	foreach ( $modules as $module ) {
+		if ( ! is_array( $module ) ) {
+			continue;
+		}
+
+		$lessons = is_array( $module['lessons'] ?? null ) ? $module['lessons'] : array();
+		foreach ( $lessons as $lesson ) {
+			if ( ! is_array( $lesson ) ) {
+				continue;
+			}
+
+			$assets = is_array( $lesson['assets'] ?? null ) ? $lesson['assets'] : array();
+			foreach ( $assets as $asset ) {
+				if ( is_array( $asset ) && 'image' === ca_publisher_string_value( $asset, 'type' ) ) {
+					$candidates[] = $asset;
+				}
+			}
+		}
+	}
+
+	$best_asset = array();
+	$best_score = 0;
+	foreach ( $candidates as $asset ) {
+		if ( ! is_array( $asset ) ) {
+			continue;
+		}
+
+		$relative_path = ca_publisher_string_value( $asset, 'relative_path' );
+		if ( '' === $relative_path ) {
+			continue;
+		}
+
+		$width = max( 0, intval( $asset['width'] ?? 0 ) );
+		$height = max( 0, intval( $asset['height'] ?? 0 ) );
+		$score = $width * $height;
+		if ( $width >= 120 && $height >= 90 ) {
+			$score += 1000000;
+		}
+
+		if ( $score > $best_score ) {
+			$best_score = $score;
+			$best_asset = $asset;
+		}
+	}
+
+	return $best_asset;
+}
+
+function ca_publisher_ensure_media_attachment( array $asset, int $parent_post_id ): int {
+	$relative_path = ca_publisher_clean_relative_path( ca_publisher_string_value( $asset, 'relative_path' ) );
+	if ( '' === $relative_path ) {
+		return 0;
+	}
+
+	$existing = get_posts(
+		array(
+			'post_type'      => 'attachment',
+			'post_status'    => 'inherit',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'meta_key'       => '_ca_media_relative_path',
+			'meta_value'     => $relative_path,
+		)
+	);
+	if ( ! empty( $existing ) ) {
+		return intval( $existing[0] );
+	}
+
+	$source_path = ca_publisher_media_file_path( $relative_path );
+	if ( '' === $source_path || ! is_file( $source_path ) ) {
+		return 0;
+	}
+
+	$filetype = wp_check_filetype( basename( $source_path ), null );
+	if ( empty( $filetype['type'] ) || ! str_starts_with( $filetype['type'], 'image/' ) ) {
+		return 0;
+	}
+
+	$upload_dir = wp_upload_dir();
+	if ( ! empty( $upload_dir['error'] ) ) {
+		return 0;
+	}
+
+	$featured_dir = trailingslashit( $upload_dir['basedir'] ) . 'course-automation-featured';
+	if ( ! wp_mkdir_p( $featured_dir ) ) {
+		return 0;
+	}
+
+	$filename = wp_unique_filename( $featured_dir, basename( $source_path ) );
+	$target_path = trailingslashit( $featured_dir ) . $filename;
+	if ( ! copy( $source_path, $target_path ) ) {
+		return 0;
+	}
+
+	$title = ca_publisher_string_value( $asset, 'title', pathinfo( $filename, PATHINFO_FILENAME ) );
+	$attachment_id = wp_insert_attachment(
+		array(
+			'guid'           => trailingslashit( $upload_dir['baseurl'] ) . 'course-automation-featured/' . $filename,
+			'post_mime_type' => $filetype['type'],
+			'post_title'     => sanitize_text_field( $title ),
+			'post_content'   => '',
+			'post_status'    => 'inherit',
+		),
+		$target_path,
+		$parent_post_id,
+		true
+	);
+
+	if ( is_wp_error( $attachment_id ) || intval( $attachment_id ) <= 0 ) {
+		return 0;
+	}
+
+	if ( ! function_exists( 'wp_generate_attachment_metadata' ) ) {
+		require_once ABSPATH . 'wp-admin/includes/image.php';
+	}
+
+	$attachment_id = intval( $attachment_id );
+	$metadata = wp_generate_attachment_metadata( $attachment_id, $target_path );
+	if ( is_array( $metadata ) ) {
+		wp_update_attachment_metadata( $attachment_id, $metadata );
+	}
+
+	update_post_meta( $attachment_id, '_ca_media_relative_path', $relative_path );
+	update_post_meta( $attachment_id, '_ca_media_source', 'course-automation' );
+
+	return $attachment_id;
 }
 
 function ca_publisher_default_author_id(): int {
@@ -838,6 +1012,15 @@ function ca_publisher_media_url( string $relative_path ): string {
 	}
 
 	return content_url( 'course-automation/media/' . $relative_path );
+}
+
+function ca_publisher_media_file_path( string $relative_path ): string {
+	$relative_path = ca_publisher_clean_relative_path( $relative_path );
+	if ( '' === $relative_path ) {
+		return '';
+	}
+
+	return WP_CONTENT_DIR . '/course-automation/media/' . $relative_path;
 }
 
 function ca_publisher_video_url( string $relative_path ): string {
