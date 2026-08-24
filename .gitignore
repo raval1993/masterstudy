@@ -34,6 +34,7 @@ wordpress-masterstudy/wp-content/cache/
 
 # Local research/export dumps and archives
 chatgpt-share.html
+/server-migration/
 *.zip
 *.sql
 *.sqlite
