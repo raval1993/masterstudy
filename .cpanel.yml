@@ -4,6 +4,7 @@ deployment:
     - export DEPLOYPATH=/home/cloudweb/public_html/masterstudy/
     - /bin/mkdir -p $DEPLOYPATH/wp-content/plugins
     - /bin/mkdir -p $DEPLOYPATH/wp-content/themes
+    - /bin/cp wordpress-masterstudy/server/htaccess-masterstudy $DEPLOYPATH/.htaccess
     - /bin/cp wordpress-masterstudy/wp-content/index.php $DEPLOYPATH/wp-content/index.php
     - /bin/cp wordpress-masterstudy/wp-content/plugins/index.php $DEPLOYPATH/wp-content/plugins/index.php
     - /bin/cp wordpress-masterstudy/wp-content/themes/index.php $DEPLOYPATH/wp-content/themes/index.php

@@ -13,6 +13,7 @@ The tracked `.cpanel.yml` file deploys only the WordPress code that belongs in `
 - `wp-content/themes/masterstudy`
 - `wp-content/plugins/masterstudy-lms-learning-management-system`
 - `wp-content/plugins/course-automation-publisher`
+- `.htaccess` rewrite rules for the `/masterstudy/` subfolder
 
 It does not deploy `wp-config.php`, database exports, uploads, generated videos, generated lesson images, or Dropbox source files.
 
