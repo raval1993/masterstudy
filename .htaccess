@@ -1,0 +1,12 @@
+# This repository may live inside the local WordPress web root at:
+# C:\laragon\www\lms-masterstudy\_project
+#
+# Do not allow browser access to source files, exports, Git metadata,
+# Dropbox course material, or generated migration packages.
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    Deny from all
+</IfModule>

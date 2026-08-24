@@ -43,7 +43,7 @@ Use this when cPanel pulls from GitHub:
 Use this when SSH access from the local machine to cPanel is configured:
 
 ```powershell
-cd C:\cws\LMS
+cd C:\laragon\www\lms-masterstudy\_project
 git remote add cpanel ssh://cloudweb@cloudwebsolutions.agency/home/cloudweb/repositories/masterstudy
 git push cpanel main
 ```

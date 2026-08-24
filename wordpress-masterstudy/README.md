@@ -39,7 +39,7 @@ Laragon is the active local setup for this project.
 Now that Laragon is installed, this script can create the full local WordPress site:
 
 ```powershell
-cd C:\cws\LMS\wordpress-masterstudy
+cd C:\laragon\www\lms-masterstudy\_project\wordpress-masterstudy
 .\scripts\create-laragon-wordpress.ps1
 ```
 
@@ -77,7 +77,7 @@ Then finish the normal WordPress browser install.
 After the WordPress site exists, run:
 
 ```powershell
-cd C:\cws\LMS\wordpress-masterstudy
+cd C:\laragon\www\lms-masterstudy\_project\wordpress-masterstudy
 .\scripts\setup-laragon.ps1
 ```
 
@@ -108,7 +108,7 @@ The four Information Technology courses will then appear as draft MasterStudy co
 If Laragon has WP-CLI available:
 
 ```powershell
-cd C:\cws\LMS\wordpress-masterstudy
+cd C:\laragon\www\lms-masterstudy\_project\wordpress-masterstudy
 .\scripts\import-blueprints-laragon.ps1
 ```
 
@@ -119,7 +119,7 @@ If WP-CLI is not available, use the admin screen button.
 Docker files remain in this folder only as an alternate setup. Once Docker Desktop is installed and running, use:
 
 ```powershell
-cd C:\cws\LMS\wordpress-masterstudy
+cd C:\laragon\www\lms-masterstudy\_project\wordpress-masterstudy
 Copy-Item .env.example .env
 .\scripts\setup-wordpress.ps1
 ```

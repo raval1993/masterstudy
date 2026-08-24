@@ -19,7 +19,7 @@ Generated Dropbox data, extracted course files, generated images, generated vide
 From this machine, after Laragon is running and the local WordPress site exists at `http://localhost/lms-masterstudy/`:
 
 ```powershell
-cd C:\cws\LMS\course-automation
+cd C:\laragon\www\lms-masterstudy\_project\course-automation
 .\scripts\run_full_pipeline.ps1
 ```
 

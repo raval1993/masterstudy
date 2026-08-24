@@ -17,9 +17,9 @@ Extracted DOCX files:
 Use the bundled Codex Python runtime on this machine:
 
 ```powershell
-$env:PYTHONPATH = "C:\cws\LMS\course-automation\src"
+$env:PYTHONPATH = "C:\laragon\www\lms-masterstudy\_project\course-automation\src"
 $python = "C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
-& $python -m course_automation.cli ingest --source "C:\cws\LMS\course-automation\data\extracted\information-technology" --category "INFORMATION TECHNOLOGY"
+& $python -m course_automation.cli ingest --source "C:\laragon\www\lms-masterstudy\_project\course-automation\data\extracted\information-technology" --category "INFORMATION TECHNOLOGY"
 & $python -m course_automation.cli generate-courses
 & $python -m course_automation.cli publish-wordpress
 & $python -m course_automation.dashboard --host 127.0.0.1 --port 8080
@@ -73,7 +73,7 @@ The tracker columns follow the intended production flow:
 After the Laragon WordPress site exists at `C:\laragon\www\lms-masterstudy`, Python can push the generated course packages into MasterStudy:
 
 ```powershell
-$env:PYTHONPATH = "C:\cws\LMS\course-automation\src"
+$env:PYTHONPATH = "C:\laragon\www\lms-masterstudy\_project\course-automation\src"
 $python = "C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe"
 & $python -m course_automation.cli publish-wordpress
 ```
