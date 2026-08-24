@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Course Automation Publisher
  * Description: Imports generated course packages into WordPress/MasterStudy draft courses, lessons, and curriculum.
- * Version: 0.3.0
+ * Version: 0.4.0
  * Author: Course Automation
  * Text Domain: course-automation-publisher
  */
@@ -11,13 +11,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const CA_PUBLISHER_META_COURSE_ID = '_ca_course_id';
+const CA_PUBLISHER_VERSION         = '0.4.0';
+const CA_PUBLISHER_META_COURSE_ID  = '_ca_course_id';
 const CA_PUBLISHER_META_LESSON_KEY = '_ca_lesson_key';
 
 add_action( 'init', 'ca_publisher_register_preview_post_type' );
+add_action( 'init', 'ca_publisher_maybe_ensure_catalog_page', 20 );
 add_action( 'admin_menu', 'ca_publisher_admin_menu' );
 add_action( 'admin_post_ca_publisher_import', 'ca_publisher_admin_post_import' );
 add_action( 'rest_api_init', 'ca_publisher_register_rest_routes' );
+add_shortcode( 'course_automation_catalog', 'ca_publisher_catalog_shortcode' );
+register_activation_hook( __FILE__, 'ca_publisher_activate' );
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
 	WP_CLI::add_command( 'course-automation import-blueprints', 'ca_publisher_cli_import_blueprints' );
@@ -236,6 +240,8 @@ function ca_publisher_import_all_blueprints(): array {
 		$imported++;
 	}
 
+	ca_publisher_ensure_catalog_page();
+
 	return array(
 		'imported' => $imported,
 		'errors'   => $errors,
@@ -295,6 +301,7 @@ function ca_publisher_import_blueprint_file( string $file ) {
 	update_post_meta( $post_id, '_ca_schema_version', ca_publisher_string_value( $data, 'schema_version' ) );
 	update_post_meta( $post_id, '_ca_source_image_count', intval( $data['source_image_count'] ?? 0 ) );
 	update_post_meta( $post_id, '_ca_blueprint_imported_at', gmdate( 'c' ) );
+	ca_publisher_update_course_category_terms( $post_id, $data );
 	ca_publisher_update_course_video_meta( $post_id, $data );
 	ca_publisher_update_course_featured_image( $post_id, $data );
 
@@ -319,6 +326,32 @@ function ca_publisher_find_existing_course( string $course_id, string $post_type
 	);
 
 	return empty( $posts ) ? 0 : intval( $posts[0] );
+}
+
+function ca_publisher_update_course_category_terms( int $post_id, array $data ): void {
+	if ( ! taxonomy_exists( 'stm_lms_course_taxonomy' ) ) {
+		return;
+	}
+
+	$category = ca_publisher_string_value( $data, 'category' );
+	if ( '' === $category ) {
+		return;
+	}
+
+	$term = term_exists( $category, 'stm_lms_course_taxonomy' );
+	if ( ! $term ) {
+		$term = wp_insert_term( $category, 'stm_lms_course_taxonomy' );
+	}
+
+	if ( is_wp_error( $term ) ) {
+		return;
+	}
+
+	$term_id = is_array( $term ) ? intval( $term['term_id'] ?? 0 ) : intval( $term );
+	if ( $term_id > 0 ) {
+		wp_set_object_terms( $post_id, array( $term_id ), 'stm_lms_course_taxonomy', false );
+		update_post_meta( $post_id, '_ca_category_term_id', $term_id );
+	}
 }
 
 function ca_publisher_update_course_video_meta( int $post_id, array $data ): void {
@@ -455,7 +488,7 @@ function ca_publisher_ensure_media_attachment( array $asset, int $parent_post_id
 	}
 
 	$filetype = wp_check_filetype( basename( $source_path ), null );
-	if ( empty( $filetype['type'] ) || ! str_starts_with( $filetype['type'], 'image/' ) ) {
+	if ( empty( $filetype['type'] ) || 0 !== strpos( $filetype['type'], 'image/' ) ) {
 		return 0;
 	}
 
@@ -507,6 +540,219 @@ function ca_publisher_ensure_media_attachment( array $asset, int $parent_post_id
 	update_post_meta( $attachment_id, '_ca_media_source', 'course-automation' );
 
 	return $attachment_id;
+}
+
+function ca_publisher_ensure_catalog_page(): int {
+	$content = '<!-- wp:shortcode -->[course_automation_catalog]<!-- /wp:shortcode -->';
+	$page    = get_page_by_path( 'courses', OBJECT, 'page' );
+
+	if ( $page instanceof WP_Post ) {
+		$updates = array( 'ID' => $page->ID );
+		if ( 'Courses' !== $page->post_title ) {
+			$updates['post_title'] = 'Courses';
+		}
+		if ( trim( $page->post_content ) !== $content ) {
+			$updates['post_content'] = $content;
+		}
+		if ( count( $updates ) > 1 ) {
+			wp_update_post( $updates );
+		}
+		return intval( $page->ID );
+	}
+
+	$page_id = wp_insert_post(
+		array(
+			'post_type'    => 'page',
+			'post_status'  => 'publish',
+			'post_title'   => 'Courses',
+			'post_name'    => 'courses',
+			'post_content' => $content,
+			'post_author'  => ca_publisher_default_author_id(),
+		)
+	);
+
+	return is_wp_error( $page_id ) ? 0 : intval( $page_id );
+}
+
+function ca_publisher_activate(): void {
+	$page_id = ca_publisher_ensure_catalog_page();
+	if ( $page_id > 0 ) {
+		update_option( 'ca_publisher_catalog_page_version', CA_PUBLISHER_VERSION, false );
+	}
+}
+
+function ca_publisher_maybe_ensure_catalog_page(): void {
+	if ( CA_PUBLISHER_VERSION === get_option( 'ca_publisher_catalog_page_version' ) ) {
+		return;
+	}
+
+	$page_id = ca_publisher_ensure_catalog_page();
+	if ( $page_id > 0 ) {
+		update_option( 'ca_publisher_catalog_page_version', CA_PUBLISHER_VERSION, false );
+	}
+}
+
+function ca_publisher_catalog_shortcode( $atts = array() ): string {
+	$courses = ca_publisher_catalog_courses();
+	if ( empty( $courses ) ) {
+		return '<div class="ca-course-automation-catalog"><p>No courses are published yet.</p></div>';
+	}
+
+	$groups = ca_publisher_catalog_group_courses( $courses );
+
+	ob_start();
+	?>
+	<style>
+		.stm_lms_courses_wrapper{display:none!important}
+		.ca-course-automation-catalog{margin:18px 0 54px}
+		.ca-course-automation-catalog *{box-sizing:border-box}
+		.ca-catalog-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px;padding:0;list-style:none}
+		.ca-catalog-tabs a{display:inline-flex;align-items:center;min-height:38px;padding:9px 15px;border:1px solid #dce3ec;background:#fff;color:#273044;font-weight:600;text-decoration:none}
+		.ca-catalog-tabs a:hover{border-color:#385bce;color:#385bce}
+		.ca-category-section{margin:0 0 46px}
+		.ca-category-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid #e5eaf0}
+		.ca-category-heading h2{margin:0;text-transform:uppercase;font-size:28px;line-height:1.2}
+		.ca-category-count{color:#66828f;font-size:14px;white-space:nowrap}
+		.ca-course-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+		.ca-course-card{display:flex;flex-direction:column;min-height:100%;border:1px solid #dfe5ec;background:#fff;color:#273044;text-decoration:none;transition:box-shadow .18s ease,transform .18s ease,border-color .18s ease}
+		.ca-course-card:hover{transform:translateY(-3px);border-color:#385bce;box-shadow:0 12px 30px rgba(39,48,68,.16);color:#273044;text-decoration:none}
+		.ca-course-card__image{position:relative;aspect-ratio:16/9;background:#eef2f6;overflow:hidden}
+		.ca-course-card__image img{display:block;width:100%;height:100%;object-fit:cover}
+		.ca-course-card__fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:18px;color:#66828f;font-weight:700;text-align:center;background:linear-gradient(135deg,#eef4fb,#f8fafc)}
+		.ca-course-card__body{display:flex;flex-direction:column;gap:10px;min-height:178px;padding:18px}
+		.ca-course-card__eyebrow{color:#385bce;font-size:12px;font-weight:700;letter-spacing:0;text-transform:uppercase}
+		.ca-course-card__title{margin:0;font-size:17px;line-height:1.35;font-weight:700;color:#273044}
+		.ca-course-card__meta{display:flex;flex-wrap:wrap;gap:8px;color:#66828f;font-size:13px}
+		.ca-course-card__button{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 13px;background:#17d292;color:#fff;font-size:13px;font-weight:700;text-transform:uppercase}
+		.ca-course-card:hover .ca-course-card__button{background:#385bce}
+		@media (max-width:1024px){.ca-course-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+		@media (max-width:768px){.ca-course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ca-category-heading{align-items:flex-start;flex-direction:column}.ca-category-heading h2{font-size:24px}}
+		@media (max-width:520px){.ca-course-grid{grid-template-columns:1fr}}
+	</style>
+	<div class="ca-course-automation-catalog">
+		<ul class="ca-catalog-tabs">
+			<?php foreach ( $groups as $group ) : ?>
+				<li>
+					<a href="#<?php echo esc_attr( $group['anchor'] ); ?>">
+						<?php echo esc_html( $group['label'] ); ?> (<?php echo esc_html( count( $group['courses'] ) ); ?>)
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+
+		<?php foreach ( $groups as $group ) : ?>
+			<section class="ca-category-section" id="<?php echo esc_attr( $group['anchor'] ); ?>">
+				<div class="ca-category-heading">
+					<h2><?php echo esc_html( $group['label'] ); ?></h2>
+					<span class="ca-category-count"><?php echo esc_html( count( $group['courses'] ) ); ?> courses</span>
+				</div>
+				<div class="ca-course-grid">
+					<?php foreach ( $group['courses'] as $course ) : ?>
+						<?php echo ca_publisher_render_catalog_card( $course ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php endforeach; ?>
+				</div>
+			</section>
+		<?php endforeach; ?>
+	</div>
+	<?php
+	return strval( ob_get_clean() );
+}
+
+function ca_publisher_catalog_courses(): array {
+	$post_type = ca_publisher_target_post_type();
+	if ( ! post_type_exists( $post_type ) ) {
+		return array();
+	}
+
+	return get_posts(
+		array(
+			'post_type'      => $post_type,
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'meta_key'       => CA_PUBLISHER_META_COURSE_ID,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+		)
+	);
+}
+
+function ca_publisher_catalog_group_courses( array $courses ): array {
+	$groups = array();
+	foreach ( $courses as $course ) {
+		if ( ! $course instanceof WP_Post ) {
+			continue;
+		}
+
+		$label = ca_publisher_catalog_course_category_label( $course );
+		$key   = sanitize_title( $label );
+		if ( ! isset( $groups[ $key ] ) ) {
+			$groups[ $key ] = array(
+				'label'   => $label,
+				'anchor'  => 'course-category-' . $key,
+				'courses' => array(),
+			);
+		}
+		$groups[ $key ]['courses'][] = $course;
+	}
+
+	uasort(
+		$groups,
+		function ( array $left, array $right ): int {
+			return strcasecmp( $left['label'], $right['label'] );
+		}
+	);
+
+	return array_values( $groups );
+}
+
+function ca_publisher_catalog_course_category_label( WP_Post $course ): string {
+	if ( taxonomy_exists( 'stm_lms_course_taxonomy' ) ) {
+		$terms = get_the_terms( $course, 'stm_lms_course_taxonomy' );
+		if ( is_array( $terms ) && ! empty( $terms ) && $terms[0] instanceof WP_Term ) {
+			return $terms[0]->name;
+		}
+	}
+
+	$category = trim( strval( get_post_meta( $course->ID, '_ca_category', true ) ) );
+	return '' === $category ? 'Courses' : $category;
+}
+
+function ca_publisher_render_catalog_card( WP_Post $course ): string {
+	$course_id     = trim( strval( get_post_meta( $course->ID, CA_PUBLISHER_META_COURSE_ID, true ) ) );
+	$lesson_count  = intval( get_post_meta( $course->ID, '_ca_lesson_count', true ) );
+	$category      = ca_publisher_catalog_course_category_label( $course );
+	$permalink     = get_permalink( $course );
+	$title         = get_the_title( $course );
+	$image_url     = get_the_post_thumbnail_url( $course, 'medium_large' );
+	$relative_path = trim( strval( get_post_meta( $course->ID, '_ca_featured_image_relative_path', true ) ) );
+	if ( ! $image_url && '' !== $relative_path ) {
+		$image_url = ca_publisher_media_url( $relative_path );
+	}
+
+	ob_start();
+	?>
+	<a class="ca-course-card" href="<?php echo esc_url( $permalink ); ?>" aria-label="<?php echo esc_attr( 'Open ' . $title ); ?>">
+		<span class="ca-course-card__image">
+			<?php if ( $image_url ) : ?>
+				<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr( $title ); ?>" loading="lazy">
+			<?php else : ?>
+				<span class="ca-course-card__fallback"><?php echo esc_html( $category ); ?></span>
+			<?php endif; ?>
+		</span>
+		<span class="ca-course-card__body">
+			<span class="ca-course-card__eyebrow"><?php echo esc_html( $course_id ); ?></span>
+			<span class="ca-course-card__title"><?php echo esc_html( $title ); ?></span>
+			<span class="ca-course-card__meta">
+				<span><?php echo esc_html( $category ); ?></span>
+				<?php if ( $lesson_count > 0 ) : ?>
+					<span><?php echo esc_html( $lesson_count ); ?> lessons</span>
+				<?php endif; ?>
+			</span>
+			<span class="ca-course-card__button">View course</span>
+		</span>
+	</a>
+	<?php
+	return strval( ob_get_clean() );
 }
 
 function ca_publisher_default_author_id(): int {
@@ -1035,7 +1281,7 @@ function ca_publisher_video_url( string $relative_path ): string {
 function ca_publisher_clean_relative_path( string $relative_path ): string {
 	$relative_path = trim( str_replace( '\\', '/', $relative_path ) );
 	$relative_path = ltrim( $relative_path, '/' );
-	if ( str_contains( $relative_path, '..' ) ) {
+	if ( false !== strpos( $relative_path, '..' ) ) {
 		return '';
 	}
 
