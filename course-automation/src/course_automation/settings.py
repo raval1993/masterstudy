@@ -13,12 +13,15 @@ class Settings:
     courses_dir: Path
     blueprints_dir: Path
     generated_courses_dir: Path
+    generated_bundles_dir: Path
     markdown_dir: Path
     source_media_dir: Path
     scripts_dir: Path
     generated_videos_dir: Path
     tracker_path: Path
     summary_path: Path
+    registry_path: Path
+    compliance_report_path: Path
 
 
 def find_project_root(start: Path | None = None) -> Path:
@@ -46,10 +49,13 @@ def load_settings(project_root: Path | None = None) -> Settings:
         courses_dir=processed_dir / "courses",
         blueprints_dir=processed_dir / "blueprints",
         generated_courses_dir=processed_dir / "generated" / "courses",
+        generated_bundles_dir=processed_dir / "generated" / "bundles",
         markdown_dir=processed_dir / "markdown",
         source_media_dir=processed_dir / "media" / "source",
         scripts_dir=processed_dir / "generated" / "scripts",
         generated_videos_dir=processed_dir / "generated" / "videos",
         tracker_path=processed_dir / "course_tracker.csv",
         summary_path=processed_dir / "summary.json",
+        registry_path=processed_dir / "course_map.json",
+        compliance_report_path=processed_dir / "compliance_update_report.json",
     )

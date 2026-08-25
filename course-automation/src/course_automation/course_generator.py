@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
 
+from .compliance import apply_compliance_metadata, load_compliance_lookup
 from .media_assets import enrich_package_with_media
 from .settings import Settings
 from .tracker import TRACKER_COLUMNS
@@ -17,11 +18,13 @@ WORD_RE = re.compile(r"\b[\w'-]+\b")
 
 def generate_course_packages(settings: Settings, course_ids: Iterable[str] | None = None) -> list[Path]:
     settings.generated_courses_dir.mkdir(parents=True, exist_ok=True)
+    settings.generated_bundles_dir.mkdir(parents=True, exist_ok=True)
     settings.scripts_dir.mkdir(parents=True, exist_ok=True)
     settings.source_media_dir.mkdir(parents=True, exist_ok=True)
     settings.generated_videos_dir.mkdir(parents=True, exist_ok=True)
 
     selected = {course_id.upper() for course_id in course_ids or []}
+    compliance_lookup = load_compliance_lookup(settings)
     written: list[Path] = []
     generated_ids: list[str] = []
 
@@ -32,9 +35,11 @@ def generate_course_packages(settings: Settings, course_ids: Iterable[str] | Non
             continue
 
         package = enrich_package_with_media(settings, build_generated_course(blueprint))
+        apply_compliance_metadata(package, compliance_lookup.get(course_id))
         output_path = settings.generated_courses_dir / f"{package['course_id']}.course.json"
         output_path.write_text(json.dumps(package, ensure_ascii=False, indent=2), encoding="utf-8")
         write_lesson_scripts(settings, package)
+        write_course_bundle(settings, package)
         written.append(output_path)
         generated_ids.append(str(package["course_id"]))
 
@@ -110,6 +115,7 @@ def build_generated_course(blueprint: dict[str, object]) -> dict[str, object]:
         "notes": [
             "This package turns source text into reviewable lesson material, narration scripts, and scene plans.",
             "Video files are not rendered yet; each lesson is marked as planned and ready for a video engine.",
+            "Course source rights and compliance status must be verified before public learner release.",
         ],
     }
 
@@ -333,6 +339,177 @@ def write_lesson_scripts(settings: Settings, package: dict[str, object]) -> None
                 lines.append(f"{int(scene.get('order') or 0)}. {text_value(scene, 'visual', 'Visual')}")
                 lines.append(f"   Voiceover: {text_value(scene, 'voiceover', '')}")
             (course_dir / f"{slugify(lesson_id)}.md").write_text("\n".join(lines).strip() + "\n", encoding="utf-8")
+
+
+def write_course_bundle(settings: Settings, package: dict[str, object]) -> None:
+    course_id = str(package["course_id"])
+    course_dir = settings.generated_bundles_dir / course_id
+    course_dir.mkdir(parents=True, exist_ok=True)
+
+    (course_dir / "01_video_production_script.md").write_text(
+        build_course_production_script(package),
+        encoding="utf-8",
+    )
+    (course_dir / "02_lms_masterstudy_coursebox_metadata.json").write_text(
+        json.dumps(build_lms_metadata(package), ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    (course_dir / "03_assessment_quiz_bank.json").write_text(
+        json.dumps(build_course_quiz_bank(package), ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    (course_dir / "04_core_theory_content.md").write_text(
+        build_core_theory_markdown(package),
+        encoding="utf-8",
+    )
+
+
+def build_course_production_script(package: dict[str, object]) -> str:
+    course_id = text_value(package, "course_id")
+    title = text_value(package, "title")
+    lines = [
+        f"# Production Script: {course_id} - {title}",
+        "",
+        f"Generated: {datetime.now(timezone.utc).isoformat()}",
+        "",
+        "## Course Introduction",
+        "",
+        f"[VISUAL] Title slide for {course_id}: {title}",
+        f"[AUDIO] Welcome to {title}. This course is organized into short lessons with narrated scene plans and learner checks.",
+        "",
+        "## Lesson Scripts",
+        "",
+    ]
+
+    for module in list_items(package.get("modules")):
+        lines.extend([f"## {text_value(module, 'module_id')} - {text_value(module, 'title')}", ""])
+        for lesson in list_items(module.get("lessons")):
+            video = lesson.get("video") if isinstance(lesson.get("video"), dict) else {}
+            lines.extend(
+                [
+                    f"### {text_value(lesson, 'lesson_id')} - {text_value(lesson, 'title')}",
+                    "",
+                    f"Target duration: {int(lesson.get('duration_minutes') or 0)} minutes",
+                    "",
+                ]
+            )
+            for scene in list_items(video.get("scenes")):
+                lines.append(f"{int(scene.get('order') or 0)}. [VISUAL] {text_value(scene, 'visual', 'Visual')}")
+                lines.append(f"   [AUDIO] {text_value(scene, 'voiceover', '')}")
+                lines.append("   [TTS_PAUSE] 1.2s")
+                lines.append("")
+
+    lines.extend(
+        [
+            "## Compliance QA",
+            "",
+            "Before learner release, confirm source licence, supersession status, assessment requirements, and any replacement unit mapping.",
+        ]
+    )
+    return "\n".join(lines).strip() + "\n"
+
+
+def build_lms_metadata(package: dict[str, object]) -> dict[str, object]:
+    return {
+        "schema_version": "course_automation.lms_metadata.v1",
+        "engine_version": "course-automation-local-0.4",
+        "last_compiled": datetime.now(timezone.utc).isoformat(),
+        "unit_code": text_value(package, "course_id"),
+        "unit_title": text_value(package, "title"),
+        "category": text_value(package, "category"),
+        "source_file": text_value(package, "source_file"),
+        "status": "packaged_for_masterstudy_review",
+        "masterstudy": {
+            "import_schema": text_value(package, "schema_version"),
+            "lesson_count": int(package.get("lesson_count") or 0),
+            "video_status": text_value(package, "video_status", "planned"),
+        },
+        "coursebox": {
+            "metadata_ready": True,
+            "recommended_use": "Use as source metadata or SCORM/video production input if Coursebox is used later.",
+        },
+        "compliance": package.get("compliance", {}),
+        "content_rights_notice": (
+            "Source material and public-register references must be checked against their actual licence terms. "
+            "Do not assume public-domain status unless the source licence explicitly allows it."
+        ),
+        "included_outputs": [
+            "WordPress/MasterStudy course JSON",
+            "Narration and video production script",
+            "Course-level quiz bank",
+            "Core theory markdown",
+            "Extracted source images and planned video references",
+        ],
+    }
+
+
+def build_course_quiz_bank(package: dict[str, object]) -> dict[str, object]:
+    questions: list[dict[str, object]] = []
+    for module in list_items(package.get("modules")):
+        for lesson in list_items(module.get("lessons")):
+            quiz = lesson.get("quiz") if isinstance(lesson.get("quiz"), dict) else {}
+            for index, question in enumerate(list_items(quiz.get("questions")), start=1):
+                item = dict(question)
+                item["module_id"] = text_value(module, "module_id")
+                item["module_title"] = text_value(module, "title")
+                item["lesson_id"] = text_value(lesson, "lesson_id")
+                item["lesson_title"] = text_value(lesson, "title")
+                item["question_id"] = f"{item['lesson_id']}-Q{index:02d}"
+                questions.append(item)
+
+    return {
+        "schema_version": "course_automation.quiz_bank.v1",
+        "course_id": text_value(package, "course_id"),
+        "title": text_value(package, "title"),
+        "assessment_type": "formative_knowledge_check",
+        "total_questions": len(questions),
+        "questions": questions,
+    }
+
+
+def build_core_theory_markdown(package: dict[str, object]) -> str:
+    lines = [
+        f"# {text_value(package, 'course_id')} - {text_value(package, 'title')}",
+        "",
+        f"Category: {text_value(package, 'category')}",
+        "",
+        "## Overview",
+        "",
+        text_value(package, "overview"),
+        "",
+    ]
+
+    objectives = normalize_items(package.get("objectives"))
+    if objectives:
+        lines.extend(["## Learning Objectives", ""])
+        lines.extend(f"- {objective}" for objective in objectives)
+        lines.append("")
+
+    for module in list_items(package.get("modules")):
+        lines.extend([f"## {text_value(module, 'title')}", ""])
+        summary = text_value(module, "summary")
+        if summary:
+            lines.extend([summary, ""])
+        for lesson in list_items(module.get("lessons")):
+            lines.extend([f"### {text_value(lesson, 'title')}", ""])
+            for block in list_items(lesson.get("study_material")):
+                block_type = text_value(block, "type")
+                text = text_value(block, "text")
+                if not text:
+                    continue
+                if block_type == "heading":
+                    lines.extend([f"#### {text}", ""])
+                else:
+                    lines.extend([text, ""])
+
+    lines.extend(
+        [
+            "## QA Notice",
+            "",
+            "This theory content is generated from source material and must be reviewed before learner release.",
+        ]
+    )
+    return "\n".join(lines).strip() + "\n"
 
 
 def update_tracker_generation_status(settings: Settings, course_ids: list[str]) -> None:
