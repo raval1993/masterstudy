@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Course Automation Publisher
  * Description: Imports generated course packages into WordPress/MasterStudy draft courses, lessons, and curriculum.
- * Version: 0.4.0
+ * Version: 0.4.1
  * Author: Course Automation
  * Text Domain: course-automation-publisher
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const CA_PUBLISHER_VERSION         = '0.4.0';
+const CA_PUBLISHER_VERSION         = '0.4.1';
 const CA_PUBLISHER_META_COURSE_ID  = '_ca_course_id';
 const CA_PUBLISHER_META_LESSON_KEY = '_ca_lesson_key';
 
@@ -479,7 +479,9 @@ function ca_publisher_ensure_media_attachment( array $asset, int $parent_post_id
 		)
 	);
 	if ( ! empty( $existing ) ) {
-		return intval( $existing[0] );
+		$attachment_id = intval( $existing[0] );
+		ca_publisher_update_media_attachment_labels( $attachment_id );
+		return $attachment_id;
 	}
 
 	$source_path = ca_publisher_media_file_path( $relative_path );
@@ -508,13 +510,13 @@ function ca_publisher_ensure_media_attachment( array $asset, int $parent_post_id
 		return 0;
 	}
 
-	$title = ca_publisher_string_value( $asset, 'title', pathinfo( $filename, PATHINFO_FILENAME ) );
 	$attachment_id = wp_insert_attachment(
 		array(
 			'guid'           => trailingslashit( $upload_dir['baseurl'] ) . 'course-automation-featured/' . $filename,
 			'post_mime_type' => $filetype['type'],
-			'post_title'     => sanitize_text_field( $title ),
+			'post_title'     => 'Course image',
 			'post_content'   => '',
+			'post_excerpt'   => '',
 			'post_status'    => 'inherit',
 		),
 		$target_path,
@@ -536,10 +538,27 @@ function ca_publisher_ensure_media_attachment( array $asset, int $parent_post_id
 		wp_update_attachment_metadata( $attachment_id, $metadata );
 	}
 
+	ca_publisher_update_media_attachment_labels( $attachment_id );
 	update_post_meta( $attachment_id, '_ca_media_relative_path', $relative_path );
 	update_post_meta( $attachment_id, '_ca_media_source', 'course-automation' );
 
 	return $attachment_id;
+}
+
+function ca_publisher_update_media_attachment_labels( int $attachment_id ): void {
+	if ( $attachment_id <= 0 ) {
+		return;
+	}
+
+	wp_update_post(
+		array(
+			'ID'           => $attachment_id,
+			'post_title'   => 'Course image',
+			'post_excerpt' => '',
+			'post_content' => '',
+		)
+	);
+	update_post_meta( $attachment_id, '_wp_attachment_image_alt', 'Course image' );
 }
 
 function ca_publisher_ensure_catalog_page(): int {
@@ -773,25 +792,17 @@ function ca_publisher_default_author_id(): int {
 }
 
 function ca_publisher_render_course_content( array $data ): string {
-	$course_id = ca_publisher_string_value( $data, 'course_id' );
-	$title     = ca_publisher_string_value( $data, 'title' );
-	$category  = ca_publisher_string_value( $data, 'category' );
-
-	$package_label = ca_publisher_string_value( $data, 'schema_version' ) ? 'Generated Course Package' : 'Course Source Blueprint';
-	$html  = '<!-- wp:heading --><h2>' . esc_html( $package_label ) . '</h2><!-- /wp:heading -->';
-	$html .= '<!-- wp:paragraph --><p><strong>Course ID:</strong> ' . esc_html( $course_id ) . '</p><!-- /wp:paragraph -->';
-	$html .= '<!-- wp:paragraph --><p><strong>Title:</strong> ' . esc_html( $title ) . '</p><!-- /wp:paragraph -->';
-	$html .= '<!-- wp:paragraph --><p><strong>Category:</strong> ' . esc_html( $category ) . '</p><!-- /wp:paragraph -->';
-	$html .= '<!-- wp:paragraph --><p><strong>Video:</strong> ' . esc_html( ca_publisher_course_video_status( $data ) ) . '</p><!-- /wp:paragraph -->';
+	$html = '';
 
 	$overview = ca_publisher_string_value( $data, 'overview' );
 	if ( '' !== $overview ) {
+		$html .= '<!-- wp:heading --><h2>Course Overview</h2><!-- /wp:heading -->';
 		$html .= '<!-- wp:paragraph --><p>' . esc_html( $overview ) . '</p><!-- /wp:paragraph -->';
 	}
 
 	$objectives = is_array( $data['objectives'] ?? null ) ? $data['objectives'] : array();
 	if ( ! empty( $objectives ) ) {
-		$html .= '<!-- wp:heading {"level":3} --><h3>Objectives</h3><!-- /wp:heading -->';
+		$html .= '<!-- wp:heading {"level":3} --><h3>What You Will Learn</h3><!-- /wp:heading -->';
 		$html .= '<!-- wp:list --><ul>';
 		foreach ( $objectives as $objective ) {
 			$html .= '<li>' . esc_html( strval( $objective ) ) . '</li>';
@@ -800,6 +811,10 @@ function ca_publisher_render_course_content( array $data ): string {
 	}
 
 	$modules = is_array( $data['modules'] ?? null ) ? $data['modules'] : array();
+	if ( ! empty( $modules ) ) {
+		$html .= '<!-- wp:heading {"level":3} --><h3>Course Structure</h3><!-- /wp:heading -->';
+	}
+
 	foreach ( $modules as $module ) {
 		if ( ! is_array( $module ) ) {
 			continue;
@@ -807,26 +822,19 @@ function ca_publisher_render_course_content( array $data ): string {
 
 		$html .= '<!-- wp:heading {"level":3} --><h3>' . esc_html( ca_publisher_string_value( $module, 'title' ) ) . '</h3><!-- /wp:heading -->';
 		$lessons = is_array( $module['lessons'] ?? null ) ? $module['lessons'] : array();
+		if ( empty( $lessons ) ) {
+			continue;
+		}
+
+		$html .= '<!-- wp:list --><ul>';
 		foreach ( $lessons as $lesson ) {
 			if ( ! is_array( $lesson ) ) {
 				continue;
 			}
 
-			$html .= '<!-- wp:heading {"level":4} --><h4>' . esc_html( ca_publisher_string_value( $lesson, 'title' ) ) . '</h4><!-- /wp:heading -->';
-			$study_blocks = $lesson['study_material'] ?? array();
-			$html .= ca_publisher_render_study_blocks( $study_blocks );
-			if ( empty( $study_blocks ) ) {
-				$html .= ca_publisher_render_text_items( $lesson['source_body'] ?? array() );
-				$topics = is_array( $lesson['topics'] ?? null ) ? $lesson['topics'] : array();
-				foreach ( $topics as $topic ) {
-					if ( ! is_array( $topic ) ) {
-						continue;
-					}
-					$html .= '<!-- wp:heading {"level":5} --><h5>' . esc_html( ca_publisher_string_value( $topic, 'heading' ) ) . '</h5><!-- /wp:heading -->';
-					$html .= ca_publisher_render_text_items( $topic['body'] ?? array() );
-				}
-			}
+			$html .= '<li>' . esc_html( ca_publisher_string_value( $lesson, 'title' ) ) . '</li>';
 		}
+		$html .= '</ul><!-- /wp:list -->';
 	}
 
 	return $html;
@@ -901,8 +909,7 @@ function ca_publisher_render_image_asset( array $asset ): string {
 		return '';
 	}
 
-	$title = ca_publisher_string_value( $asset, 'title', 'Course image' );
-	return '<!-- wp:image --><figure class="wp-block-image"><img src="' . esc_url( $url ) . '" alt="' . esc_attr( $title ) . '"/><figcaption>' . esc_html( $title ) . '</figcaption></figure><!-- /wp:image -->';
+	return '<!-- wp:image --><figure class="wp-block-image"><img src="' . esc_url( $url ) . '" alt="Lesson image"/></figure><!-- /wp:image -->';
 }
 
 function ca_publisher_sync_masterstudy_curriculum( int $course_post_id, array $data ): array {
@@ -1130,40 +1137,15 @@ function ca_publisher_render_lesson_content( array $lesson, string $module_title
 		}
 	}
 
-	$script = ca_publisher_lesson_video_script( $lesson );
-	if ( '' !== $script ) {
-		$html .= '<!-- wp:heading {"level":3} --><h3>Video Script</h3><!-- /wp:heading -->';
-		$html .= '<!-- wp:preformatted --><pre>' . esc_html( $script ) . '</pre><!-- /wp:preformatted -->';
-	}
-
-	$scenes = ca_publisher_lesson_video_scenes( $lesson );
-	if ( ! empty( $scenes ) ) {
-		$html .= '<!-- wp:heading {"level":3} --><h3>Video Scene Plan</h3><!-- /wp:heading -->';
-		$html .= '<!-- wp:list {"ordered":true} --><ol>';
-		foreach ( $scenes as $scene ) {
-			if ( ! is_array( $scene ) ) {
-				continue;
-			}
-			$html .= '<li><strong>' . esc_html( ca_publisher_string_value( $scene, 'visual' ) ) . '</strong>: ' . esc_html( ca_publisher_string_value( $scene, 'voiceover' ) ) . '</li>';
-		}
-		$html .= '</ol><!-- /wp:list -->';
-	}
-
 	return $html;
 }
 
 function ca_publisher_video_placeholder_html( array $lesson ): string {
-	$title  = ca_publisher_string_value( $lesson, 'title', 'Lesson video' );
-	$status = ca_publisher_lesson_video_status( $lesson );
-	$script = ca_publisher_lesson_video_script( $lesson );
-	$intro  = trim( strtok( $script, "\n" ) ?: '' );
+	$title = ca_publisher_string_value( $lesson, 'title', 'Lesson video' );
 
 	$html  = '<div class="ca-video-placeholder">';
 	$html .= '<p><strong>' . esc_html( $title ) . '</strong></p>';
-	$html .= '<p>Video status: ' . esc_html( $status ) . '. A narration script and scene plan have been generated for this lesson.</p>';
-	if ( '' !== $intro ) {
-		$html .= '<p>' . esc_html( $intro ) . '</p>';
-	}
+	$html .= '<p>Video content is being prepared for this lesson.</p>';
 	$html .= '</div>';
 
 	return $html;

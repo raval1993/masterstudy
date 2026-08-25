@@ -162,9 +162,8 @@ def build_course_overview(blueprint: dict[str, object], modules: list[dict[str, 
     module_count = len(modules)
     return (
         f"This course guides learners through {title.lower()} with {module_count} modules "
-        f"and {lesson_count} structured lessons. It starts from the source study material, "
-        f"organizes it into learning sections, and prepares narration plus scene plans for video production. "
-        f"{objective_count} learning objectives are carried through from the source document."
+        f"and {lesson_count} structured lessons. Learners work through key concepts, practical examples, "
+        f"review checkpoints, and knowledge checks connected to {objective_count} learning objectives."
     )
 
 

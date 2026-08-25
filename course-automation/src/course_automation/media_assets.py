@@ -71,7 +71,7 @@ def extract_docx_images(settings: Settings, package: dict[str, object]) -> list[
                 {
                     "type": "image",
                     "asset_id": f"{course_id}-IMG{len(assets) + 1:03d}",
-                    "title": f"{course_id} source image {len(assets) + 1}",
+                    "title": f"Lesson image {len(assets) + 1}",
                     "relative_path": f"{course_id}/{filename}",
                     "source_path": str(output_path),
                     "width": width,
