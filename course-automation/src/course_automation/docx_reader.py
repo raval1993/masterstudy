@@ -67,7 +67,7 @@ def count_words(text: str) -> int:
 
 def parse_course_identity(path: Path) -> tuple[str, str]:
     stem = path.stem
-    match = re.match(r"(?P<id>[A-Z]+\d+)\s+##\s+-\s+CPD\s+-\s+(?P<title>.+)", stem)
+    match = re.match(r"(?P<id>[A-Z]{2,}[A-Z0-9]*\d[A-Z0-9]*)\s+##\s+-\s+CPD\s+-\s+(?P<title>.+)", stem)
     if match:
         return match.group("id"), match.group("title").strip()
     parts = stem.split(" ", 1)
