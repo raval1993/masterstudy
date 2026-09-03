@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .blueprint import build_course_blueprint
 from .compliance import SOURCE_EXTENSIONS, build_course_registry, scan_training_updates
-from .course_generator import generate_course_packages
+from .csv_importer import generate_courses_from_csv
 from .docx_reader import read_docx_course
 from .settings import load_settings
 from .tracker import (
@@ -78,11 +78,26 @@ def command_ingest(args: argparse.Namespace) -> int:
 
 
 def command_generate_courses(args: argparse.Namespace) -> int:
+    from .course_generator import generate_course_packages
+
     settings = load_settings(Path(args.project_root).resolve() if args.project_root else None)
     paths = generate_course_packages(settings, args.course_id)
     print(f"generated {len(paths)} course package files")
     for path in paths:
         print(path)
+    return 0
+
+
+def command_generate_from_csv(args: argparse.Namespace) -> int:
+    settings = load_settings(Path(args.project_root).resolve() if args.project_root else None)
+    output_root = Path(args.output_root).resolve() if args.output_root else settings.processed_dir / "csv"
+    summary = generate_courses_from_csv(
+        Path(args.source).resolve(),
+        output_root,
+        limit=max(0, int(args.limit or 0)),
+        max_lessons_per_course=max(0, int(args.max_lessons_per_course or 0)),
+    )
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
     return 0
 
 
@@ -140,6 +155,8 @@ def command_watch(args: argparse.Namespace) -> int:
     source = Path(args.source).resolve()
 
     def run(reason: str) -> None:
+        from .course_generator import generate_course_packages
+
         print(f"processing source library ({reason})")
         run_ingest_pipeline(source, args.category, settings.project_root)
         generate_course_packages(settings)
@@ -250,6 +267,19 @@ def build_parser() -> argparse.ArgumentParser:
     generate.add_argument("--project-root", default="", help="Project root override")
     generate.add_argument("--course-id", action="append", default=[], help="Course ID to generate; can be repeated")
     generate.set_defaults(func=command_generate_courses)
+
+    csv_generate = subparsers.add_parser("generate-from-csv", help="Generate course packages from a client CSV or CSV zip")
+    csv_generate.add_argument("--source", required=True, help="CSV file or zip containing CSV files")
+    csv_generate.add_argument("--project-root", default="", help="Project root override")
+    csv_generate.add_argument("--output-root", default="", help="Output folder, defaults to data/processed/csv")
+    csv_generate.add_argument("--limit", type=int, default=0, help="Optional max course count for testing")
+    csv_generate.add_argument(
+        "--max-lessons-per-course",
+        type=int,
+        default=0,
+        help="Optional cap for generated source-document lessons per course; 0 means no cap",
+    )
+    csv_generate.set_defaults(func=command_generate_from_csv)
 
     publish = subparsers.add_parser("publish-wordpress", help="Push generated blueprints into Laragon WordPress/MasterStudy")
     publish.add_argument("--project-root", default="", help="Project root override")
