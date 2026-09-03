@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Course Automation Publisher
  * Description: Imports generated course packages into WordPress/MasterStudy draft courses, lessons, and curriculum.
- * Version: 0.4.1
+ * Version: 0.4.2
  * Author: Course Automation
  * Text Domain: course-automation-publisher
  */
@@ -11,16 +11,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const CA_PUBLISHER_VERSION         = '0.4.1';
+const CA_PUBLISHER_VERSION         = '0.4.2';
 const CA_PUBLISHER_META_COURSE_ID  = '_ca_course_id';
 const CA_PUBLISHER_META_LESSON_KEY = '_ca_lesson_key';
 
 add_action( 'init', 'ca_publisher_register_preview_post_type' );
 add_action( 'init', 'ca_publisher_maybe_ensure_catalog_page', 20 );
+add_action( 'init', 'ca_publisher_maybe_ensure_home_page', 21 );
 add_action( 'admin_menu', 'ca_publisher_admin_menu' );
 add_action( 'admin_post_ca_publisher_import', 'ca_publisher_admin_post_import' );
 add_action( 'rest_api_init', 'ca_publisher_register_rest_routes' );
 add_shortcode( 'course_automation_catalog', 'ca_publisher_catalog_shortcode' );
+add_shortcode( 'course_automation_home', 'ca_publisher_home_shortcode' );
 register_activation_hook( __FILE__, 'ca_publisher_activate' );
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -593,10 +595,55 @@ function ca_publisher_ensure_catalog_page(): int {
 	return is_wp_error( $page_id ) ? 0 : intval( $page_id );
 }
 
-function ca_publisher_activate(): void {
-	$page_id = ca_publisher_ensure_catalog_page();
+function ca_publisher_ensure_home_page(): int {
+	$content = '<!-- wp:shortcode -->[course_automation_home]<!-- /wp:shortcode -->';
+	$page    = get_page_by_path( 'home', OBJECT, 'page' );
+
+	if ( $page instanceof WP_Post ) {
+		$updates = array( 'ID' => $page->ID );
+		if ( 'Home' !== $page->post_title ) {
+			$updates['post_title'] = 'Home';
+		}
+		if ( 'publish' !== $page->post_status ) {
+			$updates['post_status'] = 'publish';
+		}
+		if ( trim( $page->post_content ) !== $content ) {
+			$updates['post_content'] = $content;
+		}
+		if ( count( $updates ) > 1 ) {
+			wp_update_post( $updates );
+		}
+		$page_id = intval( $page->ID );
+	} else {
+		$page_id = wp_insert_post(
+			array(
+				'post_type'    => 'page',
+				'post_status'  => 'publish',
+				'post_title'   => 'Home',
+				'post_name'    => 'home',
+				'post_content' => $content,
+				'post_author'  => ca_publisher_default_author_id(),
+			)
+		);
+		$page_id = is_wp_error( $page_id ) ? 0 : intval( $page_id );
+	}
+
 	if ( $page_id > 0 ) {
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_on_front', $page_id );
+	}
+
+	return $page_id;
+}
+
+function ca_publisher_activate(): void {
+	$catalog_page_id = ca_publisher_ensure_catalog_page();
+	$home_page_id    = ca_publisher_ensure_home_page();
+	if ( $catalog_page_id > 0 ) {
 		update_option( 'ca_publisher_catalog_page_version', CA_PUBLISHER_VERSION, false );
+	}
+	if ( $home_page_id > 0 ) {
+		update_option( 'ca_publisher_home_page_version', CA_PUBLISHER_VERSION, false );
 	}
 }
 
@@ -609,6 +656,169 @@ function ca_publisher_maybe_ensure_catalog_page(): void {
 	if ( $page_id > 0 ) {
 		update_option( 'ca_publisher_catalog_page_version', CA_PUBLISHER_VERSION, false );
 	}
+}
+
+function ca_publisher_maybe_ensure_home_page(): void {
+	$page = get_page_by_path( 'home', OBJECT, 'page' );
+	if (
+		CA_PUBLISHER_VERSION === get_option( 'ca_publisher_home_page_version' )
+		&& $page instanceof WP_Post
+		&& 'page' === get_option( 'show_on_front' )
+		&& intval( get_option( 'page_on_front' ) ) === intval( $page->ID )
+	) {
+		return;
+	}
+
+	$page_id = ca_publisher_ensure_home_page();
+	if ( $page_id > 0 ) {
+		update_option( 'ca_publisher_home_page_version', CA_PUBLISHER_VERSION, false );
+	}
+}
+
+function ca_publisher_home_shortcode( $atts = array() ): string {
+	$courses      = ca_publisher_catalog_courses();
+	$groups       = ca_publisher_catalog_group_courses( $courses );
+	$catalog_url  = ca_publisher_catalog_url();
+	$hero_image   = ca_publisher_home_hero_image_url( $courses );
+	$course_count = count( $courses );
+	$lesson_count = ca_publisher_home_total_lessons( $courses );
+	$hero_style   = '';
+
+	if ( '' !== $hero_image ) {
+		$hero_style = sprintf(
+			' style="%s"',
+			esc_attr( "background-image: linear-gradient(90deg, rgba(20,28,40,.88), rgba(20,28,40,.58), rgba(20,28,40,.20)), url('" . esc_url_raw( $hero_image ) . "');" )
+		);
+	}
+
+	ob_start();
+	?>
+	<style>
+		body.home .entry-header,body.home .stm_lms_breadcrumbs{display:none!important}
+		.ca-home{margin:0;color:#273044;overflow:hidden}
+		.ca-home *{box-sizing:border-box}
+		.ca-home a{text-decoration:none}
+		.ca-home__inner{width:min(1140px,calc(100% - 40px));margin:0 auto}
+		.ca-home-hero{position:relative;left:50%;display:flex;align-items:center;width:100vw;min-height:430px;margin-left:-50vw;margin-right:-50vw;padding:78px max(22px,calc((100vw - 1140px)/2)) 84px;background:#273044 center/cover no-repeat;color:#fff}
+		.ca-home-hero__content{width:calc(100vw - 44px);max-width:720px;min-width:0}
+		.ca-home-kicker{display:inline-flex;align-items:center;min-height:32px;margin:0 0 18px;padding:6px 11px;background:#17d292;color:#10251f;font-size:12px;font-weight:800;text-transform:uppercase}
+		.ca-home-hero h1{max-width:720px;margin:0;color:#fff;font-size:70px;line-height:1.03;font-weight:800;letter-spacing:0;white-space:normal}
+		.ca-home-hero h1 span,.ca-home-hero p span{display:block}
+		.ca-home-hero p{width:calc(100vw - 44px);max-width:610px;margin:20px 0 0;color:rgba(255,255,255,.88);font-size:18px;line-height:1.65;white-space:normal}
+		.ca-home-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+		.ca-home-button{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 18px;border:1px solid #fff;background:#fff;color:#273044;font-weight:800;text-transform:uppercase}
+		.ca-home-button:hover{background:#17d292;border-color:#17d292;color:#10251f}
+		.ca-home-button--ghost{background:transparent;color:#fff}
+		.ca-home-button--ghost:hover{background:#fff;border-color:#fff;color:#273044}
+		.ca-home-stats{position:relative;left:50%;width:100vw;margin-left:-50vw;margin-right:-50vw;background:#f7fafc;border-bottom:1px solid #e2e8ef}
+		.ca-home-stats__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;width:min(1140px,calc(100% - 40px));margin:0 auto;background:#e2e8ef}
+		.ca-home-stat{min-height:118px;padding:26px;background:#fff}
+		.ca-home-stat strong{display:block;color:#385bce;font-size:34px;line-height:1;font-weight:800}
+		.ca-home-stat span{display:block;margin-top:9px;color:#5f6f80;font-size:14px;font-weight:700;text-transform:uppercase}
+		.ca-home-section{padding:62px 0}
+		.ca-home-section--soft{position:relative;left:50%;width:100vw;margin-left:-50vw;margin-right:-50vw;padding:62px max(22px,calc((100vw - 1140px)/2));background:#f7fafc}
+		.ca-home-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:24px}
+		.ca-home-heading h2{margin:0;color:#273044;font-size:34px;line-height:1.18;font-weight:800;letter-spacing:0}
+		.ca-home-heading p{max-width:520px;margin:0;color:#5f6f80;font-size:16px;line-height:1.55}
+		.ca-home-category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+		.ca-home-category{display:block;min-height:152px;padding:22px;border:1px solid #dfe5ec;background:#fff;color:#273044;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+		.ca-home-category:hover{transform:translateY(-3px);border-color:#385bce;box-shadow:0 14px 30px rgba(39,48,68,.12);color:#273044}
+		.ca-home-category strong{display:block;margin-bottom:14px;font-size:21px;line-height:1.25}
+		.ca-home-category span{display:inline-flex;color:#385bce;font-size:13px;font-weight:800;text-transform:uppercase}
+		.ca-home-featured-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+		.ca-course-card{display:flex;flex-direction:column;min-height:100%;border:1px solid #dfe5ec;background:#fff;color:#273044;text-decoration:none;transition:box-shadow .18s ease,transform .18s ease,border-color .18s ease}
+		.ca-course-card:hover{transform:translateY(-3px);border-color:#385bce;box-shadow:0 12px 30px rgba(39,48,68,.16);color:#273044;text-decoration:none}
+		.ca-course-card__image{position:relative;aspect-ratio:16/9;background:#eef2f6;overflow:hidden}
+		.ca-course-card__image img{display:block;width:100%;height:100%;object-fit:cover}
+		.ca-course-card__fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:18px;color:#66828f;font-weight:700;text-align:center;background:#eef4fb}
+		.ca-course-card__body{display:flex;flex-direction:column;gap:10px;min-height:178px;padding:18px}
+		.ca-course-card__eyebrow{color:#385bce;font-size:12px;font-weight:700;letter-spacing:0;text-transform:uppercase}
+		.ca-course-card__title{margin:0;font-size:17px;line-height:1.35;font-weight:700;color:#273044}
+		.ca-course-card__meta{display:flex;flex-wrap:wrap;gap:8px;color:#66828f;font-size:13px}
+		.ca-course-card__button{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 13px;background:#17d292;color:#fff;font-size:13px;font-weight:700;text-transform:uppercase}
+		.ca-course-card:hover .ca-course-card__button{background:#385bce}
+		.ca-home-flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+		.ca-home-flow-item{padding:24px;border:1px solid #dfe5ec;background:#fff}
+		.ca-home-flow-item b{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;margin-bottom:18px;background:#ff4f00;color:#fff;font-size:14px}
+		.ca-home-flow-item strong{display:block;margin-bottom:10px;font-size:19px;line-height:1.3;color:#273044}
+		.ca-home-flow-item span{display:block;color:#5f6f80;line-height:1.55}
+		@media (max-width:900px){.ca-home-hero h1{font-size:52px}.ca-home-stats__grid,.ca-home-category-grid,.ca-home-featured-grid,.ca-home-flow{grid-template-columns:1fr 1fr}.ca-home-heading{align-items:flex-start;flex-direction:column}}
+		@media (max-width:620px){.ca-home-hero{min-height:390px;padding:56px 22px 64px}.ca-home-hero__content{width:calc(100vw - 44px);max-width:calc(100vw - 44px);min-width:0}.ca-home-hero h1{width:100%;max-width:100%;font-size:32px;line-height:1.15;overflow-wrap:break-word}.ca-home-hero p{width:100%;max-width:100%;font-size:16px;line-height:1.55;overflow-wrap:break-word}.ca-home-stats__grid,.ca-home-category-grid,.ca-home-featured-grid,.ca-home-flow{grid-template-columns:1fr}.ca-home-stat{min-height:auto}.ca-home-section,.ca-home-section--soft{padding-top:44px;padding-bottom:44px}}
+	</style>
+	<div class="ca-home">
+		<section class="ca-home-hero"<?php echo $hero_style; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+			<div class="ca-home-hero__content">
+				<span class="ca-home-kicker">MasterStudy LMS</span>
+				<h1><span>Structured training,</span><span>ready for learners.</span></h1>
+				<p><span>Browse video lessons,</span><span>study material, and knowledge checks.</span><span>Move from category to curriculum</span><span>in one clear learner path.</span></p>
+				<div class="ca-home-actions">
+					<a class="ca-home-button" href="<?php echo esc_url( $catalog_url ); ?>">Browse courses</a>
+					<a class="ca-home-button ca-home-button--ghost" href="<?php echo esc_url( wp_login_url() ); ?>">Student login</a>
+				</div>
+			</div>
+		</section>
+
+		<section class="ca-home-stats" aria-label="Course library statistics">
+			<div class="ca-home-stats__grid">
+				<div class="ca-home-stat"><strong><?php echo esc_html( number_format_i18n( $course_count ) ); ?></strong><span>Published courses</span></div>
+				<div class="ca-home-stat"><strong><?php echo esc_html( number_format_i18n( count( $groups ) ) ); ?></strong><span>Course categories</span></div>
+				<div class="ca-home-stat"><strong><?php echo esc_html( number_format_i18n( $lesson_count ) ); ?></strong><span>Lessons available</span></div>
+			</div>
+		</section>
+
+		<section class="ca-home-section">
+			<div class="ca-home__inner">
+				<div class="ca-home-heading">
+					<h2>Course Categories</h2>
+					<p>Start with a category, then move into the full course curriculum and lesson player.</p>
+				</div>
+				<div class="ca-home-category-grid">
+					<?php foreach ( array_slice( $groups, 0, 6 ) as $group ) : ?>
+						<a class="ca-home-category" href="<?php echo esc_url( $catalog_url . '#' . $group['anchor'] ); ?>">
+							<strong><?php echo esc_html( $group['label'] ); ?></strong>
+							<span><?php echo esc_html( count( $group['courses'] ) ); ?> courses</span>
+						</a>
+					<?php endforeach; ?>
+					<?php if ( empty( $groups ) ) : ?>
+						<a class="ca-home-category" href="<?php echo esc_url( $catalog_url ); ?>">
+							<strong>Courses</strong>
+							<span>Catalog</span>
+						</a>
+					<?php endif; ?>
+				</div>
+			</div>
+		</section>
+
+		<?php if ( ! empty( $courses ) ) : ?>
+			<section class="ca-home-section ca-home-section--soft">
+				<div class="ca-home-heading">
+					<h2>Featured Courses</h2>
+					<p>Open a course to view its overview, curriculum, lessons, quizzes, and generated video material.</p>
+				</div>
+				<div class="ca-home-featured-grid">
+					<?php foreach ( array_slice( $courses, 0, 3 ) as $course ) : ?>
+						<?php echo ca_publisher_render_catalog_card( $course ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php endforeach; ?>
+				</div>
+			</section>
+		<?php endif; ?>
+
+		<section class="ca-home-section">
+			<div class="ca-home__inner">
+				<div class="ca-home-heading">
+					<h2>Learning Flow</h2>
+					<p>Each imported course is organised around clear sections, lesson content, media, and review questions.</p>
+				</div>
+				<div class="ca-home-flow">
+					<div class="ca-home-flow-item"><b>01</b><strong>Choose a course</strong><span>Browse by category and open the course that matches the learner pathway.</span></div>
+					<div class="ca-home-flow-item"><b>02</b><strong>Study by section</strong><span>Move through structured lessons with supporting media and practical notes.</span></div>
+					<div class="ca-home-flow-item"><b>03</b><strong>Review progress</strong><span>Use knowledge checks and course progress to keep learning measurable.</span></div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<?php
+	return strval( ob_get_clean() );
 }
 
 function ca_publisher_catalog_shortcode( $atts = array() ): string {
@@ -693,6 +903,46 @@ function ca_publisher_catalog_courses(): array {
 			'order'          => 'ASC',
 		)
 	);
+}
+
+function ca_publisher_catalog_url(): string {
+	$page = get_page_by_path( 'courses', OBJECT, 'page' );
+	if ( $page instanceof WP_Post ) {
+		return get_permalink( $page );
+	}
+
+	return home_url( '/courses/' );
+}
+
+function ca_publisher_home_total_lessons( array $courses ): int {
+	$total = 0;
+	foreach ( $courses as $course ) {
+		if ( $course instanceof WP_Post ) {
+			$total += max( 0, intval( get_post_meta( $course->ID, '_ca_lesson_count', true ) ) );
+		}
+	}
+
+	return $total;
+}
+
+function ca_publisher_home_hero_image_url( array $courses ): string {
+	foreach ( $courses as $course ) {
+		if ( ! $course instanceof WP_Post ) {
+			continue;
+		}
+
+		$image_url = get_the_post_thumbnail_url( $course, 'large' );
+		if ( $image_url ) {
+			return $image_url;
+		}
+
+		$relative_path = trim( strval( get_post_meta( $course->ID, '_ca_featured_image_relative_path', true ) ) );
+		if ( '' !== $relative_path ) {
+			return ca_publisher_media_url( $relative_path );
+		}
+	}
+
+	return '';
 }
 
 function ca_publisher_catalog_group_courses( array $courses ): array {
