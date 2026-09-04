@@ -4,15 +4,26 @@ This workspace is the practical automation layer for the MasterStudy LMS project
 
 It follows the client-recommended bridge approach: Python does the heavy parsing, packaging, update monitoring, and LMS preparation outside Coursebox subscription limits. Coursebox can still be used later as an optional downstream tool, but MasterStudy/WordPress remains the publishing target here.
 
-## Current Sample
+## Current Dropbox Status
 
-Downloaded source:
+The Dropbox share `NTL courses - UPSKILL ONLY (841)` is processed category by category. The full root ZIP is about 35.6 GB, so the safer workflow is to download only selected category ZIPs.
 
-`data/raw/dropbox/information-technology.zip`
+As of 2026-09-04, the local WordPress/Laragon LMS has:
 
-Extracted DOCX files:
+- 582 published old-Dropbox courses across 15 non-Business categories
+- 5,230 published lesson posts
+- 197 rendered MP4 files from the first 7 courses
+- 575 courses queued with planned video scene data, pending batch MP4 rendering
 
-`data/extracted/information-technology/`
+The visible Dropbox category names total 799 courses. The Business category is still pending because its category ZIP is about 34.1 GB. The already downloaded non-Business categories expose 582 DOCX-ready course sources after converting legacy `.doc` files through Microsoft Word.
+
+Downloaded source archives live under:
+
+`data/raw/dropbox/`
+
+Extracted source documents live under:
+
+`data/extracted/<category-slug>/`
 
 ## Run Locally
 
@@ -110,3 +121,29 @@ $python = "C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencie
 ```
 
 This copies the latest generated course packages, extracted images, rendered MP4 files, and blueprint fallback files into WordPress, runs the `Course Automation Publisher` importer, creates or updates MasterStudy courses, published lesson posts, curriculum rows, course preview video metadata, lesson video metadata, and updates `data/processed/course_tracker.csv` with the MasterStudy URLs.
+
+## Dropbox Category Workflow
+
+Extract the category manifest from the saved Dropbox listing:
+
+```powershell
+$env:PYTHONPATH = "C:\laragon\www\lms-masterstudy\_project\course-automation\src"
+$python = "C:\laragon\www\lms-masterstudy\_project\course-automation\.venv\Scripts\python.exe"
+& $python -m course_automation.cli dropbox-categories --listing "C:\laragon\www\lms-masterstudy\_project\course-automation\data\raw\dropbox\dropbox-listing.html"
+```
+
+Download selected category ZIPs:
+
+```powershell
+& $python -m course_automation.cli download-dropbox-categories --listing "C:\laragon\www\lms-masterstudy\_project\course-automation\data\raw\dropbox\dropbox-listing.html" --category health --category retail
+```
+
+Ingest every extracted category and generate packages without rendering new MP4s:
+
+```powershell
+& $python -m course_automation.cli ingest-dropbox-extracted --listing "C:\laragon\www\lms-masterstudy\_project\course-automation\data\raw\dropbox\dropbox-listing.html"
+& $python -m course_automation.cli generate-courses --skip-video-rendering
+& $python -m course_automation.cli publish-wordpress
+```
+
+Render MP4 videos later in controlled course batches by omitting `--skip-video-rendering` and passing one or more `--course-id` values.

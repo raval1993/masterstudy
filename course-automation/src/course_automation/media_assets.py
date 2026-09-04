@@ -25,8 +25,12 @@ MAX_LESSON_POINT_SLIDES = 4
 def enrich_package_with_media(settings: Settings, package: dict[str, object]) -> dict[str, object]:
     assets = extract_docx_images(settings, package)
     assign_assets_to_lessons(package, assets)
-    lesson_video_count = render_lesson_videos(settings, package)
-    video = render_course_video(settings, package)
+    if should_render_videos():
+        lesson_video_count = render_lesson_videos(settings, package)
+        video = render_course_video(settings, package)
+    else:
+        lesson_video_count = mark_lesson_videos_planned(settings, package)
+        video = planned_course_video(settings, package)
 
     package["source_image_count"] = len(assets)
     package["lesson_video_count"] = lesson_video_count
@@ -39,6 +43,59 @@ def enrich_package_with_media(settings: Settings, package: dict[str, object]) ->
         package["next_stage"]["lesson_video_rendering"] = "rendered" if lesson_video_count else "not_rendered"
         package["next_stage"]["video_rendering"] = video["status"]
     return package
+
+
+def should_render_videos() -> bool:
+    value = os.environ.get("COURSE_AUTOMATION_RENDER_VIDEOS", "1").strip().lower()
+    return value not in {"0", "false", "no", "off", "skip"}
+
+
+def planned_course_video(settings: Settings, package: dict[str, object]) -> dict[str, object]:
+    course_id = clean_filename(str(package.get("course_id", "")).strip())
+    output_path = settings.generated_videos_dir / f"{course_id}.mp4"
+    if output_path.exists():
+        return {
+            "status": "rendered",
+            "format": "mp4",
+            "relative_path": output_path.name,
+            "source_path": str(output_path),
+            "duration_seconds": round(ffmpeg_duration_seconds(output_path), 1),
+        }
+    return {
+        "status": "planned",
+        "format": "mp4",
+        "relative_path": "",
+        "source_path": "",
+        "duration_seconds": 0,
+        "scenes": build_course_video_slides(package),
+    }
+
+
+def mark_lesson_videos_planned(settings: Settings, package: dict[str, object]) -> int:
+    course_id = clean_filename(str(package.get("course_id", "")).strip())
+    rendered_count = 0
+    for module in package.get("modules", []):
+        if not isinstance(module, dict):
+            continue
+        for lesson in module.get("lessons", []):
+            if not isinstance(lesson, dict):
+                continue
+            video = lesson.get("video") if isinstance(lesson.get("video"), dict) else {}
+            lesson["video"] = video
+            video["format"] = "mp4"
+            lesson_id = clean_filename(str(lesson.get("lesson_id") or lesson.get("title") or "lesson"))
+            output_path = settings.generated_videos_dir / course_id / f"{lesson_id}.mp4"
+            if output_path.exists():
+                video["status"] = "rendered"
+                video["relative_path"] = f"{course_id}/{output_path.name}"
+                video["source_path"] = str(output_path)
+                video["duration_seconds"] = round(ffmpeg_duration_seconds(output_path), 1)
+                rendered_count += 1
+            else:
+                video["status"] = "planned"
+                video["relative_path"] = ""
+                video["source_path"] = ""
+    return rendered_count
 
 
 def extract_docx_images(settings: Settings, package: dict[str, object]) -> list[dict[str, object]]:
