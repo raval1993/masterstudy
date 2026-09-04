@@ -7,6 +7,7 @@ import re
 import time
 from pathlib import Path
 
+from .batch_exporter import export_course_batch
 from .blueprint import build_course_blueprint
 from .compliance import SOURCE_EXTENSIONS, build_course_registry, scan_training_updates
 from .csv_importer import generate_courses_from_csv
@@ -259,6 +260,21 @@ def command_download_dropbox_categories(args: argparse.Namespace) -> int:
     return 0
 
 
+def command_export_batch(args: argparse.Namespace) -> int:
+    settings = load_settings(Path(args.project_root).resolve() if args.project_root else None)
+    output_root = Path(args.output_root).resolve() if args.output_root else settings.project_root.parent / "server-migration" / "course-batches"
+    manifest = export_course_batch(
+        settings=settings,
+        output_root=output_root,
+        batch_name=args.batch_name,
+        category_filters=list(args.category or []),
+        course_ids=list(args.course_id or []),
+        create_zip=not args.no_zip,
+    )
+    print(json.dumps(manifest, ensure_ascii=False, indent=2))
+    return 0
+
+
 def command_publish_wordpress(args: argparse.Namespace) -> int:
     settings = load_settings(Path(args.project_root).resolve() if args.project_root else None)
     php = Path(args.php).resolve() if args.php else find_laragon_php()
@@ -460,6 +476,15 @@ def build_parser() -> argparse.ArgumentParser:
     dropbox_download.add_argument("--category", action="append", default=[], help="Category name or slug; repeat for multiple")
     dropbox_download.add_argument("--force", action="store_true", help="Re-download even when ZIP already exists")
     dropbox_download.set_defaults(func=command_download_dropbox_categories)
+
+    export_batch = subparsers.add_parser("export-batch", help="Create a transfer ZIP for selected generated courses")
+    export_batch.add_argument("--project-root", default="", help="Project root override")
+    export_batch.add_argument("--output-root", default="", help="Output folder for transfer batches")
+    export_batch.add_argument("--batch-name", required=True, help="Human-readable transfer batch name")
+    export_batch.add_argument("--category", action="append", default=[], help="Generated course category; repeat for multiple")
+    export_batch.add_argument("--course-id", action="append", default=[], help="Generated course ID; repeat for multiple")
+    export_batch.add_argument("--no-zip", action="store_true", help="Create folder only, without ZIP archive")
+    export_batch.set_defaults(func=command_export_batch)
 
     publish = subparsers.add_parser("publish-wordpress", help="Push generated blueprints into Laragon WordPress/MasterStudy")
     publish.add_argument("--project-root", default="", help="Project root override")

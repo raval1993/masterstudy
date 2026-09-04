@@ -147,3 +147,30 @@ Ingest every extracted category and generate packages without rendering new MP4s
 ```
 
 Render MP4 videos later in controlled course batches by omitting `--skip-video-rendering` and passing one or more `--course-id` values.
+
+## Transfer Batches For Live
+
+Do not upload the whole `wp-content/course-automation` folder every time. Create a transfer ZIP for only the category or course IDs you want to send:
+
+```powershell
+& $python -m course_automation.cli export-batch --batch-name "health" --category "HEALTH"
+```
+
+The ZIP is created under:
+
+`server-migration/course-batches/<batch-name>.zip`
+
+Upload that ZIP into this live folder:
+
+`/home/cloudweb/public_html/masterstudy/wp-content/`
+
+Then extract/merge it there. The ZIP already contains the correct inner folder:
+
+`course-automation/courses`, `course-automation/blueprints`, `course-automation/media`, and `course-automation/videos`.
+
+After extracting a batch on live, run:
+
+```bash
+cd /home/cloudweb/public_html/masterstudy
+wp course-automation import-blueprints --path=/home/cloudweb/public_html/masterstudy
+```
