@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Course Automation Publisher
  * Description: Imports generated course packages into WordPress/MasterStudy draft courses, lessons, and curriculum.
- * Version: 0.4.2
+ * Version: 0.4.3
  * Author: Course Automation
  * Text Domain: course-automation-publisher
  */
@@ -11,9 +11,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const CA_PUBLISHER_VERSION         = '0.4.2';
-const CA_PUBLISHER_META_COURSE_ID  = '_ca_course_id';
-const CA_PUBLISHER_META_LESSON_KEY = '_ca_lesson_key';
+const CA_PUBLISHER_VERSION          = '0.4.3';
+const CA_PUBLISHER_META_COURSE_ID   = '_ca_course_id';
+const CA_PUBLISHER_META_LESSON_KEY  = '_ca_lesson_key';
+const CA_PUBLISHER_CATALOG_PER_PAGE = 24;
 
 add_action( 'init', 'ca_publisher_register_preview_post_type' );
 add_action( 'init', 'ca_publisher_maybe_ensure_catalog_page', 20 );
@@ -23,6 +24,11 @@ add_action( 'admin_post_ca_publisher_import', 'ca_publisher_admin_post_import' )
 add_action( 'rest_api_init', 'ca_publisher_register_rest_routes' );
 add_shortcode( 'course_automation_catalog', 'ca_publisher_catalog_shortcode' );
 add_shortcode( 'course_automation_home', 'ca_publisher_home_shortcode' );
+add_action( 'save_post_stm-courses', 'ca_publisher_clear_catalog_cache' );
+add_action( 'save_post_stm_lms_courses', 'ca_publisher_clear_catalog_cache' );
+add_action( 'created_stm_lms_course_taxonomy', 'ca_publisher_clear_catalog_cache' );
+add_action( 'edited_stm_lms_course_taxonomy', 'ca_publisher_clear_catalog_cache' );
+add_action( 'delete_stm_lms_course_taxonomy', 'ca_publisher_clear_catalog_cache' );
 register_activation_hook( __FILE__, 'ca_publisher_activate' );
 
 if ( defined( 'WP_CLI' ) && WP_CLI ) {
@@ -242,6 +248,7 @@ function ca_publisher_import_all_blueprints(): array {
 		$imported++;
 	}
 
+	ca_publisher_clear_catalog_cache();
 	ca_publisher_ensure_catalog_page();
 
 	return array(
@@ -676,13 +683,13 @@ function ca_publisher_maybe_ensure_home_page(): void {
 }
 
 function ca_publisher_home_shortcode( $atts = array() ): string {
-	$courses      = ca_publisher_catalog_courses();
-	$groups       = ca_publisher_catalog_group_courses( $courses );
-	$catalog_url  = ca_publisher_catalog_url();
-	$hero_image   = ca_publisher_home_hero_image_url( $courses );
-	$course_count = count( $courses );
-	$lesson_count = ca_publisher_home_total_lessons( $courses );
-	$hero_style   = '';
+	$groups           = ca_publisher_catalog_category_summaries();
+	$featured_courses = ca_publisher_catalog_featured_courses( 3 );
+	$catalog_url      = ca_publisher_catalog_url();
+	$hero_image       = ca_publisher_home_hero_image_url( $featured_courses );
+	$course_count     = ca_publisher_catalog_total_course_count( $groups );
+	$lesson_count     = ca_publisher_home_total_lesson_count();
+	$hero_style       = '';
 
 	if ( '' !== $hero_image ) {
 		$hero_style = sprintf(
@@ -774,9 +781,9 @@ function ca_publisher_home_shortcode( $atts = array() ): string {
 				</div>
 				<div class="ca-home-category-grid">
 					<?php foreach ( array_slice( $groups, 0, 6 ) as $group ) : ?>
-						<a class="ca-home-category" href="<?php echo esc_url( $catalog_url . '#' . $group['anchor'] ); ?>">
+						<a class="ca-home-category" href="<?php echo esc_url( ca_publisher_catalog_category_url( $group['key'] ) ); ?>">
 							<strong><?php echo esc_html( $group['label'] ); ?></strong>
-							<span><?php echo esc_html( count( $group['courses'] ) ); ?> courses</span>
+							<span><?php echo esc_html( number_format_i18n( intval( $group['count'] ) ) ); ?> courses</span>
 						</a>
 					<?php endforeach; ?>
 					<?php if ( empty( $groups ) ) : ?>
@@ -789,14 +796,14 @@ function ca_publisher_home_shortcode( $atts = array() ): string {
 			</div>
 		</section>
 
-		<?php if ( ! empty( $courses ) ) : ?>
+		<?php if ( ! empty( $featured_courses ) ) : ?>
 			<section class="ca-home-section ca-home-section--soft">
 				<div class="ca-home-heading">
 					<h2>Featured Courses</h2>
 					<p>Open a course to view its overview, curriculum, lessons, quizzes, and generated video material.</p>
 				</div>
 				<div class="ca-home-featured-grid">
-					<?php foreach ( array_slice( $courses, 0, 3 ) as $course ) : ?>
+					<?php foreach ( $featured_courses as $course ) : ?>
 						<?php echo ca_publisher_render_catalog_card( $course ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php endforeach; ?>
 				</div>
@@ -822,26 +829,45 @@ function ca_publisher_home_shortcode( $atts = array() ): string {
 }
 
 function ca_publisher_catalog_shortcode( $atts = array() ): string {
-	$courses = ca_publisher_catalog_courses();
-	if ( empty( $courses ) ) {
+	$groups = ca_publisher_catalog_category_summaries();
+	if ( empty( $groups ) ) {
 		return '<div class="ca-course-automation-catalog"><p>No courses are published yet.</p></div>';
 	}
 
-	$groups = ca_publisher_catalog_group_courses( $courses );
+	$selected_key   = ca_publisher_catalog_selected_category_key( $groups );
+	$selected_group = ca_publisher_catalog_find_category_summary( $groups, $selected_key );
+	$paged          = ca_publisher_catalog_current_page();
+	$course_result  = null;
+	$total_count    = ca_publisher_catalog_total_course_count( $groups );
+	if ( is_array( $selected_group ) ) {
+		$course_result = ca_publisher_catalog_courses_for_category( $selected_group, $paged, CA_PUBLISHER_CATALOG_PER_PAGE );
+	}
 
 	ob_start();
 	?>
 	<style>
-		.stm_lms_courses_wrapper{display:none!important}
+		.stm_lms_courses_wrapper,.stm_lms_courses__archive,.stm_lms_courses__grid{display:none!important}
 		.ca-course-automation-catalog{margin:18px 0 54px}
 		.ca-course-automation-catalog *{box-sizing:border-box}
-		.ca-catalog-tabs{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 28px;padding:0;list-style:none}
-		.ca-catalog-tabs a{display:inline-flex;align-items:center;min-height:38px;padding:9px 15px;border:1px solid #dce3ec;background:#fff;color:#273044;font-weight:600;text-decoration:none}
-		.ca-catalog-tabs a:hover{border-color:#385bce;color:#385bce}
+		.ca-catalog-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:0 0 24px}
+		.ca-catalog-heading h1,.ca-catalog-heading h2{margin:0;color:#273044;font-size:34px;line-height:1.18;font-weight:800;letter-spacing:0}
+		.ca-catalog-total{color:#66828f;font-size:14px;font-weight:700;white-space:nowrap;text-transform:uppercase}
+		.ca-category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-bottom:36px}
+		.ca-category-card{display:flex;min-width:0;border:1px solid #dfe5ec;background:#fff;color:#273044;text-decoration:none;transition:box-shadow .18s ease,transform .18s ease,border-color .18s ease}
+		.ca-category-card:hover,.ca-category-card--active{transform:translateY(-2px);border-color:#385bce;box-shadow:0 10px 24px rgba(39,48,68,.12);color:#273044;text-decoration:none}
+		.ca-category-card__image{flex:0 0 94px;min-height:94px;background:#eef2f6;overflow:hidden}
+		.ca-category-card__image img{display:block;width:100%;height:100%;object-fit:cover}
+		.ca-category-card__fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:12px;color:#66828f;font-size:12px;font-weight:800;text-align:center;background:#eef4fb}
+		.ca-category-card__body{display:flex;flex:1;min-width:0;flex-direction:column;justify-content:center;gap:8px;padding:14px}
+		.ca-category-card__title{display:block;color:#273044;font-size:15px;line-height:1.3;font-weight:800;overflow-wrap:break-word}
+		.ca-category-card__count{display:block;color:#385bce;font-size:12px;font-weight:800;text-transform:uppercase}
 		.ca-category-section{margin:0 0 46px}
 		.ca-category-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid #e5eaf0}
 		.ca-category-heading h2{margin:0;text-transform:uppercase;font-size:28px;line-height:1.2}
 		.ca-category-count{color:#66828f;font-size:14px;white-space:nowrap}
+		.ca-category-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+		.ca-catalog-back{display:inline-flex;align-items:center;min-height:36px;padding:8px 12px;border:1px solid #dce3ec;background:#fff;color:#273044;font-size:13px;font-weight:800;text-decoration:none;text-transform:uppercase}
+		.ca-catalog-back:hover{border-color:#385bce;color:#385bce;text-decoration:none}
 		.ca-course-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 		.ca-course-card{display:flex;flex-direction:column;min-height:100%;border:1px solid #dfe5ec;background:#fff;color:#273044;text-decoration:none;transition:box-shadow .18s ease,transform .18s ease,border-color .18s ease}
 		.ca-course-card:hover{transform:translateY(-3px);border-color:#385bce;box-shadow:0 12px 30px rgba(39,48,68,.16);color:#273044;text-decoration:none}
@@ -854,37 +880,389 @@ function ca_publisher_catalog_shortcode( $atts = array() ): string {
 		.ca-course-card__meta{display:flex;flex-wrap:wrap;gap:8px;color:#66828f;font-size:13px}
 		.ca-course-card__button{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:9px 13px;background:#17d292;color:#fff;font-size:13px;font-weight:700;text-transform:uppercase}
 		.ca-course-card:hover .ca-course-card__button{background:#385bce}
-		@media (max-width:1024px){.ca-course-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-		@media (max-width:768px){.ca-course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ca-category-heading{align-items:flex-start;flex-direction:column}.ca-category-heading h2{font-size:24px}}
-		@media (max-width:520px){.ca-course-grid{grid-template-columns:1fr}}
+		.ca-catalog-pagination{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+		.ca-catalog-pagination a,.ca-catalog-pagination span{display:inline-flex;align-items:center;justify-content:center;min-width:38px;min-height:38px;padding:8px 12px;border:1px solid #dce3ec;background:#fff;color:#273044;font-size:13px;font-weight:800;text-decoration:none}
+		.ca-catalog-pagination a:hover,.ca-catalog-pagination .is-current{border-color:#385bce;background:#385bce;color:#fff;text-decoration:none}
+		@media (max-width:1120px){.ca-category-grid,.ca-course-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+		@media (max-width:820px){.ca-category-grid,.ca-course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.ca-catalog-heading,.ca-category-heading{align-items:flex-start;flex-direction:column}.ca-category-heading h2{font-size:24px}.ca-category-card__image{flex-basis:84px;min-height:84px}}
+		@media (max-width:520px){.ca-category-grid,.ca-course-grid{grid-template-columns:1fr}.ca-catalog-heading h1,.ca-catalog-heading h2{font-size:28px}}
 	</style>
 	<div class="ca-course-automation-catalog">
-		<ul class="ca-catalog-tabs">
+		<div class="ca-catalog-heading">
+			<h1>Courses</h1>
+			<span class="ca-catalog-total"><?php echo esc_html( number_format_i18n( $total_count ) ); ?> courses</span>
+		</div>
+		<div class="ca-category-grid">
 			<?php foreach ( $groups as $group ) : ?>
-				<li>
-					<a href="#<?php echo esc_attr( $group['anchor'] ); ?>">
-						<?php echo esc_html( $group['label'] ); ?> (<?php echo esc_html( count( $group['courses'] ) ); ?>)
-					</a>
-				</li>
+				<?php $category_image = ca_publisher_catalog_category_image_url( $group ); ?>
+				<a class="ca-category-card<?php echo $selected_key === $group['key'] ? ' ca-category-card--active' : ''; ?>" href="<?php echo esc_url( ca_publisher_catalog_category_url( $group['key'] ) ); ?>">
+					<span class="ca-category-card__image">
+						<?php if ( $category_image ) : ?>
+							<img src="<?php echo esc_url( $category_image ); ?>" alt="<?php echo esc_attr( $group['label'] ); ?>" loading="lazy">
+						<?php else : ?>
+							<span class="ca-category-card__fallback"><?php echo esc_html( $group['label'] ); ?></span>
+						<?php endif; ?>
+					</span>
+					<span class="ca-category-card__body">
+						<span class="ca-category-card__title"><?php echo esc_html( $group['label'] ); ?></span>
+						<span class="ca-category-card__count"><?php echo esc_html( number_format_i18n( intval( $group['count'] ) ) ); ?> courses</span>
+					</span>
+				</a>
 			<?php endforeach; ?>
-		</ul>
+		</div>
 
-		<?php foreach ( $groups as $group ) : ?>
-			<section class="ca-category-section" id="<?php echo esc_attr( $group['anchor'] ); ?>">
+		<?php if ( is_array( $selected_group ) && is_array( $course_result ) ) : ?>
+			<section class="ca-category-section" id="<?php echo esc_attr( $selected_group['anchor'] ); ?>">
 				<div class="ca-category-heading">
-					<h2><?php echo esc_html( $group['label'] ); ?></h2>
-					<span class="ca-category-count"><?php echo esc_html( count( $group['courses'] ) ); ?> courses</span>
+					<h2><?php echo esc_html( $selected_group['label'] ); ?></h2>
+					<div class="ca-category-actions">
+						<span class="ca-category-count"><?php echo esc_html( ca_publisher_catalog_result_label( $course_result ) ); ?></span>
+						<a class="ca-catalog-back" href="<?php echo esc_url( ca_publisher_catalog_url() ); ?>">All categories</a>
+					</div>
 				</div>
 				<div class="ca-course-grid">
-					<?php foreach ( $group['courses'] as $course ) : ?>
+					<?php foreach ( $course_result['posts'] as $course ) : ?>
 						<?php echo ca_publisher_render_catalog_card( $course ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					<?php endforeach; ?>
 				</div>
+				<?php echo ca_publisher_render_catalog_pagination( $selected_group['key'], $course_result['current_page'], $course_result['max_pages'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</section>
-		<?php endforeach; ?>
+		<?php endif; ?>
 	</div>
 	<?php
 	return strval( ob_get_clean() );
+}
+
+function ca_publisher_catalog_category_summaries(): array {
+	$cache_key = 'ca_publisher_catalog_summaries_v3';
+	$cached    = get_transient( $cache_key );
+	if ( is_array( $cached ) ) {
+		return $cached;
+	}
+
+	$post_type = ca_publisher_target_post_type();
+	if ( ! post_type_exists( $post_type ) ) {
+		return array();
+	}
+
+	$summaries = array();
+	if ( taxonomy_exists( 'stm_lms_course_taxonomy' ) ) {
+		$terms = get_terms(
+			array(
+				'taxonomy'   => 'stm_lms_course_taxonomy',
+				'hide_empty' => true,
+				'orderby'    => 'name',
+				'order'      => 'ASC',
+			)
+		);
+
+		if ( ! is_wp_error( $terms ) ) {
+			foreach ( $terms as $term ) {
+				if ( ! $term instanceof WP_Term ) {
+					continue;
+				}
+
+				$label = trim( $term->name );
+				$count = intval( $term->count );
+				if ( '' === $label || $count <= 0 ) {
+					continue;
+				}
+
+				$key = ca_publisher_unique_catalog_key( $term->slug, $summaries );
+				$summaries[ $key ] = array(
+					'key'       => $key,
+					'label'     => $label,
+					'anchor'    => 'course-category-' . $key,
+					'count'     => $count,
+					'term_id'   => intval( $term->term_id ),
+					'sample_id' => ca_publisher_catalog_sample_course_id_for_term( intval( $term->term_id ), $post_type ),
+				);
+			}
+		}
+	}
+
+	if ( empty( $summaries ) ) {
+		global $wpdb;
+		$rows = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT COALESCE(NULLIF(category.meta_value, ''), %s) AS label, COUNT(DISTINCT p.ID) AS course_count, MIN(p.ID) AS sample_id
+				FROM {$wpdb->posts} p
+				INNER JOIN {$wpdb->postmeta} marker ON marker.post_id = p.ID AND marker.meta_key = %s
+				LEFT JOIN {$wpdb->postmeta} category ON category.post_id = p.ID AND category.meta_key = '_ca_category'
+				WHERE p.post_type = %s AND p.post_status = 'publish'
+				GROUP BY label
+				ORDER BY label ASC",
+				'Courses',
+				CA_PUBLISHER_META_COURSE_ID,
+				$post_type
+			)
+		);
+
+		foreach ( $rows as $row ) {
+			$label = trim( strval( $row->label ?? '' ) );
+			$count = intval( $row->course_count ?? 0 );
+			if ( '' === $label || $count <= 0 ) {
+				continue;
+			}
+
+			$key = ca_publisher_unique_catalog_key( $label, $summaries );
+			$summaries[ $key ] = array(
+				'key'       => $key,
+				'label'     => $label,
+				'anchor'    => 'course-category-' . $key,
+				'count'     => $count,
+				'term_id'   => 0,
+				'sample_id' => intval( $row->sample_id ?? 0 ),
+			);
+		}
+	}
+
+	$summaries = array_values( $summaries );
+	set_transient( $cache_key, $summaries, DAY_IN_SECONDS );
+
+	return $summaries;
+}
+
+function ca_publisher_catalog_sample_course_id_for_term( int $term_id, string $post_type ): int {
+	if ( $term_id <= 0 || '' === $post_type ) {
+		return 0;
+	}
+
+	$posts = get_posts(
+		array(
+			'post_type'      => $post_type,
+			'post_status'    => 'publish',
+			'posts_per_page' => 1,
+			'fields'         => 'ids',
+			'meta_key'       => CA_PUBLISHER_META_COURSE_ID,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'tax_query'      => array(
+				array(
+					'taxonomy' => 'stm_lms_course_taxonomy',
+					'field'    => 'term_id',
+					'terms'    => array( $term_id ),
+				),
+			),
+		)
+	);
+
+	return empty( $posts ) ? 0 : intval( $posts[0] );
+}
+
+function ca_publisher_clear_catalog_cache( ...$args ): void {
+	delete_transient( 'ca_publisher_catalog_summaries_v3' );
+}
+
+function ca_publisher_unique_catalog_key( string $value, array $existing ): string {
+	$base = sanitize_title( $value );
+	if ( '' === $base ) {
+		$base = 'courses';
+	}
+
+	$key    = $base;
+	$suffix = 2;
+	while ( isset( $existing[ $key ] ) ) {
+		$key = $base . '-' . $suffix;
+		$suffix++;
+	}
+
+	return $key;
+}
+
+function ca_publisher_catalog_total_course_count( array $groups ): int {
+	$total = 0;
+	foreach ( $groups as $group ) {
+		$total += max( 0, intval( $group['count'] ?? 0 ) );
+	}
+
+	return $total;
+}
+
+function ca_publisher_catalog_selected_category_key( array $groups ): string {
+	$raw = isset( $_GET['ca_category'] ) ? sanitize_text_field( wp_unslash( strval( $_GET['ca_category'] ) ) ) : '';
+	$key = sanitize_title( $raw );
+	if ( '' === $key ) {
+		return '';
+	}
+
+	foreach ( $groups as $group ) {
+		if ( $key === strval( $group['key'] ?? '' ) ) {
+			return $key;
+		}
+	}
+
+	return '';
+}
+
+function ca_publisher_catalog_find_category_summary( array $groups, string $key ) {
+	if ( '' === $key ) {
+		return null;
+	}
+
+	foreach ( $groups as $group ) {
+		if ( $key === strval( $group['key'] ?? '' ) ) {
+			return $group;
+		}
+	}
+
+	return null;
+}
+
+function ca_publisher_catalog_current_page(): int {
+	$page = isset( $_GET['ca_page'] ) ? intval( wp_unslash( strval( $_GET['ca_page'] ) ) ) : 1;
+	return max( 1, $page );
+}
+
+function ca_publisher_catalog_courses_for_category( array $group, int $page, int $per_page ): array {
+	$post_type = ca_publisher_target_post_type();
+	if ( ! post_type_exists( $post_type ) ) {
+		return array(
+			'posts'        => array(),
+			'total'        => 0,
+			'max_pages'    => 0,
+			'current_page' => 1,
+			'start'        => 0,
+			'end'          => 0,
+		);
+	}
+
+	$args = array(
+		'post_type'              => $post_type,
+		'post_status'            => 'publish',
+		'posts_per_page'         => max( 1, $per_page ),
+		'paged'                  => max( 1, $page ),
+		'meta_key'               => CA_PUBLISHER_META_COURSE_ID,
+		'orderby'                => 'title',
+		'order'                  => 'ASC',
+		'update_post_meta_cache' => true,
+		'update_post_term_cache' => true,
+	);
+
+	if ( intval( $group['term_id'] ?? 0 ) > 0 && taxonomy_exists( 'stm_lms_course_taxonomy' ) ) {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => 'stm_lms_course_taxonomy',
+				'field'    => 'term_id',
+				'terms'    => array( intval( $group['term_id'] ) ),
+			),
+		);
+	} else {
+		$args['meta_query'] = array(
+			array(
+				'key'     => '_ca_category',
+				'value'   => strval( $group['label'] ?? '' ),
+				'compare' => '=',
+			),
+		);
+	}
+
+	$query       = new WP_Query( $args );
+	$total       = intval( $query->found_posts );
+	$current     = max( 1, intval( $query->query_vars['paged'] ?? 1 ) );
+	$per_page    = max( 1, intval( $query->query_vars['posts_per_page'] ?? $per_page ) );
+	$start       = $total > 0 ? ( ( $current - 1 ) * $per_page ) + 1 : 0;
+	$end         = $total > 0 ? min( $total, $start + count( $query->posts ) - 1 ) : 0;
+	$result      = array(
+		'posts'        => $query->posts,
+		'total'        => $total,
+		'max_pages'    => intval( $query->max_num_pages ),
+		'current_page' => $current,
+		'start'        => $start,
+		'end'          => $end,
+	);
+
+	wp_reset_postdata();
+	return $result;
+}
+
+function ca_publisher_catalog_result_label( array $result ): string {
+	$total = intval( $result['total'] ?? 0 );
+	if ( $total <= 0 ) {
+		return '0 courses';
+	}
+
+	return sprintf(
+		'Showing %s-%s of %s courses',
+		number_format_i18n( intval( $result['start'] ?? 0 ) ),
+		number_format_i18n( intval( $result['end'] ?? 0 ) ),
+		number_format_i18n( $total )
+	);
+}
+
+function ca_publisher_render_catalog_pagination( string $category_key, int $current_page, int $max_pages ): string {
+	if ( $max_pages <= 1 ) {
+		return '';
+	}
+
+	$current_page = max( 1, min( $current_page, $max_pages ) );
+	$start_page   = max( 1, $current_page - 2 );
+	$end_page     = min( $max_pages, $current_page + 2 );
+	$html         = '<nav class="ca-catalog-pagination" aria-label="Course pages">';
+
+	if ( $current_page > 1 ) {
+		$html .= '<a href="' . esc_url( ca_publisher_catalog_category_url( $category_key, $current_page - 1 ) ) . '">Prev</a>';
+	}
+
+	if ( $start_page > 1 ) {
+		$html .= '<a href="' . esc_url( ca_publisher_catalog_category_url( $category_key, 1 ) ) . '">1</a>';
+		if ( $start_page > 2 ) {
+			$html .= '<span>...</span>';
+		}
+	}
+
+	for ( $page = $start_page; $page <= $end_page; $page++ ) {
+		if ( $page === $current_page ) {
+			$html .= '<span class="is-current">' . esc_html( number_format_i18n( $page ) ) . '</span>';
+			continue;
+		}
+		$html .= '<a href="' . esc_url( ca_publisher_catalog_category_url( $category_key, $page ) ) . '">' . esc_html( number_format_i18n( $page ) ) . '</a>';
+	}
+
+	if ( $end_page < $max_pages ) {
+		if ( $end_page < $max_pages - 1 ) {
+			$html .= '<span>...</span>';
+		}
+		$html .= '<a href="' . esc_url( ca_publisher_catalog_category_url( $category_key, $max_pages ) ) . '">' . esc_html( number_format_i18n( $max_pages ) ) . '</a>';
+	}
+
+	if ( $current_page < $max_pages ) {
+		$html .= '<a href="' . esc_url( ca_publisher_catalog_category_url( $category_key, $current_page + 1 ) ) . '">Next</a>';
+	}
+
+	$html .= '</nav>';
+	return $html;
+}
+
+function ca_publisher_catalog_category_url( string $category_key, int $page = 1 ): string {
+	if ( '' === $category_key ) {
+		return ca_publisher_catalog_url();
+	}
+
+	$args = array( 'ca_category' => $category_key );
+	if ( $page > 1 ) {
+		$args['ca_page'] = $page;
+	}
+
+	return add_query_arg( $args, ca_publisher_catalog_url() );
+}
+
+function ca_publisher_catalog_featured_courses( int $limit ): array {
+	$post_type = ca_publisher_target_post_type();
+	if ( ! post_type_exists( $post_type ) ) {
+		return array();
+	}
+
+	return get_posts(
+		array(
+			'post_type'      => $post_type,
+			'post_status'    => 'publish',
+			'posts_per_page' => max( 1, $limit ),
+			'meta_key'       => CA_PUBLISHER_META_COURSE_ID,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		)
+	);
 }
 
 function ca_publisher_catalog_courses(): array {
@@ -914,6 +1292,28 @@ function ca_publisher_catalog_url(): string {
 	return home_url( '/courses/' );
 }
 
+function ca_publisher_home_total_lesson_count(): int {
+	$post_type = ca_publisher_target_post_type();
+	if ( ! post_type_exists( $post_type ) ) {
+		return 0;
+	}
+
+	global $wpdb;
+	return intval(
+		$wpdb->get_var(
+			$wpdb->prepare(
+				"SELECT COALESCE(SUM(CAST(lesson.meta_value AS UNSIGNED)), 0)
+				FROM {$wpdb->posts} p
+				INNER JOIN {$wpdb->postmeta} marker ON marker.post_id = p.ID AND marker.meta_key = %s
+				INNER JOIN {$wpdb->postmeta} lesson ON lesson.post_id = p.ID AND lesson.meta_key = '_ca_lesson_count'
+				WHERE p.post_type = %s AND p.post_status = 'publish'",
+				CA_PUBLISHER_META_COURSE_ID,
+				$post_type
+			)
+		)
+	);
+}
+
 function ca_publisher_home_total_lessons( array $courses ): int {
 	$total = 0;
 	foreach ( $courses as $course ) {
@@ -925,20 +1325,38 @@ function ca_publisher_home_total_lessons( array $courses ): int {
 	return $total;
 }
 
+function ca_publisher_catalog_category_image_url( array $group ): string {
+	$sample_id = intval( $group['sample_id'] ?? 0 );
+	if ( $sample_id <= 0 ) {
+		return '';
+	}
+
+	return ca_publisher_catalog_post_image_url( $sample_id, 'medium_large' );
+}
+
+function ca_publisher_catalog_post_image_url( int $post_id, string $size = 'medium_large' ): string {
+	$image_url = get_the_post_thumbnail_url( $post_id, $size );
+	if ( $image_url ) {
+		return $image_url;
+	}
+
+	$relative_path = trim( strval( get_post_meta( $post_id, '_ca_featured_image_relative_path', true ) ) );
+	if ( '' !== $relative_path ) {
+		return ca_publisher_media_url( $relative_path );
+	}
+
+	return '';
+}
+
 function ca_publisher_home_hero_image_url( array $courses ): string {
 	foreach ( $courses as $course ) {
 		if ( ! $course instanceof WP_Post ) {
 			continue;
 		}
 
-		$image_url = get_the_post_thumbnail_url( $course, 'large' );
-		if ( $image_url ) {
+		$image_url = ca_publisher_catalog_post_image_url( intval( $course->ID ), 'large' );
+		if ( '' !== $image_url ) {
 			return $image_url;
-		}
-
-		$relative_path = trim( strval( get_post_meta( $course->ID, '_ca_featured_image_relative_path', true ) ) );
-		if ( '' !== $relative_path ) {
-			return ca_publisher_media_url( $relative_path );
 		}
 	}
 
@@ -992,11 +1410,7 @@ function ca_publisher_render_catalog_card( WP_Post $course ): string {
 	$category      = ca_publisher_catalog_course_category_label( $course );
 	$permalink     = get_permalink( $course );
 	$title         = get_the_title( $course );
-	$image_url     = get_the_post_thumbnail_url( $course, 'medium_large' );
-	$relative_path = trim( strval( get_post_meta( $course->ID, '_ca_featured_image_relative_path', true ) ) );
-	if ( ! $image_url && '' !== $relative_path ) {
-		$image_url = ca_publisher_media_url( $relative_path );
-	}
+	$image_url     = ca_publisher_catalog_post_image_url( intval( $course->ID ), 'medium_large' );
 
 	ob_start();
 	?>
