@@ -1,0 +1,58 @@
+.mce-tools {
+  margin: 28px 0 12px;
+  padding: 20px 0;
+  border-top: 1px solid #dbe3e9;
+  color: #263642;
+}
+.mce-tools h3,
+.mce-tools h4,
+.mce-tools h5 { margin: 0 0 12px; color: #172b3a; }
+.mce-controls[hidden] { display: none; }
+.mce-tools button {
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 1px solid #166b61;
+  border-radius: 4px;
+  background: #fff;
+  color: #145e55;
+  font: inherit;
+  cursor: pointer;
+}
+.mce-tools button:hover,
+.mce-tools button:focus-visible { background: #eaf6f3; outline: 2px solid #166b61; outline-offset: 2px; }
+.mce-tools button[aria-pressed="true"] { background: #145e55; color: #fff; }
+.mce-scenes { margin-top: 22px; }
+.mce-strict-note { margin: 0 0 10px; color: #596b78; }
+.mce-scene-list,
+.mce-transcript-list { margin: 0; padding: 0; list-style: none; }
+.mce-scene-list li + li,
+.mce-transcript-list li + li { border-top: 1px solid #e3e9ed; }
+.mce-scene-button { display: flex; width: 100%; align-items: baseline; gap: 14px; border: 0 !important; border-radius: 0 !important; text-align: left; }
+.mce-scene-time { min-width: 46px; color: #145e55; font-variant-numeric: tabular-nums; }
+.mce-scene-title { color: #263642; }
+.mce-transcript { margin-top: 20px; border-block: 1px solid #dbe3e9; }
+.mce-transcript summary { padding: 14px 0; color: #145e55; font-weight: 600; cursor: pointer; }
+.mce-transcript-list li { padding: 16px 0; }
+.mce-transcript-list p { margin: 0; white-space: pre-line; line-height: 1.65; }
+.mce-tools :focus-visible { outline: 2px solid #166b61; outline-offset: 2px; }
+.mce-study > details { border-bottom: 1px solid #dbe3e9; }
+.mce-study summary { padding: 14px 0; font-weight: 600; cursor: pointer; color: #145e55; }
+.mce-card { border-top: 1px solid #e3e9ed; }
+.mce-card summary { color: #263642; font-weight: 500; }
+.mce-card p { line-height: 1.65; padding-bottom: 14px; }
+.mce-study fieldset { border: 0; margin: 18px 0; padding: 0; min-width: 0; }
+.mce-study legend { font-weight: 600; margin-bottom: 10px; font-size: 17px; }
+.mce-study label { display: flex; align-items: flex-start; gap: 10px; margin: 12px 0; line-height: 1.55; }
+.mce-study input[type="radio"], .mce-study input[type="checkbox"] { flex: 0 0 auto; width: 18px; height: 18px; margin-top: 3px; accent-color: #166b61; }
+.mce-study textarea { display: block; box-sizing: border-box; width: 100%; max-width: 100%; min-height: 100px; border: 1px solid #9aabb5; border-radius: 4px; padding: 12px; font: inherit; background: #fff; color: #263642; }
+.mce-actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0; }
+.mce-tools button:disabled { cursor: default; opacity: .6; }
+.mce-feedback { min-height: 24px; padding: 8px 0; line-height: 1.6; }
+.mce-feedback[data-result="correct"] { color: #145e55; }
+.mce-feedback[data-result="review"] { color: #9d3423; }
+.mce-save-status { font-size: 14px; line-height: 1.55; }
+.mce-tools { overflow-wrap: anywhere; }
+@media (max-width: 600px) {
+  .mce-tools { padding: 16px 0; }
+  .mce-scene-button { align-items: flex-start; gap: 10px; }
+}

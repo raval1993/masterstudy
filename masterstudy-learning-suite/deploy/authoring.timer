@@ -1,0 +1,11 @@
+[Unit]
+Description=Run queued MasterStudy AI drafts
+
+[Timer]
+OnBootSec=2min
+OnUnitInactiveSec=2min
+AccuracySec=15s
+Unit=masterstudy-ai-authoring.service
+
+[Install]
+WantedBy=timers.target

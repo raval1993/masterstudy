@@ -62,13 +62,14 @@ def scan_training_updates(
     for course in registry_courses:
         unit_code = normalize_code(str(course.get("unit_code") or course.get("course_id") or ""))
         update = update_lookup.get(unit_code)
-        status = "up_to_date"
-        action = "no_action"
+        status = "not_checked"
+        action = "verify_official_record"
         if update and bool(update.get("is_superseded")):
             status = "needs_compliance_review"
             action = "review_replacement_and_regenerate_course"
-        elif update:
+        elif update and bool(update.get("is_current")):
             status = "checked_current"
+            action = "no_action"
 
         rows.append(
             {
@@ -94,6 +95,7 @@ def scan_training_updates(
         "total_courses": len(rows),
         "needs_review": sum(1 for row in rows if row["compliance_status"] == "needs_compliance_review"),
         "checked_current": sum(1 for row in rows if row["compliance_status"] == "checked_current"),
+        "not_checked": sum(1 for row in rows if row["compliance_status"] == "not_checked"),
         "courses": rows,
     }
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -212,6 +214,7 @@ def normalize_update_row(row: dict[str, object]) -> dict[str, object]:
         "unit_code": unit_code,
         "source_status": status or current or superseded_flag,
         "is_superseded": is_superseded_status(status, replacement, current, superseded_flag),
+        "is_current": status.strip().lower() == "current" or current.strip().lower() in {"true", "yes", "y", "1", "current"},
         "replacement_unit_code": replacement,
         "update_notes": notes,
         "raw": row,
@@ -271,8 +274,10 @@ def update_tracker_with_compliance(settings: Settings, report_rows: list[dict[st
             notes = str(report.get("update_notes") or "Unit is superseded or non-current in update export.")
             replacement = str(report.get("replacement_unit_code") or "")
             row["Error/Notes"] = f"{notes} Replacement: {replacement}".strip()
-        elif row.get("QA Status") in {"", "pending"}:
+        elif report.get("compliance_status") == "checked_current" and row.get("QA Status") in {"", "pending"}:
             row["Error/Notes"] = "Compliance update export checked; no review flag found."
+        elif report.get("compliance_status") == "not_checked" and row.get("QA Status") in {"", "pending"}:
+            row["Error/Notes"] = "No explicitly current official record found; currency is not checked."
 
     with settings.tracker_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=TRACKER_COLUMNS)

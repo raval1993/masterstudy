@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Course Automation Publisher
  * Description: Imports generated course packages into WordPress/MasterStudy draft courses, lessons, and curriculum.
- * Version: 0.4.3
+ * Version: 0.4.4
  * Author: Course Automation
  * Text Domain: course-automation-publisher
  */
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const CA_PUBLISHER_VERSION          = '0.4.3';
+const CA_PUBLISHER_VERSION          = '0.4.4';
 const CA_PUBLISHER_META_COURSE_ID   = '_ca_course_id';
 const CA_PUBLISHER_META_LESSON_KEY  = '_ca_lesson_key';
 const CA_PUBLISHER_CATALOG_PER_PAGE = 24;
@@ -277,7 +277,13 @@ function ca_publisher_import_blueprint_file( string $file ) {
 
 	$post_type = ca_publisher_target_post_type();
 	$post_id   = ca_publisher_find_existing_course( $course_id, $post_type );
+	$verified_release = $post_id > 0 ? get_post_meta( $post_id, '_ca_verified_release', true ) : '';
+	if ( '' !== $verified_release && ( ! defined( 'CA_PUBLISHER_RELEASE_IMPORT' ) || ! CA_PUBLISHER_RELEASE_IMPORT ) ) {
+		return new WP_Error( 'ca_protected_release', 'This course has a verified release. Use the reviewed release importer to update it.' );
+	}
 	$content   = ca_publisher_render_course_content( $data );
+	$conflict = ca_publisher_preflight_edits( $post_id, $data, $content );
+	if ( is_wp_error( $conflict ) ) { return $conflict; }
 	$status    = $post_id > 0 && 'publish' === get_post_status( $post_id ) ? 'publish' : 'draft';
 
 	$postarr = array(
@@ -287,6 +293,7 @@ function ca_publisher_import_blueprint_file( string $file ) {
 		'post_content' => $content,
 		'post_author'  => ca_publisher_default_author_id(),
 	);
+	if ( $post_id > 0 ) { $postarr['post_author'] = (int) get_post_field( 'post_author', $post_id ); }
 
 	if ( $post_id > 0 ) {
 		$postarr['ID'] = $post_id;
@@ -300,6 +307,7 @@ function ca_publisher_import_blueprint_file( string $file ) {
 	}
 
 	$post_id = intval( $result );
+	update_post_meta( $post_id, '_ca_import_content_hash', hash( 'sha256', $content ) );
 	update_post_meta( $post_id, CA_PUBLISHER_META_COURSE_ID, $course_id );
 	update_post_meta( $post_id, '_ca_category', ca_publisher_string_value( $data, 'category' ) );
 	update_post_meta( $post_id, '_ca_source_file', ca_publisher_string_value( $data, 'source_file' ) );
@@ -318,8 +326,52 @@ function ca_publisher_import_blueprint_file( string $file ) {
 	update_post_meta( $post_id, '_ca_curriculum_sections', intval( $curriculum['sections'] ) );
 	update_post_meta( $post_id, '_ca_curriculum_lessons', intval( $curriculum['lessons'] ) );
 	update_post_meta( $post_id, '_ca_curriculum_status', $curriculum['status'] );
+	update_post_meta( $post_id, '_ca_import_snapshot_hash', ca_publisher_snapshot_hash( $post_id ) );
+	update_post_meta( $post_id, '_ca_import_curriculum_hash', ca_publisher_curriculum_hash( $post_id ) );
 
 	return $post_id;
+}
+
+function ca_publisher_snapshot_hash( int $id ): string {
+	$values = array( get_post_field( 'post_title', $id ), get_post_field( 'post_content', $id ), get_post_field( 'post_excerpt', $id ) );
+	foreach ( array( 'type', 'duration', 'lesson_excerpt', 'video_type', 'lesson_ext_link_url', 'lesson_embed_ctx', 'video_required_progress' ) as $key ) { $values[ $key ] = get_post_meta( $id, $key, true ); }
+	return hash( 'sha256', serialize( $values ) );
+}
+
+function ca_publisher_curriculum_hash( int $course ): string {
+	if ( ! ca_publisher_curriculum_tables_ready() ) { return ''; }
+	global $wpdb;
+	$rows = $wpdb->get_results( $wpdb->prepare( "SELECT s.title,s.`order` AS section_order,m.post_id,m.post_type,m.`order` AS material_order FROM {$wpdb->prefix}stm_lms_curriculum_sections s LEFT JOIN {$wpdb->prefix}stm_lms_curriculum_materials m ON m.section_id=s.id WHERE s.course_id=%d ORDER BY s.`order`,s.id,m.`order`,m.id", $course ), ARRAY_A );
+	return hash( 'sha256', serialize( $rows ) );
+}
+
+function ca_publisher_preflight_edits( int $course, array $data, string $content ) {
+	if ( ! $course ) { return true; }
+	$records = array( $course => $content ); $titles = array( $course => sprintf( '%s - %s', ca_publisher_string_value( $data, 'course_id' ), ca_publisher_string_value( $data, 'title' ) ) ); $incoming_ids = array();
+	foreach ( $data['modules'] ?? array() as $index => $module ) {
+		$title = ca_publisher_string_value( $module, 'title', 'Module ' . ( $index + 1 ) );
+		foreach ( $module['lessons'] ?? array() as $lesson ) {
+			$key = ca_publisher_string_value( $lesson, 'lesson_id' );
+			if ( ! $key ) { $key = sanitize_title( ca_publisher_string_value( $lesson, 'title', 'Lesson' ) ); }
+			$id = ca_publisher_find_existing_lesson( ca_publisher_string_value( $data, 'course_id' ) . ':' . $key );
+			if ( $id ) { $records[ $id ] = ca_publisher_render_lesson_content( $lesson, $title ); $titles[ $id ] = ca_publisher_string_value( $lesson, 'title', 'Lesson' ); $incoming_ids[] = $id; }
+		}
+	}
+	$reason = '';
+	foreach ( $records as $id => $incoming ) {
+		$baseline = get_post_meta( $id, '_ca_import_snapshot_hash', true );
+		if ( $baseline && ! hash_equals( $baseline, ca_publisher_snapshot_hash( $id ) ) ) { $reason = 'An imported field was changed manually on record ' . $id . '.'; break; }
+		if ( ! $baseline && get_post_field( 'post_content', $id ) !== $incoming ) { $reason = 'Record ' . $id . ' has no verified edit baseline; review the proposed replacement first.'; break; }
+		if ( ! $baseline && get_post_field( 'post_title', $id ) !== $titles[ $id ] ) { $reason = 'An existing title differs from the incoming title on record ' . $id . '.'; break; }
+		if ( get_post_meta( $id, '_mls_manual_content_lock', true ) && get_post_field( 'post_content', $id ) !== $incoming ) { $reason = 'Reviewed teaching additions are protected on record ' . $id . '.'; break; }
+	}
+	$curriculum = get_post_meta( $course, '_ca_import_curriculum_hash', true );
+	if ( $curriculum && ! hash_equals( $curriculum, ca_publisher_curriculum_hash( $course ) ) ) { $reason = 'The curriculum was changed manually after import.'; }
+	$old_ids = array_values( array_filter( array_map( 'intval', (array) get_post_meta( $course, '_ca_lesson_post_ids', true ) ) ) );
+	if ( array_diff( $old_ids, $incoming_ids ) ) { $reason = 'This import removes existing lessons. Preserve enrolments and review the curriculum change first.'; }
+	if ( ! $reason ) { return true; }
+	update_post_meta( $course, '_ca_import_conflict', array( 'detected_at' => gmdate( 'c' ), 'reason' => $reason, 'incoming_sha256' => hash( 'sha256', wp_json_encode( $data ) ) ) );
+	return new WP_Error( 'ca_manual_edit_conflict', $reason . ' No course content or curriculum was replaced.' );
 }
 
 function ca_publisher_find_existing_course( string $course_id, string $post_type ): int {
@@ -1723,6 +1775,7 @@ function ca_publisher_upsert_masterstudy_lesson( array $lesson, string $course_i
 	);
 
 	if ( $post_id > 0 ) {
+		$postarr['post_author'] = (int) get_post_field( 'post_author', $post_id );
 		$postarr['ID'] = $post_id;
 		$result        = wp_update_post( $postarr, true );
 	} else {
@@ -1755,6 +1808,8 @@ function ca_publisher_upsert_masterstudy_lesson( array $lesson, string $course_i
 		update_post_meta( $post_id, 'lesson_ext_link_url', '' );
 	}
 	update_post_meta( $post_id, 'video_required_progress', 0 );
+	update_post_meta( $post_id, '_ca_import_content_hash', hash( 'sha256', get_post_field( 'post_content', $post_id ) ) );
+	update_post_meta( $post_id, '_ca_import_snapshot_hash', ca_publisher_snapshot_hash( $post_id ) );
 
 	return $post_id;
 }
