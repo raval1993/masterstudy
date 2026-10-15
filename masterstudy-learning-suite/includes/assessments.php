@@ -3,7 +3,7 @@ defined( 'ABSPATH' ) || exit;
 
 function mls_submission_hash( int $id ): string { return hash( 'sha256', get_post_field( 'post_content', $id ) . ':' . get_post_meta( $id, '_mls_evidence_version', true ) ); }
 
-function mls_record_grade( int $course, int $id, string $status, string $feedback, string $expected ) {
+function mls_record_grade( int $course, int $id, string $status, string $feedback, string $expected, array $marks = array() ) {
 	if ( ! mls_manage( $course ) || get_post_type( $id ) !== 'mls_attempt' || (int) get_post_meta( $id, '_mls_course', true ) !== $course || ! in_array( $status, array( 'passed', 'revision_required' ), true ) ) { return mls_error( 'Invalid assessment decision.', 403 ); }
 	global $wpdb; $lock = 'mls-submit-' . $id;
 	if ( (int) $wpdb->get_var( $wpdb->prepare( 'SELECT GET_LOCK(%s,2)', $lock ) ) !== 1 ) { return mls_error( 'Please retry shortly.', 409 ); }
@@ -13,7 +13,15 @@ function mls_record_grade( int $course, int $id, string $status, string $feedbac
 		$context = mls_context( (int) get_post_meta( $id, '_mls_lesson', true ) );
 		if ( ! $context || $context['release'] !== get_post_meta( $id, '_mls_release', true ) || ! in_array( get_post_meta( $id, '_mls_status', true ), array( 'pending_review', 'passed', 'revision_required' ), true ) ) { return mls_error( 'This attempt is not reviewable for the current release.', 409 ); }
 		$feedback = sanitize_textarea_field( $feedback ); if ( ! trim( $feedback ) || strlen( $feedback ) > 10000 ) { return mls_error( 'Provide written feedback, up to 10000 characters.' ); }
-		$content = json_decode( get_post_field( 'post_content', $id ), true ); $content['feedback'] = $feedback; $content['reviewed_by'] = get_current_user_id(); $content['reviewed_at'] = time();
+		$content = json_decode( get_post_field( 'post_content', $id ), true );
+		if ( mls_has_rubric( $content['bank'] ) ) {
+			try { $review = mls_rubric_result( $content['bank'], $content['answers'], $marks ); }
+			catch ( InvalidArgumentException $error ) { return mls_error( $error->getMessage() ); }
+			if ( ! mls_rubric_evidence_check( $id, $review['marks'] ) ) { return mls_error( 'Evidence is missing, changed or belongs to another submission.', 409 ); }
+			if ( $status === 'passed' && $review['status'] !== 'passed' ) { return mls_error( 'A pass requires the weighted threshold, every criterion minimum and required evidence.' ); }
+			$content['rubric_review'] = $review; $content['score'] = $review['score'];
+		} elseif ( $marks ) { return mls_error( 'This submission has no weighted rubric.' ); }
+		$content['feedback'] = $feedback; $content['reviewed_by'] = get_current_user_id(); $content['reviewed_at'] = time();
 		$result = wp_update_post( array( 'ID' => $id, 'post_content' => wp_slash( wp_json_encode( $content ) ) ), true ); if ( is_wp_error( $result ) ) { return $result; }
 		update_post_meta( $id, '_mls_status', $status ); mls_event( $course, $context['lesson_id'], 'instructor_decision', array( 'attempt' => $id, 'status' => $status, 'feedback' => $feedback ) ); return true;
 	} finally { $wpdb->get_var( $wpdb->prepare( 'SELECT RELEASE_LOCK(%s)', $lock ) ); }
@@ -59,6 +67,7 @@ function mls_attempt_view( WP_Post $post ) {
 	$status = get_post_meta( $post->ID, '_mls_status', true );
 	$return = array( 'attempt' => $post->ID, 'status' => $status, 'started_at' => $data['started_at'], 'expires_at' => $data['bank']['minutes'] ? $data['started_at'] + $data['bank']['minutes'] * 60 : null, 'bank' => mls_public_bank( $data['bank'] ), 'answers' => $data['answers'] ?? array(), 'score' => $data['score'] ?? null, 'feedback' => $data['feedback'] ?? '' );
 	$return['evidence'] = array();
+	if ( isset( $data['rubric_review'] ) ) { $return['rubric_review'] = $data['rubric_review']; }
 	foreach ( get_posts( array( 'post_type' => 'mls_evidence', 'post_status' => 'private', 'posts_per_page' => 5, 'meta_key' => '_mls_attempt', 'meta_value' => $post->ID ) ) as $item ) { if ( mls_evidence_allowed( $item ) ) { $return['evidence'][] = array( 'id' => $item->ID, 'name' => $item->post_title, 'url' => mls_evidence_url( $item->ID ) ); } }
 	if ( $status !== 'in_progress' ) { $return['suggested_answers'] = array_column( $data['bank']['questions'], 'explanation', 'id' ); }
 	return mls_private_response( $return );

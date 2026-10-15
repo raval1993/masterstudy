@@ -2,11 +2,11 @@
 /**
  * Plugin Name: MasterStudy Learning Suite
  * Description: Question banks, assessment submissions, course rules, learner records and local AI tutoring.
- * Version: 0.2.3
+ * Version: 0.3.2
  */
 defined( 'ABSPATH' ) || exit;
-const MLS_VERSION = '0.2.3';
-foreach ( array( 'core', 'assessments', 'admin', 'gates', 'tutor', 'workflow', 'authoring', 'portal', 'evidence', 'cohorts', 'operations', 'reviews', 'certificates', 'seo', 'mail', 'media' ) as $module ) {
+const MLS_VERSION = '0.3.2';
+foreach ( array( 'core', 'forms', 'rubrics', 'assessments', 'admin', 'gates', 'tutor', 'workflow', 'authoring', 'portal', 'evidence', 'cohorts', 'operations', 'reviews', 'certificates', 'seo', 'mail', 'media' ) as $module ) {
 	require_once __DIR__ . '/includes/' . $module . '.php';
 }
 register_activation_hook( __FILE__, 'mls_activate' );
@@ -47,7 +47,7 @@ function mls_activate(): void {
 }
 
 function mls_post_types(): void {
-	foreach ( array( 'mls_bank' => 'Question banks', 'mls_attempt' => 'Assessment attempts', 'mls_event' => 'Learning events', 'mls_group' => 'Learning groups', 'mls_job' => 'AI authoring jobs', 'mls_draft' => 'Teaching drafts', 'mls_evidence' => 'Private evidence', 'mls_revision' => 'Teaching revisions', 'mls_certificate' => 'Completion certificates', 'mls_mail' => 'Learning mail outbox' ) as $type => $label ) {
+	foreach ( array( 'mls_bank' => 'Question banks', 'mls_attempt' => 'Assessment attempts', 'mls_event' => 'Learning events', 'mls_group' => 'Learning groups', 'mls_job' => 'AI authoring jobs', 'mls_draft' => 'Teaching drafts', 'mls_evidence' => 'Private evidence', 'mls_revision' => 'Teaching revisions', 'mls_certificate' => 'Completion certificates', 'mls_mail' => 'Learning mail outbox', 'mls_form_entry' => 'Private learner forms' ) as $type => $label ) {
 		register_post_type( $type, array( 'label' => $label, 'public' => false, 'show_ui' => false, 'show_in_rest' => false, 'supports' => array( 'title', 'editor', 'author' ), 'map_meta_cap' => true ) );
 	}
 }

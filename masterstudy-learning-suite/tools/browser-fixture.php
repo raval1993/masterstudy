@@ -14,7 +14,7 @@ if ( $action === 'cleanup' ) {
 			if ( preg_match( '/^[a-f0-9]{48}\.(pdf|png|jpe?g|txt)$/', $data['storage'] ?? '' ) ) { $path = mls_private_dir() . '/' . $data['storage']; if ( is_file( $path ) && ! is_link( $path ) ) { unlink( $path ); } }
 			wp_delete_post( $evidence->ID, true );
 		}
-		foreach ( get_posts( array( 'post_type' => array( 'mls_attempt', 'mls_event' ), 'post_status' => 'private', 'author' => $id, 'posts_per_page' => -1, 'fields' => 'ids' ) ) as $post ) { wp_delete_post( $post, true ); }
+		foreach ( get_posts( array( 'post_type' => array( 'mls_attempt', 'mls_event', 'mls_form_entry' ), 'post_status' => 'private', 'author' => $id, 'posts_per_page' => -1, 'fields' => 'ids' ) ) as $post ) { wp_delete_post( $post, true ); }
 		wp_delete_user( $id );
 	}
 	echo "Temporary browser test accounts and their course records removed.\n"; return;

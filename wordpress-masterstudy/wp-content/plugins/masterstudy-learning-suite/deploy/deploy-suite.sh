@@ -8,7 +8,7 @@ stage=/root/migration/suite-stage-$stamp
 mkdir -m 0700 "$backup" "$stage"
 "${wp[@]}" db export "$backup/database.sql" --quiet
 if test -d "$site/wp-content/plugins/masterstudy-learning-suite"; then cp -a "$site/wp-content/plugins/masterstudy-learning-suite" "$backup/plugin"; fi
-unzip -q /root/migration/masterstudy-learning-suite-0.2.3.zip -d "$stage"
+unzip -q /root/migration/masterstudy-learning-suite-0.3.2.zip -d "$stage"
 source=$stage/masterstudy-learning-suite
 find "$source" -name '*.php' -print0 | xargs -0 -n1 php -l
 php "$source/tests/test-core.php"

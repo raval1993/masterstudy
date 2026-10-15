@@ -3,13 +3,17 @@ defined( 'ABSPATH' ) || exit;
 
 function mls_validate_bank( array $bank ): array {
 	$questions = $bank['questions'] ?? array();
-	if ( ! is_array( $questions ) || ! $questions || count( $questions ) > 30 ) { throw new InvalidArgumentException( 'Provide 1-30 questions.' ); }
+	if ( ! is_array( $questions ) || ! array_is_list( $questions ) || ! $questions || count( $questions ) > 30 ) { throw new InvalidArgumentException( 'Provide 1-30 questions.' ); }
 	$clean = array();
 	foreach ( $questions as $index => $question ) {
 		$type = $question['type'] ?? 'short';
 		$prompt = trim( wp_strip_all_tags( is_string( $question['prompt'] ?? null ) ? $question['prompt'] : '' ) );
 		if ( ! in_array( $type, array( 'mcq', 'short', 'practical' ), true ) || strlen( $prompt ) < 10 || strlen( $prompt ) > 2000 ) { throw new InvalidArgumentException( 'Invalid question prompt/type.' ); }
 		$row = array( 'id' => 'q' . $index, 'type' => $type, 'prompt' => $prompt, 'explanation' => sanitize_textarea_field( $question['explanation'] ?? '' ), 'rubric' => sanitize_textarea_field( $question['rubric'] ?? '' ) );
+		if ( ! empty( $question['criteria'] ) ) {
+			if ( $type === 'mcq' ) { throw new InvalidArgumentException( 'Weighted criteria belong to written or practical questions.' ); }
+			$row['criteria'] = mls_validate_criteria( $question['criteria'] );
+		}
 		if ( $type === 'mcq' ) {
 			$options = $question['options'] ?? array();
 			if ( ! is_array( $options ) || count( $options ) < 2 || count( $options ) > 6 || ! isset( $question['correct'] ) || ! is_int( $question['correct'] ) || $question['correct'] < 0 || $question['correct'] >= count( $options ) ) { throw new InvalidArgumentException( 'Invalid choices or answer index.' ); }
@@ -19,6 +23,7 @@ function mls_validate_bank( array $bank ): array {
 		}
 		$clean[] = $row;
 	}
+	if ( array_filter( $clean, fn( $row ) => ! empty( $row['criteria'] ) ) ) { foreach ( $clean as $row ) { if ( $row['type'] !== 'mcq' && empty( $row['criteria'] ) ) { throw new InvalidArgumentException( 'Every written question needs criteria in a weighted rubric.' ); } } }
 	return array( 'questions' => $clean, 'minutes' => max( 0, min( 180, (int) ( $bank['minutes'] ?? 0 ) ) ), 'pass_percent' => max( 1, min( 100, (int) ( $bank['pass_percent'] ?? 80 ) ) ), 'randomize' => ! empty( $bank['randomize'] ) );
 }
 
@@ -30,7 +35,7 @@ function mls_grade( array $bank, array $answers ): array {
 		++$count;
 		if ( is_int( $answer ) && $answer === $question['correct'] ) { ++$correct; }
 	}
-	$score = $count ? (int) round( 100 * $correct / $count ) : null;
+	$score = $count && ! ( $manual && mls_has_rubric( $bank ) ) ? (int) round( 100 * $correct / $count ) : null;
 	return array( 'score' => $score, 'status' => $manual ? 'pending_review' : ( $score !== null && $score >= $bank['pass_percent'] ? 'passed' : 'revision_required' ) );
 }
 

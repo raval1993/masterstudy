@@ -10,15 +10,11 @@ function mls_lesson_tools( string $content ): string {
 	$bank = mls_bank( $context );
 	$sections = mce_study_sections( $post->post_content );
 	$live = get_post_meta( $context['course_id'], '_mls_live', true );
-	$fields = get_post_meta( $context['course_id'], '_mls_form', true );
-	$form_record = get_user_meta( get_current_user_id(), '_mls_form_' . $context['course_id'], true );
 	ob_start(); ?>
 	<section class="mls-tools" data-base="<?php echo esc_url( rest_url( 'mls/v1/' ) ); ?>" data-lesson="<?php echo $post->ID; ?>" data-attempt="<?php echo absint( $_GET['mls_attempt'] ?? 0 ); ?>" data-nonce="<?php echo esc_attr( wp_create_nonce( 'wp_rest' ) ); ?>">
 		<h3>Learning activities</h3>
-		<?php if ( is_array( $fields ) && $fields ) : ?><details><summary>My learning goals</summary><form class="mls-learner-form">
-		<?php foreach ( $fields as $field ) : ?><p><label><?php echo esc_html( $field['label'] ); ?><textarea name="<?php echo esc_attr( $field['name'] ); ?>" rows="3" maxlength="1000" <?php echo $field['required'] ? 'required' : ''; ?>><?php echo esc_textarea( $form_record['answers'][ $field['name'] ] ?? '' ); ?></textarea></label></p><?php endforeach; ?>
-		<button type="submit">Save goals</button><p class="mls-form-status" role="status"></p></form></details><?php endif; ?>
-		<?php if ( $bank ) : ?><details><summary><?php echo get_post_meta( $bank->ID, '_mls_origin', true ) === 'authored_pilot_v1' ? 'Practice assessment' : 'Assessment'; ?></summary><div class="mls-assessment"><button type="button" class="mls-start">Start assessment</button><p class="mls-assessment-status" role="status"></p><div class="mls-assessment-body"></div></div></details><?php endif; ?>
+		<?php echo mls_form_render( $context ); ?>
+		<?php if ( $bank ) : ?><details><summary><?php echo in_array( get_post_meta( $bank->ID, '_mls_origin', true ), array( 'authored_pilot_v1', 'instructor-rubric-v1' ), true ) ? 'Practice assessment' : 'Assessment'; ?></summary><div class="mls-assessment"><button type="button" class="mls-start">Start assessment</button><p class="mls-assessment-status" role="status"></p><div class="mls-assessment-body"></div></div></details><?php endif; ?>
 		<details><summary>Course tutor</summary><form class="mls-tutor"><label for="mls-question-<?php echo $post->ID; ?>">Your lesson question</label><textarea id="mls-question-<?php echo $post->ID; ?>" name="question" rows="3" minlength="5" maxlength="1500" required></textarea><button type="submit">Ask tutor</button></form><div class="mls-tutor-answer" aria-live="polite"></div></details>
 		<?php if ( $sections ) : ?><details><summary>Spaced review</summary>
 		<?php foreach ( $sections as $index => $section ) : ?><div class="mls-review-card" data-card="<?php echo $index; ?>"><details><summary><?php echo esc_html( $section['heading'] ); ?></summary><p><?php echo nl2br( esc_html( $section['text'] ) ); ?></p></details><div class="mls-rating"><button type="button" data-rating="again">Again</button><button type="button" data-rating="good">Good</button><button type="button" data-rating="easy">Easy</button></div><p class="mls-card-status" role="status"></p></div><?php endforeach; ?>

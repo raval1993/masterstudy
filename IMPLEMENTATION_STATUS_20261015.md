@@ -6,7 +6,28 @@ that all 45 commercial product requirements or all course upgrades are complete.
 
 ## Delivered In This Release
 
-- Learning Suite 0.2.3; Course Automation Publisher 0.4.4.
+- Learning Suite 0.3.2; Course Automation Publisher 0.4.4.
+- Visual learner-form editor with text, long text, select, confirmation, date and
+  bounded whole-number fields. Server validation, duplicate-key/choice rejection,
+  schema conflict checks and private response history are implemented. Assigned
+  instructors can review responses; only administrators change the form schema.
+  Old responses are not silently applied to changed forms. No role, password or
+  arbitrary WordPress profile metadata can be changed through these forms.
+- Structured practice rubrics with weighted criterion points, minimums, required
+  file evidence and instructor marking. Required evidence is linked to the same
+  learner, attempt and release, and its stored file hash is verified. Learners
+  see expectations and reviewed criterion scores, but not private marker notes.
+- A rubric editor creates a separate assessment version and preserves original
+  banks and in-flight attempt snapshots. Practical tasks never auto-pass; a
+  reviewer cannot record a pass below the exact weighted threshold, below a
+  criterion minimum, or without required evidence. These are formative practice
+  workflows, not automatic RTO competency decisions.
+- Completion-record eligibility checks the latest enabled bank for each lesson,
+  not every historical bank version. Old quiz passes cannot substitute for a new
+  practical task, and new learners need not complete an inaccessible old version.
+- The BSBTEC202 pilot now has a typed learning-goals form and a source-matched
+  workplace-email practical task with three criteria. Other courses were not
+  assigned copied generic tasks or bulk-approved source-reflection drafts.
 - Private PDF/PNG/JPEG/text evidence uploads, up to five files of 10 MB per attempt.
   Files live outside the public website, have SHA-256 integrity records and are
   downloadable only by the owner or an assigned instructor/administrator.
@@ -67,8 +88,9 @@ Flags overlap and must NOT be added together. A linked video is not proof of a
 playable complete video; a text-length check is not an instructional-quality
 evaluation. One pilot meets the basic automated checks. The 338 verified-release
 courses are internally verified releases, not independently accredited courses.
-There are still 4,443 source-reflection draft banks and 10 approved authored pilot
-banks. This release did not bulk-approve AI outputs or generate the missing
+There are still 4,443 source-reflection draft banks and 11 published pilot bank
+versions covering 10 pilot lessons, including the preserved prior quiz version.
+This release did not bulk-approve AI outputs or generate the missing
 catalogue videos. Those are substantive remaining production/review tasks.
 
 ## Complete Requirements Register
@@ -95,7 +117,7 @@ configuration remains. No row is a separately licensed retail product.
 | 15 Zoom | Manual HTTPS links only | Owner account, approved integration and attendance |
 | 16 SCORM player | Not implemented | Proven import/runtime plus interoperability/security tests |
 | 17 Certificates | Partial, expanded | Visual designer, QR and approved credential rules |
-| 18 Forms | Partial | Visual editor, rich field types and profile mappings |
+| 18 Forms | Typed visual-editor core available | Approved profile mappings, conditional logic and broader rollout |
 | 19 Media vault | Partial, expanded | S3/R2 offload, expiry links and watermarking |
 | 20 AI course lab | Partial, expanded | Reliable reviewed whole-course creation/apply workflows |
 | 21 WooCommerce | Not implemented | Product bridge, payments, taxes, refunds/subscriptions |
@@ -106,7 +128,7 @@ configuration remains. No row is a separately licensed retail product.
 | 26 AI videos | Partial | Missing catalogue videos, avatar/provider integrations |
 | 27 RAG tutor | Partial | Whole-course retrieval, stronger model and evaluation |
 | 28 AI marking | Advisory only | Validated scoring; human written/practical decisions remain |
-| 29 Rubrics | Partial | Unit-specific weights, evidence mapping and reviewed criteria |
+| 29 Rubrics | Weighted formative core available | Course/unit-specific authored criteria, qualified review and broader rollout |
 | 30 Diagrams/images | Partial | Accurate topic-specific illustrations and 1080p artwork |
 | 31 Conversion | Partial | Broader PDF/PPT/media extraction with format QA |
 | 32 SCORM export | Not implemented | Proven export and external-LMS testing |
@@ -141,7 +163,7 @@ Provide service names and ownership/configuration choices, not secrets in chat:
 - Payment provider, legal seller, currency/prices/tax/refund rules before commerce.
 - Qualified content/assessment reviewers and approved unit/evidence mappings.
 
-These inputs do not explain every remaining gap: SCORM, commerce, richer forms,
+These inputs do not explain every remaining gap: SCORM, commerce, conditional forms,
 translation, analytics, retail licensing and the rest still require development.
 They must not be reported to the client as completed or just awaiting a password.
 
@@ -149,6 +171,9 @@ They must not be reported to the client as completed or just awaiting a password
 
 - Learner hub: https://212.81.47.151/learning-hub/
 - Instructor/admin: WordPress > Learning Suite > Operations.
+- Form editor/responses: WordPress > Learning Suite > Learner forms.
+- Rubric authoring: WordPress > Learning Suite > Assessment rubrics. Instructor
+  criterion marking is in the existing course submission review screen.
 - Local canonical project: `C:/laragon/www/lms-masterstudy/_project`.
 - Live private evidence: `/opt/masterstudy/private-learning` (never Git/public HTML).
 - Live deployment takes a database/code backup before replacement and tests the
@@ -158,6 +183,9 @@ They must not be reported to the client as completed or just awaiting a password
   preservation, evidence authorization/download, importer conflict safeguards,
   explicit-current compliance matching, trusted HTTPS and actual HTTP 206/403
   media behavior. A disposable learner upload/download matched its source hash.
+- Release 0.3.2 additionally checks typed answers, stale schema rejection,
+  idempotent saves, private response scoping, weighted marks, required evidence,
+  cross-attempt/tampered file rejection, instructor permissions and bank snapshots.
 - Desktop and mobile learner evidence screens were visually checked. Temporary
   test accounts, enrolments, attempts and private evidence are removed afterward.
 

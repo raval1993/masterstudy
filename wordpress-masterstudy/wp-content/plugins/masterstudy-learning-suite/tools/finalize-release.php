@@ -2,7 +2,7 @@
 if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) { exit( 1 ); }
 $admins = get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
 wp_set_current_user( (int) $admins[0] );
-mls_event( 0, 0, 'platform_release_verified', array( 'version' => MLS_VERSION, 'checks' => array( 'assessments', 'evidence', 'cohorts', 'import_conflicts', 'protected_media', 'http_range', 'guest_video_denial' ), 'recorded_at' => gmdate( 'c' ) ) );
+mls_event( 0, 0, 'platform_release_verified', array( 'version' => MLS_VERSION, 'checks' => array( 'assessments', 'evidence', 'cohorts', 'import_conflicts', 'protected_media', 'http_range', 'guest_video_denial', 'typed_form_revision_privacy', 'weighted_rubric_marking', 'evidence_integrity_and_mapping' ), 'recorded_at' => gmdate( 'c' ) ) );
 wp_set_current_user( 0 );
 require __DIR__ . '/verify-audit-chain.php';
 $head = get_option( 'mls_audit_head' ); $sealed = get_post( (int) $head['id'] );

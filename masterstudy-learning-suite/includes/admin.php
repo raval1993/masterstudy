@@ -16,7 +16,8 @@ function mls_admin_page(): void {
 	echo '<h2>Course configuration</h2><form method="get"><input type="hidden" name="page" value="mls-suite"><label>Course ID <input name="course" type="number" min="1" value="' . $course . '"></label> <button class="button">Open course</button></form>';
 	if ( get_post_type( $course ) !== 'stm-courses' ) { echo '<p>Select a valid course.</p></div>'; return; }
 	echo '<h3>' . esc_html( get_the_title( $course ) ) . '</h3>';
-	foreach ( current_user_can( 'manage_options' ) ? array( 'rules' => 'Learning rules', 'instructors' => 'Course instructors', 'live' => 'Live classroom', 'form' => 'Learner form fields' ) : array() as $type => $title ) {
+	echo '<p><a href="' . esc_url( admin_url( 'admin.php?page=mls-forms&course=' . $course ) ) . '">Learner forms</a> | <a href="' . esc_url( admin_url( 'admin.php?page=mls-rubrics&course=' . $course ) ) . '">Assessment rubric editor</a></p>';
+	foreach ( current_user_can( 'manage_options' ) ? array( 'rules' => 'Learning rules', 'instructors' => 'Course instructors', 'live' => 'Live classroom' ) : array() as $type => $title ) {
 		$value = get_post_meta( $course, '_mls_' . $type, true );
 		if ( ! is_array( $value ) ) { $value = array(); }
 		echo '<details style="margin:18px 0"><summary><strong>' . esc_html( $title ) . '</strong></summary><form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">';
@@ -49,7 +50,7 @@ function mls_admin_page(): void {
 		$data = json_decode( $attempt->post_content, true ); $user = get_userdata( $attempt->post_author );
 		$evidence_html = mls_evidence_list( $attempt->ID );
 		echo '<tr><td>' . esc_html( $user ? $user->display_name : 'Deleted account' ) . '</td><td>' . esc_html( $attempt->post_title ) . '<details><summary>Answers and rubric</summary><pre style="white-space:pre-wrap">' . esc_html( wp_json_encode( $data, JSON_PRETTY_PRINT ) ) . '</pre></details>' . $evidence_html . '</td><td>' . esc_html( get_post_meta( $attempt->ID, '_mls_status', true ) ) . '</td><td><form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">'; wp_nonce_field( 'mls_save' );
-		echo '<input type="hidden" name="action" value="mls_save"><input type="hidden" name="mode" value="grade"><input type="hidden" name="course" value="' . $course . '"><input type="hidden" name="attempt" value="' . $attempt->ID . '"><input type="hidden" name="submission_hash" value="' . esc_attr( mls_submission_hash( $attempt->ID ) ) . '"><label>Decision<select name="status"><option value="passed">Passed</option><option value="revision_required">Revision requested</option></select></label><p><label>Feedback<textarea name="feedback" rows="3" required></textarea></label></p><button class="button">Record instructor decision</button></form><form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">'; wp_nonce_field( 'mls_generate' );
+		echo '<input type="hidden" name="action" value="mls_save"><input type="hidden" name="mode" value="grade"><input type="hidden" name="course" value="' . $course . '"><input type="hidden" name="attempt" value="' . $attempt->ID . '"><input type="hidden" name="submission_hash" value="' . esc_attr( mls_submission_hash( $attempt->ID ) ) . '">' . mls_rubric_marking_fields( $data, $attempt->ID ) . '<label>Decision<select name="status"><option value="passed">Passed</option><option value="revision_required">Revision requested</option></select></label><p><label>Feedback<textarea name="feedback" rows="3" required></textarea></label></p><button class="button">Record instructor decision</button></form><form method="post" action="' . esc_url( admin_url( 'admin-post.php' ) ) . '">'; wp_nonce_field( 'mls_generate' );
 		echo '<input type="hidden" name="action" value="mls_generate"><input type="hidden" name="kind" value="feedback"><input type="hidden" name="lesson" value="' . intval( get_post_meta( $attempt->ID, '_mls_lesson', true ) ) . '"><input type="hidden" name="attempt" value="' . $attempt->ID . '"><button class="button">Queue AI feedback suggestion</button></form></td></tr>';
 	}
 	echo '</tbody></table><h2>Configuration formats</h2><p>Rules: {"prerequisites":[course_id],"linear":true,"drip":{"lesson_id":days},"trial_days":7}. Instructors: [user_id]. Live: {"url":"https://…zoom.us/j/…","starts_at":"2026-10-20T10:00:00Z"}. Form: [{"name":"goal","label":"Learning goal","required":true}].</p></div>';
@@ -85,7 +86,7 @@ function mls_admin_save(): void {
 			wp_update_post( array( 'ID' => $id, 'post_status' => 'publish' ) );
 			update_post_meta( $id, '_mls_reviewed_by', get_current_user_id() );
 		} elseif ( $mode === 'grade' ) {
-			$result = mls_record_grade( $course, absint( $_POST['attempt'] ?? 0 ), sanitize_key( $_POST['status'] ?? '' ), wp_unslash( $_POST['feedback'] ?? '' ), sanitize_text_field( $_POST['submission_hash'] ?? '' ) );
+			$result = mls_record_grade( $course, absint( $_POST['attempt'] ?? 0 ), sanitize_key( $_POST['status'] ?? '' ), wp_unslash( $_POST['feedback'] ?? '' ), sanitize_text_field( $_POST['submission_hash'] ?? '' ), mls_marks_from_post( wp_unslash( $_POST['marks'] ?? array() ) ) );
 			if ( is_wp_error( $result ) ) { throw new InvalidArgumentException( $result->get_error_message() ); }
 		} elseif ( $mode === 'rules' ) {
 			$data = mls_validate_rules( $data, $course ); update_post_meta( $course, '_mls_rules', $data );
@@ -97,9 +98,7 @@ function mls_admin_save(): void {
 			if ( $url && ! preg_match( '/(^|\.)(zoom\.us|meet\.google\.com|meet\.jit\.si)$/', $host ?? '' ) ) { throw new InvalidArgumentException( 'Use an HTTPS Zoom, Google Meet or Jitsi meeting URL.' ); }
 			update_post_meta( $course, '_mls_live', array( 'url' => $url, 'starts_at' => sanitize_text_field( $data['starts_at'] ?? '' ) ) );
 		} elseif ( $mode === 'form' ) {
-			if ( count( $data ) > 15 ) { throw new InvalidArgumentException( 'Maximum 15 fields.' ); }
-			$clean = array(); foreach ( $data as $field ) { $name = sanitize_key( $field['name'] ?? '' ); $label = sanitize_text_field( $field['label'] ?? '' ); if ( ! $name || ! $label ) { throw new InvalidArgumentException( 'Each field needs a name and label.' ); } $clean[] = array( 'name' => $name, 'label' => $label, 'required' => ! empty( $field['required'] ) ); }
-			update_post_meta( $course, '_mls_form', $clean );
+			throw new InvalidArgumentException( 'Use the Learner forms editor to save a version-checked form.' );
 		} else { throw new InvalidArgumentException( 'Unknown action.' ); }
 		mls_event( $course, 0, 'configuration_' . $mode );
 		wp_safe_redirect( admin_url( 'admin.php?page=mls-suite&course=' . $course ) ); exit;

@@ -2,12 +2,16 @@
 set -euo pipefail
 site=/var/www/masterstudy
 wp=(php /opt/masterstudy/wordpress-masterstudy/tools/wp-cli.phar --allow-root --path="$site")
-test "$("${wp[@]}" plugin get masterstudy-learning-suite --field=version)" = 0.2.2
+installed=$("${wp[@]}" plugin get masterstudy-learning-suite --field=version)
+case "$installed" in
+  0.2.3|0.3.0|0.3.1) ;;
+  *) echo "Expected a supported upgrade baseline; found $installed." >&2; exit 1 ;;
+esac
 stamp=$(date -u +%Y%m%dT%H%M%SZ)
 backup=/root/migration/patch-before-$stamp
 stage=/root/migration/patch-stage-$stamp
 mkdir -m 0700 "$backup" "$stage"
-unzip -q /root/migration/masterstudy-learning-suite-0.2.3.zip -d "$stage"
+unzip -q /root/migration/masterstudy-learning-suite-0.3.2.zip -d "$stage"
 source=$stage/masterstudy-learning-suite
 find "$source" -name '*.php' -print0 | xargs -0 -n1 php -l
 php "$source/tests/test-core.php"
@@ -27,6 +31,7 @@ install -m 0644 -o www-data -g www-data "$source/masterstudy-learning-suite.php"
 "${wp[@]}" eval-file "$source/tests/verify-wordpress.php"
 "${wp[@]}" eval-file "$source/tests/test-wordpress.php"
 "${wp[@]}" eval-file "$source/tests/test-operations.php"
+"${wp[@]}" eval-file "$source/tests/test-forms-rubrics.php"
 "${wp[@]}" eval-file "$source/tests/test-publisher.php"
 "${wp[@]}" eval-file "$source/tests/test-media.php"
 if test "${1:-}" != no-browser-fixture; then "${wp[@]}" eval-file "$source/tools/test-http-media.php"; fi

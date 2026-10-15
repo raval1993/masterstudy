@@ -4,7 +4,11 @@ define( 'ABSPATH', __DIR__ );
 function wp_strip_all_tags( $v ) { return strip_tags( $v ); }
 function sanitize_textarea_field( $v ) { return trim( strip_tags( $v ) ); }
 function sanitize_text_field( $v ) { return trim( strip_tags( $v ) ); }
+function add_action( ...$args ) {}
+function wp_json_encode( $v ) { return json_encode( $v ); }
 require dirname( __DIR__ ) . '/includes/core.php';
+require dirname( __DIR__ ) . '/includes/rubrics.php';
+require dirname( __DIR__ ) . '/includes/forms.php';
 function verify( bool $value, string $message ): void { if ( ! $value ) { fwrite( STDERR, $message . "\n" ); exit( 1 ); } }
 $bank = mls_validate_bank( array( 'minutes' => 20, 'questions' => array( array( 'type' => 'mcq', 'prompt' => 'Which choice matches the source?', 'options' => array( 'Incorrect option', 'Correct option' ), 'correct' => 1, 'explanation' => 'Source answer' ) ) ) );
 verify( mls_grade( $bank, array( 'q0' => 1 ) )['status'] === 'passed', 'correct choice passes' );
@@ -25,4 +29,5 @@ $negated = $draft; $negated['questions'][0]['prompt'] = 'Which action is NOT cor
 foreach ( array( $bad, $negated, array( 'questions' => array( $draft['questions'][0] ) ) ) as $invalid ) {
 	$failed = false; try { mls_validate_ai_bank( $invalid, $quote ); } catch ( InvalidArgumentException $error ) { $failed = true; } verify( $failed, 'Unsupported AI draft was accepted.' );
 }
-echo "PASS: question validation, answer-key privacy, scoring, manual review and AI source-quote guardrails.\n";
+require __DIR__ . '/test-form-rubric-core.php';
+echo "PASS: question validation, answer-key privacy, scoring, manual review, AI source guards, typed form schemas/answers and weighted rubric grading.\n";

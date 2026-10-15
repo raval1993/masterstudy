@@ -12,7 +12,9 @@
     var learnerForm = widget.querySelector('.mls-learner-form');
     if (learnerForm) learnerForm.addEventListener('submit', function (event) {
       event.preventDefault(); var button = learnerForm.querySelector('button'), status = learnerForm.querySelector('.mls-form-status'); button.disabled = true;
-      request('form', Object.fromEntries(new FormData(learnerForm))).then(function () { status.textContent = 'Saved.'; }).catch(function (error) { status.textContent = error.message; }).finally(function () { button.disabled = false; });
+      var answers = Object.fromEntries(new FormData(learnerForm));
+      learnerForm.querySelectorAll('input[type=checkbox]').forEach(function (input) { answers[input.name] = input.checked; });
+      request('form', {schema:learnerForm.dataset.schema, answers:answers}).then(function () { status.textContent = 'Saved.'; }).catch(function (error) { status.textContent = error.message; }).finally(function () { button.disabled = false; });
     });
     if (tutor) tutor.addEventListener('submit', function (event) {
       event.preventDefault(); var button = tutor.querySelector('button'), answer = widget.querySelector('.mls-tutor-answer');
@@ -43,6 +45,16 @@
       status.textContent = data.status.replaceAll('_', ' ') + (data.status === 'in_progress' && data.expires_at ? '. Deadline: ' + new Date(data.expires_at * 1000).toLocaleString() : '');
       body.replaceChildren();
       start.textContent = data.status === 'pending_review' ? 'View submitted assessment' : (data.status === 'in_progress' ? 'Continue assessment' : 'Start another attempt');
+      function rubric(question) {
+        if (!question.criteria || !question.criteria.length) return null;
+        var panel = element('div'); panel.className = 'mls-rubric'; panel.appendChild(element('strong', 'Assessment criteria'));
+        var list = element('ul');
+        question.criteria.forEach(function (criterion) {
+          var mark = data.rubric_review && data.rubric_review.marks[question.id + '_' + criterion.id];
+          var text = criterion.label + ' (' + (mark ? mark.points + '/' : 'maximum ') + criterion.max_points + ' points; minimum ' + criterion.min_points + ')' + (criterion.evidence_required ? '. Supporting file required.' : '');
+          list.appendChild(element('li', text));
+        }); panel.appendChild(list); return panel;
+      }
       function evidenceUpload() {
         var panel = element('details'); panel.appendChild(element('summary', 'Supporting evidence'));
         (data.evidence || []).forEach(function (item) { var link = element('a', item.name); link.href = item.url; panel.appendChild(element('p')); panel.lastChild.appendChild(link); });
@@ -59,6 +71,7 @@
       if (data.status !== 'in_progress') {
         if (data.score !== null) body.appendChild(element('p', 'Score: ' + data.score + '%'));
         body.appendChild(element('p', data.feedback || 'Your submission is recorded.'));
+        data.bank.questions.forEach(function (question) { var criteria = rubric(question); if (criteria) { body.appendChild(element('h4', question.prompt)); body.appendChild(criteria); } });
         Object.values(data.suggested_answers || {}).filter(Boolean).forEach(function (answer) { var review = element('details'); review.appendChild(element('summary', 'Review answer')); review.appendChild(element('p', answer)); body.appendChild(review); });
         body.appendChild(evidenceUpload());
         return;
@@ -66,6 +79,7 @@
       var form = element('form');
       data.bank.questions.forEach(function (question) {
         var field = element('fieldset'); field.appendChild(element('legend', question.prompt));
+        var criteria = rubric(question); if (criteria) field.appendChild(criteria);
         if (question.type === 'mcq') question.options.forEach(function (text, index) { var label = element('label'), input = element('input'); input.type = 'radio'; input.name = question.id; input.value = index; input.required = true; label.appendChild(input); label.appendChild(element('span', text)); field.appendChild(label); });
         else { var input = element('textarea'); input.name = question.id; input.required = true; input.minLength = 10; input.maxLength = 10000; input.rows = 5; input.setAttribute('aria-label', question.prompt); field.appendChild(input); }
         form.appendChild(field);

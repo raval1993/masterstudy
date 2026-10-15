@@ -5,11 +5,23 @@ add_action( 'admin_post_mls_certificate', 'mls_certificate_print' );
 add_shortcode( 'mls_verify_certificate', 'mls_certificate_verification' );
 add_action( 'init', function () { if ( ! get_page_by_path( 'verify-learning-record' ) ) { wp_insert_post( array( 'post_type' => 'page', 'post_status' => 'publish', 'post_name' => 'verify-learning-record', 'post_title' => 'Verify Learning Record', 'post_content' => '[mls_verify_certificate]' ) ); } }, 30 );
 
+function mls_active_course_banks( int $course, string $release ) {
+	$banks = get_posts( array( 'post_type' => 'mls_bank', 'post_status' => 'publish', 'posts_per_page' => -1, 'orderby' => 'ID', 'order' => 'DESC', 'meta_query' => array( array( 'key' => '_mls_course', 'value' => $course ), array( 'key' => '_mls_release', 'value' => $release ) ) ) );
+	$active = array();
+	foreach ( $banks as $bank ) {
+		$lesson = (int) get_post_meta( $bank->ID, '_mls_lesson', true ); $context = mls_context( $lesson );
+		if ( ! $context || $context['course_id'] !== $course || $context['release'] !== $release ) { return mls_error( 'Review the assessment mappings before issuing a completion record.' ); }
+		// Assessment start selects the newest bank per lesson; historical versions are not extra obligations.
+		if ( ! isset( $active[ $lesson ] ) ) { $active[ $lesson ] = $bank; }
+	}
+	return array_values( $active );
+}
+
 function mls_issue_certificate( int $course, int $learner, string $note ) {
 	if ( ! mls_manage( $course ) || get_post_type( $course ) !== 'stm-courses' || ! get_userdata( $learner ) ) { return mls_error( 'Select an assigned course and existing learner.', 403 ); }
 	$progress = STM_LMS_Course::get_user_course( $learner, $course ); $release = get_post_meta( $course, '_ca_verified_release', true );
 	if ( ! $release || (int) ( $progress['progress_percent'] ?? 0 ) < 100 || strlen( trim( $note ) ) < 30 || strlen( $note ) > 2000 ) { return mls_error( 'A verified course release, 100% native completion and a 30-2000 character reviewer note are required.' ); }
-	$banks = get_posts( array( 'post_type' => 'mls_bank', 'post_status' => 'publish', 'posts_per_page' => -1, 'meta_query' => array( array( 'key' => '_mls_course', 'value' => $course ), array( 'key' => '_mls_release', 'value' => $release ) ) ) );
+	$banks = mls_active_course_banks( $course, $release ); if ( is_wp_error( $banks ) ) { return $banks; }
 	if ( ! $banks ) { return mls_error( 'This course has no reviewed assessment banks. Review the assessment coverage before issuing a record.' ); }
 	foreach ( $banks as $bank ) {
 		$passed = get_posts( array( 'post_type' => 'mls_attempt', 'post_status' => 'private', 'author' => $learner, 'posts_per_page' => 1, 'fields' => 'ids', 'meta_query' => array( array( 'key' => '_mls_bank', 'value' => $bank->ID ), array( 'key' => '_mls_status', 'value' => 'passed' ), array( 'key' => '_mls_release', 'value' => $release ) ) ) );
